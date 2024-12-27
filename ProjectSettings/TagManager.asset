@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Monster
+  - InputField
+  - UIController
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Plane
+  - Water
+  - UI
+  - Player
+  - Monster
+  - ItemPickUp
+  - PlayerAmmo
+  - MonsterAmmo
+  - Item
+  - Collision
+  - ItemDetector
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 3369431217
+    locked: 0
+  - name: Instance
+    uniqueID: 964954073
+    locked: 0
+  - name: Front
+    uniqueID: 3964002549
+    locked: 0
+  - name: Collision
+    uniqueID: 3899536599
+    locked: 0

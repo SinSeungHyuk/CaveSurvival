@@ -5,8 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using System.Threading;
-using Photon.Pun;
-using Photon.Realtime;
+
 
 
 public class LoadingSceneManager : MonoBehaviour
@@ -20,7 +19,6 @@ public class LoadingSceneManager : MonoBehaviour
     private float resourceProgress;
 
 
-    [PunRPC]
     // static 정적함수 : 인스턴스화하지 않고도 아무데서나 호출가능한 로딩함수
     public static void LoadScene(string sceneName, string labelsToLoad, ESceneType sceneType)
     {
@@ -28,19 +26,16 @@ public class LoadingSceneManager : MonoBehaviour
         groupToLoad = labelsToLoad;
         sceneTypeToLoad = sceneType;
 
-        PhotonNetwork.LoadLevel("LoadingScene");
-        //SceneManager.LoadScene("LoadingScene");
+        SceneManager.LoadScene("LoadingScene");
     }
 
     private async void Awake()
     {
         // 로딩씬에 진입하면 로딩 시작
         await LoadSceneAsync();
-
-        /*
+        
         if (sceneTypeToLoad == ESceneType.MainGame)
-            GameManager.Instance.CreateMainGameScene();
-        */
+            GameManager.Instance.CreateMainGameScene();     
     }
 
     private async UniTask LoadSceneAsync()

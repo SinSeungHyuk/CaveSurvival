@@ -26,4 +26,4 @@ MonoBehaviour:
   weaponFireRate: 1
   weaponRange: 15
   weaponKnockback: 50
-  weaponParticle: 0
+  weaponParticle: 2

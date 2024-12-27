@@ -1,6 +1,4 @@
 using Cysharp.Threading.Tasks;
-using ExitGames.Client.Photon.StructWrapping;
-using Photon.Pun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,10 +6,8 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Monster : MonoBehaviourPun
+public class Monster : MonoBehaviour
 {
-    [SerializeField] private Database monsterDB;
-
     private MonsterDetailsSO enemyDetails;
     private SpriteRenderer sprite;
     private MonsterMovementSO movement;
@@ -25,7 +21,7 @@ public class Monster : MonoBehaviourPun
     #endregion
 
     public Transform Player { get; private set; }
-    public int DropItem { get; private set; }
+    public ItemDetailsSO DropItem { get; private set; }
     public MonsterDetailsSO EnemyDetails => enemyDetails;
     public MonsterStat Stat => stat;
     public SpriteRenderer Sprite => sprite;
@@ -64,13 +60,12 @@ public class Monster : MonoBehaviourPun
         movement?.Move();
     }
 
-    [PunRPC]
-    public void InitializeMonster(int id, int waveCount)
+
+    public void InitializeMonster(MonsterDetailsSO data, int waveCount)
     {
-        MonsterDetailsSO enemyDetails = monsterDB.GetDataByID<MonsterDetailsSO>(id);
+        enemyDetails = data;
 
         Player = GameManager.Instance.Player.transform;
-        this.enemyDetails = enemyDetails;
         stat.InitializeMonsterStat(enemyDetails, waveCount); // 현재 웨이브에 맞추어 스탯초기화
 
         sprite.sprite = enemyDetails.sprite;
@@ -85,7 +80,7 @@ public class Monster : MonoBehaviourPun
         monsterAttack?.InitializeMonsterAttack(this);
         monsterAttack?.Attack(); // 몬스터 활성화되면서 공격시작
 
-        DropItem = enemyDetails.itemDetails.ID;
+        DropItem = enemyDetails.itemDetails;
 
         List<Vector2> spritePhysicsShapePointsList = new List<Vector2>();
         sprite.sprite.GetPhysicsShape(0, spritePhysicsShapePointsList); // 스프라이트 테두리 따오기
@@ -128,15 +123,13 @@ public class Monster : MonoBehaviourPun
         {
             damage = UtilitieHelper.IncreaseByPercent(damage, weapon.WeaponCriticDamage);
 
-            var hitText = ObjectPoolManager.Instance.Get("HitText", new Vector2(transform.position.x, transform.position.y + 0.75f), Quaternion.identity);
-            //hitText.InitializeHitText(damage, true);
-            hitText.GetComponent<PhotonView>().RPC("InitializeHitText", RpcTarget.All, damage,true,false);
+            var hitText = ObjectPoolManager.Instance.Get(EPool.HitText, new Vector2(transform.position.x, transform.position.y + 0.75f), Quaternion.identity);
+            hitText.GetComponent<HitTextUI>().InitializeHitText(damage, true);
         }
         else
         {
-            var hitText = ObjectPoolManager.Instance.Get("HitText", new Vector2(transform.position.x, transform.position.y + 0.75f), Quaternion.identity);
-            hitText.GetComponent<PhotonView>().RPC("InitializeHitText", RpcTarget.All, damage,false,false);
-            //hitText.InitializeHitText(damage);
+            var hitText = ObjectPoolManager.Instance.Get(EPool.HitText, new Vector2(transform.position.x, transform.position.y + 0.75f), Quaternion.identity);
+            hitText.GetComponent<HitTextUI>().InitializeHitText(damage);
         }
 
         return damage;

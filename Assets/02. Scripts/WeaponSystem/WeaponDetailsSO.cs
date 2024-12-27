@@ -23,7 +23,7 @@ public class WeaponDetailsSO : IdentifiedObject
     public int weaponKnockback = 0; // ³Ë¹é°Å¸®
 
     [Header("weapon configuration")]
-    public EParticleType weaponParticle;
+    public EPool weaponParticle;
     //public List<GameObject> weaponAmmo;
     //[TextArea] public string upgradeDescription;
     //public bool isTrail; // Trail ·»´õ·¯ ¿©ºÎ

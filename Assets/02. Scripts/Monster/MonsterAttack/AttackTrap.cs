@@ -1,5 +1,4 @@
 using Cysharp.Threading.Tasks;
-using ExitGames.Client.Photon.StructWrapping;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,7 +38,7 @@ public class AttackTrap : MonsterAttackSO
     private void CreateTrap()
     {
         // 랜덤으로 지정한 위치에 트랩 활성화
-        trap = ObjectPoolManager.Instance.Get("MonsterTrap", trapPos, Quaternion.identity);
+        trap = ObjectPoolManager.Instance.Get(EPool.MonsterTrap, trapPos, Quaternion.identity);
         // 데미지 넣어서 초기화
         trap.GetComponent<MonsterTrap>().InitializeMonsterTrap(monster.Stat.Atk);
     }

@@ -12,7 +12,7 @@ using Google;
 using Firebase.Database;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using Firebase;
+
 
 public class FirebaseController : MonoBehaviour
 {
@@ -30,6 +30,8 @@ public class FirebaseController : MonoBehaviour
         PlayGamesPlatform.Activate();
         PlayGamesPlatform.Instance.Authenticate(success =>
         {
+            Debug.Log($" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ {success}");
+
             if (success == SignInStatus.Success)
             {
                 // RequestServerSideAccess : ServerAuthCode(= code) 를 반환해주는 함수 
@@ -46,6 +48,7 @@ public class FirebaseController : MonoBehaviour
                         {
                             if (task.IsCompleted)
                             {
+                                Debug.Log($" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ task.IsCompleted");
                                 HasNicknameByID(); // 로그인에 성공하면 계정 있는지 검사
                             }
 
@@ -62,6 +65,8 @@ public class FirebaseController : MonoBehaviour
 
     private void HasNicknameByID()
     {
+        Debug.Log($" @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ HasNicknameByID");
+
         // 현재 로그인한 파이어베이스 계정의 UserId를 가져와서 Nickname 데이터가 있는지 검사
         user = auth.CurrentUser;
         DatabaseReference nameDB = FirebaseDatabase.DefaultInstance.GetReference("Nickname");

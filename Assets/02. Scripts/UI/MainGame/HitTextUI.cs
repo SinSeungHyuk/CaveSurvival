@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using TMPro;
-using Photon.Pun;
 
-public class HitTextUI : MonoBehaviourPun
+public class HitTextUI : MonoBehaviour
 {
     private TextMeshPro txtDamage;
     private Transform trans;
@@ -17,8 +16,7 @@ public class HitTextUI : MonoBehaviourPun
         trans = GetComponent<Transform>();
     }
 
-    [PunRPC]
-    public void InitializeHitText(int damageAmount, bool isCritic, bool isDodge)
+    public void InitializeHitText(int damageAmount, bool isCritic = false, bool isDodge = false)
     {
         if (isDodge)
         {
@@ -43,6 +41,6 @@ public class HitTextUI : MonoBehaviourPun
         txtDamage.fontSize = fontSize;
 
         trans.DOMoveY(yPos, yPos).SetEase(Ease.InOutQuad).SetRelative()
-            .OnComplete(() => ObjectPoolManager.Instance.Release(gameObject));
+            .OnComplete(() => ObjectPoolManager.Instance.Release(gameObject,EPool.HitText));
     }
 }

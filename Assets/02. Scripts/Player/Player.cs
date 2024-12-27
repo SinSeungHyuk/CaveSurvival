@@ -5,13 +5,10 @@ using System.Linq;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
-using Photon.Pun;
-using Photon.Realtime;
+
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private Database playerDB;
-
     private PlayerDetailsSO playerDetails; // 캐릭터의 종류가 나뉘는지에 따라 필요여부 달라짐
     private SpriteRenderer spriteRenderer;
 
@@ -57,7 +54,6 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         // 활성화 되면서 토큰 새롭게 초기화
-        
     }
     private void OnDisable()
     {
@@ -71,10 +67,10 @@ public class Player : MonoBehaviour
         //AddWeaponTest();
     }
 
-    [PunRPC]
-    public void InitializePlayer(int id)
+
+    public void InitializePlayer(PlayerDetailsSO so)
     {
-        this.playerDetails = playerDB.GetDataByID<PlayerDetailsSO>(id);
+        this.playerDetails = so;
 
         spriteRenderer.sprite = playerDetails.playerSprite; 
         //animator.runtimeAnimatorController = playerDetails.runtimeAnimatorController;

@@ -1,4 +1,3 @@
-using ExitGames.Client.Photon.StructWrapping;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +38,7 @@ public class Projectile : MonoBehaviour
         rigidBody.velocity = distanceVector;
 
         if (currentDistance > distance)
-            ObjectPoolManager.Instance.Release(this.gameObject);
+            ObjectPoolManager.Instance.Release(this.gameObject,EPool.Projectile);
     }
 
     public void InitializeProjectile(ProjectileDetailsSO projectileDetails, Vector2 direction, Weapon weapon)
@@ -68,6 +67,6 @@ public class Projectile : MonoBehaviour
         // 관통되는 수를 정하고 싶으면 관통되는 적의 수를 count로 세면 됨
         // 지금은 관통되는지 여부에 따라 모두 관통이거나 안되거나만 설정
         if (!isPiercing)
-            ObjectPoolManager.Instance.Release(this.gameObject);
+            ObjectPoolManager.Instance.Release(this.gameObject, EPool.Projectile);
     }
 }

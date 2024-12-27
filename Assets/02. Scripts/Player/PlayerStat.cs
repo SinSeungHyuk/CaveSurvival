@@ -85,7 +85,7 @@ public class PlayerStat
         // 회피 검사
         if (UtilitieHelper.isSuccess(Dodge))
         {
-            HitTextUI hitText = ObjectPoolManager.Instance.Get("HitText", new Vector2(player.transform.position.x, player.transform.position.y + 1f), Quaternion.identity).GetComponent<HitTextUI>();
+            HitTextUI hitText = ObjectPoolManager.Instance.Get(EPool.HitText, new Vector2(player.transform.position.x, player.transform.position.y + 1f), Quaternion.identity).GetComponent<HitTextUI>();
             hitText.InitializeHitText(0,false,true);
 
             return;

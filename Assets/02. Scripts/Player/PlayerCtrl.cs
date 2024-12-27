@@ -1,4 +1,3 @@
-using Photon.Pun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,7 +9,6 @@ public class PlayerCtrl : MonoBehaviour, IMovement, IAttack
     private Player player;
     private FixedJoystick joy;
     private Rigidbody2D rigid;
-    private PhotonView pv;
     private Vector2 moveVec;
 
 
@@ -18,7 +16,6 @@ public class PlayerCtrl : MonoBehaviour, IMovement, IAttack
     {
         rigid = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();
-        pv = GetComponent<PhotonView>();
 
         joy = GameObject.FindWithTag("GameController").GetComponent<FixedJoystick>();
     }
@@ -47,8 +44,6 @@ public class PlayerCtrl : MonoBehaviour, IMovement, IAttack
 
     public void Move()
     {
-        if (!pv.IsMine) return;
-
         moveVec = joy.Direction * player.Stat.Speed;
 
         rigid.velocity = moveVec;

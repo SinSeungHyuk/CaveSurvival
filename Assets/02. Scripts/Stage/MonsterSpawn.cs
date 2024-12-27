@@ -5,8 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using ExitGames.Client.Photon.StructWrapping;
-using Photon.Pun;
+
 
 public class MonsterSpawn : MonoBehaviour
 {
@@ -129,15 +128,14 @@ public class MonsterSpawn : MonoBehaviour
     private async UniTaskVoid Spawn(MonsterSpawnParameter monsterInfo)
     {
         // 스폰되기 직전 바닥에 스포너 오브젝트 깔아주기
-        GameObject spawner = ObjectPoolManager.Instance.Get("Spawner", RandomSpawnPosition(), Quaternion.identity);
+        GameObject spawner = ObjectPoolManager.Instance.Get(EPool.Spawner, RandomSpawnPosition(), Quaternion.identity);
 
         await UniTask.Delay(1000); // 1초 이후에 스폰
 
-        ObjectPoolManager.Instance.Release(spawner);
+        ObjectPoolManager.Instance.Release(spawner,EPool.Spawner);
 
-        var monster = ObjectPoolManager.Instance.Get("Monster", spawner.transform.position, Quaternion.identity);
-        //monster.GetComponent<Monster>().InitializeEnemy(monsterInfo.monsterDetailsSO, waveCount);
-        monster.GetComponent<PhotonView>().RPC("InitializeMonster", RpcTarget.All, monsterInfo.monsterDetailsSO.ID, waveCount);
+        var monster = ObjectPoolManager.Instance.Get(EPool.Monster, spawner.transform.position, Quaternion.identity);
+        monster.GetComponent<Monster>().InitializeMonster(monsterInfo.monsterDetailsSO, waveCount);
     }
 
     private Vector2 RandomSpawnPosition()

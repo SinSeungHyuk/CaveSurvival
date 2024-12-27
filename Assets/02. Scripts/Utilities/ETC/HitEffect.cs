@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class HitEffect : MonoBehaviour 
 {
-    private string effectName;
+    private EPool effectName;
 
 
     private void OnEnable()
         => ReleaseEffect().Forget();
 
-    public void InitializeHitEffect(string effectName)
+    public void InitializeHitEffect(EPool effectName)
         => this.effectName = effectName;
 
     private async UniTask ReleaseEffect()
@@ -22,6 +22,6 @@ public class HitEffect : MonoBehaviour
 
 
         if (this.gameObject.activeSelf)
-            ObjectPoolManager.Instance.Release(gameObject);
+            ObjectPoolManager.Instance.Release(gameObject, effectName);
     }
 }

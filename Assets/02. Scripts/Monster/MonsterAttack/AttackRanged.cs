@@ -23,7 +23,7 @@ public class AttackRanged : MonsterAttackSO
             moveVec = (monster.Player.position - monster.transform.position).normalized;
 
             // 발사 명령이 떨어지면 풀에서 투사체 활성화
-            projectileObject = ObjectPoolManager.Instance.Get("MonsterBullet", monster.transform);
+            projectileObject = ObjectPoolManager.Instance.Get(EPool.MonsterBullet, monster.transform);
             // 속도, 방향, 데미지 넣어서 초기화
             projectileObject.GetComponent<MonsterProjectile>().InitializeMonsterProjectile(speed, moveVec, monster.Stat.Atk);
 

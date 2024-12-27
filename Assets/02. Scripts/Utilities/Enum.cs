@@ -1,6 +1,19 @@
 
 // Only Enum
 
+public enum EPool
+{
+    Item,
+    HitText,
+    BasicHitEffect,
+    LightningHitEffect,
+    Spawner,
+    Monster,
+    MonsterBullet,
+    MonsterTrap,
+    Projectile,
+}
+
 public enum EDetectorType
 {
     Nearest,

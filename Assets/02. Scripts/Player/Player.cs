@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     public HealthBarUI HealthBar {  get; private set; }
     public List<Weapon> WeaponList { get; private set; } // 무기 리스트
     public WeaponTransform WeaponTransform {  get; private set; } // 무기 장착 트랜스폼
+    public PlayerWaveBuff PlayerWaveBuff { get; private set; }
     public CancellationTokenSource DisableCancellation { get; private set; }
 
 
@@ -42,18 +43,18 @@ public class Player : MonoBehaviour
         CircleRange = GetComponentInChildren<CircleCollider2D>();
         ctrl = GetComponent<PlayerCtrl>();
         WeaponTransform = GetComponentInChildren<WeaponTransform>();
+        PlayerWaveBuff = GetComponentInChildren<PlayerWaveBuff>();
         HealthBar = GetComponent<HealthBarUI>();
         stat = new PlayerStat();
 
         WeaponAttackEvent = GetComponent<WeaponAttackEvent>();
-        //playerDetails = GameManager.Instance.playerSO;
         DisableCancellation = new CancellationTokenSource();
-        //InitializePlayer(playerDetails);
     }
 
     private void OnEnable()
     {
         // 활성화 되면서 토큰 새롭게 초기화
+        DisableCancellation = new CancellationTokenSource();
     }
     private void OnDisable()
     {

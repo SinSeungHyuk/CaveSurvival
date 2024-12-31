@@ -15,6 +15,7 @@ public class Monster : MonoBehaviour
     private MonsterStat stat;
     private Rigidbody2D rigid;
     private PolygonCollider2D hitbox;
+    private bool isDead;
 
     #region MONSTER EVENT
     private MonsterDestroyedEvent monsterDestroyedEvent;
@@ -39,10 +40,8 @@ public class Monster : MonoBehaviour
         hitbox = GetComponent<PolygonCollider2D>();
         monsterDestroyedEvent = GetComponent<MonsterDestroyedEvent>();
         stat = new MonsterStat();
-    }
 
-    private void Start()
-    {
+        StageManager.Instance.OnWaveFinished += StageManager_OnWaveFinished;
     }
 
     private void OnEnable()
@@ -53,6 +52,17 @@ public class Monster : MonoBehaviour
 
     private void OnDisable()
     {
+        // 비활성화 되면서 유니태스크 취소명령
+        DisableCancellation.Cancel();
+        DisableCancellation.Dispose();
+
+        // 풀로 돌아갈 때 Clone된 SO 인스턴스 정리       
+        Destroy(movement); // Clone된 SO 파괴
+        Destroy(monsterAttack); // Clone된 SO 파괴
+        movement = null;
+        monsterAttack = null;
+
+        hitbox.enabled = false;
     }
 
     private void FixedUpdate()
@@ -69,9 +79,11 @@ public class Monster : MonoBehaviour
         stat.InitializeMonsterStat(enemyDetails, waveCount); // 현재 웨이브에 맞추어 스탯초기화
 
         sprite.sprite = enemyDetails.sprite;
+        sprite.color = Color.white;
         rigid.freezeRotation = true;
         transform.localScale = Vector3.one;
         hitbox.enabled = true;
+        isDead = false;
 
         movement = enemyDetails.movementType.Clone() as MonsterMovementSO;
         movement.InitializeMonsterMovement(this);
@@ -87,23 +99,16 @@ public class Monster : MonoBehaviour
         hitbox.points = spritePhysicsShapePointsList.ToArray(); // 피격판정 충돌체 그리기
     }
 
+    private void StageManager_OnWaveFinished()
+        => ObjectPoolManager.Instance.Release(gameObject, EPool.Monster);
+
     public void TakeDamage(Weapon weapon, int bonusDamage = 0)
     {
         stat.Hp -= GetDamage(weapon, bonusDamage);
 
-        if (stat.Hp <= 0f)
+        if (!isDead && stat.Hp <= 0f) // 최초로 체력이 0 이하로 떨어질 경우
         {
-            // 비활성화 되면서 취소명령
-            DisableCancellation.Cancel();
-            DisableCancellation.Dispose();
-
-            // 풀로 돌아갈 때 Clone된 SO 인스턴스 정리       
-            Destroy(movement); // Clone된 SO 파괴
-            Destroy(monsterAttack); // Clone된 SO 파괴
-            movement = null;
-            monsterAttack = null;
-
-            hitbox.enabled = false;
+            isDead = true;
 
             // 사망이벤트 처리
             monsterDestroyedEvent.CallMonsterDestroyedEvent(this.transform.position);

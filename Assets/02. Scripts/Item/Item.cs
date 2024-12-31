@@ -31,6 +31,8 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
         spriteRenderer = GetComponent<SpriteRenderer>();
         particle = GetComponent<ParticleSystem>();
         rigid = GetComponent<Rigidbody2D>();
+
+        StageManager.Instance.OnWaveFinished += StageManager_OnWaveFinished;
     }
 
     private void OnEnable()
@@ -42,7 +44,6 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
         OnMagnet += Item_OnMagnet;
     }
 
-
     private void OnDisable()
     {
         // 비활성화 될때 유니태스크 취소명령
@@ -51,10 +52,7 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
         OnMagnet -= Item_OnMagnet;
     }
 
-    private void Item_OnMagnet()
-    {
-        MoveToOutsideDir();
-    }
+
 
     public void InitializeItem(ItemDetailsSO data)
     {
@@ -69,6 +67,12 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
 
         isFirstTrigger = false;
     }
+
+    private void StageManager_OnWaveFinished()
+        => ObjectPoolManager.Instance.Release(gameObject, EPool.Item);
+
+    private void Item_OnMagnet()
+        => MoveToOutsideDir();
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

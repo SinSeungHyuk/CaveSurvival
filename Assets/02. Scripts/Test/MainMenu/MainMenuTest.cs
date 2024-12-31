@@ -6,8 +6,7 @@ public class MainMenuTest : MonoBehaviour
 {
     public void BtnTest()
     {
-        LoadingSceneManager.LoadScene("CombatTestScene", "TestB", ESceneType.MainGame);
-
-        //AddressableManager.Instance.ReleaseGroup("TestA");
+        //LoadingSceneManager.LoadScene("CombatTestScene", "NULL", ESceneType.MainGame);
+        LoadingSceneManager.LoadScene("CombatTestScene", "NULL", ESceneType.MainGame);
     }
 }

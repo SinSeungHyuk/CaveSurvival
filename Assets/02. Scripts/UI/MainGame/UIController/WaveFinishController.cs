@@ -5,4 +5,10 @@ using UnityEngine;
 public class WaveFinishController : MonoBehaviour
 {
     [SerializeField] private WaveFinishView waveFinishView;
+
+
+    public void InitializeWaveFinishView()
+    {
+        waveFinishView.InitializeWaveFinishView();
+    }
 }

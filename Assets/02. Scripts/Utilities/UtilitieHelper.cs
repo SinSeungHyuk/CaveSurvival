@@ -93,6 +93,50 @@ public static class UtilitieHelper
         return color;
     }
 
+    // 스탯별 문자 리턴하기 ===========================================================
+    public static string GetStatType(EStatType type)
+    {
+        string stat = "NULL";
+
+        switch (type)
+        {
+            case EStatType.Hp:
+                stat = "체력";
+                break;
+            case EStatType.HpRegen:
+                stat = "체력 재생";
+                break;
+            case EStatType.Defense:
+                stat = "방어력";
+                break;
+            case EStatType.BonusDamage:
+                stat = "% 데미지";
+                break;
+            case EStatType.MeleeDamage:
+                stat = "근거리 데미지";
+                break;
+            case EStatType.RangeDamage:
+                stat = "원거리 데미지";
+                break;
+            case EStatType.Speed:
+                stat = "% 속도";
+                break;
+            case EStatType.Dodge:
+                stat = "% 회피";
+                break;
+            case EStatType.PickUpRange:
+                stat = "획득 범위";
+                break;
+            case EStatType.ExpBonus:
+                stat = "추가 경험치";
+                break;
+            default:
+                break;
+        };
+
+        return stat;
+    }
+
     // 선형 볼륨 스케일을 데시벨로 변환 ====================================================================
     public static float LinearToDecibels(int linear)
     {

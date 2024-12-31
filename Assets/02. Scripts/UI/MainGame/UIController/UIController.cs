@@ -10,6 +10,7 @@ public class UIController : MonoBehaviour
     private WaveFinishController waveFinishController;
 
     public LevelUpController LevelUpController => levelUpController;
+    public WaveFinishController WaveFinishController => waveFinishController;
 
 
     private void Awake()

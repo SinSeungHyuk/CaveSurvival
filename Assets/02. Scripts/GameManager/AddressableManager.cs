@@ -22,6 +22,9 @@ public class AddressableManager : Singleton<AddressableManager>
     // 리소스를 어드레서블 그룹의 label 단위로 로드
     public async UniTask LoadResourcesAsync(string groupLabel, Action<float> progressCallback) 
     {
+        // 0. "NULL"을 입력할 경우 로드하지않고 진행
+        if (groupLabel == "NULL") return; 
+
         using CancellationTokenSource disableCancellation = new CancellationTokenSource();
 
         // 1. 이미 로드한 그룹이면 return
@@ -34,6 +37,7 @@ public class AddressableManager : Singleton<AddressableManager>
             // 정확히 말하면 그룹별 로드는 아니지만 그룹마다 label을 통일시켜서 로드하는 방법
             AsyncOperationHandle handle = Addressables.LoadAssetsAsync(groupLabel, (Object asset) =>
             {
+                // 로드한 에셋 하나하나 리소스 딕셔너리에 삽입
                 if (!resources.TryGetValue(groupLabel, out _))
                     resources[groupLabel] = new Dictionary<string, object>();
 
@@ -79,6 +83,7 @@ public class AddressableManager : Singleton<AddressableManager>
     // key : 어드레서블에 저장한 리소스의 이름
     public T GetResource<T>(string key) where T : Object
     {
+        // 리소스 딕셔너리의 Value에 실제 찾고자하는 에셋이 들어있음
         foreach (var resources in Resources.Values)
         {
             if (resources.TryGetValue(key, out var resource))
@@ -101,7 +106,5 @@ public class AddressableManager : Singleton<AddressableManager>
         resources.Clear();
     }
     private void OnDestroy()
-    {
-        ReleaseAll();
-    }
+        => ReleaseAll();
 }

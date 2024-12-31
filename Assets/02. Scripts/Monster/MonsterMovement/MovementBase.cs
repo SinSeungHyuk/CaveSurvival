@@ -16,6 +16,7 @@ public class MovementBase : MonsterMovementSO
             rigid.velocity = Vector2.zero;
             return;
         }
+        // 플레이어와의 간격 유지하기
         else if (dist > monster.Stat.ChaseDistance)
             moveVec = (monster.Player.position - monster.transform.position).normalized;
         else

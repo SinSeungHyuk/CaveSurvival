@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 3249809072487309720}
   - component: {fileID: 2832241957061669830}
   - component: {fileID: -591502308562530724}
-  - component: {fileID: -2660266361873581931}
-  - component: {fileID: 2417213055953345653}
   m_Layer: 0
   m_Name: BasicHit
   m_TagString: Untagged
@@ -4903,40 +4901,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f413d69c829bbeb49bf9526da51a2c69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-2660266361873581931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3463157229188906966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents: []
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
---- !u!114 &2417213055953345653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3463157229188906966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd029a569071d5c409aa2859d0738ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4091137920058305698

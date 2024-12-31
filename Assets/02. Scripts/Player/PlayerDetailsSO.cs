@@ -16,7 +16,7 @@ public class PlayerDetailsSO : IdentifiedObject
     [Space(10)]
     [Header("Character Stat")]
     public float Hp;
-    public float HpRegen;
+    public int HpRegen;
     //public float HpSteal;
     public int Defense;
     public int BonusDamage; 

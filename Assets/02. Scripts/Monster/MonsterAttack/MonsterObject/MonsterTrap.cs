@@ -33,6 +33,7 @@ public class MonsterTrap : MonoBehaviour
 
         await UniTask.Delay(100); // 0.1초 뒤에 함정 비활성화
 
+        ObjectPoolManager.Instance.Get(EPool.FireHit, this.transform);
         ObjectPoolManager.Instance.Release(gameObject,EPool.MonsterTrap);
     }
 

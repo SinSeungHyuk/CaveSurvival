@@ -2,27 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using TMPro;
-using DG.Tweening;
-using Cinemachine;
-using Firebase.Database;
-using UnityEngine.Rendering.Universal;
-using GooglePlayGames.BasicApi;
-using System.Threading;
-using Unity.VisualScripting;
+
 
 public class GameManager : Singleton<GameManager>
 {
-    public event Action OnMainGameStarted;
+    public event Action OnMainGameStarted; // 카메라 세팅을 위한 게임시작 이벤트
 
     [SerializeField] private PlayerDetailsSO playerSO; // 임시로 직렬화. 추후에 변경해야함
     [SerializeField] private StageDetailsSO stageSO; // 임시로 직렬화. 추후에 변경해야함
 
 
     public Player Player { get; private set; }
-    public UIController UIController;
+    public UIController UIController { get; private set; }
 
 
     /*

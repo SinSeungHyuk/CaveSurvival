@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class StageManager : Singleton<StageManager>
 {
+    public event Action OnWaveFinished;
+
     public Stage CurrentStage {  get; private set; }
 
 
@@ -15,4 +18,7 @@ public class StageManager : Singleton<StageManager>
 
         CurrentStage = instantiatedStage;
     }
+
+    public void CallWaveFinished() 
+        => OnWaveFinished?.Invoke();
 }

@@ -42,7 +42,7 @@ public class PlayerStat
     #region STAT
     public float MaxHp { get; private set; }
     public float Hp { get; private set; }
-    public float HpRegen { get; private set; }
+    public int HpRegen { get; private set; }
     public int Defense {  get; private set; }
     //public float HpSteal { get; private set; }
     public int BonusDamage { get; private set; }
@@ -103,17 +103,17 @@ public class PlayerStat
         // 1초마다 체력재생
         while (true)
         {
-            Hp = Mathf.Clamp(Hp+HpRegen, 0, MaxHp);
+            Hp = Mathf.Clamp(Hp+1, 0, MaxHp);
             player.HealthBar.SetHealthBar(Hp / MaxHp);
 
-            await UniTask.Delay(1000, cancellationToken: player.DisableCancellation.Token);
+            // 체력재생 공식 : 5 / (1 + (HpRegen - 1) / 2.25f) 초마다 1씩 재생
+            int timeInMilliseconds = (int)(5 / (1 + (HpRegen - 1) / 2.25f) * 1000f);
+            await UniTask.Delay(timeInMilliseconds, cancellationToken: player.DisableCancellation.Token);
         }
     }
 
     public void PlayerStatChanged(PlayerLevelUpData data)
     {
-        Debug.Log($"{data.statType} : + {data.value}");
-
         switch (data.statType)
         {
             case EStatType.Hp:
@@ -144,6 +144,10 @@ public class PlayerStat
                 // 이동속도 관련 처리
                 Speed = UtilitieHelper.IncreaseByPercent(Speed, data.value);
                 break;
+            case EStatType.Dodge:
+                // 회피 관련 처리
+                Dodge = Mathf.Clamp(Dodge+data.value, 0 ,80); // 최대 80%
+                break;
             case EStatType.PickUpRange:
                 // 획득 범위 관련 처리
                 PickUpRange += data.value;
@@ -156,5 +160,8 @@ public class PlayerStat
             default:
                 break;
         }
+
+
+        Debug.Log($"{MaxHp} , {HpRegen} , {Defense} , {BonusDamage} , {MeleeDamage} , {RangeDamage} , {Speed} , {Dodge}  , {PickUpRange} ,  {ExpBonus}");
     } 
 }

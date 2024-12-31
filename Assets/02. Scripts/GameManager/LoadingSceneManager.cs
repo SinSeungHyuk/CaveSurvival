@@ -12,9 +12,9 @@ public class LoadingSceneManager : MonoBehaviour
 {
     [SerializeField] private Image imgLoadingBar;
 
-    private static string nextSceneName;
-    private static string groupToLoad;
-    private static ESceneType sceneTypeToLoad;
+    private static string nextSceneName; // 로드할 씬 이름
+    private static string groupToLoad; // 로드할 리소스 그룹명
+    private static ESceneType sceneTypeToLoad; // 로드할 씬의 타입
 
     private float resourceProgress;
 
@@ -31,11 +31,11 @@ public class LoadingSceneManager : MonoBehaviour
 
     private async void Awake()
     {
-        // 로딩씬에 진입하면 로딩 시작
+        // 로딩씬에 진입하면 로딩 시작, await으로 로딩이 끝날때까지 진행
         await LoadSceneAsync();
         
         if (sceneTypeToLoad == ESceneType.MainGame)
-            GameManager.Instance.CreateMainGameScene();     
+            GameManager.Instance.CreateMainGameScene();
     }
 
     private async UniTask LoadSceneAsync()
@@ -43,16 +43,14 @@ public class LoadingSceneManager : MonoBehaviour
         imgLoadingBar.fillAmount = 0;
 
         // 리소스 로딩
-        // AddressableManager의 LoadResources 함수를 UniTask로 호출
-        /*
-        await AddressableManager.Instance.LoadResourcesAsync(
-            groupToLoad,
-            (progress) =>
-            {
-                UpdateLoadingProgress(progress);
-            }
-        );
-        */
+        // AddressableManager의 LoadResources 함수를 UniTask로 호출      
+        //await AddressableManager.Instance.LoadResourcesAsync(
+        //    groupToLoad,
+        //    (progress) =>
+        //    {
+        //        UpdateLoadingProgress(progress);
+        //    }
+        //);
         
 
         // 씬 로딩 비동기 메소드

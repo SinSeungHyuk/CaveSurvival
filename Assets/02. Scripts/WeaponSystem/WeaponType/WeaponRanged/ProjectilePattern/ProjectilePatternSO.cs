@@ -14,13 +14,13 @@ public class ProjectilePatternSO : ScriptableObject
     private GameObject projectileObject;
 
 
-    public void ProjectileLaunch(ProjectileDetailsSO projectileDetails, Vector2 direction, Weapon weapon)
+    public void ProjectileLaunch(ProjectileDetailsSO projectileDetails, List<BonusEffectSO> bonusEffects, Vector2 direction, Weapon weapon)
     {
         // 발사 명령이 떨어지면 풀에서 투사체 활성화
 
         //weapon.Player.WeaponTransform.GetWeaponTransform(weapon, out Vector2 pos, out Quaternion rot);
         projectileObject = ObjectPoolManager.Instance.Get(EPool.Projectile, weapon.Player.WeaponTransform.GetWeaponTransform(weapon));
         // 투사체 데이터SO랑 방향, 무기 정보 넣어서 초기화
-        projectileObject.GetComponent<Projectile>().InitializeProjectile(projectileDetails, direction, weapon);
+        projectileObject.GetComponent<Projectile>().InitializeProjectile(projectileDetails, bonusEffects, direction, weapon);
     }
 }

@@ -9,5 +9,6 @@ public class SlowBE : BonusEffectSO
     public override void Apply(Monster monster)
     {
         monster.Stat.Speed = 0;
+        monster.Sprite.color = Settings.rare;
     }
 }

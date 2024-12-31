@@ -15,11 +15,12 @@ public class Projectile : MonoBehaviour
     private Weapon weapon;
     private float speed;
     private bool isPiercing;
-    // private int piercingCount; // 관통 카운트
+    private int piercingCount; // 관통 카운트
     //private SoundEffectSO soundEffect;
 
     private float distance;
     private float currentDistance;
+    private int currentPiercingCount;
     private Vector2 direction;
     private Vector2 distanceVector;
 
@@ -41,15 +42,17 @@ public class Projectile : MonoBehaviour
             ObjectPoolManager.Instance.Release(this.gameObject,EPool.Projectile);
     }
 
-    public void InitializeProjectile(ProjectileDetailsSO projectileDetails, Vector2 direction, Weapon weapon)
+    public void InitializeProjectile(ProjectileDetailsSO projectileDetails, List<BonusEffectSO> bonusEffects, Vector2 direction, Weapon weapon)
     {
         spriteRenderer.sprite = projectileDetails.sprite;
 
         //soundEffect = weapon.weaponFiringSoundEffect;
         this.projectileEffect = projectileDetails.projectileEffect;
-        projectileEffect.InitializePE(projectileDetails.bonusEffects);
+        projectileEffect.InitializePE(bonusEffects);
         this.speed = projectileDetails.projectileSpeed;
         this.isPiercing = projectileDetails.isPiercing;
+        this.piercingCount = projectileDetails.piercingCount;
+        currentPiercingCount = 0;
         this.direction = direction; // 투사체 방향벡터
         this.weapon = weapon;
         distance = weapon.WeaponRange;
@@ -65,8 +68,14 @@ public class Projectile : MonoBehaviour
         }
 
         // 관통되는 수를 정하고 싶으면 관통되는 적의 수를 count로 세면 됨
-        // 지금은 관통되는지 여부에 따라 모두 관통이거나 안되거나만 설정
         if (!isPiercing)
             ObjectPoolManager.Instance.Release(this.gameObject, EPool.Projectile);
+        else
+        {
+            currentPiercingCount++;
+
+            if (piercingCount < currentPiercingCount) // 관통횟수 초과시 탄 반환
+                ObjectPoolManager.Instance.Release(this.gameObject, EPool.Projectile);
+        }
     }
 }

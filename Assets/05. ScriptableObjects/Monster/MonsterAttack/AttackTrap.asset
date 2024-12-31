@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269366767b3bf9c4a96f9ed2a9c6e719, type: 3}
   m_Name: AttackTrap
   m_EditorClassIdentifier: 
-  count: 10
+  count: 3

@@ -14704,8 +14704,6 @@ GameObject:
   - component: {fileID: 577812841044345583}
   - component: {fileID: 5114901041107047426}
   - component: {fileID: -6685911536049918138}
-  - component: {fileID: -3218324658744993194}
-  - component: {fileID: 2194533024891639012}
   m_Layer: 0
   m_Name: LightningHit
   m_TagString: Untagged
@@ -19655,39 +19653,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f413d69c829bbeb49bf9526da51a2c69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-3218324658744993194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5933602760919840800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents: []
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
---- !u!114 &2194533024891639012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5933602760919840800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd029a569071d5c409aa2859d0738ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

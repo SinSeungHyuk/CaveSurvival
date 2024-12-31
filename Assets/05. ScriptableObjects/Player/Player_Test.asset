@@ -22,7 +22,7 @@ MonoBehaviour:
   characterStrength: 
   characterWeakness: 
   Hp: 100
-  HpRegen: 2
+  HpRegen: 0
   Defense: 100
   BonusDamage: 0
   MeleeDamage: 0

@@ -16,14 +16,18 @@ public class WaveFinishView : MonoBehaviour
     private string text = "웨이브 완료!";
 
 
-    private void Start()
+    private void OnDisable()
     {
-        imgBackground.DOFade(0.7f, 2f)
-            .OnComplete(() => TypeTextEffect().Forget());
+        // UI가 사라지면서 다시 투명하게 수정 (재활용하기 위해)
+        Color transparent = imgBackground.color;
+        transparent.a = 0f; // 투명
+        imgBackground.color = transparent;
     }
 
     public void InitializeWaveFinishView()
     {
+        imgBackground.gameObject.SetActive(true);
+
         imgBackground.DOFade(0.7f, 2f)
             .OnComplete(() => TypeTextEffect().Forget());
     }
@@ -43,6 +47,6 @@ public class WaveFinishView : MonoBehaviour
 
         await UniTask.Delay(500);
 
-        btnWaveFinish.gameObject.SetActive(true);
+        btnWaveFinish.InitializeBtnWaveFinish();
     }
 }

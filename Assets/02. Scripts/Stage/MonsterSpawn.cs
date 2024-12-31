@@ -64,6 +64,10 @@ public class MonsterSpawn : MonoBehaviour
     private void MonsterSpawnEvent_OnWaveFinish(MonsterSpawnEvent @event, int waveCnt)
     {
         Debug.Log($"Wave Finish!!! - {waveCount}");
+
+        GameManager.Instance.Player.PlayerWaveBuff.InitializePlayerWaveBuff();
+        GameManager.Instance.UIController.WaveFinishController.InitializeWaveFinishView();
+        StageManager.Instance.CallWaveFinished();
     }
 
 

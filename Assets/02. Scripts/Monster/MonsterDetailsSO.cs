@@ -23,7 +23,7 @@ public class MonsterDetailsSO : IdentifiedObject
     public float waveBonusDmg = 1; // 웨이브마다 증가하는 공격력
 
     [Header("ETC")]
-    public ItemDetailsSO itemDetails;
+    public ItemDetailsSO itemDetails; // 드롭할 아이템
     public Material enemyStandardMaterial;
     public Material enemyHitMaterial;
     //public float enemyMaterializeTime;

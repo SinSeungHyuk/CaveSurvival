@@ -7,12 +7,14 @@ public enum EPool
     HitText,
     BasicHitEffect,
     LightningHitEffect,
+    FireHit,
     Spawner,
     Monster,
     MonsterBullet,
     MonsterTrap,
     Projectile,
 }
+
 
 public enum EDetectorType
 {

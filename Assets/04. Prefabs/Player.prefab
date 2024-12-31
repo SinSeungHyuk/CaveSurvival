@@ -746,10 +746,7 @@ GameObject:
   - component: {fileID: 3007868799995994833}
   - component: {fileID: 9194623570135595261}
   - component: {fileID: 1800079252983742564}
-  - component: {fileID: 8982285900067992259}
-  - component: {fileID: -7989620738182024848}
-  - component: {fileID: -3929489876204821511}
-  - component: {fileID: 9137440890520407484}
+  - component: {fileID: 9116493179676954181}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -903,7 +900,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bd05549334a7a4d9da7e58c6844467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerDB: {fileID: 11400000, guid: 6ed5f9073c87fc04086be22dcc89739d, type: 2}
   weapon2: {fileID: 11400000, guid: 19a3fa918cbad6547a5b2dfb7090f95b, type: 2}
 --- !u!114 &1502585863812435679
 MonoBehaviour:
@@ -969,7 +965,7 @@ MonoBehaviour:
   playerDB: {fileID: 11400000, guid: 3194eb29bd2ed274a84ca1bc6b2b715d, type: 2}
   weaponDB: {fileID: 11400000, guid: 84229d8574dd2cf40b5c411762ff99a6, type: 2}
   weaponDetailsDB: {fileID: 11400000, guid: 7ae96582ed1ae634888a87362a8c710d, type: 2}
---- !u!114 &8982285900067992259
+--- !u!114 &9116493179676954181
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -978,65 +974,50 @@ MonoBehaviour:
   m_GameObject: {fileID: 4731356782880498530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Script: {fileID: 11500000, guid: 7136153b5b4982d4cbed9e49192471ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents:
-  - {fileID: -7989620738182024848}
-  - {fileID: -3929489876204821511}
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
---- !u!114 &-7989620738182024848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4731356782880498530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 0
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
---- !u!114 &-3929489876204821511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4731356782880498530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e7cb724808c322458aa4d15f5035fa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizeVelocity: 1
-  m_SynchronizeAngularVelocity: 0
-  m_TeleportEnabled: 0
-  m_TeleportIfDistanceGreaterThan: 3
---- !u!114 &9137440890520407484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4731356782880498530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd029a569071d5c409aa2859d0738ffb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  waveBuffList:
+  - BuffSprite: {fileID: 21300000, guid: cffdd4e29c424314586a5329e096a4e9, type: 3}
+    BuffType: 0
+    MinValue: 5
+    MaxValue: 11
+  - BuffSprite: {fileID: 21300000, guid: a808c6fd2b919044784476d251a58117, type: 3}
+    BuffType: 1
+    MinValue: 1
+    MaxValue: 6
+  - BuffSprite: {fileID: 21300000, guid: 6a67204be3162a147838b009529ba5df, type: 3}
+    BuffType: 2
+    MinValue: 3
+    MaxValue: 11
+  - BuffSprite: {fileID: 21300000, guid: f01b86f4e1c677f4abf40d5fbe90c12d, type: 3}
+    BuffType: 3
+    MinValue: 5
+    MaxValue: 16
+  - BuffSprite: {fileID: 21300000, guid: c5dac4e2d683c044985102c1cf654685, type: 3}
+    BuffType: 4
+    MinValue: 1
+    MaxValue: 6
+  - BuffSprite: {fileID: 21300000, guid: dc26666f2aab5024f9e501d194383c84, type: 3}
+    BuffType: 5
+    MinValue: 1
+    MaxValue: 6
+  - BuffSprite: {fileID: 21300000, guid: 9bbf5408e6a36664c8bd8087e8864a69, type: 3}
+    BuffType: 6
+    MinValue: 3
+    MaxValue: 11
+  - BuffSprite: {fileID: 21300000, guid: 1320a3b51e45d5a4cb51326aae2f588d, type: 3}
+    BuffType: 7
+    MinValue: 3
+    MaxValue: 11
+  - BuffSprite: {fileID: 21300000, guid: ec3a7dcbfb77ed7498fbff2cb9691262, type: 3}
+    BuffType: 8
+    MinValue: 5
+    MaxValue: 11
+  - BuffSprite: {fileID: 21300000, guid: a228aa966a3d7d040be632f70bdc6666, type: 3}
+    BuffType: 9
+    MinValue: 1
+    MaxValue: 4
 --- !u!1 &4979336971182848679
 GameObject:
   m_ObjectHideFlags: 0

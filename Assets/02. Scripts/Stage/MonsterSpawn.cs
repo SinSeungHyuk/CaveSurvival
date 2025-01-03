@@ -10,8 +10,8 @@ using DG.Tweening;
 public class MonsterSpawn : MonoBehaviour
 {
     private MonsterSpawnEvent monsterSpawnEvent;
-    private List<WaveSpawnParameter> waveSpawnParameterList;
-    private WaveSpawnParameter currentWaveSpawnParameter;
+    private List<WaveSpawnParameter> waveSpawnParameterList; // 각 웨이브별 스폰정보
+    private WaveSpawnParameter currentWaveSpawnParameter; // 현재 웨이브 스폰정보
     private Vector2 spawnPosition;
     private int waveCount;
     private int waveTimer;
@@ -27,6 +27,8 @@ public class MonsterSpawn : MonoBehaviour
     }
     private void OnEnable()
     {
+        waveCount = 0; // 첫 웨이브부터 시작
+
         monsterSpawnEvent.OnMonsterSpawn += MonsterSpawnEvent_OnMonsterSpawn;
         monsterSpawnEvent.OnWaveStart += MonsterSpawnEvent_OnWaveStart;
         monsterSpawnEvent.OnWaveFinish += MonsterSpawnEvent_OnWaveFinish;
@@ -43,31 +45,32 @@ public class MonsterSpawn : MonoBehaviour
     {
         waveSpawnParameterList = args.stage.WaveSpawnParameter;
 
-        monsterSpawnEvent.CallWaveStart(0); // 첫 웨이브부터 시작
+        monsterSpawnEvent.CallWaveStart(); // 첫 웨이브부터 시작
     }
 
-    private void MonsterSpawnEvent_OnWaveStart(MonsterSpawnEvent @event, int waveCnt)
+    private void MonsterSpawnEvent_OnWaveStart(MonsterSpawnEvent @event)
     {
         // 현재 웨이브에 해당하는 웨이브 스폰 파라미터 받아오기
-        waveCount = waveCnt;
         currentWaveSpawnParameter = waveSpawnParameterList[waveCount];
 
-        // 웨이브 지속시간 : 20+5(wave) ~ 60 사이
+        // 웨이브 지속시간 : 20+5(*wave) ~ 60 사이
         waveTimer = Mathf.Clamp(waveTimer, Settings.waveTimer + (Settings.extraTimePerWave * waveCount), 60);
-        Debug.Log(WaveTimer);
+        Debug.Log("MonsterSpawn : " + WaveTimer);
 
-        if (currentWaveSpawnParameter.isBossWave == true) return; // 보스생성 추후에 구현
+        if (currentWaveSpawnParameter.isBossWave == true) BossSpawn(); // 보스생성
 
         WaveMonsterSpawn().Forget(); // UniTask 호출
     }
 
-    private void MonsterSpawnEvent_OnWaveFinish(MonsterSpawnEvent @event, int waveCnt)
+    private void MonsterSpawnEvent_OnWaveFinish(MonsterSpawnEvent @event)
     {
         Debug.Log($"Wave Finish!!! - {waveCount}");
 
+        StageManager.Instance.CallWaveFinished();
         GameManager.Instance.Player.PlayerWaveBuff.InitializePlayerWaveBuff();
         GameManager.Instance.UIController.WaveFinishController.InitializeWaveFinishView();
-        StageManager.Instance.CallWaveFinished();
+
+        waveCount++; // 웨이브 카운트 1 증가시키기
     }
 
 
@@ -82,7 +85,7 @@ public class MonsterSpawn : MonoBehaviour
             float elapsedTime = 1f;
 
             // waveTimer초 동안 반복
-            while (elapsedTime < waveTimer)
+            while (elapsedTime <= waveTimer - 1)
             {
                 RandomSpawn();
 
@@ -92,11 +95,20 @@ public class MonsterSpawn : MonoBehaviour
                 elapsedTime += Settings.spawnInterval; // 스폰 간격만큼 시간 더해주기
             }
 
-            monsterSpawnEvent.CallWaveFinish(waveCount); // 웨이브 종료
+            monsterSpawnEvent.CallWaveFinish(); // 웨이브 종료
         }
         catch (OperationCanceledException)
         {
             Debug.Log("WaveMonsterSpawn - Spawn Canceled!!!");
+        }
+    }
+
+    private void BossSpawn()
+    {
+        foreach (var bossInfo in currentWaveSpawnParameter.spawnableBossList)
+        {
+            var monster = ObjectPoolManager.Instance.Get(EPool.Boss, RandomSpawnPosition(), Quaternion.identity);
+            monster.GetComponent<Monster>().InitializeMonster(bossInfo, waveCount);
         }
     }
 
@@ -134,7 +146,7 @@ public class MonsterSpawn : MonoBehaviour
         // 스폰되기 직전 바닥에 스포너 오브젝트 깔아주기
         GameObject spawner = ObjectPoolManager.Instance.Get(EPool.Spawner, RandomSpawnPosition(), Quaternion.identity);
 
-        await UniTask.Delay(1000); // 1초 이후에 스폰
+        await UniTask.Delay(900); // 0.9초 이후에 스폰
 
         ObjectPoolManager.Instance.Release(spawner,EPool.Spawner);
 

@@ -6,8 +6,8 @@ using UnityEngine;
 public class MonsterSpawnEvent : MonoBehaviour
 {
     public event Action<MonsterSpawnEvent, MonsterSpawnEventArgs> OnMonsterSpawn;
-    public event Action<MonsterSpawnEvent, int> OnWaveStart; // 시작할 웨이브의 번호 (몇 웨이브인지)
-    public event Action<MonsterSpawnEvent, int> OnWaveFinish;
+    public event Action<MonsterSpawnEvent> OnWaveStart;
+    public event Action<MonsterSpawnEvent> OnWaveFinish;
 
     public void CallMonsterSpawn(Stage stage)
     {
@@ -17,14 +17,14 @@ public class MonsterSpawnEvent : MonoBehaviour
         });
     }
 
-    public void CallWaveStart(int waveCnt)
+    public void CallWaveStart()
     {
-        OnWaveStart?.Invoke(this, waveCnt);
+        OnWaveStart?.Invoke(this);
     }
 
-    public void CallWaveFinish(int waveCnt)
+    public void CallWaveFinish()
     {
-        OnWaveFinish?.Invoke(this, waveCnt);
+        OnWaveFinish?.Invoke(this);
     }
 }
 

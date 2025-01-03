@@ -11,6 +11,7 @@ public class PlayerStat
 
 
     private Player player;
+    private int hpRegenTimer;
 
 
     #region LEVEL & EXP
@@ -66,6 +67,7 @@ public class PlayerStat
         MaxHp = playerDetailsSO.Hp;
         Hp = MaxHp;
         HpRegen = playerDetailsSO.HpRegen;
+        hpRegenTimer = (int)(5 / (1 + (HpRegen - 1) / 2.25f) * 1000f);
         //HpSteal = playerDetailsSO.HpSteal;
         Defense = playerDetailsSO.Defense;
         BonusDamage = playerDetailsSO.BonusDamage;
@@ -107,8 +109,7 @@ public class PlayerStat
             player.HealthBar.SetHealthBar(Hp / MaxHp);
 
             // 체력재생 공식 : 5 / (1 + (HpRegen - 1) / 2.25f) 초마다 1씩 재생
-            int timeInMilliseconds = (int)(5 / (1 + (HpRegen - 1) / 2.25f) * 1000f);
-            await UniTask.Delay(timeInMilliseconds, cancellationToken: player.DisableCancellation.Token);
+            await UniTask.Delay(hpRegenTimer, cancellationToken: player.DisableCancellation.Token);
         }
     }
 
@@ -123,6 +124,7 @@ public class PlayerStat
             case EStatType.HpRegen:
                 // HP 재생 관련 처리
                 HpRegen += data.value;
+                hpRegenTimer = (int)(5 / (1 + (HpRegen - 1) / 2.25f) * 1000f);
                 break;
             case EStatType.Defense:
                 // 방어력 관련 처리

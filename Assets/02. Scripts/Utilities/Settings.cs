@@ -5,7 +5,7 @@ public static class Settings
 {
     #region GAME SETTING
     public static string regex = @"^(?=.*[A-Za-z])[A-Za-z0-9]{2,12}$"; // 닉네임 규칙
-    public static int spawnInterval = 10; // 스폰간격 1초
+    public static int spawnInterval = 20; // 스폰간격 1초
     public static int waveTimer = 20; // 웨이브 지속시간 20초
     public static int extraTimePerWave = 5; // 웨이브당 지속시간 5초씩 증가
     public static int stageBoundary = 15; // 스테이지 +- 크기 (정사각형이므로 -15 ~ 15)
@@ -46,5 +46,6 @@ public static class Settings
     public static Color32 unique = new Color32(155, 61, 217, 255); // 보라
     public static Color32 legend = new Color32(255, 112, 120, 255); // 빨강
     public static Color32 critical = new Color32(255, 102, 2, 255); // 주황
+    public static Color32 magnet = new Color32(255, 191, 0, 255); // 황금
     #endregion
 }

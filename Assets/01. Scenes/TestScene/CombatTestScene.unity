@@ -2601,8 +2601,12 @@ MonoBehaviour:
     prefab: {fileID: 1282961082944785208, guid: 16e3a5b046fa2324080d92366fb093c1,
       type: 3}
   - name: 6
-    initialSize: 5
+    initialSize: 10
     prefab: {fileID: 5355460694420824825, guid: cf2f95f66e7aa0e4288f5a7c08de1c27,
+      type: 3}
+  - name: 10
+    initialSize: 2
+    prefab: {fileID: 5355460694420824825, guid: 214b1838cd5b7b84a9035162fad13c20,
       type: 3}
   - name: 7
     initialSize: 20

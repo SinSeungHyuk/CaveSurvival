@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +9,7 @@ public class DetectorNearest : WeaponDetectorSO
     {
         var playerPosition = weapon.Player.transform.position;
         var colliders = Physics2D.OverlapCircleAll(playerPosition, weapon.WeaponRange, Settings.monsterLayer);
+        colliders = colliders.Where(mon => mon.GetComponent<Monster>().IsDead == false).ToArray();
 
         if (colliders.Length == 0)
         {

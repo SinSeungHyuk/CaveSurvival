@@ -21,7 +21,5 @@ public class BtnWaveFinishUI : MonoBehaviour
         imgIcon.sprite = player.PlayerWaveBuff.WaveBuffList.LastOrDefault().BuffSprite;
         txtDescription.text = UtilitieHelper.GetStatType(player.PlayerWaveBuff.WaveBuffList.LastOrDefault().BuffType)
             + " + " + player.PlayerWaveBuff.WaveBuffList.LastOrDefault().Value;
-
-        gameObject.SetActive(true);
     }
 }

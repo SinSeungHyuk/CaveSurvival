@@ -13,6 +13,7 @@ public enum EPool
     MonsterBullet,
     MonsterTrap,
     Projectile,
+    Boss,
 }
 
 

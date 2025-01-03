@@ -18,9 +18,9 @@ public class PlayerCtrl : MonoBehaviour, IMovement, IAttack
         player = GetComponent<Player>();
 
         joy = GameObject.FindWithTag("GameController").GetComponent<FixedJoystick>();
+        StageManager.Instance.OnWaveFinished += Instance_OnWaveFinished;
     }
     
-
     private void Update()
     {
         Attack();
@@ -32,6 +32,8 @@ public class PlayerCtrl : MonoBehaviour, IMovement, IAttack
     }
 
 
+    private void Instance_OnWaveFinished()
+    => transform.position = Vector2.zero;
 
     #region INTERFACE
     public void Attack()

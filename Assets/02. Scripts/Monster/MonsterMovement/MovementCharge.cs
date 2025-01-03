@@ -39,14 +39,14 @@ public class MovementCharge : MonsterMovementSO
 
         monster.Sprite.color = Settings.legend; // 돌진 준비중일때 색 변화
 
-        await UniTask.Delay(1000);
+        await UniTask.Delay(1000, cancellationToken: monster.DisableCancellation.Token);
 
         monster.Sprite.color = Color.white;
 
         moveVec = (monster.Player.position - monster.transform.position).normalized;
         rigid.velocity = moveVec * chargeSpeed;
 
-        await UniTask.Delay(1000);
+        await UniTask.Delay(1000, cancellationToken: monster.DisableCancellation.Token);
 
         isCharge = false;
         rigid.mass = 0.1f;

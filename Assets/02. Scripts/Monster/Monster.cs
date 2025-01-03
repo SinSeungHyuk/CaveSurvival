@@ -13,9 +13,12 @@ public class Monster : MonoBehaviour
     private MonsterMovementSO movement;
     private MonsterAttackSO monsterAttack;
     private MonsterStat stat;
+    private HealthBarUI healthBar;
     private Rigidbody2D rigid;
     private PolygonCollider2D hitbox;
+    private Animator animator;
     private bool isDead;
+    private bool isBoss;
 
     #region MONSTER EVENT
     private MonsterDestroyedEvent monsterDestroyedEvent;
@@ -27,6 +30,8 @@ public class Monster : MonoBehaviour
     public MonsterStat Stat => stat;
     public SpriteRenderer Sprite => sprite;
     public Rigidbody2D Rigid => rigid;
+    public bool IsDead => isDead;   
+    public bool IsBoss => isBoss;
 
     // 몬스터가 비활성화되면서 이동,공격 유니태스크 취소해야함
     public CancellationTokenSource DisableCancellation { get; private set; }
@@ -38,6 +43,9 @@ public class Monster : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         hitbox = GetComponent<PolygonCollider2D>();
+        animator = GetComponent<Animator>();
+        healthBar = GetComponent<HealthBarUI>();
+        isBoss = (healthBar != null) ? true : false; // 보스만 체력바를 가지고 있음
         monsterDestroyedEvent = GetComponent<MonsterDestroyedEvent>();
         stat = new MonsterStat();
 
@@ -56,7 +64,7 @@ public class Monster : MonoBehaviour
         DisableCancellation.Cancel();
         DisableCancellation.Dispose();
 
-        // 풀로 돌아갈 때 Clone된 SO 인스턴스 정리       
+        // 풀로 돌아갈 때 Clone된 SO 인스턴스 정리
         Destroy(movement); // Clone된 SO 파괴
         Destroy(monsterAttack); // Clone된 SO 파괴
         movement = null;
@@ -78,6 +86,7 @@ public class Monster : MonoBehaviour
         Player = GameManager.Instance.Player.transform;
         stat.InitializeMonsterStat(enemyDetails, waveCount); // 현재 웨이브에 맞추어 스탯초기화
 
+        animator.runtimeAnimatorController = data.runtimeAnimatorController;
         sprite.sprite = enemyDetails.sprite;
         sprite.color = Color.white;
         rigid.freezeRotation = true;
@@ -105,6 +114,8 @@ public class Monster : MonoBehaviour
     public void TakeDamage(Weapon weapon, int bonusDamage = 0)
     {
         stat.Hp -= GetDamage(weapon, bonusDamage);
+
+        healthBar?.SetHealthBar(stat.Hp / enemyDetails.maxHp); // 보스만 체력바를 가지고있으므로 null 체크
 
         if (!isDead && stat.Hp <= 0f) // 최초로 체력이 0 이하로 떨어질 경우
         {

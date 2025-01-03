@@ -60,7 +60,7 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
         player = GameManager.Instance.Player;
 
         ParticleSystem.MainModule main = particle.main; // 파티클 시스템의 MainModule로 색상변경 가능
-        main.startColor = UtilitieHelper.GetGradeColor(data.itemGrade);
+        main.startColor = UtilitieHelper.GetGradeColor(data.itemGrade, data.itemType);
 
         itemType = data.itemType;
         gainExp = (int)data.itemGrade; // 해당 등급에 맞는 경험치 획득 (등급마다 경험치 정해져있음)
@@ -96,8 +96,8 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
         
         // 플레이어 바깥을 향하는 방향벡터
         var outsideDir = (transform.position - player.transform.position).normalized;
-        // 바깥쪽으로 이동할 목표 위치 계산 (현재 위치에서 방향 벡터의 2배 거리)
-        var outsideDesiredPos = transform.position + outsideDir * 2f;
+        // 바깥쪽으로 이동할 목표 위치 계산 (현재 위치에서 방향 벡터의 2.5배 거리)
+        var outsideDesiredPos = transform.position + outsideDir * 2.5f;
 
         // 바깥쪽으로 천천히 이동 (0.5초)
         transform.DOMove(outsideDesiredPos, 0.5f).SetEase(Ease.OutQuad)
@@ -115,7 +115,7 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
         {    
             // 0.1초마다 플레이어 위치 갱신하면서 빠르게 이동
             moveVec = (player.transform.position - transform.position).normalized;
-            rigid.velocity = moveVec * 15f;     
+            rigid.velocity = moveVec * 18f;     
         
             await UniTask.Delay(100, cancellationToken:disableCancellation.Token);
         }

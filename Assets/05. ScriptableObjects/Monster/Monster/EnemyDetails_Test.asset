@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   enemyName: TestEnemy
-  sprite: {fileID: -493647738, guid: 3bcb7877229a5334da528f2f0872b5c3, type: 3}
+  sprite: {fileID: 21300000, guid: 54978a5152ff5c5409829c58bf548320, type: 3}
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
-  runtimeAnimatorController: {fileID: 0}
+  runtimeAnimatorController: {fileID: 9100000, guid: 69db7649008d58640bee9388eaea764d,
+    type: 2}
   movementType: {fileID: 11400000, guid: d6e74cbb0cc1a424b81cfe7c3fa5c431, type: 2}
-  attackType: {fileID: 11400000, guid: 1190cc9132d77354e99454b756d29ebd, type: 2}
+  attackType: {fileID: 0}
   speed: 3
-  chaseDistance: 10
+  chaseDistance: 2
   baseDamage: 10
   maxHp: 30
   waveBonusHp: 1

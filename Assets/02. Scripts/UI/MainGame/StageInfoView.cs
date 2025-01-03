@@ -12,7 +12,7 @@ public class StageInfoView : MonoBehaviour
 
     public void InitializeStageInfoView(int waveCnt, int waveTimer)
     {
-        txtWaveCount.text = $"웨이브 {waveCnt.ToString() + 1}";
+        txtWaveCount.text = $"웨이브 {waveCnt+1}";
         SetWaveTimer(waveTimer).Forget();
     }
 

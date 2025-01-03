@@ -21,8 +21,9 @@ public class StageInfoController : MonoBehaviour
         StageManager.Instance.CurrentStage.MonsterSpawnEvent.OnWaveStart -= MonsterSpawnEvent_OnWaveStart;
     }
 
-    private void MonsterSpawnEvent_OnWaveStart(MonsterSpawnEvent arg1, int arg2)
+    private void MonsterSpawnEvent_OnWaveStart(MonsterSpawnEvent arg1)
     {
+        Debug.Log("StageInfoController : " + currentStage.MonsterSpawner.WaveTimer);
         stageInfo.InitializeStageInfoView(currentStage.MonsterSpawner.WaveCount, currentStage.MonsterSpawner.WaveTimer);
     }
 }

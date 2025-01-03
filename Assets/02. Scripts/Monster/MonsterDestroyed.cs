@@ -14,6 +14,7 @@ public class MonsterDestroyed : MonoBehaviour
     private MonsterDestroyedEvent destroyedEvent;
     private Monster monster;
     private Sequence moveSequence;
+    private EPool poolNalme;
     private Vector2 dir;
 
 
@@ -21,6 +22,8 @@ public class MonsterDestroyed : MonoBehaviour
     {
         destroyedEvent = GetComponent<MonsterDestroyedEvent>();
         monster = GetComponent<Monster>();
+
+        poolNalme = (monster.IsBoss == true) ? EPool.Boss : EPool.Monster;
     }
     private void OnEnable()
     {
@@ -55,7 +58,7 @@ public class MonsterDestroyed : MonoBehaviour
                     .Join(transform.DOMove(dir * 3, 1f).SetRelative()) // DOMove를 해당 '방향'으로 이동하기 위한 상대값 처리
                     .OnComplete(() => {
                         moveSequence.Kill();
-                        ObjectPoolManager.Instance.Release(gameObject, EPool.Monster);
+                        ObjectPoolManager.Instance.Release(gameObject, poolNalme);
                     });
     }
 }

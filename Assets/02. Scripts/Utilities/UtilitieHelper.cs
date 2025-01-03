@@ -93,6 +93,41 @@ public static class UtilitieHelper
         return color;
     }
 
+    public static Color GetGradeColor(EGrade type, EItemType itemType)
+    {
+        Color color = Color.white;
+
+        switch (itemType)
+        {
+            case EItemType.Magnet:
+                color = Settings.magnet;
+                return color;
+            case EItemType.Bomb:
+                //color = Settings.rare;
+                return color;
+        }
+
+        switch (type)
+        {
+            case EGrade.Normal:
+                color = Color.white;
+                break;
+            case EGrade.Rare:
+                color = Settings.rare;
+                break;
+            case EGrade.Unique:
+                color = Settings.unique;
+                break;
+            case EGrade.Legend:
+                color = Settings.legend;
+                break;
+            default:
+                break;
+        };
+
+        return color;
+    }
+
     // 스탯별 문자 리턴하기 ===========================================================
     public static string GetStatType(EStatType type)
     {

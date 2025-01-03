@@ -21,4 +21,7 @@ public class StageManager : Singleton<StageManager>
 
     public void CallWaveFinished() 
         => OnWaveFinished?.Invoke();
+
+    public void CallNextWaveStart()
+        => CurrentStage.MonsterSpawnEvent.CallWaveStart();
 }

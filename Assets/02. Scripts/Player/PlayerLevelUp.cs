@@ -49,7 +49,7 @@ public class PlayerLevelUp : MonoBehaviour
         /// 5. 버튼에 구독할 이벤트도 컨트롤러 클래스에서 구현
         ///
 
-        int levelUpIndex = player.WeaponList.Count + 1;
+        int levelUpIndex = player.WeaponList.Count + 1; // 무기 개수+플레이어 포함 선택지 개수
 
         // 선택지만큼 반복
         for (int i = 0; i < options;)
@@ -64,8 +64,11 @@ public class PlayerLevelUp : MonoBehaviour
                 if (IsValidChoice(chose, data) == false)
                     continue;
 
+                Color color = UtilitieHelper.GetGradeColor(data.ratio);
+
                 // 플레이어의 레벨업 선택지 보내기
                 GameManager.Instance.UIController.LevelUpController.InitializeLevelUpUI(
+                    color,
                     data,
                     player.SpriteRenderer.sprite,
                     i // 선택지 위치
@@ -97,8 +100,11 @@ public class PlayerLevelUp : MonoBehaviour
                     if (IsValidChoice(chose, data) == false)
                         continue;
 
+                    Color color = UtilitieHelper.GetGradeColor(data.ratio);
+
                     // 무기의 레벨업 선택지 보내기
                     GameManager.Instance.UIController.LevelUpController.InitializeLevelUpUI(
+                        color,
                         weapon, // 플레이어 
                         data,
                         i

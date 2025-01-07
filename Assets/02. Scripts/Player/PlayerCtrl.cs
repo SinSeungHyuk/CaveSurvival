@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerCtrl : MonoBehaviour, IMovement, IAttack
 {
     private Player player;
-    private FixedJoystick joy;
+    private FloatingJoystick joy;
     private Rigidbody2D rigid;
     private Vector2 moveVec;
 
@@ -17,7 +17,7 @@ public class PlayerCtrl : MonoBehaviour, IMovement, IAttack
         rigid = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();
 
-        joy = GameObject.FindWithTag("GameController").GetComponent<FixedJoystick>();
+        joy = GameObject.FindWithTag("GameController").GetComponent<FloatingJoystick>();
         StageManager.Instance.OnWaveFinished += Instance_OnWaveFinished;
     }
     

@@ -68,22 +68,22 @@ public static class UtilitieHelper
     }
 
     // 등급별 색상 리턴하기 ===========================================================
-    public static Color GetGradeColor(EGrade type)
+    public static Color GetGradeColor(ELevelUpGrade type)
     {
         Color color = Color.white;
 
         switch (type)
         {
-            case EGrade.Normal:
+            case ELevelUpGrade.Normal:
                 color = Color.white;
                 break;
-            case EGrade.Rare:
+            case ELevelUpGrade.Rare:
                 color = Settings.rare;
                 break;
-            case EGrade.Unique:
+            case ELevelUpGrade.Unique:
                 color = Settings.unique;
                 break;
-            case EGrade.Legend:
+            case ELevelUpGrade.Legend:
                 color = Settings.legend;
                 break;
             default:
@@ -154,13 +154,13 @@ public static class UtilitieHelper
                 stat = "원거리 데미지";
                 break;
             case EStatType.Speed:
-                stat = "% 속도";
+                stat = "속도";
                 break;
             case EStatType.Dodge:
                 stat = "% 회피";
                 break;
             case EStatType.PickUpRange:
-                stat = "획득 범위";
+                stat = "% 획득 범위";
                 break;
             case EStatType.ExpBonus:
                 stat = "추가 경험치";

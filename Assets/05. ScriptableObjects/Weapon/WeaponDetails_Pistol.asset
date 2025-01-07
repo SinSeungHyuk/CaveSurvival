@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   weaponName: Pistol
-  weaponSprite: {fileID: -353751291, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
+  weaponSprite: {fileID: 21300000, guid: 1fb82ae67309d6f4091b776afab9d3ef, type: 3}
   description: "\uAE30\uBCF8\uC801\uC778 \uAD8C\uCD1D\uC785\uB2C8\uB2E4."
   upgradeDesc: "\uAD11\uC5ED\uC73C\uB85C \uC801\uC744 \uAE30\uC808\uC2DC\uD0B5\uB2C8\uB2E4."
   weaponType: {fileID: 11400000, guid: 8740c31edc690dd40bc94dda43e2a45b, type: 2}

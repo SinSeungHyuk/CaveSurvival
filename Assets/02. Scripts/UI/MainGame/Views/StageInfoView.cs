@@ -1,6 +1,7 @@
 using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using TMPro;
 using UnityEngine;
 
@@ -8,6 +9,16 @@ public class StageInfoView : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI txtWaveCount;
     [SerializeField] private TextMeshProUGUI txtWaveTimer;
+
+    private CancellationTokenSource cts = new CancellationTokenSource();
+
+
+    private void OnDestroy()
+    {
+        cts?.Cancel();
+        cts?.Dispose();
+        cts = null;
+    }
 
 
     public void InitializeStageInfoView(int waveCnt, int waveTimer)
@@ -25,7 +36,7 @@ public class StageInfoView : MonoBehaviour
 
             txtWaveTimer.text = waveTimer.ToString();
 
-            await UniTask.Delay(1000);
+            await UniTask.Delay(1000, cancellationToken:cts.Token);
 
             waveTimer--;
         }

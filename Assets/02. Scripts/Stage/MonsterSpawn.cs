@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System.Threading;
 
 
 public class MonsterSpawn : MonoBehaviour
@@ -15,6 +16,8 @@ public class MonsterSpawn : MonoBehaviour
     private Vector2 spawnPosition;
     private int waveCount;
     private int waveTimer;
+
+    private CancellationTokenSource cts = new CancellationTokenSource();
 
     public int WaveCount => waveCount;
     public int WaveTimer => waveTimer;
@@ -38,6 +41,10 @@ public class MonsterSpawn : MonoBehaviour
         monsterSpawnEvent.OnMonsterSpawn -= MonsterSpawnEvent_OnMonsterSpawn;
         monsterSpawnEvent.OnWaveStart -= MonsterSpawnEvent_OnWaveStart;
         monsterSpawnEvent.OnWaveFinish -= MonsterSpawnEvent_OnWaveFinish;
+
+        cts?.Cancel();
+        cts?.Dispose();
+        cts = null;
     }
 
 
@@ -55,7 +62,6 @@ public class MonsterSpawn : MonoBehaviour
 
         // 웨이브 지속시간 : 20+5(*wave) ~ 60 사이
         waveTimer = Mathf.Clamp(waveTimer, Settings.waveTimer + (Settings.extraTimePerWave * waveCount), 60);
-        Debug.Log("MonsterSpawn : " + WaveTimer);
 
         if (currentWaveSpawnParameter.isBossWave == true) BossSpawn(); // 보스생성
 
@@ -65,6 +71,13 @@ public class MonsterSpawn : MonoBehaviour
     private void MonsterSpawnEvent_OnWaveFinish(MonsterSpawnEvent @event)
     {
         Debug.Log($"Wave Finish!!! - {waveCount}");
+
+        if (waveCount == Settings.lastWave) // 마지막 웨이브 클리어
+        {
+
+
+            return;
+        }
 
         StageManager.Instance.CallWaveFinished();
         GameManager.Instance.Player.PlayerWaveBuff.InitializePlayerWaveBuff();
@@ -80,7 +93,7 @@ public class MonsterSpawn : MonoBehaviour
         try
         {
             // 첫 1초 대기
-            await UniTask.Delay(1000);
+            await UniTask.Delay(1000, cancellationToken:cts.Token);
 
             float elapsedTime = 1f;
 
@@ -90,7 +103,7 @@ public class MonsterSpawn : MonoBehaviour
                 RandomSpawn();
 
                 // 1초 대기
-                await UniTask.Delay(TimeSpan.FromSeconds(Settings.spawnInterval));
+                await UniTask.Delay(TimeSpan.FromSeconds(Settings.spawnInterval), cancellationToken: cts.Token);
 
                 elapsedTime += Settings.spawnInterval; // 스폰 간격만큼 시간 더해주기
             }
@@ -146,7 +159,7 @@ public class MonsterSpawn : MonoBehaviour
         // 스폰되기 직전 바닥에 스포너 오브젝트 깔아주기
         GameObject spawner = ObjectPoolManager.Instance.Get(EPool.Spawner, RandomSpawnPosition(), Quaternion.identity);
 
-        await UniTask.Delay(900); // 0.9초 이후에 스폰
+        await UniTask.Delay(900, cancellationToken: cts.Token); // 0.9초 이후에 스폰
 
         ObjectPoolManager.Instance.Release(spawner,EPool.Spawner);
 

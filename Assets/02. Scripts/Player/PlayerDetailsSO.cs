@@ -24,7 +24,7 @@ public class PlayerDetailsSO : IdentifiedObject
     public int RangeDamage;
     public float Speed;
     public int Dodge;
-    public float PickUpRange;
+    public int PickUpRange;
     public int ExpBonus;
 
 }

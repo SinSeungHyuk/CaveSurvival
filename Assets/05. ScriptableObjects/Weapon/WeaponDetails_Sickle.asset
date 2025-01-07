@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   weaponName: Sickle
-  weaponSprite: {fileID: 1349035616, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
+  weaponSprite: {fileID: 21300000, guid: 79b0607fc1bffa64c91e7414738ff716, type: 3}
   description: "\uC801\uC744 \uB9C8\uBE44\uC2DC\uD0A4\uB294 \uB0AB"
   upgradeDesc: 
   weaponType: {fileID: 11400000, guid: 9b05487fa13732f47b19d5cb89bca9ee, type: 2}

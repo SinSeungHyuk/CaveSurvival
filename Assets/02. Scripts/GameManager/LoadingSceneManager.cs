@@ -65,6 +65,7 @@ public class LoadingSceneManager : MonoBehaviour
             // 씬 로딩이 90% 이상이면 allowSceneActivation을 true로 변경하여 씬 변경하기
             if (asyncLoad.progress >= 0.9f)
             {
+                Debug.Log("로딩 완료!!");
                 asyncLoad.allowSceneActivation = true;
             }
             // 프레임 대기 (UniTask.DelayFrame()을 이용하여 한 프레임 대기)

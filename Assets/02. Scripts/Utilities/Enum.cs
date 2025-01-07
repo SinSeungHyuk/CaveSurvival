@@ -82,3 +82,11 @@ public enum ELevelUpGrade
     Unique = 7,
     Legend = 3,
 }
+
+
+public enum EStatsType // 통계 종류
+{
+    WeaponTotalDamage,
+    WeaponTotalTime, // 무기를 들고있었던 시간 (dps)
+    PlayerTotalKills,
+}

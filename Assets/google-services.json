@@ -1,50 +1,50 @@
 {
   "project_info": {
-    "project_number": "843154896518",
-    "firebase_url": "https://projectcu2d-default-rtdb.firebaseio.com",
-    "project_id": "projectcu2d",
-    "storage_bucket": "projectcu2d.firebasestorage.app"
+    "project_number": "112490825790",
+    "firebase_url": "https://cavesurvival-5c2da-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "cavesurvival-5c2da",
+    "storage_bucket": "cavesurvival-5c2da.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:843154896518:android:700b2de211166561f60307",
+        "mobilesdk_app_id": "1:112490825790:android:09c5eb567e47b64c63e96f",
         "android_client_info": {
-          "package_name": "com.SJK.ProjectCU2D"
+          "package_name": "com.SSH.CaveSurvival"
         }
       },
       "oauth_client": [
         {
-          "client_id": "843154896518-o6fpr1t0cpcla73c678lrbbdc40go22n.apps.googleusercontent.com",
+          "client_id": "112490825790-btjeif8jfcq69la8jpu8q8ojl3k9663f.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.SJK.ProjectCU2D",
-            "certificate_hash": "1b73a150a99c3d428e7439e4bf5807f1a621787d"
+            "package_name": "com.SSH.CaveSurvival",
+            "certificate_hash": "93861905ab321bd79ca9928ec6e17dbf75c8b0b8"
           }
         },
         {
-          "client_id": "843154896518-tdquubfsal7p3a74336675rkr1araork.apps.googleusercontent.com",
+          "client_id": "112490825790-ltva4kf9u71tl48rmiam8qb6mpejofad.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.SJK.ProjectCU2D",
-            "certificate_hash": "a9be2e448bb41690ac888950f2598bafea911f0d"
+            "package_name": "com.SSH.CaveSurvival",
+            "certificate_hash": "c51dbbefa710fee08effd4c8627df2b34449ca07"
           }
         },
         {
-          "client_id": "843154896518-7oquh09l8ci4uk19hkhgoco2egnhq0tp.apps.googleusercontent.com",
+          "client_id": "112490825790-l1n22h4m2js8gdd6kffo00ja4bvjl76i.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBVaooj7dGn3pRn_Jr-Cn5Afbhd2_649rQ"
+          "current_key": "AIzaSyAegVGYT5hwzU6rOSVRRsextEI2uDaX6M4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "843154896518-6ct91g3l9bgp8ej7f71477k7svi1b3qi.apps.googleusercontent.com",
+              "client_id": "112490825790-l1n22h4m2js8gdd6kffo00ja4bvjl76i.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

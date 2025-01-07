@@ -51,7 +51,7 @@ public class PlayerStat
     public int RangeDamage { get; private set; }
     public float Speed { get; private set; }
     public int Dodge { get; private set; }
-    public float PickUpRange { get; private set; }
+    public int PickUpRange { get; private set; }
     public int ExpBonus {  get; private set; }
     #endregion
 

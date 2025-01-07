@@ -1,11 +1,13 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class LevelUpController : MonoBehaviour
 {
+    [SerializeField] private List<GradeSpriteData> btnSprites = new List<GradeSpriteData>();
+    [SerializeField] private Sprite goldSprite;
+
     private List<BtnLevelUpUI> btnLevelUps;
 
 
@@ -28,9 +30,11 @@ public class LevelUpController : MonoBehaviour
 
 
     // 플레이어 레벨업 선택지
-    public void InitializeLevelUpUI(PlayerLevelUpData data, Sprite sprite, int btnIndex)
+    public void InitializeLevelUpUI(Color color, PlayerLevelUpData data, Sprite sprite, int btnIndex)
     {
-        btnLevelUps[btnIndex].InitializeBtnLevelUp(sprite, data.description);
+        Sprite btnSprite = GetGradeSprite(data.ratio);
+
+        btnLevelUps[btnIndex].InitializeBtnLevelUp(sprite, data.description, btnSprite);
 
         btnLevelUps[btnIndex].BtnLevelUp.onClick.AddListener(() => {
             GameManager.Instance.Player.Stat.PlayerStatChanged(data);
@@ -39,9 +43,11 @@ public class LevelUpController : MonoBehaviour
     }
 
     // 무기 레벨업 선택지 (무기의 레벨이 10이 아닐 경우)
-    public void InitializeLevelUpUI(Weapon weapon, WeaponLevelUpData data, int btnIndex)
+    public void InitializeLevelUpUI(Color color, Weapon weapon, WeaponLevelUpData data, int btnIndex)
     {
-        btnLevelUps[btnIndex].InitializeBtnLevelUp(weapon.WeaponSprite, data.description);
+        Sprite btnSprite = GetGradeSprite(data.ratio);
+
+        btnLevelUps[btnIndex].InitializeBtnLevelUp(weapon.WeaponSprite, data.description, btnSprite);
 
         btnLevelUps[btnIndex].BtnLevelUp.onClick.AddListener(() => {
             weapon.WeaponStatChanged(data);
@@ -52,7 +58,7 @@ public class LevelUpController : MonoBehaviour
     // 무기 업그레이드 선택지 (무기의 레벨이 10에 도달할 경우)
     public void InitializeLevelUpUI(Weapon weapon, int btnIndex)
     {
-        btnLevelUps[btnIndex].InitializeBtnLevelUp(weapon.WeaponSprite, weapon.WeaponDetails.upgradeDesc);
+        btnLevelUps[btnIndex].InitializeBtnLevelUp(weapon.WeaponSprite, weapon.WeaponDetails.upgradeDesc, goldSprite); // 황금색 텍스트
 
         btnLevelUps[btnIndex].BtnLevelUp.onClick.AddListener(() => {
             weapon.UpgrageWeapon();
@@ -63,6 +69,30 @@ public class LevelUpController : MonoBehaviour
     // 새로운 무기 선택지 (플레이어의 무기 수가 부족할때)
     public void InitializeLevelUpUI(WeaponDetailsSO weaponDetailsSO, int btnIndex)
     {
-        btnLevelUps[btnIndex].InitializeBtnLevelUp(weaponDetailsSO.weaponSprite, weaponDetailsSO.description);
+        Sprite btnSprite = GetGradeSprite(ELevelUpGrade.Normal);
+
+        btnLevelUps[btnIndex].InitializeBtnLevelUp(weaponDetailsSO.weaponSprite, weaponDetailsSO.description, btnSprite);
+
+        btnLevelUps[btnIndex].BtnLevelUp.onClick.AddListener(() => {
+            GameManager.Instance.Player.AddWeaponToPlayer(weaponDetailsSO);
+            gameObject.SetActive(false);
+        });
     }
+
+
+    private Sprite GetGradeSprite(ELevelUpGrade type)
+    {
+        Sprite sprite = null;
+
+        sprite = btnSprites.FirstOrDefault(x => x.type == type).sprite;
+
+        return sprite;
+    }
+}
+
+[Serializable]
+public struct GradeSpriteData
+{
+    public ELevelUpGrade type;
+    public Sprite sprite;
 }

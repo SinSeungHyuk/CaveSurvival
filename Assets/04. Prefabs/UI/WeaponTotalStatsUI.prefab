@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4925997588297931119}
   - component: {fileID: 4408100888933248457}
+  - component: {fileID: 6768465275526297735}
   m_Layer: 5
   m_Name: WeaponTotalStatsUI
   m_TagString: Untagged
@@ -65,6 +66,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &6768465275526297735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2495038543134587449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6331cb29eeef54f40a5989f22a9d6a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSprite: {fileID: 5279545707249235666}
+  txtWeaponTotalDamage: {fileID: 8015098479029278164}
+  txtWeaponDPS: {fileID: 4369456932660787435}
 --- !u!1 &4051677535975788364
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,7 +146,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 23,078
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 27737e8bfbce9c941b2c7f85e6612de1, type: 2}
   m_sharedMaterial: {fileID: 1070235561770144545, guid: 27737e8bfbce9c941b2c7f85e6612de1,
@@ -265,7 +281,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a44e96b6ec27b3c45a97b305f61047ef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 229c0bb0496a9184fbb6f2408fd41b3c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -340,7 +356,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 23,078
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 27737e8bfbce9c941b2c7f85e6612de1, type: 2}
   m_sharedMaterial: {fileID: 1070235561770144545, guid: 27737e8bfbce9c941b2c7f85e6612de1,

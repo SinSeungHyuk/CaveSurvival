@@ -87,6 +87,7 @@ public enum ELevelUpGrade
 public enum EStatsType // 통계 종류
 {
     WeaponTotalDamage,
-    WeaponTotalTime, // 무기를 들고있었던 시간 (dps)
+    WeaponAcquiredTime, // 무기를 처음 획득한 시점의 경과시간
+    WeaponAcquiredWave, // 무기를 처음 획득한 시점의 웨이브 수
     PlayerTotalKills,
 }

@@ -7,7 +7,7 @@ public class PauseController : MonoBehaviour
     [SerializeField] private PauseView pauseView;
 
 
-    public void InitializePauseView()
+    public void InitializePauseController()
     {
         Player player = GameManager.Instance.Player;
         var stat = player.Stat;

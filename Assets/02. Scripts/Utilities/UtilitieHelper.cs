@@ -67,6 +67,15 @@ public static class UtilitieHelper
         return scale;
     }
 
+    // 각 웨이브별 웨이브 제한시간 구하기 =========================================
+    public static int GetWaveTimer(int waveCount)
+    {
+        int waveTimer = 0;
+        waveTimer = Mathf.Clamp(waveTimer, Settings.waveTimer + (Settings.extraTimePerWave * waveCount), 60);
+
+        return waveTimer;
+    }
+
     // 등급별 색상 리턴하기 ===========================================================
     public static Color GetGradeColor(ELevelUpGrade type)
     {

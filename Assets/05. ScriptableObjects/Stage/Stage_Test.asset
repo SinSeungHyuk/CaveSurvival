@@ -21,7 +21,7 @@ MonoBehaviour:
     - monsterDetailsSO: {fileID: 11400000, guid: eeb2c6576d70a9a4c8147d089ffd0822,
         type: 2}
       Ratio: 1
-    isBossWave: 1
+    isBossWave: 0
     spawnableBossList:
     - {fileID: 11400000, guid: 81f2cbea545bb5e4fa0b98474f9745b3, type: 2}
   - batchSpawnCount: 1

@@ -74,6 +74,12 @@ public class LevelUpController : MonoBehaviour
         btnLevelUps[btnIndex].InitializeBtnLevelUp(weaponDetailsSO.weaponSprite, weaponDetailsSO.description, btnSprite);
 
         btnLevelUps[btnIndex].BtnLevelUp.onClick.AddListener(() => {
+            Debug.Log($"무기 얻은 시간 : {(int)StageManager.Instance.CurrentStage.MonsterSpawner.ElapsedTime}");
+            Debug.Log($"무기 얻은 웨이브 : {StageManager.Instance.CurrentStage.MonsterSpawner.WaveCount}");
+
+            GameStatsManager.Instance.AddStats(weaponDetailsSO, EStatsType.WeaponAcquiredTime, (int)StageManager.Instance.CurrentStage.MonsterSpawner.ElapsedTime);
+            GameStatsManager.Instance.AddStats(weaponDetailsSO, EStatsType.WeaponAcquiredWave, StageManager.Instance.CurrentStage.MonsterSpawner.WaveCount);
+
             GameManager.Instance.Player.AddWeaponToPlayer(weaponDetailsSO);
             gameObject.SetActive(false);
         });

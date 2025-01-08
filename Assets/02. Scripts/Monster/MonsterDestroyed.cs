@@ -36,6 +36,9 @@ public class MonsterDestroyed : MonoBehaviour
 
     private void DestroyedEvent_OnDestroyed(MonsterDestroyedEvent obj, MonsterDestroyedEventArgs args)
     {
+        // 플레이어의 킬 수 증가
+        GameStatsManager.Instance.AddStats(EStatsType.PlayerTotalKills);
+
         // 몬스터가 파괴된 지점에 아이템 생성
         var item = ObjectPoolManager.Instance.Get(EPool.Item, args.point, Quaternion.identity);
         item.GetComponent<Item>().InitializeItem(monster.DropItem);

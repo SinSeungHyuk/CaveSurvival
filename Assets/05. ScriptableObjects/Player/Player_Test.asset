@@ -23,7 +23,7 @@ MonoBehaviour:
   characterWeakness: 
   Hp: 100
   HpRegen: 0
-  Defense: 100
+  Defense: 0
   BonusDamage: 0
   MeleeDamage: 0
   RangeDamage: 0

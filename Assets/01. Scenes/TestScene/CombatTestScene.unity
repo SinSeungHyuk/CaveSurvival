@@ -4886,6 +4886,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 802591530}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &802591532 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6768465275526297735, guid: 88f70df6c0699f6499a2e3f84a8f63fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 802591530}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6331cb29eeef54f40a5989f22a9d6a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &807474028
 GameObject:
   m_ObjectHideFlags: 0
@@ -9240,6 +9252,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1545015186}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1545015188 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6768465275526297735, guid: 88f70df6c0699f6499a2e3f84a8f63fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 1545015186}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6331cb29eeef54f40a5989f22a9d6a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1589102128
 GameObject:
   m_ObjectHideFlags: 0
@@ -10889,6 +10913,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txtWaveCount: {fileID: 1228657634}
   txtWaveTimer: {fileID: 1897024383}
+--- !u!1 &1818385404
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1818385406}
+  - component: {fileID: 1818385405}
+  m_Layer: 0
+  m_Name: StatsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1818385405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818385404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b343b61bc2285a4c960f5a520b7774d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1818385406
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818385404}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1163.5281, y: 569.33856, z: -3.0900836}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1835971466
 GameObject:
   m_ObjectHideFlags: 0
@@ -10998,7 +11066,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -150, y: -90}
+  m_AnchoredPosition: {x: -125, y: -90}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1841922699
@@ -11021,7 +11089,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2300
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 27737e8bfbce9c941b2c7f85e6612de1, type: 2}
   m_sharedMaterial: {fileID: 1070235561770144545, guid: 27737e8bfbce9c941b2c7f85e6612de1,
@@ -11999,6 +12067,7 @@ GameObject:
   - component: {fileID: 1916622583}
   - component: {fileID: 1916622582}
   - component: {fileID: 1916622584}
+  - component: {fileID: 1916622585}
   m_Layer: 5
   m_Name: StageFinishUI
   m_TagString: Untagged
@@ -12110,6 +12179,25 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1916622585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916622580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df92b599916c8b468ed7330d565f68f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStatView: {fileID: 1670746285}
+  txtPlayerTotalKills: {fileID: 1841922699}
+  weaponStatsUI:
+  - {fileID: 1981612197}
+  - {fileID: 1545015188}
+  - {fileID: 2064274581}
+  - {fileID: 802591532}
 --- !u!1 &1923382644
 GameObject:
   m_ObjectHideFlags: 0
@@ -12128,6 +12216,7 @@ GameObject:
   - component: {fileID: 1923382652}
   - component: {fileID: 1923382653}
   - component: {fileID: 1923382654}
+  - component: {fileID: 1923382655}
   m_Layer: 5
   m_Name: UIController
   m_TagString: UIController
@@ -12305,6 +12394,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseView: {fileID: 2138302871}
+--- !u!114 &1923382655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923382644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cfd71491567581449239268d88b00e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageFinishView: {fileID: 1916622585}
 --- !u!1 &1933898648
 GameObject:
   m_ObjectHideFlags: 0
@@ -12555,6 +12657,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1981612195}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1981612197 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6768465275526297735, guid: 88f70df6c0699f6499a2e3f84a8f63fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 1981612195}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6331cb29eeef54f40a5989f22a9d6a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1987186306
 GameObject:
   m_ObjectHideFlags: 0
@@ -13283,6 +13397,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2064274579}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2064274581 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6768465275526297735, guid: 88f70df6c0699f6499a2e3f84a8f63fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 2064274579}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6331cb29eeef54f40a5989f22a9d6a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2089083274
 GameObject:
   m_ObjectHideFlags: 0
@@ -14706,3 +14832,4 @@ SceneRoots:
   - {fileID: 1638410452}
   - {fileID: 1418445252}
   - {fileID: 2373789154118238947}
+  - {fileID: 1818385406}

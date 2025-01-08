@@ -16,9 +16,11 @@ public class UIController : MonoBehaviour
     private StageInfoController stageInfoController;
     private WaveFinishController waveFinishController;
     private PauseController pauseController;
+    private StageFinishController stageFinishController;
 
     public LevelUpController LevelUpController => levelUpController;
     public WaveFinishController WaveFinishController => waveFinishController;
+    public StageFinishController StageFinishController => stageFinishController;
 
 
     private void Awake()
@@ -28,6 +30,7 @@ public class UIController : MonoBehaviour
         stageInfoController = GetComponent<StageInfoController>();
         waveFinishController = GetComponent<WaveFinishController>();
         pauseController = GetComponent<PauseController>();
+        stageFinishController = GetComponent<StageFinishController>();
     }
 
     public void InitializeUIController()
@@ -42,6 +45,6 @@ public class UIController : MonoBehaviour
 
     private void OnBtnPause()
     {
-        pauseController.InitializePauseView();
+        pauseController.InitializePauseController();
     }
 }

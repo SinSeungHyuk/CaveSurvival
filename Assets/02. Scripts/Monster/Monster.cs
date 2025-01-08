@@ -113,7 +113,9 @@ public class Monster : MonoBehaviour
 
     public void TakeDamage(Weapon weapon, int bonusDamage = 0)
     {
-        stat.Hp -= GetDamage(weapon, bonusDamage);
+        int dmg = GetDamage(weapon, bonusDamage);
+        stat.Hp -= dmg;
+        GameStatsManager.Instance.AddStats(weapon.WeaponDetails, EStatsType.WeaponTotalDamage, dmg);
 
         healthBar?.SetHealthBar(stat.Hp / enemyDetails.maxHp); // 보스만 체력바를 가지고있으므로 null 체크
 

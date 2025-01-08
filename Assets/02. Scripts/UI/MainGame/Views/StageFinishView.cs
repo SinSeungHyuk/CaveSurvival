@@ -1,18 +1,47 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StageFinishView : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header("Player Stats")]
+    [SerializeField] private PlayerStatView playerStatView;
+    [SerializeField] private TextMeshProUGUI txtPlayerTotalKills;
+
+    [Header("Weapon Stats")]
+    [SerializeField] private List<WeaponTotalStatsUI> weaponStatsUI;
+
+    private Button btnExit;
+
+
+    private void OnEnable()
     {
-        
+        Time.timeScale = 0f;
+    }
+    private void OnDisable()
+    {
+        Time.timeScale = 1f;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void InitializeStageFinishView(PlayerStat stat, List<Weapon> weaponList)
     {
-        
+        playerStatView.InitializePlayerStatView(stat);
+
+        txtPlayerTotalKills.text = GameStatsManager.Instance.GetStats(EStatsType.PlayerTotalKills).ToString();
+
+        for (int i = 0; i < weaponList.Count; i++)
+        {
+            weaponStatsUI[i].InitializeWeaponTotalStatsUI(weaponList[i]);
+        }
+
+        gameObject.SetActive(true);
+    }
+
+    private void OnBtnExit()
+    {
+        // 메인화면으로 씬 이동
     }
 }

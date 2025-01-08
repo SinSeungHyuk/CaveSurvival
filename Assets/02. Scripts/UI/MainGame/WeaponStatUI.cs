@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WeaponStatView : MonoBehaviour
+public class WeaponStatUI : MonoBehaviour
 {
     [SerializeField] private Image weaponSprite;
     [SerializeField] private TextMeshProUGUI txtWeaponDamage;
@@ -16,7 +16,7 @@ public class WeaponStatView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI txtWeaponKnockback;
 
 
-    public void InitializeWeaponStatView(Weapon weapon)
+    public void InitializeWeaponStatUI(Weapon weapon)
     {
         weaponSprite.sprite = weapon.WeaponSprite;
         txtWeaponDamage.text = weapon.WeaponDamage.ToString();

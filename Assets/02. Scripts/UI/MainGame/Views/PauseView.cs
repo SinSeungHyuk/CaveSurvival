@@ -11,7 +11,7 @@ public class PauseView : MonoBehaviour
     [SerializeField] private PlayerStatView playerStatView;
 
     [Header("Weapon Stat")]
-    [SerializeField] private List<WeaponStatView> weaponStatView;
+    [SerializeField] private List<WeaponStatUI> weaponStatView;
 
     [Header("Buttons")]
     [SerializeField] private Button btnExit;
@@ -39,7 +39,7 @@ public class PauseView : MonoBehaviour
 
         for (int i = 0; i < weaponList.Count; i++)
         {
-            weaponStatView[i].InitializeWeaponStatView(weaponList[i]);
+            weaponStatView[i].InitializeWeaponStatUI(weaponList[i]);
         }
 
         gameObject.SetActive(true);

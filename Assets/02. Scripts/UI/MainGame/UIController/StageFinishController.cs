@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StageFinishController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private StageFinishView stageFinishView;
 
-    // Update is called once per frame
-    void Update()
+
+    public void InitializeStageFinishController()
     {
-        
+        Player player = GameManager.Instance.Player;
+        var stat = player.Stat;
+        var weaponList = player.WeaponList;
+
+        stageFinishView.InitializeStageFinishView(stat, weaponList);
     }
 }

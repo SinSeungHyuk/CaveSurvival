@@ -7,7 +7,7 @@ public class WaveFinishController : MonoBehaviour
     [SerializeField] private WaveFinishView waveFinishView;
 
 
-    public void InitializeWaveFinishView()
+    public void InitializeWaveFinishController()
     {
         waveFinishView.InitializeWaveFinishView();
     }

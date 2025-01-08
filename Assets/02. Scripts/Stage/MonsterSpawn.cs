@@ -16,11 +16,13 @@ public class MonsterSpawn : MonoBehaviour
     private Vector2 spawnPosition;
     private int waveCount;
     private int waveTimer;
+    private float elapsedTime;
 
     private CancellationTokenSource cts = new CancellationTokenSource();
 
     public int WaveCount => waveCount;
     public int WaveTimer => waveTimer;
+    public float ElapsedTime => elapsedTime;
 
 
 
@@ -61,7 +63,7 @@ public class MonsterSpawn : MonoBehaviour
         currentWaveSpawnParameter = waveSpawnParameterList[waveCount];
 
         // 웨이브 지속시간 : 20+5(*wave) ~ 60 사이
-        waveTimer = Mathf.Clamp(waveTimer, Settings.waveTimer + (Settings.extraTimePerWave * waveCount), 60);
+        waveTimer = UtilitieHelper.GetWaveTimer(waveCount);
 
         if (currentWaveSpawnParameter.isBossWave == true) BossSpawn(); // 보스생성
 
@@ -81,7 +83,7 @@ public class MonsterSpawn : MonoBehaviour
 
         StageManager.Instance.CallWaveFinished();
         GameManager.Instance.Player.PlayerWaveBuff.InitializePlayerWaveBuff();
-        GameManager.Instance.UIController.WaveFinishController.InitializeWaveFinishView();
+        GameManager.Instance.UIController.WaveFinishController.InitializeWaveFinishController();
 
         waveCount++; // 웨이브 카운트 1 증가시키기
     }
@@ -95,7 +97,7 @@ public class MonsterSpawn : MonoBehaviour
             // 첫 1초 대기
             await UniTask.Delay(1000, cancellationToken:cts.Token);
 
-            float elapsedTime = 1f;
+            elapsedTime = 1f;
 
             // waveTimer초 동안 반복
             while (elapsedTime <= waveTimer - 1)
@@ -112,7 +114,7 @@ public class MonsterSpawn : MonoBehaviour
         }
         catch (OperationCanceledException)
         {
-            Debug.Log("WaveMonsterSpawn - Spawn Canceled!!!");
+            //Debug.Log("WaveMonsterSpawn - Spawn Canceled!!!");
         }
     }
 

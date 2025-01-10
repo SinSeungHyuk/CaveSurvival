@@ -18,9 +18,18 @@ public class PlayerCtrl : MonoBehaviour, IMovement, IAttack
         player = GetComponent<Player>();
 
         joy = GameObject.FindWithTag("GameController").GetComponent<FloatingJoystick>();
-        StageManager.Instance.OnWaveFinished += Instance_OnWaveFinished;
     }
-    
+    private void OnEnable()
+    {
+        // 활성화 되면서 현재 스테이지의 웨이브 종료 이벤트 구독
+        StageManager.Instance.CurrentStage.MonsterSpawnEvent.OnWaveStart += Stage_OnWaveStart;
+    }
+    private void OnDisable()
+    {
+        // 비활성화 되면서 현재 스테이지의 웨이브 종료 이벤트 구독해지
+        StageManager.Instance.CurrentStage.MonsterSpawnEvent.OnWaveStart -= Stage_OnWaveStart;
+    }
+
     private void Update()
     {
         Attack();
@@ -32,7 +41,7 @@ public class PlayerCtrl : MonoBehaviour, IMovement, IAttack
     }
 
 
-    private void Instance_OnWaveFinished()
+    private void Stage_OnWaveStart(MonsterSpawnEvent @event)
     => transform.position = Vector2.zero;
 
     #region INTERFACE

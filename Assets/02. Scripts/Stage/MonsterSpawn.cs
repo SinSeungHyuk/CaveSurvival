@@ -81,7 +81,7 @@ public class MonsterSpawn : MonoBehaviour
             return;
         }
 
-        StageManager.Instance.CallWaveFinished();
+        //StageManager.Instance.CurrentStage.MonsterSpawnEvent.CallWaveFinish();
         GameManager.Instance.Player.PlayerWaveBuff.InitializePlayerWaveBuff();
         GameManager.Instance.UIController.WaveFinishController.InitializeWaveFinishController();
 

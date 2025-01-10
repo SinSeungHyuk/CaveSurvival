@@ -31,8 +31,6 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
         spriteRenderer = GetComponent<SpriteRenderer>();
         particle = GetComponent<ParticleSystem>();
         rigid = GetComponent<Rigidbody2D>();
-
-        StageManager.Instance.OnWaveFinished += StageManager_OnWaveFinished;
     }
 
     private void OnEnable()
@@ -43,7 +41,6 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
 
         OnMagnet += Item_OnMagnet;
     }
-
     private void OnDisable()
     {
         // 비활성화 될때 유니태스크 취소명령
@@ -66,9 +63,12 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
         gainExp = (int)data.itemGrade; // 해당 등급에 맞는 경험치 획득 (등급마다 경험치 정해져있음)
 
         isFirstTrigger = false;
+
+        // 활성화 되면서 현재 스테이지의 웨이브 종료 이벤트 구독
+        StageManager.Instance.CurrentStage.MonsterSpawnEvent.OnWaveFinish += Stage_OnWaveFinished;
     }
 
-    private void StageManager_OnWaveFinished()
+    private void Stage_OnWaveFinished(MonsterSpawnEvent @event)
         => ObjectPoolManager.Instance.Release(gameObject, EPool.Item);
 
     private void Item_OnMagnet()
@@ -84,6 +84,9 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
         if (isFirstTrigger && (Settings.itemPickUpLayer & (1 << collision.gameObject.layer)) != 0)
         {            
             ItemAcquire();
+
+            // 비활성화 되면서 현재 스테이지의 웨이브 종료 이벤트 구독해지
+            StageManager.Instance.CurrentStage.MonsterSpawnEvent.OnWaveFinish -= Stage_OnWaveFinished;
 
             ObjectPoolManager.Instance.Release(gameObject, EPool.Item);
         }

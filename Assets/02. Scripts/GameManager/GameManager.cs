@@ -28,10 +28,10 @@ public class GameManager : Singleton<GameManager>
 
     public void CreateMainGameScene()
     {
+        StageManager.Instance.CreateStage(stageSO);
+
         Player = Instantiate(playerSO.player, Vector2.zero, Quaternion.identity).GetComponent<Player>();
         Player.InitializePlayer(playerSO);
-        
-        StageManager.Instance.CreateStage(stageSO);
 
         UIController = GameObject.FindWithTag("UIController").GetComponent<UIController>();
         UIController.InitializeUIController();

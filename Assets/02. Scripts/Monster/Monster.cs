@@ -48,8 +48,6 @@ public class Monster : MonoBehaviour
         isBoss = (healthBar != null) ? true : false; // 보스만 체력바를 가지고 있음
         monsterDestroyedEvent = GetComponent<MonsterDestroyedEvent>();
         stat = new MonsterStat();
-
-        StageManager.Instance.OnWaveFinished += StageManager_OnWaveFinished;
     }
 
     private void OnEnable()
@@ -106,10 +104,18 @@ public class Monster : MonoBehaviour
         List<Vector2> spritePhysicsShapePointsList = new List<Vector2>();
         sprite.sprite.GetPhysicsShape(0, spritePhysicsShapePointsList); // 스프라이트 테두리 따오기
         hitbox.points = spritePhysicsShapePointsList.ToArray(); // 피격판정 충돌체 그리기
+
+        // 활성화 되면서 현재 스테이지의 웨이브 종료 이벤트 구독
+        StageManager.Instance.CurrentStage.MonsterSpawnEvent.OnWaveFinish += Stage_OnWaveFinished;
     }
 
-    private void StageManager_OnWaveFinished()
-        => ObjectPoolManager.Instance.Release(gameObject, EPool.Monster);
+    public void Stage_OnWaveFinished(MonsterSpawnEvent @event)
+    {
+        // 비활성화 되면서 현재 스테이지의 웨이브 종료 이벤트 구독해지
+        StageManager.Instance.CurrentStage.MonsterSpawnEvent.OnWaveFinish -= Stage_OnWaveFinished;
+
+        ObjectPoolManager.Instance.Release(gameObject, EPool.Monster);
+    }
 
     public void TakeDamage(Weapon weapon, int bonusDamage = 0)
     {

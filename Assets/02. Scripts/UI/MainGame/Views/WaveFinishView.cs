@@ -58,6 +58,6 @@ public class WaveFinishView : MonoBehaviour
         imgBackground.gameObject.SetActive(false);
         btnWaveFinish.gameObject.SetActive(false);
 
-        StageManager.Instance.CallNextWaveStart();
+        StageManager.Instance.CurrentStage.MonsterSpawnEvent.CallWaveStart();
     }
 }

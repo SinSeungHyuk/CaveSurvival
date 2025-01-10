@@ -21,6 +21,6 @@ public class Stage : MonoBehaviour
         StageDetails = stageDetails;
         WaveSpawnParameter = stageDetails.waveSpawnParameter;
 
-        MonsterSpawnEvent.CallMonsterSpawn(this); // 방 초기화가 모두 진행된 후에 스폰 이벤트 호출
+        MonsterSpawnEvent.CallStageStart(this); // 방 초기화가 모두 진행된 후에 스폰 이벤트 호출
     }
 }

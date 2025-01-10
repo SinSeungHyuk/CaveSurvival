@@ -16,10 +16,4 @@ public class StageManager : Singleton<StageManager>
 
         CurrentStage = instantiatedStage;
     }
-
-    //public void CallWaveFinished() 
-    //    => OnWaveFinished?.Invoke();
-
-    //public void CallNextWaveStart()
-    //    => CurrentStage.MonsterSpawnEvent.CallWaveStart();
 }

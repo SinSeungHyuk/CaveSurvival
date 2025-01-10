@@ -17,6 +17,7 @@ public class MonsterSpawn : MonoBehaviour
     private int waveCount;
     private int waveTimer;
     private float elapsedTime;
+    private bool isStageFinish; // 이미 스테이지가 끝났는지 (클리어하고 사망해도 클리어 판정)
 
     private CancellationTokenSource cts = new CancellationTokenSource();
 
@@ -34,15 +35,17 @@ public class MonsterSpawn : MonoBehaviour
     {
         waveCount = 0; // 첫 웨이브부터 시작
 
-        monsterSpawnEvent.OnMonsterSpawn += MonsterSpawnEvent_OnMonsterSpawn;
+        monsterSpawnEvent.OnStageStart += MonsterSpawnEvent_OnStageStart;
         monsterSpawnEvent.OnWaveStart += MonsterSpawnEvent_OnWaveStart;
         monsterSpawnEvent.OnWaveFinish += MonsterSpawnEvent_OnWaveFinish;
+        monsterSpawnEvent.OnStageFinish += MonsterSpawnEvent_OnStageFinish;
     }
     private void OnDisable()                
     {                                       
-        monsterSpawnEvent.OnMonsterSpawn -= MonsterSpawnEvent_OnMonsterSpawn;
+        monsterSpawnEvent.OnStageStart -= MonsterSpawnEvent_OnStageStart;
         monsterSpawnEvent.OnWaveStart -= MonsterSpawnEvent_OnWaveStart;
         monsterSpawnEvent.OnWaveFinish -= MonsterSpawnEvent_OnWaveFinish;
+        monsterSpawnEvent.OnStageFinish -= MonsterSpawnEvent_OnStageFinish;
 
         cts?.Cancel();
         cts?.Dispose();
@@ -50,7 +53,8 @@ public class MonsterSpawn : MonoBehaviour
     }
 
 
-    private void MonsterSpawnEvent_OnMonsterSpawn(MonsterSpawnEvent @event, MonsterSpawnEventArgs args)
+    #region STAGE EVENT
+    private void MonsterSpawnEvent_OnStageStart(MonsterSpawnEvent @event, MonsterSpawnEventArgs args)
     {
         waveSpawnParameterList = args.stage.WaveSpawnParameter;
 
@@ -76,7 +80,7 @@ public class MonsterSpawn : MonoBehaviour
 
         if (waveCount == Settings.lastWave) // 마지막 웨이브 클리어
         {
-
+            monsterSpawnEvent.CallStageFinish();
 
             return;
         }
@@ -86,6 +90,29 @@ public class MonsterSpawn : MonoBehaviour
         GameManager.Instance.UIController.WaveFinishController.InitializeWaveFinishController();
 
         waveCount++; // 웨이브 카운트 1 증가시키기
+    }
+
+    private void MonsterSpawnEvent_OnStageFinish(MonsterSpawnEvent @event)
+    {
+        // 스테이지를 클리어했으면 또 스테이지 클리어 이벤트가 호출되지 않도록 제어
+        if (isStageFinish)
+            return;
+
+        isStageFinish = true;
+
+        StageFinishEffect().Forget();
+    }
+    #endregion
+
+    private async UniTask StageFinishEffect()
+    {
+        GameManager.Instance.VCam.VCamStageFinishEffect();
+        Time.timeScale = 0.25f;
+
+        // ignoreTimeScale : 위에서 timeScale을 낮췄지만 이를 무시하는 옵션 (false 디폴트)
+        await UniTask.Delay(2500, ignoreTimeScale: true, cancellationToken: cts.Token);
+
+        GameManager.Instance.UIController.StageFinishController.InitializeStageFinishController();
     }
 
 

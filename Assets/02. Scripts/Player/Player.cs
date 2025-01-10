@@ -109,8 +109,7 @@ public class Player : MonoBehaviour
         if (stat.Hp <= 0f)
         {
             // 사망이벤트 처리
-            GameManager.Instance.UIController.StageFinishController.InitializeStageFinishController();
-
+            StageManager.Instance.CurrentStage.MonsterSpawnEvent.CallStageFinish();
 
             return;
         }

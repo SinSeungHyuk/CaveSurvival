@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class MonsterSpawnEvent : MonoBehaviour
 {
-    public event Action<MonsterSpawnEvent, MonsterSpawnEventArgs> OnMonsterSpawn;
+    public event Action<MonsterSpawnEvent, MonsterSpawnEventArgs> OnStageStart;
     public event Action<MonsterSpawnEvent> OnWaveStart;
     public event Action<MonsterSpawnEvent> OnWaveFinish;
+    public event Action<MonsterSpawnEvent> OnStageFinish;
 
-    public void CallMonsterSpawn(Stage stage)
+    public void CallStageStart(Stage stage)
     {
-        OnMonsterSpawn?.Invoke(this, new MonsterSpawnEventArgs()
+        OnStageStart?.Invoke(this, new MonsterSpawnEventArgs()
         {
             stage = stage
         });
@@ -25,6 +26,11 @@ public class MonsterSpawnEvent : MonoBehaviour
     public void CallWaveFinish()
     {
         OnWaveFinish?.Invoke(this);
+    }
+
+    public void CallStageFinish()
+    {
+        OnStageFinish?.Invoke(this);
     }
 }
 

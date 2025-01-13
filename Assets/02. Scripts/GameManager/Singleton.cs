@@ -11,10 +11,11 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         if (Instance == null)
         {
             Instance = this as T;
+            //DontDestroyOnLoad(gameObject); // 인스턴스를 유지
         }
         else
         {
-            DontDestroyOnLoad(gameObject);
+            Destroy(gameObject); // 기존 인스턴스를 유지하고, 새 인스턴스를 제거
         }
     }
 }

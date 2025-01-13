@@ -61,14 +61,6 @@ public class Monster : MonoBehaviour
         // 비활성화 되면서 유니태스크 취소명령
         DisableCancellation.Cancel();
         DisableCancellation.Dispose();
-
-        // 풀로 돌아갈 때 Clone된 SO 인스턴스 정리
-        Destroy(movement); // Clone된 SO 파괴
-        Destroy(monsterAttack); // Clone된 SO 파괴
-        movement = null;
-        monsterAttack = null;
-
-        hitbox.enabled = false;
     }
 
     private void FixedUpdate()
@@ -121,15 +113,18 @@ public class Monster : MonoBehaviour
     {
         int dmg = GetDamage(weapon, bonusDamage);
         stat.Hp -= dmg;
+
+        // 피해를 준 무기의 데미지 통계 누적
         GameStatsManager.Instance.AddStats(weapon.WeaponDetails, EStatsType.WeaponTotalDamage, dmg);
 
         healthBar?.SetHealthBar(stat.Hp / enemyDetails.maxHp); // 보스만 체력바를 가지고있으므로 null 체크
 
-        if (!isDead && stat.Hp <= 0f) // 최초로 체력이 0 이하로 떨어질 경우
+        if (stat.Hp <= 0f) // 최초로 체력이 0 이하로 떨어질 경우
         {
             isDead = true;
 
             // 사망이벤트 처리
+            MonsterDead();
             monsterDestroyedEvent.CallMonsterDestroyedEvent(this.transform.position);
             return;
         }
@@ -173,6 +168,26 @@ public class Monster : MonoBehaviour
         catch (Exception ex)
         {
             Debug.Log($"TakeDamageEffect - {ex.Message}");
+        }
+    }
+
+    private void MonsterDead()
+    {
+        // Clone된 SO 인스턴스 정리
+        Destroy(movement); // Clone된 SO 파괴
+        Destroy(monsterAttack); // Clone된 SO 파괴
+        movement = null;
+        monsterAttack = null;
+
+        hitbox.enabled = false; // 충돌체 끄기
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // 플레이어와 부딪힐때 데미지 주기
+        if (collision.TryGetComponent(out Player player))
+        {
+            player.TakeDamage(stat.Atk);
         }
     }
 }

@@ -76,8 +76,6 @@ public class MonsterSpawn : MonoBehaviour
 
     private void MonsterSpawnEvent_OnWaveFinish(MonsterSpawnEvent @event)
     {
-        Debug.Log($"Wave Finish!!! - {waveCount}");
-
         if (waveCount == Settings.lastWave) // 마지막 웨이브 클리어
         {
             monsterSpawnEvent.CallStageFinish();
@@ -85,7 +83,6 @@ public class MonsterSpawn : MonoBehaviour
             return;
         }
 
-        //StageManager.Instance.CurrentStage.MonsterSpawnEvent.CallWaveFinish();
         GameManager.Instance.Player.PlayerWaveBuff.InitializePlayerWaveBuff();
         GameManager.Instance.UIController.WaveFinishController.InitializeWaveFinishController();
 
@@ -125,6 +122,7 @@ public class MonsterSpawn : MonoBehaviour
             await UniTask.Delay(1000, cancellationToken:cts.Token);
 
             elapsedTime = 1f;
+            monsterSpawnEvent.CallElapsedTimeChanged(elapsedTime); // 경과시간 변경 이벤트
 
             // waveTimer초 동안 반복
             while (elapsedTime <= waveTimer - 1)
@@ -135,6 +133,7 @@ public class MonsterSpawn : MonoBehaviour
                 await UniTask.Delay(TimeSpan.FromSeconds(Settings.spawnInterval), cancellationToken: cts.Token);
 
                 elapsedTime += Settings.spawnInterval; // 스폰 간격만큼 시간 더해주기
+                monsterSpawnEvent.CallElapsedTimeChanged(elapsedTime); // 경과시간 변경 이벤트
             }
 
             monsterSpawnEvent.CallWaveFinish(); // 웨이브 종료

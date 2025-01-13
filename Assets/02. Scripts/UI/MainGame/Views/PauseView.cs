@@ -49,5 +49,5 @@ public class PauseView : MonoBehaviour
         => gameObject.SetActive(false);
 
     private void OnBtnExit()
-        => LoadingSceneManager.LoadScene("TestMainMenuScene", "NULL", ESceneType.MainMenu);
+        => LoadingSceneManager.LoadScene("MainMenuScene", "NULL", ESceneType.MainMenu);
 }

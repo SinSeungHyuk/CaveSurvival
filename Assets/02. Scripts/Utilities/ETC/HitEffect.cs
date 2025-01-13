@@ -1,6 +1,7 @@
 using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class HitEffect : MonoBehaviour 
@@ -9,7 +10,9 @@ public class HitEffect : MonoBehaviour
 
 
     private void OnEnable()
-        => ReleaseEffect().Forget();
+    {
+        ReleaseEffect().Forget();
+    }
 
     public void InitializeHitEffect(EPool effectName)
         => this.effectName = effectName;

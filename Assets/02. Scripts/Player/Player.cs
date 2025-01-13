@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
         this.playerDetails = so;
 
         spriteRenderer.sprite = playerDetails.playerSprite; 
-        //animator.runtimeAnimatorController = playerDetails.runtimeAnimatorController;
+        animator.runtimeAnimatorController = playerDetails.runtimeAnimatorController;
         WeaponList = new List<Weapon>(Settings.maxWeaponCount);
         AddWeaponToPlayer(playerDetails.playerStartingWeapon);
 

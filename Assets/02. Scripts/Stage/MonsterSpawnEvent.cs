@@ -10,6 +10,9 @@ public class MonsterSpawnEvent : MonoBehaviour
     public event Action<MonsterSpawnEvent> OnWaveFinish;
     public event Action<MonsterSpawnEvent> OnStageFinish;
 
+    public event Action<MonsterSpawnEvent, float> OnElapsedTimeChanged; // 웨이브 경과시간
+
+
     public void CallStageStart(Stage stage)
     {
         OnStageStart?.Invoke(this, new MonsterSpawnEventArgs()
@@ -31,6 +34,11 @@ public class MonsterSpawnEvent : MonoBehaviour
     public void CallStageFinish()
     {
         OnStageFinish?.Invoke(this);
+    }
+
+    public void CallElapsedTimeChanged(float time)
+    {
+        OnElapsedTimeChanged?.Invoke(this, time);
     }
 }
 

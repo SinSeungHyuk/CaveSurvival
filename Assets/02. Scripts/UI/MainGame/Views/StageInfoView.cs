@@ -7,40 +7,23 @@ using UnityEngine;
 
 public class StageInfoView : MonoBehaviour 
 {
+    // StageInfoView: 텍스트 UI를 변경하는 함수만 존재
+    // UI 업데이트는 StageInfoController에서 전달된 데이터에 기반하여 이루어짐
+    // 컨트롤러와 모델의 데이터를 이용하여 UI를 갱신
+
     [SerializeField] private TextMeshProUGUI txtWaveCount;
     [SerializeField] private TextMeshProUGUI txtWaveTimer;
 
-    private CancellationTokenSource cts = new CancellationTokenSource();
 
-
-    private void OnDestroy()
-    {
-        cts?.Cancel();
-        cts?.Dispose();
-        cts = null;
-    }
-
-
-    public void InitializeStageInfoView(int waveCnt, int waveTimer)
+    public void SetTxtWaveCount(int waveCnt)
     {
         txtWaveCount.text = $"웨이브 {waveCnt+1}";
-        SetWaveTimer(waveTimer).Forget();
     }
 
-    private async UniTask SetWaveTimer(int waveTimer)
+    public void SetTxtWaveTimer(float waveTimer)
     {
-        while (waveTimer >= 0)
-        {
-            if (waveTimer == 5)
-                txtWaveTimer.color = Settings.legend; // 빨강
+        txtWaveTimer.color = (waveTimer <= 5) ? Settings.legend : Color.white;
 
-            txtWaveTimer.text = waveTimer.ToString();
-
-            await UniTask.Delay(1000, cancellationToken:cts.Token);
-
-            waveTimer--;
-        }
-
-        txtWaveTimer.color = Color.white; // 다시 원래 색으로
+        txtWaveTimer.text = waveTimer.ToString();
     }
 }

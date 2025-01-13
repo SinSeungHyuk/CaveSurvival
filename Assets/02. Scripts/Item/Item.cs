@@ -81,15 +81,8 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
             MoveToOutsideDir();
 
         // 두번째 충돌 + 플레이어와 충돌
-        if (isFirstTrigger && (Settings.itemPickUpLayer & (1 << collision.gameObject.layer)) != 0)
-        {            
+        if (isFirstTrigger && (Settings.itemPickUpLayer & (1 << collision.gameObject.layer)) != 0)            
             ItemAcquire();
-
-            // 비활성화 되면서 현재 스테이지의 웨이브 종료 이벤트 구독해지
-            StageManager.Instance.CurrentStage.MonsterSpawnEvent.OnWaveFinish -= Stage_OnWaveFinished;
-
-            ObjectPoolManager.Instance.Release(gameObject, EPool.Item);
-        }
     }
 
     private void MoveToOutsideDir()
@@ -114,18 +107,25 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
 
     private async UniTask MoveToPlayer()
     {
-        while (true)
+        float elapsedTime = 0f;
+
+        while (elapsedTime < 1f)
         {    
             // 0.1초마다 플레이어 위치 갱신하면서 빠르게 이동
             moveVec = (player.transform.position - transform.position).normalized;
-            rigid.velocity = moveVec * 18f;     
-        
+            rigid.velocity = moveVec * 18f;
+            elapsedTime += 0.1f;
+
             await UniTask.Delay(100, cancellationToken:disableCancellation.Token);
         }
+
+        ItemAcquire();
     }
 
     private void ItemAcquire()
     {
+        // 아이템을 획득했을때 호출되는 함수 (효과, 구독해지, 풀 반환)
+
         switch (itemType)
         {
             case EItemType.Magnet:
@@ -135,5 +135,10 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
                 player.Stat.CurrentExp += (gainExp + player.Stat.ExpBonus);
                 break;
         }
+
+        // 비활성화 되면서 현재 스테이지의 웨이브 종료 이벤트 구독해지
+        StageManager.Instance.CurrentStage.MonsterSpawnEvent.OnWaveFinish -= Stage_OnWaveFinished;
+
+        ObjectPoolManager.Instance.Release(gameObject, EPool.Item);
     }
 }

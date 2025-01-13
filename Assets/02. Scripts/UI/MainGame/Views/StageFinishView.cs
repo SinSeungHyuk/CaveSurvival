@@ -14,8 +14,6 @@ public class StageFinishView : MonoBehaviour
     [Header("Weapon Stats")]
     [SerializeField] private List<WeaponTotalStatsUI> weaponStatsUI;
 
-    private Button btnExit;
-
 
     private void OnEnable()
     {
@@ -40,8 +38,9 @@ public class StageFinishView : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    private void OnBtnExit()
+    public void OnBtnExit()
     {
         // 메인화면으로 씬 이동
+        LoadingSceneManager.LoadScene("MainMenuScene", "NULL", ESceneType.MainMenu);
     }
 }

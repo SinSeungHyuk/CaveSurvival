@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c7497da3367f2f4d8e4fd48fd97d5f2, type: 3}
+  m_Name: Player_3_Leo
+  m_EditorClassIdentifier: 
+  id: 1
+  characterName: TestCharacter
+  player: {fileID: 2655556846627844510, guid: 47c550af35580e14d90b601553b1a54b, type: 3}
+  runtimeAnimatorController: {fileID: 22100000, guid: 378ba95c09851b342ac5dbb12b63716d,
+    type: 2}
+  playerSprite: {fileID: 1363809998, guid: 0c187a32c5bde4747be8d00770b07403, type: 3}
+  playerStartingWeapon: {fileID: 11400000, guid: bdcc8ad597d069b46aec5c5bb59a1a25,
+    type: 2}
+  characterStrength: 
+  characterWeakness: 
+  Hp: 100
+  HpRegen: 2
+  Defense: 100
+  BonusDamage: 0
+  MeleeDamage: 0
+  RangeDamage: 0
+  Speed: 4
+  Dodge: 0
+  PickUpRange: 0
+  ExpBonus: 0

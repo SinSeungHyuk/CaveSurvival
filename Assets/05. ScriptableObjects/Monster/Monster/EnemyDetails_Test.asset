@@ -18,10 +18,10 @@ MonoBehaviour:
   spriteColor: {r: 1, g: 1, b: 1, a: 1}
   runtimeAnimatorController: {fileID: 9100000, guid: 69db7649008d58640bee9388eaea764d,
     type: 2}
-  movementType: {fileID: 11400000, guid: d6e74cbb0cc1a424b81cfe7c3fa5c431, type: 2}
-  attackType: {fileID: 11400000, guid: 5a2e274087e54054691274e1eac7bab7, type: 2}
+  movementType: {fileID: 11400000, guid: 39c75b084eb77584993236024bd5ba4a, type: 2}
+  attackType: {fileID: 0}
   speed: 3
-  chaseDistance: 2
+  chaseDistance: 8
   baseDamage: 10
   maxHp: 30
   waveBonusHp: 1

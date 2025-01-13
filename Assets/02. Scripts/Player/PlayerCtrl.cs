@@ -7,15 +7,18 @@ using UnityEngine;
 public class PlayerCtrl : MonoBehaviour, IMovement, IAttack
 {
     private Player player;
+    private PlayerAnimator playerAnimator;
     private FloatingJoystick joy;
     private Rigidbody2D rigid;
     private Vector2 moveVec;
+    private float speed;
 
 
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();
+        playerAnimator = GetComponent<PlayerAnimator>();
 
         joy = GameObject.FindWithTag("GameController").GetComponent<FloatingJoystick>();
     }
@@ -55,9 +58,16 @@ public class PlayerCtrl : MonoBehaviour, IMovement, IAttack
 
     public void Move()
     {
-        moveVec = joy.Direction * player.Stat.Speed;
+        speed = player.Stat.Speed;
+        moveVec = joy.Direction * speed;
+        playerAnimator.UpdateSpeed(moveVec.sqrMagnitude); // 조이스틱 벡터가 0보다 큰지만 판단
 
         rigid.velocity = moveVec;
+
+        if (moveVec.x < 0) 
+            player.SpriteRenderer.flipX = true;
+        else if (moveVec.x > 0)
+            player.SpriteRenderer.flipX = false;
     }
     #endregion
 }

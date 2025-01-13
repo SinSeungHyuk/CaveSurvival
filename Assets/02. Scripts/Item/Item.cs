@@ -22,6 +22,7 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
     private CancellationTokenSource disableCancellation = new CancellationTokenSource();
     private Player player;
     private Rigidbody2D rigid;
+    private CircleCollider2D circleCollider;
     private Vector2 moveVec;
     private bool isFirstTrigger;
 
@@ -31,24 +32,20 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
         spriteRenderer = GetComponent<SpriteRenderer>();
         particle = GetComponent<ParticleSystem>();
         rigid = GetComponent<Rigidbody2D>();
+        circleCollider = GetComponent<CircleCollider2D>();
     }
 
     private void OnEnable()
     {
-        // 활성화 될때마다 토큰 새롭게 초기화시켜주기
-        disableCancellation?.Dispose();
+        // 활성화 될때마다 토큰 새롭게 초기화시켜주기      
         disableCancellation = new CancellationTokenSource();
-
-        OnMagnet += Item_OnMagnet;
     }
     private void OnDisable()
     {
         // 비활성화 될때 유니태스크 취소명령
-        disableCancellation.Cancel();
-
-        OnMagnet -= Item_OnMagnet;
+        disableCancellation?.Cancel();
+        disableCancellation?.Dispose();
     }
-
 
 
     public void InitializeItem(ItemDetailsSO data)
@@ -62,14 +59,19 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
         itemType = data.itemType;
         gainExp = (int)data.itemGrade; // 해당 등급에 맞는 경험치 획득 (등급마다 경험치 정해져있음)
 
+        circleCollider.enabled = true;
         isFirstTrigger = false;
 
         // 활성화 되면서 현재 스테이지의 웨이브 종료 이벤트 구독
         StageManager.Instance.CurrentStage.MonsterSpawnEvent.OnWaveFinish += Stage_OnWaveFinished;
+        OnMagnet += Item_OnMagnet;
     }
 
     private void Stage_OnWaveFinished(MonsterSpawnEvent @event)
-        => ObjectPoolManager.Instance.Release(gameObject, EPool.Item);
+    {
+        // 웨이브가 끝나면 아이템 소멸 (아이템 획득 효과는 적용x)
+        ReleaseItem();
+    }
 
     private void Item_OnMagnet()
         => MoveToOutsideDir();
@@ -87,8 +89,8 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
 
     private void MoveToOutsideDir()
     {
+        circleCollider.enabled = false;
         isFirstTrigger = true;
-        rigid.simulated = false;
         
         // 플레이어 바깥을 향하는 방향벡터
         var outsideDir = (transform.position - player.transform.position).normalized;
@@ -99,14 +101,14 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
         transform.DOMove(outsideDesiredPos, 0.5f).SetEase(Ease.OutQuad)
             .OnComplete(() =>
             {
-                // 다시 물리충돌 활성화 + 플레이어 향해 이동
-                rigid.simulated = true;
+                // 플레이어 향해 이동
                 MoveToPlayer().Forget();
             });
     }
 
     private async UniTask MoveToPlayer()
     {
+        circleCollider.enabled = true;
         float elapsedTime = 0f;
 
         while (elapsedTime < 1f)
@@ -136,8 +138,14 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
                 break;
         }
 
-        // 비활성화 되면서 현재 스테이지의 웨이브 종료 이벤트 구독해지
+        ReleaseItem();
+    }
+
+    private void ReleaseItem()
+    {
+        // 아이템에 구독되어있던 함수 구독해지
         StageManager.Instance.CurrentStage.MonsterSpawnEvent.OnWaveFinish -= Stage_OnWaveFinished;
+        OnMagnet -= Item_OnMagnet;
 
         ObjectPoolManager.Instance.Release(gameObject, EPool.Item);
     }

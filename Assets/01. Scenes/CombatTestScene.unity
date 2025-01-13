@@ -14360,7 +14360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolArray:
   - name: 0
-    initialSize: 20
+    initialSize: 10
     prefab: {fileID: 2700208970764977922, guid: e94de283d9474c748b17cda2cbb8aa6f,
       type: 3}
   - name: 1

@@ -16,7 +16,19 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 0b62986a71b4b15448628e723d861a86
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 3194eb29bd2ed274a84ca1bc6b2b715d
+    m_Address: PlayerLevelUpDatabase
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Stage1
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84229d8574dd2cf40b5c411762ff99a6
+    m_Address: WeaponLevelUpDatabase
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Stage1
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: db82650b91f45b04ea61d45fd86e3a43, type: 2}
   m_SchemaSet:

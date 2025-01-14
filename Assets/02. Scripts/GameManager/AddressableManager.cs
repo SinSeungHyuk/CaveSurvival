@@ -9,7 +9,8 @@ using System.Threading;
 
 using Object = UnityEngine.Object;
 using System.CodeDom;
-public class AddressableManager : Singleton<AddressableManager>
+using UnityEditor.VersionControl;
+public class AddressableManager : MonoBehaviour
 {    
     // 메모리에 올려둔 리소스가 저장된 딕셔너리
     private Dictionary<string, Dictionary<string, object>> resources = new Dictionary<string, Dictionary<string, object>>();
@@ -18,13 +19,25 @@ public class AddressableManager : Singleton<AddressableManager>
 
     public IReadOnlyDictionary<string, Dictionary<string, object>> Resources => resources;
 
+    public static AddressableManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // 인스턴스를 유지
+        }
+        else
+        {
+            Destroy(gameObject); // 기존 인스턴스를 유지하고, 새 인스턴스를 제거
+        }
+    }
+
 
     // 리소스를 어드레서블 그룹의 label 단위로 로드
     public async UniTask LoadResourcesAsync(string groupLabel, Action<float> progressCallback) 
     {
-        // 0. "NULL"을 입력할 경우 로드하지않고 진행
-        if (groupLabel == "NULL") return; 
-
         using CancellationTokenSource disableCancellation = new CancellationTokenSource();
 
         // 1. 이미 로드한 그룹이면 return
@@ -42,6 +55,8 @@ public class AddressableManager : Singleton<AddressableManager>
                     resources[groupLabel] = new Dictionary<string, object>();
 
                 resources[groupLabel][asset.name] = asset;
+
+                Debug.Log($"에셋 이름 : {asset.name}");
             });
 
             // 3. 로딩이 완료될 때까지 진행상태 업데이트
@@ -55,6 +70,8 @@ public class AddressableManager : Singleton<AddressableManager>
             progressCallback?.Invoke(1.0f);
 
             loadedGroups.Add(groupLabel, handle);
+
+            Debug.Log($"DB 크기 : {resources.Count}");
         }
         catch (Exception e)
         {

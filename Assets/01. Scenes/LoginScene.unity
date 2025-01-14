@@ -762,7 +762,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3357c82a0ac71be44a987b5a439de59e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txtLogin: {fileID: 1637162617}
   txtNickname: {fileID: 837308159}
   inpNickname: {fileID: 308940545}
   createNickname: {fileID: 1628431223}
@@ -1565,7 +1564,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &713698700
 RectTransform:
   m_ObjectHideFlags: 0

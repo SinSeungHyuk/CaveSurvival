@@ -10,7 +10,7 @@ using System.Threading;
 
 public class LoadingSceneManager : MonoBehaviour
 {
-    [SerializeField] private Image imgLoadingBar;
+    [SerializeField] private Slider loadingBar;
 
     private static string nextSceneName; // 로드할 씬 이름
     private static string groupToLoad; // 로드할 리소스 그룹명
@@ -29,7 +29,7 @@ public class LoadingSceneManager : MonoBehaviour
         SceneManager.LoadScene("LoadingScene");
     }
 
-    private async void Awake()
+    private async void Start()
     {
         // 로딩씬에 진입하면 로딩 시작, await으로 로딩이 끝날때까지 진행
         await LoadSceneAsync();
@@ -40,18 +40,21 @@ public class LoadingSceneManager : MonoBehaviour
 
     private async UniTask LoadSceneAsync()
     {
-        imgLoadingBar.fillAmount = 0;
+        Debug.Log("AddressableManager.Instance == null : " + (AddressableManager.Instance == null));
+
+        loadingBar.value = 0;
 
         // 리소스 로딩
-        // AddressableManager의 LoadResources 함수를 UniTask로 호출      
-        //await AddressableManager.Instance.LoadResourcesAsync(
-        //    groupToLoad,
-        //    (progress) =>
-        //    {
-        //        UpdateLoadingProgress(progress);
-        //    }
-        //);
-        
+        //AddressableManager의 LoadResources 함수를 UniTask로 호출
+        await AddressableManager.Instance.LoadResourcesAsync(
+            groupToLoad,
+            (progress) =>
+            {
+                UpdateLoadingProgress(progress);
+            }
+        );
+
+        Debug.Log($"데이터 개수 : {AddressableManager.Instance.Resources.Count}");
 
         // 씬 로딩 비동기 메소드
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(nextSceneName);
@@ -75,5 +78,5 @@ public class LoadingSceneManager : MonoBehaviour
 
 
     private void UpdateLoadingProgress(float progress)
-        => imgLoadingBar.fillAmount = progress;
+        => loadingBar.value = progress;
 }

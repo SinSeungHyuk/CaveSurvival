@@ -5,7 +5,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Database_", menuName = "Scriptable Objects/Database")]
+[CreateAssetMenu(fileName = "DB_", menuName = "Scriptable Objects/DB")]
 public class Database : ScriptableObject
 {
     [SerializeField] private List<IdentifiedObject> db = new();

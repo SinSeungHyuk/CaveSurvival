@@ -7,10 +7,11 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] private PlayerDetailsSO playerSO; // 임시로 직렬화. 추후에 변경해야함
-    [SerializeField] private StageDetailsSO stageSO; // 임시로 직렬화. 추후에 변경해야함
-
+    //[SerializeField] private PlayerDetailsSO playerSO; // 임시로 직렬화. 추후에 변경해야함
+    //[SerializeField] private StageDetailsSO stageSO; // 임시로 직렬화. 추후에 변경해야함
     [SerializeField] private VCameraController vCam;
+
+    private StageCharacterDataSO stageCharacterData;
 
 
     public Player Player { get; private set; }
@@ -21,10 +22,12 @@ public class GameManager : Singleton<GameManager>
 
     public void CreateMainGameScene()
     {
-        StageManager.Instance.CreateStage(stageSO);
+        stageCharacterData = AddressableManager.Instance.GetResource<StageCharacterDataSO>("StageCharacterData");
 
-        Player = Instantiate(playerSO.player, Vector2.zero, Quaternion.identity).GetComponent<Player>();
-        Player.InitializePlayer(playerSO);
+        StageManager.Instance.CreateStage(stageCharacterData.stageDetails);
+
+        Player = Instantiate(stageCharacterData.playerDetails.player, Vector2.zero, Quaternion.identity).GetComponent<Player>();
+        Player.InitializePlayer(stageCharacterData.playerDetails);
 
         UIController = GameObject.FindWithTag("UIController").GetComponent<UIController>();
         UIController.InitializeUIController();

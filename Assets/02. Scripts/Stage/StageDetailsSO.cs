@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Stage_", menuName = "Scriptable Objects/Stage/Stage")]
-public class StageDetailsSO : ScriptableObject
+public class StageDetailsSO : IdentifiedObject
 {
     public GameObject stagePrefab;
 

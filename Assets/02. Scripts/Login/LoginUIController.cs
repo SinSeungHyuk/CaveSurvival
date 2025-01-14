@@ -10,7 +10,6 @@ using UnityEngine.UI;
 
 public class LoginUIController : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI txtLogin;
     [SerializeField] private TextMeshProUGUI txtNickname;
     [SerializeField] private TMP_InputField inpNickname;
     [SerializeField] private GameObject createNickname;
@@ -41,14 +40,12 @@ public class LoginUIController : MonoBehaviour
     public void SetCreateNicknameUI()
     {
         inpNickname.text = "";
-        txtLogin.gameObject.SetActive(false);
         createNickname.SetActive(true);
     }
 
     public void StartGame()
     {
         btnStart.gameObject.SetActive(true);
-        txtLogin.text = "Touch To Start";
     }
 
     public void LoginFailed()
@@ -72,7 +69,6 @@ public class LoginUIController : MonoBehaviour
     {
         dlgNickname.SetActive(false);
         createNickname.SetActive(false);
-        txtLogin.gameObject.SetActive(true);
 
         StartGame();
     }
@@ -90,7 +86,6 @@ public class LoginUIController : MonoBehaviour
     public void LoadStartScene() // 스타트 버튼에 등록
     {
         // 최초 실행에 필요한 리소스 로드 (어드레서블 활용)
-        List<string> levelResources = new List<string> {};
-        LoadingSceneManager.LoadScene("MainMenuScene", "NULL", ESceneType.MainMenu);
+        LoadingSceneManager.LoadScene("MainMenuScene", "MainMenu", ESceneType.MainMenu);
     }
 }

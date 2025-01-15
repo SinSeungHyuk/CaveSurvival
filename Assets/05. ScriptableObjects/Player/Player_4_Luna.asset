@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player_4_Luna
   m_EditorClassIdentifier: 
   id: 3
-  characterName: TestCharacter
+  characterName: Luna
   player: {fileID: 2655556846627844510, guid: 47c550af35580e14d90b601553b1a54b, type: 3}
   runtimeAnimatorController: {fileID: 22100000, guid: b52ad9b3ff3c2ff4dbcfc14125649ca7,
     type: 2}

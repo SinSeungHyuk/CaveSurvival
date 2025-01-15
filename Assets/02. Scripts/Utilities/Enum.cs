@@ -91,3 +91,11 @@ public enum EStatsType // 통계 종류
     WeaponAcquiredWave, // 무기를 처음 획득한 시점의 웨이브 수
     PlayerTotalKills,
 }
+
+
+public enum ECurrencyType
+{
+    Achive,
+    Gold,
+    Diamond,
+}

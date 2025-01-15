@@ -8,8 +8,8 @@ using Cysharp.Threading.Tasks;
 using System.Threading;
 
 using Object = UnityEngine.Object;
-using System.CodeDom;
-using UnityEditor.VersionControl;
+
+
 public class AddressableManager : MonoBehaviour
 {    
     // 메모리에 올려둔 리소스가 저장된 딕셔너리
@@ -55,8 +55,6 @@ public class AddressableManager : MonoBehaviour
                     resources[groupLabel] = new Dictionary<string, object>();
 
                 resources[groupLabel][asset.name] = asset;
-
-                Debug.Log($"에셋 이름 : {asset.name}");
             });
 
             // 3. 로딩이 완료될 때까지 진행상태 업데이트
@@ -70,8 +68,6 @@ public class AddressableManager : MonoBehaviour
             progressCallback?.Invoke(1.0f);
 
             loadedGroups.Add(groupLabel, handle);
-
-            Debug.Log($"DB 크기 : {resources.Count}");
         }
         catch (Exception e)
         {

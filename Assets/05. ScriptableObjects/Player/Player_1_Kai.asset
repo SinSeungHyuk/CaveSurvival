@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player_1_Kai
   m_EditorClassIdentifier: 
   id: 0
-  characterName: TestCharacter
+  characterName: Kai
   player: {fileID: 2655556846627844510, guid: 47c550af35580e14d90b601553b1a54b, type: 3}
   runtimeAnimatorController: {fileID: 9100000, guid: 039196402ecb866408d103d4f5acbe39,
     type: 2}

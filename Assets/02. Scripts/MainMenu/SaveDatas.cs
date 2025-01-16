@@ -22,5 +22,6 @@ public struct CurrencySaveData // 화폐 저장
 [Serializable]
 public struct UnlockSaveData // 해금리스트 저장
 {
-    public List<int> unlockList;
+    public List<int> characterUnlockList;
+    public List<int> stageUnlockList;
 }

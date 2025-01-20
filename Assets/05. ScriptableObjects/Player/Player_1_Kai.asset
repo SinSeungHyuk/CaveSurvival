@@ -20,7 +20,7 @@ MonoBehaviour:
   playerSprite: {fileID: -1413294825, guid: 99a24620d31e5ce4e823c32d11e17c2c, type: 3}
   playerStartingWeapon: {fileID: 11400000, guid: 19a3fa918cbad6547a5b2dfb7090f95b,
     type: 2}
-  characterStrength: 
+  characterStrength: "+ \uCCB4\uB825"
   characterWeakness: 
   Hp: 100
   HpRegen: 0
@@ -28,7 +28,9 @@ MonoBehaviour:
   BonusDamage: 0
   MeleeDamage: 0
   RangeDamage: 0
-  Speed: 8
+  Speed: 7
   Dodge: 0
   PickUpRange: 0
-  ExpBonus: 20
+  ExpBonus: 0
+  isUnlock: 1
+  unlockCost: 0

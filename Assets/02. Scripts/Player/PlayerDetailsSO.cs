@@ -27,4 +27,8 @@ public class PlayerDetailsSO : IdentifiedObject
     public int PickUpRange;
     public int ExpBonus;
 
+    [Space(10)]
+    [Header("Unlock")]
+    public bool isUnlock; // 해금 여부
+    public float unlockCost; // 해금 비용
 }

@@ -20,15 +20,17 @@ MonoBehaviour:
   playerSprite: {fileID: 1363809998, guid: 0c187a32c5bde4747be8d00770b07403, type: 3}
   playerStartingWeapon: {fileID: 11400000, guid: bdcc8ad597d069b46aec5c5bb59a1a25,
     type: 2}
-  characterStrength: 
-  characterWeakness: 
-  Hp: 100
-  HpRegen: 2
-  Defense: 100
+  characterStrength: "+ \uCCB4\uB825 \uC7AC\uC0DD\n+ \uADFC\uAC70\uB9AC \uB370\uBBF8\uC9C0"
+  characterWeakness: "- \uBC29\uC5B4\uB825"
+  Hp: 90
+  HpRegen: 3
+  Defense: -5
   BonusDamage: 0
-  MeleeDamage: 0
+  MeleeDamage: 5
   RangeDamage: 0
-  Speed: 4
+  Speed: 7
   Dodge: 0
   PickUpRange: 0
   ExpBonus: 0
+  isUnlock: 0
+  unlockCost: 1500

@@ -9,10 +9,18 @@ public class StageDetailsSO : IdentifiedObject
     public GameObject stagePrefab;
 
     public string roomName;
+    [TextArea] public string roomDescription;
     //public MusicTrackSO roomMusic; // 스테이지 음악
     // 맵의 크기는 동일하다는 가정하에 제작
 
     public List<WaveSpawnParameter> waveSpawnParameter;
+
+    public Sprite bossSprite; // 이 스테이지의 보스 이미지
+
+    [Space(10)]
+    [Header("Unlock")]
+    public bool isUnlock; // 해금 여부
+    public float unlockCost; // 해금 비용
 }
 
 [Serializable]

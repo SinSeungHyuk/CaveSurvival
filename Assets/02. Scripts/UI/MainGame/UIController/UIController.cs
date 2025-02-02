@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    [Header("Button")] 
+    [Header("Buttons")] 
     [SerializeField] private Button btnPause;
 
     [Header("UI Controller")]

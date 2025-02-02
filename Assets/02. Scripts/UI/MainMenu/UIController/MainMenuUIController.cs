@@ -8,17 +8,24 @@ public class MainMenuUIController : MonoBehaviour
 {
     [Header("Datas")]
     [SerializeField] private CurrencySystem currencySystem;
+    [SerializeField] private UnlockSystem unlockSystem;
+
+    [Header("Buttons")]
+    [SerializeField] private Button btnStage;
+    [SerializeField] private Button btnUpgrade;
 
     [Header("Test")]
     [SerializeField] private Button btnTest;
 
 
     private CurrencyController currencyController;
+    private MainStageController mainStageController;
 
 
     private void Awake()
     {
         currencyController = GetComponent<CurrencyController>();
+        mainStageController = GetComponent<MainStageController>();
 
         SaveManager.Instance.OnLoadFinished += InitializeMainMenuUIController;
     }
@@ -36,5 +43,8 @@ public class MainMenuUIController : MonoBehaviour
     private void InitializeMainMenuUIController()
     {
         currencyController.InitializeCurrencyController(currencySystem);
+
+        btnStage.onClick.AddListener(() 
+            => mainStageController.InitializeMainStageController(currencySystem,unlockSystem));
     }
 }

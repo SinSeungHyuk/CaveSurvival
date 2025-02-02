@@ -40,8 +40,6 @@ public class LoadingSceneManager : MonoBehaviour
 
     private async UniTask LoadSceneAsync()
     {
-        Debug.Log("AddressableManager.Instance == null : " + (AddressableManager.Instance == null));
-
         loadingBar.value = 0;
 
         // 리소스 로딩
@@ -53,8 +51,6 @@ public class LoadingSceneManager : MonoBehaviour
                 UpdateLoadingProgress(progress);
             }
         );
-
-        Debug.Log($"데이터 개수 : {AddressableManager.Instance.Resources.Count}");
 
         // 씬 로딩 비동기 메소드
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(nextSceneName);
@@ -68,7 +64,6 @@ public class LoadingSceneManager : MonoBehaviour
             // 씬 로딩이 90% 이상이면 allowSceneActivation을 true로 변경하여 씬 변경하기
             if (asyncLoad.progress >= 0.9f)
             {
-                Debug.Log("로딩 완료!!");
                 asyncLoad.allowSceneActivation = true;
             }
             // 프레임 대기 (UniTask.DelayFrame()을 이용하여 한 프레임 대기)

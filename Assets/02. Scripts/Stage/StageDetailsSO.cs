@@ -20,7 +20,7 @@ public class StageDetailsSO : IdentifiedObject
     [Space(10)]
     [Header("Unlock")]
     public bool isUnlock; // 해금 여부
-    public float unlockCost; // 해금 비용
+    public int unlockCost; // 해금 비용
 }
 
 [Serializable]

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -8973352582894347413}
   - component: {fileID: -8477415323937064455}
   m_Layer: 0
-  m_Name: Stage1
+  m_Name: SlimeCave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -16,7 +16,7 @@ public class BtnStageInfoUI : MonoBehaviour
         btnStageInfoUI = GetComponent<Button>();
     }
 
-    public void InitializeBtnStageInfoUI(StageDetailsSO stageDetailsSO, CurrencySystem currencySystem)
+    public void InitializeBtnStageInfoUI(StageDetailsSO stageDetailsSO, CurrencySystem currencySystem, UnlockSystem unlockSystem)
     {
         var stageCharacterData = AddressableManager.Instance.GetResource<StageCharacterDataSO>("StageCharacterData");
 
@@ -24,15 +24,19 @@ public class BtnStageInfoUI : MonoBehaviour
 
         btnStageInfoUI.onClick.RemoveAllListeners();
         btnStageInfoUI.onClick.AddListener(()
-            => InitializeStageDescView(stageDetailsSO, currencySystem));
+            => InitializeStageDescView(stageDetailsSO, currencySystem, unlockSystem));
     }
 
-    private void InitializeStageDescView(StageDetailsSO stageDetailsSO, CurrencySystem currencySystem)
+    private void InitializeStageDescView(StageDetailsSO stageDetailsSO, CurrencySystem currencySystem, UnlockSystem unlockSystem)
     {
-        var stageCharacterData = AddressableManager.Instance.GetResource<StageCharacterDataSO>("StageCharacterData");
-        stageCharacterData.stageDetails = stageDetailsSO;
+        if (unlockSystem.CharacterUnlockList[stageDetailsSO.ID] == true)
+        {
+            var stageCharacterData = AddressableManager.Instance.GetResource<StageCharacterDataSO>("StageCharacterData");
+            stageCharacterData.stageDetails = stageDetailsSO;
+        }
 
-        stageDescView.InitializeStageDescView(stageDetailsSO, currencySystem);
+
+        stageDescView.InitializeStageDescView(stageDetailsSO, currencySystem, unlockSystem);
         stageDescView.gameObject.SetActive(true);
         characterDescView.gameObject.SetActive(false);
     }

@@ -248,12 +248,12 @@ GameObject:
   - component: {fileID: 201858991}
   - component: {fileID: 201858990}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TxtStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &201858989
 RectTransform:
   m_ObjectHideFlags: 0
@@ -763,6 +763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txtNickname: {fileID: 837308159}
+  txtStart: {fileID: 201858990}
   inpNickname: {fileID: 308940545}
   createNickname: {fileID: 1628431223}
   dlgNickname: {fileID: 1132106611}

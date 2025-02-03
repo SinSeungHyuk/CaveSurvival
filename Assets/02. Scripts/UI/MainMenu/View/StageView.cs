@@ -18,12 +18,10 @@ public class StageView : MonoBehaviour
 
     public void InitializeStageView(CurrencySystem currencySystem, UnlockSystem unlockSystem)
     {
+        // 스테이지 DB에서 ID를 하나씩 가져와 버튼에 넣어주기
         for (int i = 0; i < btnStageInfoUIs.Count; i++)
         {
-            // 언락 반영 구현
-
-
-            btnStageInfoUIs[i].InitializeBtnStageInfoUI(stageDB.GetDataByID<StageDetailsSO>(i), currencySystem);
+            btnStageInfoUIs[i].InitializeBtnStageInfoUI(stageDB.GetDataByID<StageDetailsSO>(i), currencySystem, unlockSystem);
         }
     }
 }

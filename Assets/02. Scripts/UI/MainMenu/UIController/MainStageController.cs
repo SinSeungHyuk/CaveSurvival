@@ -9,6 +9,11 @@ public class MainStageController : MonoBehaviour
 
     public void InitializeMainStageController(CurrencySystem currencySystem, UnlockSystem unlockSystem)
     {
+        var stageCharacterData = AddressableManager.Instance.GetResource<StageCharacterDataSO>("StageCharacterData");
+        stageCharacterData.playerDetails = null;
+        stageCharacterData.stageDetails = null;
+
+
         mainStageView.gameObject.SetActive(true);
 
         mainStageView.InitializeMainStageView(currencySystem, unlockSystem);

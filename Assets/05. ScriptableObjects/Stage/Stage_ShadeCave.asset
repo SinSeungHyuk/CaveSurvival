@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ddfb69cab818aff4a8c268daa539e0b4, type: 3}
-  m_Name: Stage_SlimeCave
+  m_Name: Stage_ShadeCave
   m_EditorClassIdentifier: 
-  id: 0
-  stagePrefab: {fileID: 747978076169100784, guid: b4e191d565f6b1045a19bed6cdd959da,
+  id: 1
+  stagePrefab: {fileID: 747978076169100784, guid: 5e864f34182ea5741aa2312a6816d1fc,
     type: 3}
-  roomName: Slime's Cave
-  roomDescription: Slime's Cave~~
+  roomName: Shade's Cave
+  roomDescription: Shade's Cave!!!!!
   waveSpawnParameter:
   - batchSpawnCount: 1
     monsterSpawnParameters:
@@ -40,6 +40,6 @@ MonoBehaviour:
       Ratio: 1
     isBossWave: 0
     spawnableBossList: []
-  bossSprite: {fileID: 21300000, guid: 36ba7942b402da04298af46eb5196a20, type: 3}
-  isUnlock: 1
-  unlockCost: 0
+  bossSprite: {fileID: 172626504, guid: c4d2ccab0c2ad7e47853b6e31a7ac7c2, type: 3}
+  isUnlock: 0
+  unlockCost: 2000

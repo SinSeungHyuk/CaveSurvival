@@ -17,12 +17,10 @@ public class CharacterView : MonoBehaviour
 
     public void InitializeCharacterView(CurrencySystem currencySystem, UnlockSystem unlockSystem)
     {
+        // 플레이어 DB에서 ID를 하나씩 가져와 버튼에 넣어주기
         for (int i = 0; i < btnCharacterInfoUIs.Count; i++)
         {
-            // 언락 반영 구현
-
-
-            btnCharacterInfoUIs[i].InitializeBtnCharacterInfoUI(playerDB.GetDataByID<PlayerDetailsSO>(i), currencySystem);
+            btnCharacterInfoUIs[i].InitializeBtnCharacterInfoUI(playerDB.GetDataByID<PlayerDetailsSO>(i), currencySystem, unlockSystem);
         }
     }
 }

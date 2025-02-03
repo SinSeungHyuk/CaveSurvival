@@ -35,8 +35,7 @@ public class SaveManager : Singleton<SaveManager>
 
     public void SaveGame()
     {
-        // 플레이어의 PlayerSaveData 구조체를 Json 형태로 변환
-        // PlayerSaveData 구조체 내부는 json으로 변환 가능한 int,List 등 기본자료형
+        // 구조체를 Json 형태로 변환
         string saveData = JsonUtility.ToJson(SaveData);
 
         // SaveData 노드 아래에 user.UserId 자식을 생성해서 SetRawJsonValueAsync으로 데이터 저장

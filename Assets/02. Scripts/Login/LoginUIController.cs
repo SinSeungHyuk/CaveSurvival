@@ -11,6 +11,7 @@ using UnityEngine.UI;
 public class LoginUIController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI txtNickname;
+    [SerializeField] private TextMeshProUGUI txtStart;
     [SerializeField] private TMP_InputField inpNickname;
     [SerializeField] private GameObject createNickname;
     [SerializeField] private GameObject dlgNickname;
@@ -46,6 +47,7 @@ public class LoginUIController : MonoBehaviour
     public void StartGame()
     {
         btnStart.gameObject.SetActive(true);
+        txtStart.gameObject.SetActive(true);
     }
 
     public void LoginFailed()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "Explosion_", menuName = "Scriptable Objects/Weapon/Projectile/PE/Explosion")]
+[CreateAssetMenu(fileName = "ExplosionPE_", menuName = "Scriptable Objects/Weapon/Projectile/PE/Explosion")]
 public class ExplosionPE : ProjectileEffectSO
 {
     [SerializeField] private int explosionRange;

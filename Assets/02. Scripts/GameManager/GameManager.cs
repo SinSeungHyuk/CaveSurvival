@@ -7,8 +7,6 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    //[SerializeField] private PlayerDetailsSO playerSO; // 임시로 직렬화. 추후에 변경해야함
-    //[SerializeField] private StageDetailsSO stageSO; // 임시로 직렬화. 추후에 변경해야함
     [SerializeField] private VCameraController vCam;
 
     private StageCharacterDataSO stageCharacterData;

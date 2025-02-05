@@ -55,6 +55,8 @@ public class AddressableManager : MonoBehaviour
                     resources[groupLabel] = new Dictionary<string, object>();
 
                 resources[groupLabel][asset.name] = asset;
+
+                //Debug.Log($"리소스 이름, 타입 : {asset.name}, {asset.GetType().Name}");
             });
 
             // 3. 로딩이 완료될 때까지 진행상태 업데이트

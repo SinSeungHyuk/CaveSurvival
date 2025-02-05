@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2982b139c1585ad418b2842a7052fe92, type: 3}
   m_Name: WR_Pistol
   m_EditorClassIdentifier: 
+  pattern: {fileID: 11400000, guid: 75bd29fae28a380448f810c5ed7c6516, type: 2}
   projectileDetails: {fileID: 11400000, guid: 292d62fe3d810e947b1b0f60f5a43070, type: 2}
-  pattern: {fileID: 11400000, guid: 1b671eddcdd3c244083d04f7f6ade92b, type: 2}
+  bonusEffects:
+  - {fileID: 11400000, guid: fdc67386e23a67b44bce8d36a79223b6, type: 2}

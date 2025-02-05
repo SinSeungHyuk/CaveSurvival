@@ -29,6 +29,24 @@ MonoBehaviour:
     m_SerializedLabels:
     - Stage1
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d519f85b7fcb48543bf2f1dfb3bea5c9
+    m_Address: StateSpeed
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Stage1
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dfd419360054d754f9327225e878e951
+    m_Address: StateImage
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Stage1
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a40dc723e6072745bf133932e856bd6
+    m_Address: StateAttack
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Stage1
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: db82650b91f45b04ea61d45fd86e3a43, type: 2}
   m_SchemaSet:

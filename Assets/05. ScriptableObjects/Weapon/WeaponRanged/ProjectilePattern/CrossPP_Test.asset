@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 101d1f46c7844fb4ea84402b6f98e405, type: 3}
-  m_Name: PP_Pistol
+  m_Script: {fileID: 11500000, guid: 29faa82964c249749a00c6fdbf585954, type: 3}
+  m_Name: CrossPP_Test
   m_EditorClassIdentifier: 
-  projectileDetails: {fileID: 11400000, guid: 292d62fe3d810e947b1b0f60f5a43070, type: 2}

@@ -67,9 +67,7 @@ public class MonsterSpawn : MonoBehaviour
         currentWaveSpawnParameter = waveSpawnParameterList[waveCount];
 
         // 웨이브 지속시간 : 20+5(*wave) ~ 60 사이
-        waveTimer = UtilitieHelper.GetWaveTimer(waveCount);
-
-        if (currentWaveSpawnParameter.isBossWave == true) BossSpawn(); // 보스생성
+        waveTimer = UtilitieHelper.GetWaveTimer(waveCount);     
 
         WaveMonsterSpawn().Forget(); // UniTask 호출
     }
@@ -120,6 +118,8 @@ public class MonsterSpawn : MonoBehaviour
         {
             // 첫 1초 대기
             await UniTask.Delay(1000, cancellationToken:cts.Token);
+
+            if (currentWaveSpawnParameter.isBossWave == true) BossSpawn(); // 보스생성
 
             elapsedTime = 1f;
             monsterSpawnEvent.CallElapsedTimeChanged(elapsedTime); // 경과시간 변경 이벤트

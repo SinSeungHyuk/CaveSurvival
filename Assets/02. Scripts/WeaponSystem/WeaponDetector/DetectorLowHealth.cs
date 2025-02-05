@@ -1,9 +1,11 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "DetectorFarthest", menuName = "Scriptable Objects/Weapon/Detectors/Farthest")]
-public class DetectorFarthest : WeaponDetectorSO
+
+[CreateAssetMenu(fileName = "DetectorLowHealth", menuName = "Scriptable Objects/Weapon/Detectors/LowHealth")]
+public class DetectorLowHealth : WeaponDetectorSO
 {
     public override bool DetectMonster(Weapon weapon, out Vector2 direction, out GameObject monster)
     {
@@ -11,7 +13,13 @@ public class DetectorFarthest : WeaponDetectorSO
         var colliders = Physics2D.OverlapCircleAll(playerPosition, weapon.WeaponRange, Settings.monsterLayer);
         colliders = colliders.Where(mon => mon.GetComponent<Monster>().IsDead == false).ToArray();
 
-        if (colliders.Length == 0)
+        List<Monster> monsters = new();
+        foreach (var collider in colliders)
+        {
+            monsters.Add(collider.GetComponent<Monster>());
+        }
+
+        if (monsters.Count == 0)
         {
             direction = Vector2.zero;
             monster = null;
@@ -19,16 +27,15 @@ public class DetectorFarthest : WeaponDetectorSO
         }
 
         monster = null;
-        float dist = 0;
-        for (int i = 0; i < colliders.Length; i++)
+        float lowHp = Mathf.Infinity;
+        for (int i = 0; i < monsters.Count; i++)
         {
-            // 단순 거리비교이므로 계산량이 적은 sqrMagnitude 사용
-            float distance = (colliders[i].transform.position - playerPosition).sqrMagnitude;
-            if (dist < distance)
+            // 가장 낮은 체력과 현재 몬스터의 체력 비교
+            float hp = monsters[i].Stat.Hp;
+            if (hp < lowHp)
             {
-                // 레이어 검사를 통해 무조건 몬스터이므로 GetComponent 생략
-                monster = colliders[i].gameObject;
-                dist = distance;
+                monster = monsters[i].gameObject;
+                lowHp = hp;
             }
         }
 

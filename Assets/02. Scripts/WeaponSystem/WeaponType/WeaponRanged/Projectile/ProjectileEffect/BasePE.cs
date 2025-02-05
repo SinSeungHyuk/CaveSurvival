@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "Base_", menuName = "Scriptable Objects/Weapon/Projectile/PE/Base")]
+[CreateAssetMenu(fileName = "BasePE_", menuName = "Scriptable Objects/Weapon/Projectile/PE/Base")]
 public class BasePE : ProjectileEffectSO
 {
     private HitEffect hitEffect;

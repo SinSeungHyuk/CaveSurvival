@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using GooglePlayGames.BasicApi;
 
 public class PlayerLevelUp : MonoBehaviour
 {
-    [SerializeField] private PlayerLevelUpDatabase playerDB;
-    [SerializeField] private WeaponLevelUpDatabase weaponDB;
-    [SerializeField] private Database weaponDetailsDB;
+    private PlayerLevelUpDatabase playerDB;
+    private WeaponLevelUpDatabase weaponDB;
+    private Database weaponDetailsDB;
 
     private Player player;
     private PlayerStat playerStat;
@@ -20,6 +21,10 @@ public class PlayerLevelUp : MonoBehaviour
         player = GetComponent<Player>();
         playerStat = player.Stat;
         playerStat.OnLevelChanged += PlayerStat_OnLevelChanged;
+
+        weaponDetailsDB = AddressableManager.Instance.GetResource<Database>("DB_Weapon");
+        playerDB = AddressableManager.Instance.GetResource<PlayerLevelUpDatabase>("PlayerLevelUpDatabase");
+        weaponDB = AddressableManager.Instance.GetResource<WeaponLevelUpDatabase>("WeaponLevelUpDatabase");
     }
 
 

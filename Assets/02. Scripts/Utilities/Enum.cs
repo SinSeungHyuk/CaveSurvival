@@ -1,7 +1,7 @@
 
 // Only Enum
 
-public enum EPool
+public enum EPool // 오브젝트 풀에 등록할 풀 종류
 {
     Item,
     HitText,
@@ -17,13 +17,13 @@ public enum EPool
 }
 
 
-public enum EDetectorType
+public enum EDetectorType // 무기 탐지기준
 {
     Nearest,
     Farest,
 }
 
-public enum EGrade
+public enum EGrade // 아이템 등급 (등급별 경험치)
 {
     Normal = 4,
     Rare = 8,
@@ -31,27 +31,27 @@ public enum EGrade
     Legend = 30
 }
 
-public enum EItemType
+public enum EItemType // 아이템 타입
 {
     Exp,
     Magnet,
     Bomb,
 }
 
-public enum ESceneType
+public enum ESceneType // 씬 종류
 {
     MainMenu,
     MainGame,
 }
 
-public enum EParticleType
+public enum EParticleType // 적중시 이펙트
 {
     BasicHit,
     LightningHit,
     IceHit,
 }
 
-public enum EStatType
+public enum EStatType // 플레이어 스탯
 {
     Hp,
     HpRegen,
@@ -65,7 +65,7 @@ public enum EStatType
     ExpBonus,
 }
 
-public enum EWeaponStatType
+public enum EWeaponStatType // 무기 스탯
 {
     WeaponDamage,
     WeaponCriticChance,
@@ -75,7 +75,7 @@ public enum EWeaponStatType
     WeaponKnockback,
 }
 
-public enum ELevelUpGrade
+public enum ELevelUpGrade // 레벨업 (레벨업시 선택지 확률 포함)
 {
     Normal = 60,
     Rare = 30,
@@ -84,7 +84,7 @@ public enum ELevelUpGrade
 }
 
 
-public enum EStatsType // 통계 종류
+public enum EStatsType // 통계
 {
     WeaponTotalDamage,
     WeaponAcquiredTime, // 무기를 처음 획득한 시점의 경과시간
@@ -93,9 +93,16 @@ public enum EStatsType // 통계 종류
 }
 
 
-public enum ECurrencyType
+public enum ECurrencyType // 화폐
 {
     Achive,
     Gold,
     Diamond,
+}
+
+
+public enum EDebuffType // 몬스터 디버프
+{
+    Slow,
+    AttackDebuff,
 }

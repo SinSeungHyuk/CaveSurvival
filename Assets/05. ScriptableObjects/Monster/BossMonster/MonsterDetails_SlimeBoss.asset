@@ -23,7 +23,7 @@ MonoBehaviour:
   speed: 3
   chaseDistance: 12
   baseDamage: 10
-  maxHp: 15
+  maxHp: 150
   waveBonusHp: 0
   waveBonusDmg: 0
   itemDetails: {fileID: 11400000, guid: 581026149381d5c44b6b6029e1a965f8, type: 2}

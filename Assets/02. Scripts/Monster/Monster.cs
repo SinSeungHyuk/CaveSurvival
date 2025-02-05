@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Monster : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class Monster : MonoBehaviour
     private Rigidbody2D rigid;
     private PolygonCollider2D hitbox;
     private Animator animator;
+
     private bool isDead;
     private bool isBoss;
 
@@ -26,6 +28,7 @@ public class Monster : MonoBehaviour
 
     public Transform Player { get; private set; }
     public ItemDetailsSO DropItem { get; private set; }
+    public MonsterState MonsterState { get; private set; }
     public MonsterDetailsSO EnemyDetails => enemyDetails;
     public MonsterStat Stat => stat;
     public SpriteRenderer Sprite => sprite;
@@ -45,6 +48,7 @@ public class Monster : MonoBehaviour
         hitbox = GetComponent<PolygonCollider2D>();
         animator = GetComponent<Animator>();
         healthBar = GetComponent<HealthBarUI>();
+        MonsterState = GetComponentInChildren<MonsterState>();
         isBoss = (healthBar != null) ? true : false; // 보스만 체력바를 가지고 있음
         monsterDestroyedEvent = GetComponent<MonsterDestroyedEvent>();
         stat = new MonsterStat();

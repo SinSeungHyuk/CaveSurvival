@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class MainMenuTest : MonoBehaviour
 {
+    public int meleeRange;
 
-    public void BtnTest()
+
+    private void OnDrawGizmos()
     {
-        //var stageCharacterData = AddressableManager.Instance.GetResource<StageCharacterDataSO>("StageCharacterData");
-        //var playerData = AddressableManager.Instance.GetResource<Database>("DB_Player");
-        //var stageData = AddressableManager.Instance.GetResource<Database>("DB_Stage");
+        // Gizmo 색상 설정 (옵션)
+        Gizmos.color = Color.red;
 
-        //stageCharacterData.playerDetails = playerData.GetDataByID<PlayerDetailsSO>(1);
-        //stageCharacterData.stageDetails = stageData.GetDataByID<StageDetailsSO>(0);
-
-
-        //LoadingSceneManager.LoadScene("CombatScene", "Stage1", ESceneType.MainGame);
+        // 구체 그리기
+        Gizmos.DrawWireSphere(transform.position, meleeRange);
     }
 }

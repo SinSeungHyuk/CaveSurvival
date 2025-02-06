@@ -957,7 +957,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: This Stage is Slime's Cave!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 27737e8bfbce9c941b2c7f85e6612de1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b5f2242ab0b36af499ce488128feb3d9, type: 2}
   m_sharedMaterial: {fileID: 1070235561770144545, guid: 27737e8bfbce9c941b2c7f85e6612de1,
     type: 2}
   m_fontSharedMaterials: []
@@ -1022,7 +1022,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &193034674
@@ -1090,10 +1090,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Weapon upgrade
+  m_text: "\uBB34\uAE30 \uC5C5\uADF8\uB808\uC774\uB4DC"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 27737e8bfbce9c941b2c7f85e6612de1, type: 2}
-  m_sharedMaterial: {fileID: 1070235561770144545, guid: 27737e8bfbce9c941b2c7f85e6612de1,
+  m_fontAsset: {fileID: 11400000, guid: b5f2242ab0b36af499ce488128feb3d9, type: 2}
+  m_sharedMaterial: {fileID: -1569873648588609430, guid: b5f2242ab0b36af499ce488128feb3d9,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1118,8 +1118,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2302,9 +2302,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Play
+  m_text: "\uC2DC \uC791"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 27737e8bfbce9c941b2c7f85e6612de1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b5f2242ab0b36af499ce488128feb3d9, type: 2}
   m_sharedMaterial: {fileID: 1070235561770144545, guid: 27737e8bfbce9c941b2c7f85e6612de1,
     type: 2}
   m_fontSharedMaterials: []
@@ -2369,7 +2369,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &421828846
@@ -3294,7 +3294,6 @@ GameObject:
   - component: {fileID: 597918095}
   - component: {fileID: 597918094}
   - component: {fileID: 597918093}
-  - component: {fileID: 597918097}
   - component: {fileID: 597918099}
   - component: {fileID: 597918098}
   - component: {fileID: 597918100}
@@ -3396,18 +3395,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &597918097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 597918092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 542016939722ce24094833e20d767963, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &597918098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3765,7 +3752,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 4300
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 27737e8bfbce9c941b2c7f85e6612de1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b5f2242ab0b36af499ce488128feb3d9, type: 2}
   m_sharedMaterial: {fileID: 1070235561770144545, guid: 27737e8bfbce9c941b2c7f85e6612de1,
     type: 2}
   m_fontSharedMaterials: []
@@ -3830,7 +3817,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &649362432
@@ -4198,9 +4185,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wait for update!!
+  m_text: Comming Soon
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 27737e8bfbce9c941b2c7f85e6612de1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b5f2242ab0b36af499ce488128feb3d9, type: 2}
   m_sharedMaterial: {fileID: 1070235561770144545, guid: 27737e8bfbce9c941b2c7f85e6612de1,
     type: 2}
   m_fontSharedMaterials: []
@@ -4265,7 +4252,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &738987263
@@ -5576,7 +5563,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: This Stage is Slime's Cave!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 27737e8bfbce9c941b2c7f85e6612de1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b5f2242ab0b36af499ce488128feb3d9, type: 2}
   m_sharedMaterial: {fileID: 1070235561770144545, guid: 27737e8bfbce9c941b2c7f85e6612de1,
     type: 2}
   m_fontSharedMaterials: []
@@ -5641,7 +5628,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1031857608
@@ -6815,7 +6802,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Ivy
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 27737e8bfbce9c941b2c7f85e6612de1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b5f2242ab0b36af499ce488128feb3d9, type: 2}
   m_sharedMaterial: {fileID: 1070235561770144545, guid: 27737e8bfbce9c941b2c7f85e6612de1,
     type: 2}
   m_fontSharedMaterials: []
@@ -6880,7 +6867,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1335171875
@@ -6950,7 +6937,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Slime's Cave
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 27737e8bfbce9c941b2c7f85e6612de1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b5f2242ab0b36af499ce488128feb3d9, type: 2}
   m_sharedMaterial: {fileID: 1070235561770144545, guid: 27737e8bfbce9c941b2c7f85e6612de1,
     type: 2}
   m_fontSharedMaterials: []
@@ -7015,7 +7002,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1338084390
@@ -8638,7 +8625,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 4300
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 27737e8bfbce9c941b2c7f85e6612de1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b5f2242ab0b36af499ce488128feb3d9, type: 2}
   m_sharedMaterial: {fileID: 1070235561770144545, guid: 27737e8bfbce9c941b2c7f85e6612de1,
     type: 2}
   m_fontSharedMaterials: []
@@ -8703,7 +8690,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1792371592
@@ -8971,7 +8958,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: This Stage is Slime's Cave!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 27737e8bfbce9c941b2c7f85e6612de1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b5f2242ab0b36af499ce488128feb3d9, type: 2}
   m_sharedMaterial: {fileID: 1070235561770144545, guid: 27737e8bfbce9c941b2c7f85e6612de1,
     type: 2}
   m_fontSharedMaterials: []
@@ -9036,7 +9023,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1840917974
@@ -9721,6 +9708,7 @@ GameObject:
   - component: {fileID: 2003944674}
   - component: {fileID: 2003944673}
   - component: {fileID: 2003944675}
+  - component: {fileID: 2003944676}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -9816,6 +9804,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2003944676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003944672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542016939722ce24094833e20d767963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleeRange: 2
 --- !u!1 &2037244303
 GameObject:
   m_ObjectHideFlags: 0
@@ -9873,18 +9874,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Into the Cave..
+  m_text: "\uB3D9\uAD74 \uC120\uD0DD\uD558\uAE30"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 27737e8bfbce9c941b2c7f85e6612de1, type: 2}
-  m_sharedMaterial: {fileID: 1070235561770144545, guid: 27737e8bfbce9c941b2c7f85e6612de1,
+  m_fontAsset: {fileID: 11400000, guid: b5f2242ab0b36af499ce488128feb3d9, type: 2}
+  m_sharedMaterial: {fileID: -1569873648588609430, guid: b5f2242ab0b36af499ce488128feb3d9,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4291224819
+  m_fontColor: {r: 0.9528302, g: 0.8944019, b: 0.7775454, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9901,8 +9902,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

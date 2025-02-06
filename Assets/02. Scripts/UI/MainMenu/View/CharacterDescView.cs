@@ -64,7 +64,7 @@ public class CharacterDescView : MonoBehaviour
         } 
         else
         {
-            txtUnlockCost.text = "Unlock";
+            txtUnlockCost.text = "«ÿ¡¶µ ";
         }
     }
 }

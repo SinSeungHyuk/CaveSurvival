@@ -46,7 +46,7 @@ public class StageDescView : MonoBehaviour
         }
         else
         {
-            txtUnlockCost.text = "Unlock";
+            txtUnlockCost.text = "«ÿ¡¶µ ";
         }
     }
 }

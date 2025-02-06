@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c52b48b0533a49f4aa55420947dd81f5, type: 3}
+  m_Name: WeaponDetails_Mystic Pan
+  m_EditorClassIdentifier: 
+  id: 2
+  weaponName: Mystic Pan
+  weaponSprite: {fileID: 21300000, guid: c1ed9d39ed396cd4c9c7d44456327ab2, type: 3}
+  description: "Mystic Pan - \uD0C4\uC774 \uC801\uC744 1\uD68C \uAD00\uD1B5\uD558\uACE0
+    \uC774\uB3D9\uC18D\uB3C4\uC640 \uACF5\uACA9\uB825\uC744 15%\uC529 \uAC10\uC18C\uC2DC\uD0A4\uB294
+    \uD32C\n"
+  upgradeDesc: "\uBAA8\uB4E0 \uAC10\uC18C \uD6A8\uACFC\uAC00 30%\uB85C \uC99D\uAC00\uD569\uB2C8\uB2E4."
+  weaponType: {fileID: 11400000, guid: 67e3c00bb20afe34caf73b0d9274eb1d, type: 2}
+  upgradeType: {fileID: 11400000, guid: 0d242c21a774f1544978a22145869c05, type: 2}
+  detectorType: {fileID: 11400000, guid: 2f1b79271339434498c11bcb196d4c2b, type: 2}
+  weaponBaseDamage: 5
+  weaponCriticChance: 10
+  weaponCriticDamage: 50
+  weaponFireRate: 0.65
+  weaponRange: 13
+  weaponKnockback: 25
+  weaponParticle: 2

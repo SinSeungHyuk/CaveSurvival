@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c52b48b0533a49f4aa55420947dd81f5, type: 3}
+  m_Name: WeaponDetails_Titan Axe
+  m_EditorClassIdentifier: 
+  id: 1
+  weaponName: Titan Axe
+  weaponSprite: {fileID: 21300000, guid: 77bd5845693f02d4997bce58c5e372c1, type: 3}
+  description: "Titan Axe - \uAC15\uB825\uD55C \uC77C\uACA9\uC744 \uB0A0\uB9AC\uB294
+    \uB3C4\uB07C"
+  upgradeDesc: "\uACF5\uACA9 \uBC94\uC704\uAC00 50% \uB113\uC5B4\uC9D1\uB2C8\uB2E4.\n"
+  weaponType: {fileID: 11400000, guid: c3d0ba16340a8e34794361542285a3a8, type: 2}
+  upgradeType: {fileID: 11400000, guid: 73af1d1704d195f4ca0d1a46ba0e8a40, type: 2}
+  detectorType: {fileID: 11400000, guid: 2f1b79271339434498c11bcb196d4c2b, type: 2}
+  weaponBaseDamage: 26
+  weaponCriticChance: 10
+  weaponCriticDamage: 50
+  weaponFireRate: 1.9
+  weaponRange: 5
+  weaponKnockback: 270
+  weaponParticle: 2

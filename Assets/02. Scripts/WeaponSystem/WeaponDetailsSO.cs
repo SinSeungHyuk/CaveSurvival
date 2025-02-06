@@ -8,7 +8,7 @@ public class WeaponDetailsSO : IdentifiedObject
     [Header("Weapon Base Details")]
     public string weaponName;
     public Sprite weaponSprite;
-    public string description; // 무기 기본설명
+    [TextArea] public string description; // 무기 기본설명
     [TextArea] public string upgradeDesc; // 무기 업그레이드 설명
 
     [Header("Weapon Type")]

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c52b48b0533a49f4aa55420947dd81f5, type: 3}
+  m_Name: WeaponDetails_Hellfire Axe
+  m_EditorClassIdentifier: 
+  id: 1
+  weaponName: Hellfire Axe
+  weaponSprite: {fileID: 21300000, guid: 8ad3ed266b9625642b87766a8ae2db26, type: 3}
+  description: "Hellfire Axe - \uBD88\uAF43\uC73C\uB85C \uB4A4\uB36E\uC778 \uAC15\uB825\uD55C
+    \uB3C4\uB07C\n"
+  upgradeDesc: "\uACF5\uACA9 \uBC94\uC704\uAC00 50% \uB113\uC5B4\uC9D1\uB2C8\uB2E4.\n"
+  weaponType: {fileID: 11400000, guid: f00727695ba5d224c84ea1cb85cc083b, type: 2}
+  upgradeType: {fileID: 11400000, guid: 19487e84121c6994198f17e02333b99b, type: 2}
+  detectorType: {fileID: 11400000, guid: 2f1b79271339434498c11bcb196d4c2b, type: 2}
+  weaponBaseDamage: 30
+  weaponCriticChance: 5
+  weaponCriticDamage: 50
+  weaponFireRate: 2
+  weaponRange: 5
+  weaponKnockback: 270
+  weaponParticle: 4

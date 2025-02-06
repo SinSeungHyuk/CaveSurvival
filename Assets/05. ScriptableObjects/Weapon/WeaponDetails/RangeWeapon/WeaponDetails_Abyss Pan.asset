@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c52b48b0533a49f4aa55420947dd81f5, type: 3}
+  m_Name: WeaponDetails_Abyss Pan
+  m_EditorClassIdentifier: 
+  id: 2
+  weaponName: Abyss Pan
+  weaponSprite: {fileID: 21300000, guid: 048539fe5a18cd4479a82328b5ead16b, type: 3}
+  description: "Abyss Pan - \uAC00\uC7A5 \uBA40\uB9AC\uC788\uB294 \uC801\uC744 \uD5A5\uD574
+    \uD0C4\uC744 \uBC1C\uC0AC\uD558\uB294 \uD32C"
+  upgradeDesc: "\uD0C4\uC18D\uC774 \uC99D\uAC00\uD558\uACE0 \uD0C4\uC774 \uC801\uC744
+    10\uBC88 \uAD00\uD1B5\uD569\uB2C8\uB2E4."
+  weaponType: {fileID: 11400000, guid: 47858d74b17099b47b009a0d4842b510, type: 2}
+  upgradeType: {fileID: 11400000, guid: 04d32b3515258154f884b66f0f6414a6, type: 2}
+  detectorType: {fileID: 11400000, guid: 4bad31c8c2c54a04a8ad485f1ec1dd7b, type: 2}
+  weaponBaseDamage: 30
+  weaponCriticChance: 10
+  weaponCriticDamage: 50
+  weaponFireRate: 1.8
+  weaponRange: 20
+  weaponKnockback: 100
+  weaponParticle: 2

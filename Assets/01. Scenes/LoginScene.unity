@@ -3089,10 +3089,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cave Survival
+  m_text: 'Cave Survival
+
+'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 27737e8bfbce9c941b2c7f85e6612de1, type: 2}
-  m_sharedMaterial: {fileID: 1070235561770144545, guid: 27737e8bfbce9c941b2c7f85e6612de1,
+  m_fontAsset: {fileID: 11400000, guid: b5f2242ab0b36af499ce488128feb3d9, type: 2}
+  m_sharedMaterial: {fileID: -1569873648588609430, guid: b5f2242ab0b36af499ce488128feb3d9,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

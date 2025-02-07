@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerLevelUpData_4
   m_EditorClassIdentifier: 
   id: 3
-  description: Dodge +2
-  statType: 7
-  value: 2
+  description: "\uCCB4\uB825 +10"
+  statType: 0
+  value: 10
   ratio: 3

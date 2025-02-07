@@ -36,7 +36,7 @@ public enum EItemType // 아이템 타입
 {
     Exp,
     Magnet,
-    Bomb,
+    Hp,
 }
 
 public enum ESceneType // 씬 종류

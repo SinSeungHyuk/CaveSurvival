@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 644ffb332eada364abe0e8895f38d2a9, type: 3}
+  m_Name: EnemyDetails_MeleeBlue
+  m_EditorClassIdentifier: 
+  id: 0
+  enemyName: MeleeBlue
+  sprite: {fileID: 21300000, guid: dcb39f06937b46749b5bd9d84eb8b61b, type: 3}
+  spriteColor: {r: 1, g: 1, b: 1, a: 1}
+  runtimeAnimatorController: {fileID: 9100000, guid: 4e1d07948782aa840900fe17f61a124a,
+    type: 2}
+  movementType: {fileID: 11400000, guid: d6e74cbb0cc1a424b81cfe7c3fa5c431, type: 2}
+  attackType: {fileID: 0}
+  speed: 4
+  chaseDistance: 0
+  baseDamage: 1
+  maxHp: 2
+  waveBonusHp: 2
+  waveBonusDmg: 0.6
+  itemDetails: {fileID: 11400000, guid: d2815277563e3c041bb4b485c58919f8, type: 2}
+  enemyStandardMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  enemyHitMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

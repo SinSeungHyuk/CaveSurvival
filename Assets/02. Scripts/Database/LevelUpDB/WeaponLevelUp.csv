@@ -1,5 +1,25 @@
 id,description,statType,value,ratio
-0,FireRate +20%,WeaponFireRate,20,Normal
-1,Range +15%,WeaponRange,15,Rare
-2,Damage +5,WeaponDamage,5,Unique
-3,Critic Chance +10%,WeaponCriticChance,10,Legend
+0,% 데미지 +10,WeaponDamage,10,Normal
+1,% 데미지 +15,WeaponDamage,15,Rare
+2,% 데미지 +25,WeaponDamage,25,Unique
+3,% 데미지 +40,WeaponDamage,40,Legend
+4,치명 확률 +5,WeaponCriticChance,5,Normal
+5,치명 확률 +7,WeaponCriticChance,7,Rare
+6,치명 확률 +10,WeaponCriticChance,10,Unique
+7,치명 확률 +15,WeaponCriticChance,15,Legend
+8,치명 데미지 +10,WeaponCriticDamage,10,Normal
+9,치명 데미지 +15,WeaponCriticDamage,15,Rare
+10,치명 데미지 +25,WeaponCriticDamage,25,Unique
+11,치명 데미지 +40,WeaponCriticDamage,40,Legend
+12,% 공격속도 +10,WeaponFireRate,10,Normal
+13,% 공격속도 +15,WeaponFireRate,15,Rare
+14,% 공격속도 +25,WeaponFireRate,25,Unique
+15,% 공격속도 +40,WeaponFireRate,40,Legend
+16,% 사거리 +10,WeaponRange,10,Normal
+17,% 사거리 +15,WeaponRange,15,Rare
+18,% 사거리 +25,WeaponRange,25,Unique
+19,% 사거리 +40,WeaponRange,40,Legend
+20,넉백 +10,WeaponKnockback,10,Normal
+21,넉백 +25,WeaponKnockback,25,Rare
+22,넉백 +50,WeaponKnockback,50,Unique
+23,넉백 +100,WeaponKnockback,100,Legend

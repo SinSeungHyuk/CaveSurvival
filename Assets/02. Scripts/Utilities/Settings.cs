@@ -15,10 +15,11 @@ public static class Settings
 
     #region PLAYER SETTING
     public static int maxWeaponCount = 4; // 무기 최대 보유수 4
-    public static int startExp = 25; // 1레벨 최대 경험치
+    public static int startExp = 40; // 1레벨 최대 경험치
     public static float expPerLevel = 0.1f; // 레벨당 증가 경험치
     public static int combatScalingConstant = 100; // 방어력 100일때 피해량 50% 감소
     public static int weaponUpgradeLevel = 9; // 무기는 9레벨에서 10레벨로 넘어갈때 업그레이드
+    public static int hpRecoveryValue = 25;
     #endregion
 
 

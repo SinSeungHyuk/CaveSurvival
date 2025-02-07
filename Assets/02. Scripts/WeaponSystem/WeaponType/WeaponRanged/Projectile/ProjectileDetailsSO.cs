@@ -8,6 +8,8 @@ public class ProjectileDetailsSO : ScriptableObject
 {
     // 투사체 이미지
     public Sprite sprite;
+    // 투사체 머테리얼
+    public Material material;
 
     // 투사체 적중시 효과 (폭발, 관통 등)
     public ProjectileEffectSO projectileEffect;

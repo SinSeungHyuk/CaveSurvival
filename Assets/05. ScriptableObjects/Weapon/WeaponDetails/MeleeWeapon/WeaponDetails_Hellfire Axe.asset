@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52b48b0533a49f4aa55420947dd81f5, type: 3}
   m_Name: WeaponDetails_Hellfire Axe
   m_EditorClassIdentifier: 
-  id: 1
+  id: 5
   weaponName: Hellfire Axe
   weaponSprite: {fileID: 21300000, guid: 8ad3ed266b9625642b87766a8ae2db26, type: 3}
   description: "Hellfire Axe - \uBD88\uAF43\uC73C\uB85C \uB4A4\uB36E\uC778 \uAC15\uB825\uD55C

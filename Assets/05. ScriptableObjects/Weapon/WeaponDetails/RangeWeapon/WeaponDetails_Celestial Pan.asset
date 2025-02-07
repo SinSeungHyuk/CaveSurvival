@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52b48b0533a49f4aa55420947dd81f5, type: 3}
   m_Name: WeaponDetails_Celestial Pan
   m_EditorClassIdentifier: 
-  id: 0
+  id: 13
   weaponName: Celestial Pan
   weaponSprite: {fileID: 21300000, guid: f5364fa76152bb942bbeabc057df4ec1, type: 3}
   description: "Celestial Pan - \uAD49\uC7A5\uD788 \uBE60\uB978 \uC18D\uB3C4\uB85C

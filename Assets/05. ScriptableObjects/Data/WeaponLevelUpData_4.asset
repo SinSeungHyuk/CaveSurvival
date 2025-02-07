@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WeaponLevelUpData_4
   m_EditorClassIdentifier: 
   id: 3
-  description: Critic Chance +10%
-  statType: 1
-  value: 10
+  description: "% \uB370\uBBF8\uC9C0 +40"
+  statType: 0
+  value: 40
   ratio: 3

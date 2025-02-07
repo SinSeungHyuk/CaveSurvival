@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52b48b0533a49f4aa55420947dd81f5, type: 3}
   m_Name: WeaponDetails_Abyss Pan
   m_EditorClassIdentifier: 
-  id: 2
+  id: 11
   weaponName: Abyss Pan
   weaponSprite: {fileID: 21300000, guid: 048539fe5a18cd4479a82328b5ead16b, type: 3}
   description: "Abyss Pan - \uAC00\uC7A5 \uBA40\uB9AC\uC788\uB294 \uC801\uC744 \uD5A5\uD574

@@ -28,7 +28,7 @@ MonoBehaviour:
   BonusDamage: 0
   MeleeDamage: 0
   RangeDamage: 0
-  Speed: 8
+  Speed: 7
   Dodge: 15
   PickUpRange: 0
   ExpBonus: 0

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 644ffb332eada364abe0e8895f38d2a9, type: 3}
+  m_Name: EnemyDetails_Hp
+  m_EditorClassIdentifier: 
+  id: 0
+  enemyName: Hp
+  sprite: {fileID: 21300000, guid: b194788f230d64749a077da4f0b7681f, type: 3}
+  spriteColor: {r: 1, g: 1, b: 1, a: 1}
+  runtimeAnimatorController: {fileID: 9100000, guid: dcc7b9aa2432c7c4faafca5c1391981c,
+    type: 2}
+  movementType: {fileID: 11400000, guid: a7a0b3ebb1349bd46b9c924c741ce833, type: 2}
+  attackType: {fileID: 0}
+  speed: 4
+  chaseDistance: 0
+  baseDamage: 0
+  maxHp: 50
+  waveBonusHp: 25
+  waveBonusDmg: 0
+  itemDetails: {fileID: 11400000, guid: 47d6cf1ced39efd4ab0abfccc1ecc5b7, type: 2}
+  enemyStandardMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  enemyHitMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

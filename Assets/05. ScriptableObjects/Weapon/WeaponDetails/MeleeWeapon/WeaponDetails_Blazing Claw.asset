@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52b48b0533a49f4aa55420947dd81f5, type: 3}
   m_Name: WeaponDetails_Blazing Claw
   m_EditorClassIdentifier: 
-  id: 1
+  id: 0
   weaponName: Blazing Claw
   weaponSprite: {fileID: 21300000, guid: 4502abbd5e04c3348a3d7df1f7bacaf3, type: 3}
   description: "Blazing Claw - \uAC15\uB825\uD55C \uD654\uC5FC \uACF5\uACA9\uC744

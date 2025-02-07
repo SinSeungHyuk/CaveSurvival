@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52b48b0533a49f4aa55420947dd81f5, type: 3}
   m_Name: WeaponDetails_Thunder Pan
   m_EditorClassIdentifier: 
-  id: 2
+  id: 19
   weaponName: Thunder Pan
   weaponSprite: {fileID: 21300000, guid: 96eded10f066a524fb58671e3ad8b5ef, type: 3}
   description: "Thunder Pan - \uC801\uC744 \uAC10\uC804\uC2DC\uD0A4\uB294 \uD0C4\uC744

@@ -45,6 +45,7 @@ public class Projectile : MonoBehaviour
     public void InitializeProjectile(ProjectileDetailsSO projectileDetails, List<BonusEffectSO> bonusEffects, Vector2 direction, Weapon weapon)
     {
         spriteRenderer.sprite = projectileDetails.sprite;
+        spriteRenderer.material = projectileDetails.material;
 
         //soundEffect = weapon.weaponFiringSoundEffect;
         this.projectileEffect = projectileDetails.projectileEffect;

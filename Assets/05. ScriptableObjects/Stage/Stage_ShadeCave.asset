@@ -20,26 +20,15 @@ MonoBehaviour:
   waveSpawnParameter:
   - batchSpawnCount: 1
     monsterSpawnParameters:
-    - monsterDetailsSO: {fileID: 11400000, guid: eeb2c6576d70a9a4c8147d089ffd0822,
+    - monsterDetailsSO: {fileID: 11400000, guid: 24071d767b6b6fc488f7ebdfae86ddc7,
+        type: 2}
+      Ratio: 1
+    - monsterDetailsSO: {fileID: 11400000, guid: 4600aa37b611711449013dcf0df7a8b7,
         type: 2}
       Ratio: 1
     isBossWave: 0
     spawnableBossList:
     - {fileID: 11400000, guid: 81f2cbea545bb5e4fa0b98474f9745b3, type: 2}
-  - batchSpawnCount: 1
-    monsterSpawnParameters:
-    - monsterDetailsSO: {fileID: 11400000, guid: eeb2c6576d70a9a4c8147d089ffd0822,
-        type: 2}
-      Ratio: 1
-    isBossWave: 0
-    spawnableBossList: []
-  - batchSpawnCount: 1
-    monsterSpawnParameters:
-    - monsterDetailsSO: {fileID: 11400000, guid: 88c47fa39b5642445ad892e1ef28af4b,
-        type: 2}
-      Ratio: 1
-    isBossWave: 0
-    spawnableBossList: []
   bossSprite: {fileID: 172626504, guid: c4d2ccab0c2ad7e47853b6e31a7ac7c2, type: 3}
   isUnlock: 0
   unlockCost: 2000

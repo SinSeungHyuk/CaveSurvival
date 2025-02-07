@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerLevelUpData_3
   m_EditorClassIdentifier: 
   id: 2
-  description: Speed +3
-  statType: 6
-  value: 3
+  description: "\uCCB4\uB825 +7"
+  statType: 0
+  value: 7
   ratio: 7

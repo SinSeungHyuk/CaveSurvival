@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52b48b0533a49f4aa55420947dd81f5, type: 3}
   m_Name: WeaponDetails_Titan Axe
   m_EditorClassIdentifier: 
-  id: 1
+  id: 10
   weaponName: Titan Axe
   weaponSprite: {fileID: 21300000, guid: 77bd5845693f02d4997bce58c5e372c1, type: 3}
   description: "Titan Axe - \uAC15\uB825\uD55C \uC77C\uACA9\uC744 \uB0A0\uB9AC\uB294

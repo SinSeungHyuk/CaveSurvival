@@ -21,11 +21,11 @@ MonoBehaviour:
   movementType: {fileID: 11400000, guid: 39c75b084eb77584993236024bd5ba4a, type: 2}
   attackType: {fileID: 11400000, guid: 99844b45ef9883e4bb52c9a04ccd1e27, type: 2}
   speed: 3
-  chaseDistance: 12
-  baseDamage: 10
-  maxHp: 150
+  chaseDistance: 11
+  baseDamage: 25
+  maxHp: 5000
   waveBonusHp: 0
   waveBonusDmg: 0
-  itemDetails: {fileID: 11400000, guid: 581026149381d5c44b6b6029e1a965f8, type: 2}
+  itemDetails: {fileID: 11400000, guid: b66125583b78a934e94da54ab67104f5, type: 2}
   enemyStandardMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   enemyHitMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}

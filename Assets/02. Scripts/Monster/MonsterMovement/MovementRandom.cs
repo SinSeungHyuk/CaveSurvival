@@ -21,6 +21,8 @@ public class MovementRandom : MonsterMovementSO
     {
         isMove = true;
 
+        rigid.mass = 1f;
+
         while (true)
         {
             float x = Random.Range(-1.0f, 1.0f);

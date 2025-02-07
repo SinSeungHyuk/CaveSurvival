@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52b48b0533a49f4aa55420947dd81f5, type: 3}
   m_Name: WeaponDetails_Solar Pan
   m_EditorClassIdentifier: 
-  id: 2
+  id: 18
   weaponName: Solar Pan
   weaponSprite: {fileID: 21300000, guid: 5465c2e6e4df7db458cc3edef312de4d, type: 3}
   description: "Solar Pan - \uC801\uC744 1\uD68C \uAD00\uD1B5\uD558\uB294 \uBE5B\uC758

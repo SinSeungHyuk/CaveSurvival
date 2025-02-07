@@ -75,13 +75,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18eb070d628842e44a463855673dbafd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debuffConfigurations:
-  - type: 0
-    statType: 0
-    iconTexture: {fileID: 2800000, guid: d519f85b7fcb48543bf2f1dfb3bea5c9, type: 3}
-  - type: 1
-    statType: 1
-    iconTexture: {fileID: 2800000, guid: 5a40dc723e6072745bf133932e856bd6, type: 3}
 --- !u!1 &5355460694420824825
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +222,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

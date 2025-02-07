@@ -111,8 +111,8 @@ public static class UtilitieHelper
             case EItemType.Magnet:
                 color = Settings.magnet;
                 return color;
-            case EItemType.Bomb:
-                //color = Settings.rare;
+            case EItemType.Hp:
+                color = Settings.green;
                 return color;
         }
 

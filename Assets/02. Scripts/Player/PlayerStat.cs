@@ -8,6 +8,7 @@ public class PlayerStat
 {
     public event Action<PlayerStat, float> OnExpChanged;
     public event Action<PlayerStat, int> OnLevelChanged;
+    public event Action<PlayerStat, float> OnHpChanged; 
 
 
     private Player player;
@@ -32,6 +33,11 @@ public class PlayerStat
                 OnLevelChanged?.Invoke(this, Level);
                 currentExp -= Exp;
                 Exp = Exp + (int)(Exp * Settings.expPerLevel);
+
+                // 레벨업시 체력 1 상승
+                MaxHp++;
+                Hp++;
+                player.HealthBar.SetHealthBar(Hp / MaxHp);
             }
 
             OnExpChanged?.Invoke(this, (float)currentExp / (float)Exp);
@@ -97,7 +103,7 @@ public class PlayerStat
         damage = UtilitieHelper.DecreaseByPercent(damage, def);
 
         Hp -= damage;
-        player.HealthBar.SetHealthBar(Hp / MaxHp);
+        HpChanged();
     }
 
     public async UniTaskVoid HPRegenRoutine()
@@ -106,7 +112,7 @@ public class PlayerStat
         while (true)
         {
             Hp = Mathf.Clamp(Hp+1, 0, MaxHp);
-            player.HealthBar.SetHealthBar(Hp / MaxHp);
+            HpChanged();
 
             // 체력재생 공식 : 5 / (1 + (HpRegen - 1) / 2.25f) 초마다 1씩 재생
             await UniTask.Delay(hpRegenTimer, cancellationToken: player.DisableCancellation.Token);
@@ -120,6 +126,7 @@ public class PlayerStat
             case EStatType.Hp:
                 // HP 관련 처리
                 MaxHp += data.value;
+                HpChanged();
                 break;
             case EStatType.HpRegen:
                 // HP 재생 관련 처리
@@ -166,4 +173,21 @@ public class PlayerStat
 
         Debug.Log($"{MaxHp} , {HpRegen} , {Defense} , {BonusDamage} , {MeleeDamage} , {RangeDamage} , {Speed} , {Dodge}  , {PickUpRange} ,  {ExpBonus}");
     } 
+
+    public void HpRecovery(int value)
+    {
+        float addHp = MaxHp * value * 0.01f;
+        Hp = Mathf.Clamp(Hp + addHp, 0, MaxHp);
+        player.HealthBar.SetHealthBar(Hp / MaxHp);
+    }
+
+    public float GetHPStatRatio()
+        => Hp / MaxHp;
+
+
+    private void HpChanged()
+    {
+        player.HealthBar.SetHealthBar(Hp / MaxHp);
+        OnHpChanged?.Invoke(this, Hp);
+    }
 }

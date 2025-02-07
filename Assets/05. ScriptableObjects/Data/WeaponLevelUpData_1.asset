@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WeaponLevelUpData_1
   m_EditorClassIdentifier: 
   id: 0
-  description: FireRate +20%
-  statType: 3
-  value: 20
+  description: "% \uB370\uBBF8\uC9C0 +10"
+  statType: 0
+  value: 10
   ratio: 60

@@ -25,6 +25,11 @@ public class PlayerLevelUp : MonoBehaviour
         weaponDetailsDB = AddressableManager.Instance.GetResource<Database>("DB_Weapon");
         playerDB = AddressableManager.Instance.GetResource<PlayerLevelUpDatabase>("PlayerLevelUpDatabase");
         weaponDB = AddressableManager.Instance.GetResource<WeaponLevelUpDatabase>("WeaponLevelUpDatabase");
+
+        Debug.Log($"STart!!! playerDB Data =??? {playerDB.database.Count}");
+        Debug.Log($"STart!!! playerDB Data =??? {playerDB.database[0].description}");
+        Debug.Log($"STart!!! weaponDB Data =??? {weaponDB.database.Count}");
+        Debug.Log($"STart!!! weaponDetailsDB Data =??? {weaponDetailsDB.Count}");
     }
 
 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WeaponLevelUpData_2
   m_EditorClassIdentifier: 
   id: 1
-  description: Range +15%
-  statType: 4
+  description: "% \uB370\uBBF8\uC9C0 +15"
+  statType: 0
   value: 15
   ratio: 30

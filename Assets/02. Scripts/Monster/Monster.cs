@@ -83,7 +83,9 @@ public class Monster : MonoBehaviour
         animator.runtimeAnimatorController = data.runtimeAnimatorController;
         sprite.sprite = enemyDetails.sprite;
         sprite.color = Color.white;
+        sprite.material = data.enemyStandardMaterial;
         rigid.freezeRotation = true;
+        rigid.mass = 0.1f;
         transform.localScale = Vector3.one;
         hitbox.enabled = true;
         isDead = false;

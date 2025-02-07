@@ -136,6 +136,11 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
             case EItemType.Exp:
                 player.Stat.CurrentExp += (gainExp + player.Stat.ExpBonus);
                 break;
+            case EItemType.Hp:
+                player.HpRecoveryPercent(Settings.hpRecoveryValue);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
 
         ReleaseItem();

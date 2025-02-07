@@ -115,6 +115,12 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void HpRecoveryPercent(int value)
+    {
+        // value % 만큼 현재 체력 회복
+        Stat.HpRecovery(value);
+    }
+
 
     #region TEST FUNCTION
     public void AddWeaponTest()

@@ -18,8 +18,9 @@ public class MainMenuUIController : MonoBehaviour
     [SerializeField] private Button btnExit;
     [SerializeField] private Button btnShop;
 
-    [Header("Test")]
+    [Header("BGM")]
     [SerializeField] private Button btnTest;
+    [SerializeField] private MusicTrackSO mainmenuBGM;
 
 
     private CurrencyController currencyController;
@@ -47,6 +48,7 @@ public class MainMenuUIController : MonoBehaviour
             currencySystem.IncreaseCurrency(ECurrencyType.Diamond, 7);
         });
 
+        MusicManager.Instance.PlayMusic(mainmenuBGM);
 
 #if UNITY_EDITOR
         InitializeMainMenuUIController();
@@ -55,6 +57,9 @@ public class MainMenuUIController : MonoBehaviour
 
     private void InitializeMainMenuUIController()
     {
+        Debug.Log($"ui컨트롤러 초기화 - 로드 피니쉬 호출. 언락 = ");
+        if (unlockSystem != null) Debug.Log("ui컨트롤러 - 언락은 null이 아니다@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+
         currencyController.InitializeCurrencyController(currencySystem);
 
         btnStage.onClick.AddListener(() 

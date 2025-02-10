@@ -39,8 +39,18 @@ public class Database : ScriptableObject
     }
 
 
-    public T GetDataByID<T>(int id) where T : IdentifiedObject    
-        => db.FirstOrDefault(x => x.ID == id) as T;
+    public T GetDataByID<T>(int id) where T : IdentifiedObject
+    {
+        var result = db.FirstOrDefault(x => x.ID == id) as T;
+
+        // null이면 로그를 출력한다
+        if (result == null)
+        {
+            Debug.LogWarning($"Data with ID {id} not found in the database.#@$@#%@#^#$%&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+        }
+
+        return result;
+    }
 
     public bool Contains(IdentifiedObject item) 
         => db.Contains(item);

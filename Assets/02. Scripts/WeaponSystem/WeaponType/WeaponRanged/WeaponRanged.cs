@@ -21,5 +21,6 @@ public class WeaponRanged : WeaponTypeDetailsSO
 
         float angle = UtilitieHelper.GetAngleFromVector(direction);
         weapon.Player.WeaponTransform.RotateWeapon(weapon, angle);
+        SoundEffectManager.Instance.PlaySoundEffect(weapon.WeaponSoundEffect);
     }
 }

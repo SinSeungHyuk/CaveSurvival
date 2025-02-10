@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb482384d98b0f428b4228ee472941e, type: 3}
   m_Name: ItemDetails_Hp
   m_EditorClassIdentifier: 
-  id: 1
+  id: 5
   ItemSprite: {fileID: 21300000, guid: 707b24fc2d27f5e4f82baf059de0638b, type: 3}
   itemGrade: 30
   itemType: 2
+  soundEffect: {fileID: 11400000, guid: cfa8a9c61b3167044add47b82fb90897, type: 2}

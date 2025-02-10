@@ -13,6 +13,7 @@ public class Weapon : MonoBehaviour
     public WeaponDetectorSO DetectorType { get; private set; }
     public EPool WeaponParticle { get; private set; }
     public Sprite WeaponSprite { get; private set; }
+    public SoundEffectSO WeaponSoundEffect { get; private set; }
     public Player Player { get; set; } // 무기를 소유한 플레이어
 
 
@@ -53,6 +54,7 @@ public class Weapon : MonoBehaviour
         DetectorType = weaponDetails.detectorType;
         WeaponParticle = weaponDetails.weaponParticle;
         WeaponSprite = weaponDetails.weaponSprite;
+        WeaponSoundEffect = weaponDetails.weaponFiringSoundEffect;
 
         WeaponLevel = 1;
         WeaponDamage = weaponDetails.weaponBaseDamage;

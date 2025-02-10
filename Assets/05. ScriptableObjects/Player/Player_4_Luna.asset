@@ -22,7 +22,7 @@ MonoBehaviour:
     type: 2}
   characterStrength: "+ \uCCB4\uB825 \uC7AC\uC0DD\n+ \uADFC\uAC70\uB9AC \uB370\uBBF8\uC9C0"
   characterWeakness: "- \uBC29\uC5B4\uB825"
-  Hp: 90
+  Hp: 30
   HpRegen: 3
   Defense: -5
   BonusDamage: 0

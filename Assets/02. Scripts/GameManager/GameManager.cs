@@ -7,7 +7,8 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] private VCameraController vCam;
+    [SerializeField] private VCameraController vCam; 
+    [SerializeField] private PostProcessingCtrl postProcessingCtrl; 
 
     private StageCharacterDataSO stageCharacterData;
 
@@ -32,5 +33,7 @@ public class GameManager : Singleton<GameManager>
 
         // VCameraSetUp -> 카메라 셋업에서 필요
         vCam.InitializeVCam();
+        // postProcessingCtrl 포스트 프로세싱 초기화
+        postProcessingCtrl.InitializePostProcessingCtrl(Player);
     }
 }

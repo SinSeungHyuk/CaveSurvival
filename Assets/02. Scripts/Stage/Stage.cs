@@ -22,5 +22,8 @@ public class Stage : MonoBehaviour
         WaveSpawnParameter = stageDetails.waveSpawnParameter;
 
         MonsterSpawnEvent.CallStageStart(this); // 방 초기화가 모두 진행된 후에 스폰 이벤트 호출
+
+        // 스테이지 음악 랜덤재생
+        MusicManager.Instance.PlayMusic(stageDetails.roomMusic[Random.Range(0, stageDetails.roomMusic.Count)]);
     }
 }

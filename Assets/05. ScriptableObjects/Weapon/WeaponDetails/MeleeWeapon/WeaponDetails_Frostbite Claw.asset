@@ -29,3 +29,5 @@ MonoBehaviour:
   weaponRange: 6
   weaponKnockback: 150
   weaponParticle: 5
+  weaponFiringSoundEffect: {fileID: 11400000, guid: 1a778463aa92b7d4ca5992603b49263e,
+    type: 2}

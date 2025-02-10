@@ -10,7 +10,7 @@ public class StageDetailsSO : IdentifiedObject
 
     public string roomName;
     [TextArea] public string roomDescription;
-    //public MusicTrackSO roomMusic; // 스테이지 음악
+    public List<MusicTrackSO> roomMusic; // 스테이지 음악
     // 맵의 크기는 동일하다는 가정하에 제작
 
     public List<WaveSpawnParameter> waveSpawnParameter;

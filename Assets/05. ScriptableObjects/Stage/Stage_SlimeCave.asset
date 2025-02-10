@@ -19,6 +19,13 @@ MonoBehaviour:
   roomDescription: "\uC704\uD5D8\uD55C \uC2AC\uB77C\uC784\uB4E4\uC774 \uC0AC\uB294
     \uB3D9\uAD74\uC785\uB2C8\uB2E4. \uC2AC\uB77C\uC784\uB4E4\uC758 \uC655\uC744 \uCC98\uCE58\uD558\uBA74
     \uD070 \uBCF4\uC0C1\uC744 \uC5BB\uC744 \uC218 \uC788\uC2B5\uB2C8\uB2E4.\n"
+  roomMusic:
+  - {fileID: 11400000, guid: e483ffc9641ca9e4fbde10e0c5153c84, type: 2}
+  - {fileID: 11400000, guid: 0b4adac407d33c8428011e8d51b38a68, type: 2}
+  - {fileID: 11400000, guid: 586d61ccc3162f64b95b2c9766084631, type: 2}
+  - {fileID: 11400000, guid: d7eed6e3f52957648bbad394cf65ff72, type: 2}
+  - {fileID: 11400000, guid: 580c679e8d5e4f24080848e3bd23d4be, type: 2}
+  - {fileID: 11400000, guid: d2ec4c1d8cff2e94aacb86690cc0c230, type: 2}
   waveSpawnParameter:
   - batchSpawnCount: 3
     monsterSpawnParameters:
@@ -60,16 +67,16 @@ MonoBehaviour:
     monsterSpawnParameters:
     - monsterDetailsSO: {fileID: 11400000, guid: 0cf3388354089ee42a9b7bb2b6c876ab,
         type: 2}
-      Ratio: 30
+      Ratio: 35
     - monsterDetailsSO: {fileID: 11400000, guid: 66124d8b59903704cae39779ca0aaaed,
         type: 2}
-      Ratio: 30
+      Ratio: 35
     - monsterDetailsSO: {fileID: 11400000, guid: 4600aa37b611711449013dcf0df7a8b7,
         type: 2}
-      Ratio: 10
+      Ratio: 15
     - monsterDetailsSO: {fileID: 11400000, guid: 6a08c666f8dfc4c4b9d525050690d9f6,
         type: 2}
-      Ratio: 10
+      Ratio: 5
     - monsterDetailsSO: {fileID: 11400000, guid: 28d8cc79132e77642a138a68bc020d60,
         type: 2}
       Ratio: 1
@@ -85,13 +92,13 @@ MonoBehaviour:
       Ratio: 30
     - monsterDetailsSO: {fileID: 11400000, guid: 66124d8b59903704cae39779ca0aaaed,
         type: 2}
-      Ratio: 20
+      Ratio: 30
     - monsterDetailsSO: {fileID: 11400000, guid: 4600aa37b611711449013dcf0df7a8b7,
         type: 2}
       Ratio: 10
     - monsterDetailsSO: {fileID: 11400000, guid: 6a08c666f8dfc4c4b9d525050690d9f6,
         type: 2}
-      Ratio: 10
+      Ratio: 7
     - monsterDetailsSO: {fileID: 11400000, guid: 28d8cc79132e77642a138a68bc020d60,
         type: 2}
       Ratio: 1
@@ -104,16 +111,16 @@ MonoBehaviour:
     monsterSpawnParameters:
     - monsterDetailsSO: {fileID: 11400000, guid: 0cf3388354089ee42a9b7bb2b6c876ab,
         type: 2}
-      Ratio: 20
+      Ratio: 25
     - monsterDetailsSO: {fileID: 11400000, guid: 66124d8b59903704cae39779ca0aaaed,
         type: 2}
-      Ratio: 20
+      Ratio: 25
     - monsterDetailsSO: {fileID: 11400000, guid: 4600aa37b611711449013dcf0df7a8b7,
         type: 2}
       Ratio: 10
     - monsterDetailsSO: {fileID: 11400000, guid: 6a08c666f8dfc4c4b9d525050690d9f6,
         type: 2}
-      Ratio: 10
+      Ratio: 8
     - monsterDetailsSO: {fileID: 11400000, guid: 28d8cc79132e77642a138a68bc020d60,
         type: 2}
       Ratio: 1
@@ -126,16 +133,16 @@ MonoBehaviour:
     monsterSpawnParameters:
     - monsterDetailsSO: {fileID: 11400000, guid: 0cf3388354089ee42a9b7bb2b6c876ab,
         type: 2}
-      Ratio: 20
+      Ratio: 25
     - monsterDetailsSO: {fileID: 11400000, guid: 66124d8b59903704cae39779ca0aaaed,
         type: 2}
-      Ratio: 20
+      Ratio: 25
     - monsterDetailsSO: {fileID: 11400000, guid: 4600aa37b611711449013dcf0df7a8b7,
         type: 2}
       Ratio: 10
     - monsterDetailsSO: {fileID: 11400000, guid: 6a08c666f8dfc4c4b9d525050690d9f6,
         type: 2}
-      Ratio: 10
+      Ratio: 9
     - monsterDetailsSO: {fileID: 11400000, guid: 28d8cc79132e77642a138a68bc020d60,
         type: 2}
       Ratio: 1
@@ -148,19 +155,19 @@ MonoBehaviour:
     monsterSpawnParameters:
     - monsterDetailsSO: {fileID: 11400000, guid: 0cf3388354089ee42a9b7bb2b6c876ab,
         type: 2}
-      Ratio: 20
+      Ratio: 30
     - monsterDetailsSO: {fileID: 11400000, guid: 66124d8b59903704cae39779ca0aaaed,
         type: 2}
-      Ratio: 20
+      Ratio: 30
     - monsterDetailsSO: {fileID: 11400000, guid: 4600aa37b611711449013dcf0df7a8b7,
         type: 2}
-      Ratio: 10
+      Ratio: 15
     - monsterDetailsSO: {fileID: 11400000, guid: 6a08c666f8dfc4c4b9d525050690d9f6,
         type: 2}
       Ratio: 10
     - monsterDetailsSO: {fileID: 11400000, guid: 77ee30a69caea454da7168722959e4ea,
         type: 2}
-      Ratio: 10
+      Ratio: 15
     - monsterDetailsSO: {fileID: 11400000, guid: 28d8cc79132e77642a138a68bc020d60,
         type: 2}
       Ratio: 1
@@ -173,19 +180,19 @@ MonoBehaviour:
     monsterSpawnParameters:
     - monsterDetailsSO: {fileID: 11400000, guid: 0cf3388354089ee42a9b7bb2b6c876ab,
         type: 2}
-      Ratio: 20
+      Ratio: 25
     - monsterDetailsSO: {fileID: 11400000, guid: 66124d8b59903704cae39779ca0aaaed,
         type: 2}
-      Ratio: 20
+      Ratio: 25
     - monsterDetailsSO: {fileID: 11400000, guid: 4600aa37b611711449013dcf0df7a8b7,
         type: 2}
-      Ratio: 10
+      Ratio: 15
     - monsterDetailsSO: {fileID: 11400000, guid: 04d3a66fecb866a4ab8bd648a8c68a9c,
         type: 2}
       Ratio: 10
     - monsterDetailsSO: {fileID: 11400000, guid: 77ee30a69caea454da7168722959e4ea,
         type: 2}
-      Ratio: 10
+      Ratio: 15
     - monsterDetailsSO: {fileID: 11400000, guid: 28d8cc79132e77642a138a68bc020d60,
         type: 2}
       Ratio: 1
@@ -204,13 +211,13 @@ MonoBehaviour:
       Ratio: 20
     - monsterDetailsSO: {fileID: 11400000, guid: 4600aa37b611711449013dcf0df7a8b7,
         type: 2}
-      Ratio: 10
+      Ratio: 15
     - monsterDetailsSO: {fileID: 11400000, guid: 04d3a66fecb866a4ab8bd648a8c68a9c,
         type: 2}
       Ratio: 10
     - monsterDetailsSO: {fileID: 11400000, guid: 77ee30a69caea454da7168722959e4ea,
         type: 2}
-      Ratio: 10
+      Ratio: 15
     - monsterDetailsSO: {fileID: 11400000, guid: 28d8cc79132e77642a138a68bc020d60,
         type: 2}
       Ratio: 1
@@ -233,7 +240,7 @@ MonoBehaviour:
       Ratio: 10
     - monsterDetailsSO: {fileID: 11400000, guid: 04d3a66fecb866a4ab8bd648a8c68a9c,
         type: 2}
-      Ratio: 20
+      Ratio: 10
     - monsterDetailsSO: {fileID: 11400000, guid: 77ee30a69caea454da7168722959e4ea,
         type: 2}
       Ratio: 20
@@ -258,7 +265,7 @@ MonoBehaviour:
       Ratio: 10
     - monsterDetailsSO: {fileID: 11400000, guid: 04d3a66fecb866a4ab8bd648a8c68a9c,
         type: 2}
-      Ratio: 20
+      Ratio: 15
     - monsterDetailsSO: {fileID: 11400000, guid: 77ee30a69caea454da7168722959e4ea,
         type: 2}
       Ratio: 20
@@ -283,7 +290,7 @@ MonoBehaviour:
       Ratio: 10
     - monsterDetailsSO: {fileID: 11400000, guid: 04d3a66fecb866a4ab8bd648a8c68a9c,
         type: 2}
-      Ratio: 20
+      Ratio: 15
     - monsterDetailsSO: {fileID: 11400000, guid: b1d28ca81af040e4d8597cebcd116c64,
         type: 2}
       Ratio: 20
@@ -308,7 +315,7 @@ MonoBehaviour:
       Ratio: 10
     - monsterDetailsSO: {fileID: 11400000, guid: 04d3a66fecb866a4ab8bd648a8c68a9c,
         type: 2}
-      Ratio: 20
+      Ratio: 15
     - monsterDetailsSO: {fileID: 11400000, guid: b1d28ca81af040e4d8597cebcd116c64,
         type: 2}
       Ratio: 20
@@ -333,7 +340,7 @@ MonoBehaviour:
       Ratio: 10
     - monsterDetailsSO: {fileID: 11400000, guid: 04d3a66fecb866a4ab8bd648a8c68a9c,
         type: 2}
-      Ratio: 20
+      Ratio: 15
     - monsterDetailsSO: {fileID: 11400000, guid: b1d28ca81af040e4d8597cebcd116c64,
         type: 2}
       Ratio: 20
@@ -358,7 +365,7 @@ MonoBehaviour:
       Ratio: 10
     - monsterDetailsSO: {fileID: 11400000, guid: 04d3a66fecb866a4ab8bd648a8c68a9c,
         type: 2}
-      Ratio: 20
+      Ratio: 15
     - monsterDetailsSO: {fileID: 11400000, guid: b1d28ca81af040e4d8597cebcd116c64,
         type: 2}
       Ratio: 20
@@ -386,7 +393,7 @@ MonoBehaviour:
       Ratio: 10
     - monsterDetailsSO: {fileID: 11400000, guid: 04d3a66fecb866a4ab8bd648a8c68a9c,
         type: 2}
-      Ratio: 20
+      Ratio: 15
     - monsterDetailsSO: {fileID: 11400000, guid: b1d28ca81af040e4d8597cebcd116c64,
         type: 2}
       Ratio: 20
@@ -414,7 +421,7 @@ MonoBehaviour:
       Ratio: 10
     - monsterDetailsSO: {fileID: 11400000, guid: 04d3a66fecb866a4ab8bd648a8c68a9c,
         type: 2}
-      Ratio: 20
+      Ratio: 15
     - monsterDetailsSO: {fileID: 11400000, guid: b1d28ca81af040e4d8597cebcd116c64,
         type: 2}
       Ratio: 30
@@ -442,7 +449,7 @@ MonoBehaviour:
       Ratio: 10
     - monsterDetailsSO: {fileID: 11400000, guid: 04d3a66fecb866a4ab8bd648a8c68a9c,
         type: 2}
-      Ratio: 20
+      Ratio: 15
     - monsterDetailsSO: {fileID: 11400000, guid: b1d28ca81af040e4d8597cebcd116c64,
         type: 2}
       Ratio: 30
@@ -470,7 +477,7 @@ MonoBehaviour:
       Ratio: 10
     - monsterDetailsSO: {fileID: 11400000, guid: 04d3a66fecb866a4ab8bd648a8c68a9c,
         type: 2}
-      Ratio: 20
+      Ratio: 15
     - monsterDetailsSO: {fileID: 11400000, guid: b1d28ca81af040e4d8597cebcd116c64,
         type: 2}
       Ratio: 30

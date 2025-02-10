@@ -17,6 +17,24 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 0b62986a71b4b15448628e723d861a86
   m_SerializeEntries:
+  - m_GUID: d519f85b7fcb48543bf2f1dfb3bea5c9
+    m_Address: StateSpeed
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Stage1
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a40dc723e6072745bf133932e856bd6
+    m_Address: StateAttack
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Stage1
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dfd419360054d754f9327225e878e951
+    m_Address: StateImage
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Stage1
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3194eb29bd2ed274a84ca1bc6b2b715d
     m_Address: PlayerLevelUpDatabase
     m_ReadOnly: 0
@@ -29,20 +47,50 @@ MonoBehaviour:
     m_SerializedLabels:
     - Stage1
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d519f85b7fcb48543bf2f1dfb3bea5c9
-    m_Address: StateSpeed
+  - m_GUID: a299f9d82a844a748a8886d46ae6fd66
+    m_Address: Spooky 3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Stage1
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: dfd419360054d754f9327225e878e951
-    m_Address: StateImage
+  - m_GUID: 05e6b7aad86570c4e94250cee485fbbc
+    m_Address: Spooky 4
     m_ReadOnly: 0
     m_SerializedLabels:
     - Stage1
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5a40dc723e6072745bf133932e856bd6
-    m_Address: StateAttack
+  - m_GUID: 9b1538d410ccb564b935470640be604d
+    m_Address: Spooky 5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Stage1
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 297234eec599ac844b2dbeccd1e676ec
+    m_Address: Spooky 6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Stage1
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63bc0faa3ccffda419f746c5232cb51d
+    m_Address: Spooky 7
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Stage1
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c34497c41ea077b4b8e6262497be82fc
+    m_Address: Spooky 8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Stage1
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51a20160fb992374caff63fe9fc6e622
+    m_Address: Monster
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Stage1
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98b41129a77512e44b8b78ad83bcdef6
+    m_Address: SoundEffect_Hit
     m_ReadOnly: 0
     m_SerializedLabels:
     - Stage1

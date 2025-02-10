@@ -10,6 +10,8 @@ using UnityEngine.UI;
 
 public class LoginUIController : MonoBehaviour
 {
+    [SerializeField] private MusicTrackSO loginBGM;
+
     [SerializeField] private TextMeshProUGUI txtNickname;
     [SerializeField] private TextMeshProUGUI txtStart;
     [SerializeField] private TMP_InputField inpNickname;
@@ -35,6 +37,8 @@ public class LoginUIController : MonoBehaviour
         btnExitInvalidNickname.onClick.AddListener(OnExitInvalidNickname);
         btnStart.onClick.AddListener(LoadStartScene);
         btnExit.onClick.AddListener(OnExit);
+
+        MusicManager.Instance.PlayMusic(loginBGM);
     }
 
 

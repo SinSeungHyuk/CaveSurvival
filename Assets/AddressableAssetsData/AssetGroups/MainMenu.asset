@@ -17,6 +17,24 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 9ae3a884297cc7247b9bd6c130d06c98
   m_SerializeEntries:
+  - m_GUID: f3d63ba5f771dc14ebbf56afbaf805c4
+    m_Address: StageCharacterData
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MainMenu
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ae96582ed1ae634888a87362a8c710d
+    m_Address: DB_Weapon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MainMenu
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ffc06324050aff498256f1cdd1cc09f
+    m_Address: DB_Stage
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MainMenu
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6ed5f9073c87fc04086be22dcc89739d
     m_Address: DB_Player
     m_ReadOnly: 0
@@ -29,26 +47,26 @@ MonoBehaviour:
     m_SerializedLabels:
     - MainMenu
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a131b82058e48e048958c77931c4c4a5
-    m_Address: DB_Monster
+  - m_GUID: a59913d583f56ca4fa8922f12eb9d2b3
+    m_Address: Spooky_MainMenu
     m_ReadOnly: 0
     m_SerializedLabels:
     - MainMenu
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7ae96582ed1ae634888a87362a8c710d
-    m_Address: DB_Weapon
+  - m_GUID: ffd01678593980640adbb5527a275cf6
+    m_Address: 03
     m_ReadOnly: 0
     m_SerializedLabels:
     - MainMenu
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f3d63ba5f771dc14ebbf56afbaf805c4
-    m_Address: StageCharacterData
+  - m_GUID: a6bb8fba2701f5f4f8c58a7089a74245
+    m_Address: 04
     m_ReadOnly: 0
     m_SerializedLabels:
     - MainMenu
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2ffc06324050aff498256f1cdd1cc09f
-    m_Address: DB_Stage
+  - m_GUID: 38227cfdec1ebc8468fe40ea64daa2c1
+    m_Address: 05
     m_ReadOnly: 0
     m_SerializedLabels:
     - MainMenu

@@ -40,5 +40,6 @@ public class WeaponMelee : WeaponTypeDetailsSO
         float angle = UtilitieHelper.GetAngleFromVector(direction);
         weapon.Player.WeaponTransform.RotateWeapon(weapon, angle);
         weapon.Player.WeaponTransform.MoveWeapon(weapon, direction);
+        SoundEffectManager.Instance.PlaySoundEffect(weapon.WeaponSoundEffect);
     }
 }

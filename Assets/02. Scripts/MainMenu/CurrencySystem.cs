@@ -15,7 +15,7 @@ public class CurrencySystem : MonoBehaviour, ICurrencyService, ISaveData
     public int[] CurrencyList => currencyList;
 
 
-    private void Awake()
+    private void Start()
     {
         Register();
     }

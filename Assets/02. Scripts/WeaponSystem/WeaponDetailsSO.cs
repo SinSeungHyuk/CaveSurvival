@@ -26,12 +26,5 @@ public class WeaponDetailsSO : IdentifiedObject
 
     [Header("Weapon Configuration")]
     public EPool weaponParticle;
-    //public List<GameObject> weaponAmmo;
-    //[TextArea] public string upgradeDescription;
-    //public bool isTrail; // Trail 렌더러 여부
-    //public Material ammoTrailMaterial;
-    //public float ammoTrailStartWidth;
-    //public float ammoTrailEndWidth;
-    //public float ammoTrailTime;
-    //public SoundEffectSO weaponFiringSoundEffect;
+    public SoundEffectSO weaponFiringSoundEffect; // 무기 공격 효과음
 }

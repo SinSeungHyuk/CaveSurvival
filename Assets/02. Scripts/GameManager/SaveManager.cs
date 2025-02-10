@@ -71,6 +71,7 @@ public class SaveManager : Singleton<SaveManager>
                         var saveData = JsonConvert.DeserializeObject<SaveData>(userDataJson);
 
                         FromSaveData(saveData);
+                        Debug.Log($"ui컨트롤러 초기화 - 로드 피니쉬 호출. 언락 = ");
                         OnLoadFinished?.Invoke();
                     }
                     else Debug.Log("User ID no found");

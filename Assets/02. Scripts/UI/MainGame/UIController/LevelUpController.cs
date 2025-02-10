@@ -7,21 +7,28 @@ public class LevelUpController : MonoBehaviour
 {
     [SerializeField] private List<GradeSpriteData> btnSprites = new List<GradeSpriteData>();
     [SerializeField] private Sprite goldSprite;
+    [SerializeField] private SoundEffectSO levelUpSoundEffect;
+    [SerializeField] private SoundEffectSO levelUpChoiceSoundEffect;
 
     private List<BtnLevelUpUI> btnLevelUps;
+
 
 
     private void Awake()
     {
         btnLevelUps = GetComponentsInChildren<BtnLevelUpUI>().ToList();
     }
-    private void OnEnable()
+    public void InitializeLevelUpController()
     {
+        gameObject.SetActive(true);
+
         Time.timeScale = 0.0f;
 
         // 레벨업 버튼 활성화되면서 기존의 선택지들 지워주기
         foreach (var btnLevelUp in btnLevelUps)
             btnLevelUp.BtnLevelUp.onClick.RemoveAllListeners();
+
+        SoundEffectManager.Instance.PlaySoundEffect(levelUpSoundEffect);
     }
     private void OnDisable()
     {
@@ -39,6 +46,7 @@ public class LevelUpController : MonoBehaviour
         btnLevelUps[btnIndex].BtnLevelUp.onClick.AddListener(() => {
             GameManager.Instance.Player.Stat.PlayerStatChanged(data);
             gameObject.SetActive(false);
+            SoundEffectManager.Instance.PlaySoundEffect(levelUpChoiceSoundEffect);
         });
     }
 
@@ -52,6 +60,7 @@ public class LevelUpController : MonoBehaviour
         btnLevelUps[btnIndex].BtnLevelUp.onClick.AddListener(() => {
             weapon.WeaponStatChanged(data);
             gameObject.SetActive(false);
+            SoundEffectManager.Instance.PlaySoundEffect(levelUpChoiceSoundEffect);
         });
     }
 
@@ -63,6 +72,7 @@ public class LevelUpController : MonoBehaviour
         btnLevelUps[btnIndex].BtnLevelUp.onClick.AddListener(() => {
             weapon.UpgrageWeapon();
             gameObject.SetActive(false);
+            SoundEffectManager.Instance.PlaySoundEffect(levelUpChoiceSoundEffect);
         });
     }
 
@@ -74,14 +84,12 @@ public class LevelUpController : MonoBehaviour
         btnLevelUps[btnIndex].InitializeBtnLevelUp(weaponDetailsSO.weaponSprite, weaponDetailsSO.description, btnSprite);
 
         btnLevelUps[btnIndex].BtnLevelUp.onClick.AddListener(() => {
-            Debug.Log($"무기 얻은 시간 : {(int)StageManager.Instance.CurrentStage.MonsterSpawner.ElapsedTime}");
-            Debug.Log($"무기 얻은 웨이브 : {StageManager.Instance.CurrentStage.MonsterSpawner.WaveCount}");
-
             GameStatsManager.Instance.AddStats(weaponDetailsSO, EStatsType.WeaponAcquiredTime, (int)StageManager.Instance.CurrentStage.MonsterSpawner.ElapsedTime);
             GameStatsManager.Instance.AddStats(weaponDetailsSO, EStatsType.WeaponAcquiredWave, StageManager.Instance.CurrentStage.MonsterSpawner.WaveCount);
 
             GameManager.Instance.Player.AddWeaponToPlayer(weaponDetailsSO);
             gameObject.SetActive(false);
+            SoundEffectManager.Instance.PlaySoundEffect(levelUpChoiceSoundEffect);
         });
     }
 

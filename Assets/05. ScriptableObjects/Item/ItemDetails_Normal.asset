@@ -16,3 +16,4 @@ MonoBehaviour:
   ItemSprite: {fileID: 21300000, guid: 9a12de3ec8e8a3945ae620fa34bbd8fb, type: 3}
   itemGrade: 4
   itemType: 0
+  soundEffect: {fileID: 11400000, guid: b1b079c0640d1844db4a9d0bd47fdb30, type: 2}

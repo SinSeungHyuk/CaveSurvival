@@ -25,17 +25,12 @@ public class PlayerLevelUp : MonoBehaviour
         weaponDetailsDB = AddressableManager.Instance.GetResource<Database>("DB_Weapon");
         playerDB = AddressableManager.Instance.GetResource<PlayerLevelUpDatabase>("PlayerLevelUpDatabase");
         weaponDB = AddressableManager.Instance.GetResource<WeaponLevelUpDatabase>("WeaponLevelUpDatabase");
-
-        Debug.Log($"STart!!! playerDB Data =??? {playerDB.database.Count}");
-        Debug.Log($"STart!!! playerDB Data =??? {playerDB.database[0].description}");
-        Debug.Log($"STart!!! weaponDB Data =??? {weaponDB.database.Count}");
-        Debug.Log($"STart!!! weaponDetailsDB Data =??? {weaponDetailsDB.Count}");
     }
 
 
     private void PlayerStat_OnLevelChanged(PlayerStat stat, int level)
     {
-        GameManager.Instance.UIController.LevelUpController.gameObject.SetActive(true);
+        GameManager.Instance.UIController.LevelUpController.InitializeLevelUpController();
 
         int options = 4; // 선택지 4개
 

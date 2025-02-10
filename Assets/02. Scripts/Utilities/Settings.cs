@@ -10,6 +10,8 @@ public static class Settings
     public static int extraTimePerWave = 5; // 웨이브당 지속시간 5초씩 증가
     public static int lastWave = 20; // 총 20개 웨이브 
     public static int stageBoundary = 15; // 스테이지 +- 크기 (정사각형이므로 -15 ~ 15)
+    public const float musicFadeOutTime = 0.5f;
+    public const float musicFadeInTime = 0.5f;
     #endregion
 
 
@@ -19,12 +21,12 @@ public static class Settings
     public static float expPerLevel = 0.1f; // 레벨당 증가 경험치
     public static int combatScalingConstant = 100; // 방어력 100일때 피해량 50% 감소
     public static int weaponUpgradeLevel = 9; // 무기는 9레벨에서 10레벨로 넘어갈때 업그레이드
-    public static int hpRecoveryValue = 25;
+    public static int hpRecoveryValue = 30; // 체력회복 아이템 수치
     #endregion
 
 
     #region MONSTER SETTING
-    public static int monsterFireRate = 2000; // 몬스터 공격간격 (밀리세컨드)
+    public static int monsterFireRate = 2100; // 몬스터 공격간격 (밀리세컨드)
     public static float monsterProjectileDist = 20f; // 몬스터 투사체 사거리
     #endregion
 
@@ -36,6 +38,7 @@ public static class Settings
 
     #region LAYERMASK SETTING
     public static LayerMask monsterLayer = LayerMask.GetMask("Monster"); // 몬스터 레이어
+    public static LayerMask playerLayer = LayerMask.GetMask("PlayerCollider"); // 플레이어 레이어
     public static LayerMask itemDetectorLayer = LayerMask.GetMask("ItemDetector"); // 아이템 감지 레이어
     public static LayerMask itemPickUpLayer = LayerMask.GetMask("ItemPickUp"); // 아이템 획득 레이어
     #endregion

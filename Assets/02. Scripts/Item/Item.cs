@@ -15,6 +15,7 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
 
     private SpriteRenderer spriteRenderer;
     private ParticleSystem particle;
+    private SoundEffectSO soundEffect;
     private EItemType itemType;
     private int gainExp;
 
@@ -52,6 +53,7 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
     {
         spriteRenderer.sprite = data.ItemSprite;
         player = GameManager.Instance.Player;
+        this.soundEffect = data.soundEffect;
 
         ParticleSystem.MainModule main = particle.main; // 파티클 시스템의 MainModule로 색상변경 가능
         main.startColor = UtilitieHelper.GetGradeColor(data.itemGrade, data.itemType);
@@ -143,6 +145,7 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
                 throw new ArgumentOutOfRangeException();
         }
 
+        SoundEffectManager.Instance.PlaySoundEffect(soundEffect);
         ReleaseItem();
     }
 

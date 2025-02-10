@@ -7,12 +7,8 @@ public class MainMenuTest : MonoBehaviour
     public int meleeRange;
 
 
-    private void OnDrawGizmos()
+    private void Start()
     {
-        // Gizmo 색상 설정 (옵션)
-        Gizmos.color = Color.red;
-
-        // 구체 그리기
-        Gizmos.DrawWireSphere(transform.position, meleeRange);
+        //Debug.Log(AddressableManager.Instance.Resources.Count);
     }
 }

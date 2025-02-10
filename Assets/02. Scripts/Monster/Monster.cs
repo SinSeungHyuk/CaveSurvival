@@ -18,6 +18,7 @@ public class Monster : MonoBehaviour
     private Rigidbody2D rigid;
     private PolygonCollider2D hitbox;
     private Animator animator;
+    private SoundEffectSO hitSoundEffect;
 
     private bool isDead;
     private bool isBoss;
@@ -80,6 +81,7 @@ public class Monster : MonoBehaviour
         Player = GameManager.Instance.Player.transform;
         stat.InitializeMonsterStat(enemyDetails, waveCount); // 현재 웨이브에 맞추어 스탯초기화
 
+        hitSoundEffect = AddressableManager.Instance.GetResource<SoundEffectSO>("SoundEffect_Hit");
         animator.runtimeAnimatorController = data.runtimeAnimatorController;
         sprite.sprite = enemyDetails.sprite;
         sprite.color = Color.white;
@@ -117,6 +119,8 @@ public class Monster : MonoBehaviour
 
     public void TakeDamage(Weapon weapon, int bonusDamage = 0)
     {
+        SoundEffectManager.Instance.PlaySoundEffect(hitSoundEffect);
+
         int dmg = GetDamage(weapon, bonusDamage);
         stat.Hp -= dmg;
 
@@ -194,6 +198,6 @@ public class Monster : MonoBehaviour
         if (collision.TryGetComponent(out Player player))
         {
             player.TakeDamage(stat.Atk);
-        }
+        }  
     }
 }

@@ -26,10 +26,9 @@ public class PostProcessingCtrl : MonoBehaviour
         postProcessing.profile.TryGet<Vignette>(out vignette);
     }
 
-    private void Start()
+    public void InitializePostProcessingCtrl(Player player)
     {
-        player = GameManager.Instance.Player;
-
+        this.player = player;
         player.Stat.OnHpChanged += Stat_OnHpChanged;
 
         vignette.active = false;
@@ -41,14 +40,14 @@ public class PostProcessingCtrl : MonoBehaviour
     private void Stat_OnHpChanged(PlayerStat @event, float hp)
     {
         // 플레이어 체력이 30% 미만 && 코루틴 한번만 실행
-        if (player.Stat.GetHPStatRatio() < 0.3f && !isVignetteRoutine)
+        if (player.Stat.GetHPStatRatio() <= 0.3f && !isVignetteRoutine)
         {
             isVignetteRoutine = true;
             vignette.active = true;
             vignetteRoutineInstance = StartCoroutine(vignetteRoutine());
         }
 
-        else if (player.Stat.GetHPStatRatio() >= 0.3f)
+        else if (player.Stat.GetHPStatRatio() > 0.3f)
         {
             if (vignetteRoutineInstance != null)
             {

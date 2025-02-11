@@ -50,6 +50,10 @@ public class PauseView : MonoBehaviour
 
     private void OnBtnExit()
     {
+        RewardDataSO rewardData = AddressableManager.Instance.GetResource<RewardDataSO>("RewardData");
+        rewardData.achiveReward = 0;
+        rewardData.goldReward = 0;
+
         AddressableManager.Instance.ReleaseGroup("Stage1");
         LoadingSceneManager.LoadScene("MainMenuScene", "NULL", ESceneType.MainMenu);
     }

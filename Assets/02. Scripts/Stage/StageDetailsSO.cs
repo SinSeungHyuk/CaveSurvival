@@ -18,6 +18,11 @@ public class StageDetailsSO : IdentifiedObject
     public Sprite bossSprite; // 이 스테이지의 보스 이미지
 
     [Space(10)]
+    [Header("Reward")]
+    public int achive;
+    public int gold;
+
+    [Space(10)]
     [Header("Unlock")]
     public bool isUnlock; // 해금 여부
     public int unlockCost; // 해금 비용

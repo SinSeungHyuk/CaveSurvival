@@ -8,12 +8,12 @@ public class StageFinishController : MonoBehaviour
     [SerializeField] private StageFinishView stageFinishView;
 
 
-    public void InitializeStageFinishController()
+    public void InitializeStageFinishController(int achiveReward, int goldReward)
     {
         Player player = GameManager.Instance.Player;
         var stat = player.Stat;
         var weaponList = player.WeaponList;
 
-        stageFinishView.InitializeStageFinishView(stat, weaponList);
+        stageFinishView.InitializeStageFinishView(stat, weaponList, achiveReward, goldReward);
     }
 }

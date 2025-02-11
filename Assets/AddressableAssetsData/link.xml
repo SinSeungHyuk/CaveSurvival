@@ -32,6 +32,7 @@
     <type fullname="PlayerLevelUpDatabase" preserve="all" />
     <type fullname="PlayerWaveBuff" preserve="all" />
     <type fullname="ProjectileDetailsSO" preserve="all" />
+    <type fullname="RewardDataSO" preserve="all" />
     <type fullname="ShotgunPP" preserve="all" />
     <type fullname="SlowBE" preserve="all" />
     <type fullname="SoundEffect" preserve="all" />

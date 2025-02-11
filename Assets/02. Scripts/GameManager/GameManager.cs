@@ -7,8 +7,13 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    [Header("Main Game Scene")]
     [SerializeField] private VCameraController vCam; 
-    [SerializeField] private PostProcessingCtrl postProcessingCtrl; 
+    [SerializeField] private PostProcessingCtrl postProcessingCtrl;
+
+    [Header("Main Menu Scene")]
+    [SerializeField] private CurrencySystem currencySystem;
+
 
     private StageCharacterDataSO stageCharacterData;
 
@@ -35,5 +40,13 @@ public class GameManager : Singleton<GameManager>
         vCam.InitializeVCam();
         // postProcessingCtrl 포스트 프로세싱 초기화
         postProcessingCtrl.InitializePostProcessingCtrl(Player);
+    }
+
+    public void CreateMainMenuScene()
+    {
+        RewardDataSO rewardData = AddressableManager.Instance.GetResource<RewardDataSO>("RewardData");
+
+        currencySystem.IncreaseCurrency(ECurrencyType.Achive, rewardData.achiveReward);
+        currencySystem.IncreaseCurrency(ECurrencyType.Gold, rewardData.goldReward);
     }
 }

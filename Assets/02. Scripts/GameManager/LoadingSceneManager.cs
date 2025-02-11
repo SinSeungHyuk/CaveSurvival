@@ -34,8 +34,15 @@ public class LoadingSceneManager : MonoBehaviour
         // 로딩씬에 진입하면 로딩 시작, await으로 로딩이 끝날때까지 진행
         await LoadSceneAsync();
         
-        if (sceneTypeToLoad == ESceneType.MainGame)
-            GameManager.Instance.CreateMainGameScene();
+        switch (sceneTypeToLoad)
+        {
+            case ESceneType.MainMenu:
+                GameManager.Instance.CreateMainMenuScene();
+                break;
+            case ESceneType.MainGame:
+                GameManager.Instance.CreateMainGameScene();
+                break;
+        }
     }
 
     private async UniTask LoadSceneAsync()

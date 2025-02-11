@@ -189,6 +189,8 @@ public class Monster : MonoBehaviour
         movement = null;
         monsterAttack = null;
 
+        MonsterState.ClearAllDebuff(); // 몬스터의 모든 디버프 제거
+
         hitbox.enabled = false; // 충돌체 끄기
     }
 

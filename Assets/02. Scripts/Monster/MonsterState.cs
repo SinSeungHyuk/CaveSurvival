@@ -1,6 +1,7 @@
 using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
@@ -68,16 +69,6 @@ public class MonsterState : MonoBehaviour
                 debuffDuration = 0,
             });
         }
-    }
-
-    private void OnDisable()
-    {
-        // OnDisable -> 몬스터의 비활성화 -> 모든 디버프 해제
-        foreach (var type in activeDebuffs.Keys)
-        {
-            RemoveDebuff(type);
-        }
-        activeDebuffs.Clear();
     }
 
 
@@ -160,6 +151,19 @@ public class MonsterState : MonoBehaviour
 
         activeDebuff.cts?.Cancel(); // 디버프 타이머 취소
         activeDebuff.cts?.Dispose();
+    }
+
+    public void ClearAllDebuff()
+    {
+        // 몬스터의 비활성화 -> 모든 디버프 해제
+
+        // for를 사용하여 각 키값에 대해 RemoveDebuff 호출 -> foreach는 중간에 데이터가 변경되면 안되기 때문
+        var activeDebuffsArray = activeDebuffs.Keys.ToArray();
+        for (int i = 0; i < activeDebuffsArray.Length; i++)
+        {
+            RemoveDebuff(activeDebuffsArray[i]);
+        }
+        activeDebuffs.Clear();
     }
     #endregion
 

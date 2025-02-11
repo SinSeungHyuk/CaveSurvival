@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c336cc3d7445ba1449af4db97e9c5c99, type: 3}
   m_Name: StageCharacterData
   m_EditorClassIdentifier: 
-  playerDetails: {fileID: 0}
-  stageDetails: {fileID: 0}
+  playerDetails: {fileID: 11400000, guid: eae34e44384629244b8282c63c89d487, type: 2}
+  stageDetails: {fileID: 11400000, guid: a03aeb11c2c44ca428cc608edbfcf11b, type: 2}

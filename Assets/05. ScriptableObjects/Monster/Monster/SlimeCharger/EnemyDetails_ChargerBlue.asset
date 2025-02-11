@@ -21,7 +21,7 @@ MonoBehaviour:
   movementType: {fileID: 11400000, guid: 39c75b084eb77584993236024bd5ba4a, type: 2}
   attackType: {fileID: 0}
   speed: 4
-  chaseDistance: 9
+  chaseDistance: 11
   baseDamage: 1
   maxHp: 4
   waveBonusHp: 2.5

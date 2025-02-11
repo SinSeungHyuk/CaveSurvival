@@ -14,6 +14,7 @@ public class WeaponStatUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI txtWeaponFireRate;
     [SerializeField] private TextMeshProUGUI txtWeaponRange;
     [SerializeField] private TextMeshProUGUI txtWeaponKnockback;
+    [SerializeField] private TextMeshProUGUI txtLevel;
 
 
     public void InitializeWeaponStatUI(Weapon weapon)
@@ -25,5 +26,6 @@ public class WeaponStatUI : MonoBehaviour
         txtWeaponFireRate.text = weapon.WeaponFireRate.ToString("F2") + " /s";
         txtWeaponRange.text = weapon.WeaponRange.ToString();
         txtWeaponKnockback.text = weapon.WeaponKnockback.ToString();
+        txtLevel.text = weapon.WeaponLevel.ToString();
     }
 }

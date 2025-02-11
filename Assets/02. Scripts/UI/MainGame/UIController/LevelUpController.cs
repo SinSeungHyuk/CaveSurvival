@@ -55,7 +55,7 @@ public class LevelUpController : MonoBehaviour
     {
         Sprite btnSprite = GetGradeSprite(data.ratio);
 
-        btnLevelUps[btnIndex].InitializeBtnLevelUp(weapon.WeaponSprite, data.description, btnSprite);
+        btnLevelUps[btnIndex].InitializeBtnLevelUp(weapon.WeaponSprite, $"[Lv. {weapon.WeaponLevel+1}]\n" + data.description, btnSprite);
 
         btnLevelUps[btnIndex].BtnLevelUp.onClick.AddListener(() => {
             weapon.WeaponStatChanged(data);
@@ -67,7 +67,7 @@ public class LevelUpController : MonoBehaviour
     // 무기 업그레이드 선택지 (무기의 레벨이 10에 도달할 경우)
     public void InitializeLevelUpUI(Weapon weapon, int btnIndex)
     {
-        btnLevelUps[btnIndex].InitializeBtnLevelUp(weapon.WeaponSprite, weapon.WeaponDetails.upgradeDesc, goldSprite); // 황금색 텍스트
+        btnLevelUps[btnIndex].InitializeBtnLevelUp(weapon.WeaponSprite,weapon.WeaponDetails.upgradeDesc, goldSprite); // 황금색 텍스트
 
         btnLevelUps[btnIndex].BtnLevelUp.onClick.AddListener(() => {
             weapon.UpgrageWeapon();

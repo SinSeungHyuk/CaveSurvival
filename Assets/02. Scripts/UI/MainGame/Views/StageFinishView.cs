@@ -14,6 +14,11 @@ public class StageFinishView : MonoBehaviour
     [Header("Weapon Stats")]
     [SerializeField] private List<WeaponTotalStatsUI> weaponStatsUI;
 
+    [Header("Reward")]
+    [SerializeField] private TextMeshProUGUI txtAchive;
+    [SerializeField] private TextMeshProUGUI txtGold;
+
+
 
     private void OnEnable()
     {
@@ -24,11 +29,13 @@ public class StageFinishView : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void InitializeStageFinishView(PlayerStat stat, List<Weapon> weaponList)
+    public void InitializeStageFinishView(PlayerStat stat, List<Weapon> weaponList, int achiveReward, int goldReward)
     {
         playerStatView.InitializePlayerStatView(stat);
 
         txtPlayerTotalKills.text = GameStatsManager.Instance.GetStats(EStatsType.PlayerTotalKills).ToString();
+        txtAchive.text = achiveReward.ToString("N0");
+        txtGold.text = goldReward.ToString("N0");
 
         for (int i = 0; i < weaponList.Count; i++)
         {

@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e5c4ea8cae721b40b0b65dccc0beea9, type: 3}
-  m_Name: AttackRanged
+  m_Script: {fileID: 11500000, guid: 2022463e3e4f780479ede15828c2d236, type: 3}
+  m_Name: RewardData
   m_EditorClassIdentifier: 
-  speed: 6
+  achiveReward: 0
+  goldReward: 0

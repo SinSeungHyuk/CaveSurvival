@@ -17,9 +17,6 @@ public class UnlockSystem : MonoBehaviour, ISaveData
     private void Start()
     {
         // 캐릭터,스테이지 DB 가져와서 해금상태 초기화해주기
-        if (AddressableManager.Instance != null) { Debug.Log("언락 스타트 - 어드레서블 매니저 null이 아니다"); }
-        if (AddressableManager.Instance.Resources != null) { Debug.Log("언락 스타트 - 어드레서블 매니저 "+ AddressableManager.Instance.Resources.Count); }
-
         var playerData = AddressableManager.Instance.GetResource<Database>("DB_Player");
         var stageData = AddressableManager.Instance.GetResource<Database>("DB_Stage");
 

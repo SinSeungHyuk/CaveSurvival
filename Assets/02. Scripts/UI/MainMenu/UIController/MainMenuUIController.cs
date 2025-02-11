@@ -57,9 +57,6 @@ public class MainMenuUIController : MonoBehaviour
 
     private void InitializeMainMenuUIController()
     {
-        Debug.Log($"ui컨트롤러 초기화 - 로드 피니쉬 호출. 언락 = ");
-        if (unlockSystem != null) Debug.Log("ui컨트롤러 - 언락은 null이 아니다@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-
         currencyController.InitializeCurrencyController(currencySystem);
 
         btnStage.onClick.AddListener(() 

@@ -10,6 +10,7 @@ using System.Threading;
 
 public class MonsterSpawn : MonoBehaviour
 {
+    private Stage stage;
     private MonsterSpawnEvent monsterSpawnEvent;
     private List<WaveSpawnParameter> waveSpawnParameterList; // 각 웨이브별 스폰정보
     private WaveSpawnParameter currentWaveSpawnParameter; // 현재 웨이브 스폰정보
@@ -30,6 +31,7 @@ public class MonsterSpawn : MonoBehaviour
     private void Awake()
     {
         monsterSpawnEvent = GetComponent<MonsterSpawnEvent>();
+        stage= GetComponent<Stage>();
     }
     private void OnEnable()
     {
@@ -107,7 +109,9 @@ public class MonsterSpawn : MonoBehaviour
         // ignoreTimeScale : 위에서 timeScale을 낮췄지만 이를 무시하는 옵션 (false 디폴트)
         await UniTask.Delay(2500, ignoreTimeScale: true, cancellationToken: cts.Token);
 
-        GameManager.Instance.UIController.StageFinishController.InitializeStageFinishController();
+        // 스테이지 종료 후 보상 계산하여 지급해주기
+        stage.SetReward(waveCount);
+        GameManager.Instance.UIController.StageFinishController.InitializeStageFinishController(stage.AchiveReward, stage.GoldReward);
     }
 
 

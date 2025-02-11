@@ -10,6 +10,7 @@ public static class Settings
     public static int extraTimePerWave = 5; // 웨이브당 지속시간 5초씩 증가
     public static int lastWave = 20; // 총 20개 웨이브 
     public static int stageBoundary = 15; // 스테이지 +- 크기 (정사각형이므로 -15 ~ 15)
+    public static int rewardScaling = 2; // 스테이지 종료 후 웨이브별 보상의 성장곡선 지수
     public const float musicFadeOutTime = 0.5f;
     public const float musicFadeInTime = 0.5f;
     #endregion
@@ -27,7 +28,7 @@ public static class Settings
 
     #region MONSTER SETTING
     public static int monsterFireRate = 2100; // 몬스터 공격간격 (밀리세컨드)
-    public static float monsterProjectileDist = 20f; // 몬스터 투사체 사거리
+    public static float monsterProjectileDist = 30f; // 몬스터 투사체 사거리
     #endregion
 
 

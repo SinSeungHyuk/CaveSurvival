@@ -19,6 +19,7 @@ public class MonsterSpawn : MonoBehaviour
     private int waveTimer;
     private float elapsedTime;
     private bool isStageFinish; // 이미 스테이지가 끝났는지 (클리어하고 사망해도 클리어 판정)
+    private SoundEffectSO waveFinishSound;
 
     private CancellationTokenSource cts = new CancellationTokenSource();
 
@@ -31,7 +32,11 @@ public class MonsterSpawn : MonoBehaviour
     private void Awake()
     {
         monsterSpawnEvent = GetComponent<MonsterSpawnEvent>();
-        stage= GetComponent<Stage>();
+        stage = GetComponent<Stage>();
+    }
+    private void Start()
+    {
+        waveFinishSound = AddressableManager.Instance.GetResource<SoundEffectSO>("SoundEffect_WaveClear");
     }
     private void OnEnable()
     {
@@ -85,12 +90,15 @@ public class MonsterSpawn : MonoBehaviour
 
         GameManager.Instance.Player.PlayerWaveBuff.InitializePlayerWaveBuff();
         GameManager.Instance.UIController.WaveFinishController.InitializeWaveFinishController();
+        SoundEffectManager.Instance.PlaySoundEffect(waveFinishSound); // 웨이브 종료 효과음
 
         waveCount++; // 웨이브 카운트 1 증가시키기
     }
 
     private void MonsterSpawnEvent_OnStageFinish(MonsterSpawnEvent @event)
     {
+        SoundEffectManager.Instance.PlaySoundEffect(waveFinishSound); // 웨이브 종료 효과음
+
         // 스테이지를 클리어했으면 또 스테이지 클리어 이벤트가 호출되지 않도록 제어
         if (isStageFinish)
             return;

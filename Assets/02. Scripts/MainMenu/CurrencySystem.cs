@@ -18,6 +18,9 @@ public class CurrencySystem : MonoBehaviour, ICurrencyService, ISaveData
     private void Start()
     {
         Register();
+
+        Debug.Log("재화 시작");
+
     }
 
 
@@ -46,5 +49,9 @@ public class CurrencySystem : MonoBehaviour, ICurrencyService, ISaveData
         SaveManager.Instance.SaveData.CurrencyData = currencySaveData;
     }
     public void FromSaveData(SaveData saveData)
-        => currencyList = saveData.CurrencyData.currencyList.ToArray();
+    {
+        Debug.Log("재화 로드");
+        currencyList = saveData.CurrencyData.currencyList.ToArray();
+
+    }
 }

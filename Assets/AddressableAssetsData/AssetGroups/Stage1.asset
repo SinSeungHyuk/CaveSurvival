@@ -95,6 +95,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Stage1
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74286e2e8c14ae944bec3099735d291c
+    m_Address: SoundEffect_WaveClear
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Stage1
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: db82650b91f45b04ea61d45fd86e3a43, type: 2}
   m_SchemaSet:

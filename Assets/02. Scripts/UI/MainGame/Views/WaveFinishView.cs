@@ -26,6 +26,7 @@ public class WaveFinishView : MonoBehaviour
 
     private async UniTask TypeTextEffect()
     {
+        txtWaveFinish.text = "";
         txtWaveFinish.gameObject.SetActive(true);
         StringBuilder sb = new StringBuilder();
 

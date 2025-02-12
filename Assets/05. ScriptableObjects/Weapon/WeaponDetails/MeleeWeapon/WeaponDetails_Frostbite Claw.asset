@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52b48b0533a49f4aa55420947dd81f5, type: 3}
   m_Name: WeaponDetails_Frostbite Claw
   m_EditorClassIdentifier: 
-  id: 4
+  id: 2
   weaponName: Frostbite Claw
   weaponSprite: {fileID: 21300000, guid: 38910359fe3110e41883353fe8797d38, type: 3}
   description: "Frostbite Claw - \uC801\uC758 \uC774\uB3D9\uC18D\uB3C4\uB97C 15%

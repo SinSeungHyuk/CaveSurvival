@@ -54,7 +54,10 @@ public class Monster : MonoBehaviour
         monsterDestroyedEvent = GetComponent<MonsterDestroyedEvent>();
         stat = new MonsterStat();
     }
-
+    private void Start()
+    {
+        hitSoundEffect = AddressableManager.Instance.GetResource<SoundEffectSO>("SoundEffect_Hit");
+    }
     private void OnEnable()
     {
         // 활성화 되면서 토큰 새롭게 초기화
@@ -81,7 +84,6 @@ public class Monster : MonoBehaviour
         Player = GameManager.Instance.Player.transform;
         stat.InitializeMonsterStat(enemyDetails, waveCount); // 현재 웨이브에 맞추어 스탯초기화
 
-        hitSoundEffect = AddressableManager.Instance.GetResource<SoundEffectSO>("SoundEffect_Hit");
         animator.runtimeAnimatorController = data.runtimeAnimatorController;
         sprite.sprite = enemyDetails.sprite;
         sprite.color = Color.white;

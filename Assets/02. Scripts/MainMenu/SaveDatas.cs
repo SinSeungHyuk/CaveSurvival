@@ -10,6 +10,7 @@ public struct SaveData
 {
     public CurrencySaveData CurrencyData;
     public UnlockSaveData UnlockData;
+    public UpgradeSaveData UpgradeData;
 }
 
 
@@ -24,4 +25,10 @@ public struct UnlockSaveData // 해금리스트 저장
 {
     public List<bool> characterUnlockList;
     public List<bool> stageUnlockList;
+}
+
+[Serializable]
+public struct UpgradeSaveData // 업그레이드 리스트 저장
+{
+    public SerializableDictionary<int, List<int>> upgradeDic;
 }

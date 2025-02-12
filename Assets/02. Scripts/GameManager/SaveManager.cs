@@ -36,7 +36,7 @@ public class SaveManager : Singleton<SaveManager>
     public void SaveGame()
     {
         // 구조체를 Json 형태로 변환
-        string saveData = JsonUtility.ToJson(SaveData);
+        string saveData = JsonConvert.SerializeObject(SaveData);
 
         // SaveData 노드 아래에 user.UserId 자식을 생성해서 SetRawJsonValueAsync으로 데이터 저장
         databaseReference.Child("SaveData").Child(user.UserId).SetRawJsonValueAsync(saveData);

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52b48b0533a49f4aa55420947dd81f5, type: 3}
   m_Name: WeaponDetails_Phantom Claw
   m_EditorClassIdentifier: 
-  id: 7
+  id: 4
   weaponName: Phantom Claw
   weaponSprite: {fileID: 21300000, guid: 68949830bb7260f4f822327a77fb5c4d, type: 3}
   description: "Phantom Claw - \uBE60\uB978 \uC18D\uB3C4\uB85C \uACF5\uACA9\uD558\uB294

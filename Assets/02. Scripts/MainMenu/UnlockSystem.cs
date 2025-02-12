@@ -32,6 +32,8 @@ public class UnlockSystem : MonoBehaviour, ISaveData
         }
 
         Register();
+
+        Debug.Log("언락 시작");
     }
 
 
@@ -99,5 +101,7 @@ public class UnlockSystem : MonoBehaviour, ISaveData
 
         characterUnlockList = saveData.UnlockData.characterUnlockList;
         stageUnlockList = saveData.UnlockData.stageUnlockList;
+
+        Debug.Log("언락 로드");
     }
 }

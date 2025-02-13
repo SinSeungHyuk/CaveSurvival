@@ -219,6 +219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7493393279745481663}
+  - component: {fileID: 758526253803238864}
   m_Layer: 5
   m_Name: WeaponUpgradeUI
   m_TagString: Untagged
@@ -249,6 +250,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &758526253803238864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3844534390463653712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5408c28b50e81284fb237f6209ba3b82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txtWeaponStat: {fileID: 5805832520593461989}
+  txtUpgradeValue: {fileID: 368960022785214435}
+  txtGold: {fileID: 5314460621608696240}
+  btnUpgrade: {fileID: 992933347697553366}
 --- !u!1 &4163691707110726548
 GameObject:
   m_ObjectHideFlags: 0

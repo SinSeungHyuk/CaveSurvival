@@ -7,9 +7,10 @@ using UnityEngine.UI;
 
 public class MainMenuUIController : MonoBehaviour
 {
-    [Header("Datas")]
+    [Header("Systems")]
     [SerializeField] private CurrencySystem currencySystem;
     [SerializeField] private UnlockSystem unlockSystem;
+    [SerializeField] private UpgradeSystem upgradeSystem;
 
     [Header("Buttons")]
     [SerializeField] private Button btnStage;
@@ -27,6 +28,7 @@ public class MainMenuUIController : MonoBehaviour
     private MainStageController mainStageController;
     private ShopController shopController;
     private MainOptionController mainOptionController;
+    private UpgradeUIController upgradeUIController;
 
 
     private void Awake()
@@ -35,6 +37,7 @@ public class MainMenuUIController : MonoBehaviour
         mainStageController = GetComponent<MainStageController>();
         shopController = GetComponent<ShopController>();
         mainOptionController = GetComponent<MainOptionController>();
+        upgradeUIController = GetComponent<UpgradeUIController>();
 
         SaveManager.Instance.OnLoadFinished += InitializeMainMenuUIController;
     }
@@ -61,6 +64,9 @@ public class MainMenuUIController : MonoBehaviour
 
         btnStage.onClick.AddListener(() 
             => mainStageController.InitializeMainStageController(currencySystem,unlockSystem));
+
+        btnUpgrade.onClick.AddListener(()
+            => upgradeUIController.InitializeUpgradeUIController(currencySystem, upgradeSystem));
 
         SetBtnOptions(); // 메인화면 버튼들 초기화
     }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2284242422796985998}
   - component: {fileID: 2294241668555251074}
   - component: {fileID: 7351981040870929621}
+  - component: {fileID: 961715208927717461}
   m_Layer: 5
   m_Name: BtnWeapon
   m_TagString: Untagged
@@ -121,6 +122,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &961715208927717461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289423661884872172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71fe25f6fac1f2947bc1ca22c696d2ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponImage: {fileID: 1794104491391409254}
 --- !u!1 &560577409399548783
 GameObject:
   m_ObjectHideFlags: 0

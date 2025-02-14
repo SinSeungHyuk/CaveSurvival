@@ -30,5 +30,6 @@ public struct UnlockSaveData // 해금리스트 저장
 [Serializable]
 public struct UpgradeSaveData // 업그레이드 리스트 저장
 {
-    public SerializableDictionary<int, List<int>> upgradeDic;
+    public List<int> weaponIdList;
+    public List<List<int>> upgradeLevelList;
 }

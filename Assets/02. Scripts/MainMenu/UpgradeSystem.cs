@@ -1,21 +1,22 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Dynamic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.TextCore.Text;
 
 public class UpgradeSystem : MonoBehaviour, ISaveData
 {
-    // ÀúÀå,ºÒ·¯¿À±â¸¦ À§ÇÑ µñ¼Å³Ê¸® <¹«±â id, List<½ºÅÈº° ·¹º§>>
-    private SerializableDictionary<int, List<int>> upgradeDic = new SerializableDictionary<int, List<int>>();
+    // ì €ì¥,ë¶ˆëŸ¬ì˜¤ê¸°ë¥¼ ìœ„í•œ ë”•ì…”ë„ˆë¦¬ <ë¬´ê¸° id, List<ìŠ¤íƒ¯ë³„ ë ˆë²¨>>
+    private Dictionary<int, List<int>> upgradeDic = new Dictionary<int, List<int>>();
     private Database weaponDB;
 
     public IReadOnlyDictionary<int, List<int>> UpgradeDic => upgradeDic;
 
 
-
+    
     void Start()
     {
         weaponDB = AddressableManager.Instance.GetResource<Database>("DB_Weapon");
@@ -30,43 +31,43 @@ public class UpgradeSystem : MonoBehaviour, ISaveData
 
     private void OnEnable()
     {
-        SaveManager.Instance.OnLoadFinished += SaveManager_OnLoadFinished;
+        //SaveManager.Instance.OnLoadFinished += SaveManager_OnLoadFinished;
     }
     private void OnDisable()
     {
-        SaveManager.Instance.OnLoadFinished -= SaveManager_OnLoadFinished;
+        //SaveManager.Instance.OnLoadFinished -= SaveManager_OnLoadFinished;
     }
 
 
-    private void SaveManager_OnLoadFinished()
-    {
-        Debug.Log("¾÷±Û ÀÌº¥Æ® È£Ãâ, ·Îµå°¡ ³¡³µ´Ù´Â ¶æ");
+    //private void SaveManager_OnLoadFinished()
+    //{
+    //    Debug.Log("ì—…ê¸€ ì´ë²¤íŠ¸ í˜¸ì¶œ, ë¡œë“œê°€ ëë‚¬ë‹¤ëŠ” ëœ»");
 
-        for (int i = 0; i < weaponDB.Count; i++)
-        {
-            InitializeUpgradeWeapon(weaponDB.GetDataByID<WeaponDetailsSO>(i), upgradeDic[i]);
-        }
-    }
+    //    for (int i = 0; i < weaponDB.Count; i++)
+    //    {
+    //        InitializeUpgradeWeapon(weaponDB.GetDataByID<WeaponDetailsSO>(i), upgradeDic[i]);
+    //    }
+    //}
 
     private void InitializeUpgradeWeapon(WeaponDetailsSO weaponDetailsSO, List<int> levelList)
     {
-         weaponDetailsSO.weaponBaseDamage += (levelList[0] * Settings.weaponDamageUpgrade);
-         weaponDetailsSO.weaponCriticChance += (levelList[1] * Settings.weaponCriticChanceUpgrade);
-         weaponDetailsSO.weaponCriticDamage += (levelList[2] * Settings.weaponCriticDamageUpgrade);
-         weaponDetailsSO.weaponFireRate = UtilitieHelper.IncreaseByPercent(weaponDetailsSO.weaponFireRate,(levelList[3] * Settings.weaponFireRateUpgrade));
-         weaponDetailsSO.weaponRange = UtilitieHelper.IncreaseByPercent(weaponDetailsSO.weaponRange, (levelList[4] * Settings.weaponRangeUpgrade));
-         weaponDetailsSO.weaponKnockback += (levelList[5] * Settings.weaponKnockbackUpgrade);
+        weaponDetailsSO.weaponBaseDamage += (levelList[0] * Settings.weaponDamageUpgrade);
+        weaponDetailsSO.weaponCriticChance += (levelList[1] * Settings.weaponCriticChanceUpgrade);
+        weaponDetailsSO.weaponCriticDamage += (levelList[2] * Settings.weaponCriticDamageUpgrade);
+        weaponDetailsSO.weaponFireRate = UtilitieHelper.IncreaseByPercent(weaponDetailsSO.weaponFireRate, (levelList[3] * Settings.weaponFireRateUpgrade));
+        weaponDetailsSO.weaponRange = UtilitieHelper.IncreaseByPercent(weaponDetailsSO.weaponRange, (levelList[4] * Settings.weaponRangeUpgrade));
+        weaponDetailsSO.weaponKnockback += (levelList[5] * Settings.weaponKnockbackUpgrade);
     }
 
     public void UpgradeWeapon(int upgradeIndex, WeaponDetailsSO weaponDetailsSO, CurrencySystem currencySystem)
     {
         int weaponID = weaponDetailsSO.ID;
 
-        // ¾÷±×·¹ÀÌµå °¡´ÉÇÑÁö È®ÀÎ
+        // ì—…ê·¸ë ˆì´ë“œ ê°€ëŠ¥í•œì§€ í™•ì¸
         if (!CanUpgrade(currencySystem, GetUpgradeCost(upgradeIndex)))
             return;
 
-        // ¾÷±×·¹ÀÌµå Àû¿ë
+        // ì—…ê·¸ë ˆì´ë“œ ì ìš©
         ApplyUpgrade(upgradeIndex, weaponDetailsSO);
         upgradeDic[weaponID][upgradeIndex]++;
     }
@@ -91,7 +92,7 @@ public class UpgradeSystem : MonoBehaviour, ISaveData
             case 3: return Settings.weaponFireRateUpgradeGold;
             case 4: return Settings.weaponRangeUpgradeGold;
             case 5: return Settings.weaponKnockbackUpgradeGold;
-            default: throw new ArgumentOutOfRangeException(nameof(upgradeIndex), "À¯È¿ÇÏÁö ¾ÊÀº ÀÎµ¦½º!!");
+            default: throw new ArgumentOutOfRangeException(nameof(upgradeIndex), "ìœ íš¨í•˜ì§€ ì•Šì€ ì¸ë±ìŠ¤!!");
         }
     }
 
@@ -127,15 +128,25 @@ public class UpgradeSystem : MonoBehaviour, ISaveData
     }
     public void ToSaveData()
     {
+        SerializeDictionary<int, List<int>> serializeDictionary = new SerializeDictionary<int,List<int>>(upgradeDic);
+
         UpgradeSaveData unlockSaveData = new UpgradeSaveData()
         {
-            upgradeDic = upgradeDic,
+            weaponIdList = serializeDictionary.Keys,
+            upgradeLevelList = serializeDictionary.Values
         };
 
         SaveManager.Instance.SaveData.UpgradeData = unlockSaveData;
     }
     public void FromSaveData(SaveData saveData)
     {
-        this.upgradeDic = saveData.UpgradeData.upgradeDic;
+        var values = saveData.UpgradeData.upgradeLevelList;
+
+        for (int i = 0; i < values.Count; i++)
+        {
+            upgradeDic[i] = values[i];
+
+            InitializeUpgradeWeapon(weaponDB.GetDataByID<WeaponDetailsSO>(i), upgradeDic[i]);
+        }
     }
 }

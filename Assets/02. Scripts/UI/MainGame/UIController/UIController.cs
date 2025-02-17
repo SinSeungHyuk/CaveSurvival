@@ -10,9 +10,11 @@ public class UIController : MonoBehaviour
 
     [Header("UI Controller")]
     [SerializeField] private LevelUpController levelUpController;
+    [SerializeField] private ExpView expView;
+    [SerializeField] private PlayerLevelView playerLevelView;
 
-    private ExpController expController;
-    private PlayerLevelUIController levelController;
+    //private ExpController expController;
+    //private PlayerLevelUIController levelController;
     private StageInfoController stageInfoController;
     private WaveFinishController waveFinishController;
     private PauseController pauseController;
@@ -25,8 +27,7 @@ public class UIController : MonoBehaviour
 
     private void Awake()
     {
-        levelController = GetComponent<PlayerLevelUIController>();
-        expController = GetComponent<ExpController>();
+        //levelController = GetComponent<PlayerLevelUIController>();
         stageInfoController = GetComponent<StageInfoController>();
         waveFinishController = GetComponent<WaveFinishController>();
         pauseController = GetComponent<PauseController>();
@@ -35,10 +36,13 @@ public class UIController : MonoBehaviour
 
     public void InitializeUIController()
     {
-        expController.InitializeExpController();
+        //expController.InitializeExpController();
+        expView.InitializeExpView();
+        playerLevelView.InitializePlayerLevelView();
+
         levelUpController.gameObject.SetActive(false);
         stageInfoController.InitializeStageInfoController();
-        levelController.InitializePlayerLevelController();
+        //levelController.InitializePlayerLevelController();
 
         btnPause.onClick.AddListener(OnBtnPause);
     }

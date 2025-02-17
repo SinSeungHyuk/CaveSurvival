@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using GooglePlayGames.BasicApi;
+using R3;
 
 public class PlayerLevelUp : MonoBehaviour
 {
@@ -11,24 +12,27 @@ public class PlayerLevelUp : MonoBehaviour
     private Database weaponDetailsDB;
 
     private Player player;
-    private PlayerStat playerStat;
 
     private Dictionary<int, List<int>> validChoice = new();
 
 
+
+    private void Awake()
+    {
+        player = GameManager.Instance.Player;
+    }
+
     private void Start()
     {
         player = GetComponent<Player>();
-        playerStat = player.Stat;
-        playerStat.OnLevelChanged += PlayerStat_OnLevelChanged;
-
+        
         weaponDetailsDB = AddressableManager.Instance.GetResource<Database>("DB_Weapon");
         playerDB = AddressableManager.Instance.GetResource<PlayerLevelUpDatabase>("PlayerLevelUpDatabase");
         weaponDB = AddressableManager.Instance.GetResource<WeaponLevelUpDatabase>("WeaponLevelUpDatabase");
     }
 
 
-    private void PlayerStat_OnLevelChanged(PlayerStat stat, int level)
+    public void PlayerStat_OnLevelChanged(int level)
     {
         GameManager.Instance.UIController.LevelUpController.InitializeLevelUpController();
 

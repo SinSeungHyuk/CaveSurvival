@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public List<Weapon> WeaponList { get; private set; } // 무기 리스트
     public WeaponTransform WeaponTransform {  get; private set; } // 무기 장착 트랜스폼
     public PlayerWaveBuff PlayerWaveBuff { get; private set; }
+    public PlayerLevelUp PlayerLevelUp { get; private set; }
     public CancellationTokenSource DisableCancellation { get; private set; }
 
 
@@ -44,6 +45,7 @@ public class Player : MonoBehaviour
         ctrl = GetComponent<PlayerCtrl>();
         WeaponTransform = GetComponentInChildren<WeaponTransform>();
         PlayerWaveBuff = GetComponentInChildren<PlayerWaveBuff>();
+        PlayerLevelUp = GetComponent<PlayerLevelUp>();
         HealthBar = GetComponent<HealthBarUI>();
         stat = new PlayerStat();
 

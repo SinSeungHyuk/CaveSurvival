@@ -9,15 +9,9 @@ public class LevelUpController : MonoBehaviour
     [SerializeField] private Sprite goldSprite;
     [SerializeField] private SoundEffectSO levelUpSoundEffect;
     [SerializeField] private SoundEffectSO levelUpChoiceSoundEffect;
-
-    private List<BtnLevelUpUI> btnLevelUps;
-
+    [SerializeField] private List<BtnLevelUpUI> btnLevelUps;
 
 
-    private void Awake()
-    {
-        btnLevelUps = GetComponentsInChildren<BtnLevelUpUI>().ToList();
-    }
     public void InitializeLevelUpController()
     {
         gameObject.SetActive(true);

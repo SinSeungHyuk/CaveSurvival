@@ -1,3 +1,5 @@
+using R3;
+using R3.Triggers;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -33,14 +35,20 @@ public class PlayerCtrl : MonoBehaviour, IMovement, IAttack
         StageManager.Instance.CurrentStage.MonsterSpawnEvent.OnWaveStart -= Stage_OnWaveStart;
     }
 
+    private void Start()
+    {
+        this.UpdateAsObservable().Subscribe(_ => Move());
+        this.UpdateAsObservable().Subscribe(_ => Attack());
+    }
+
     private void Update()
     {
-        Attack();
+        //Attack();
     }
 
     private void FixedUpdate()
     {
-        Move();
+        //Move();
     }
 
 

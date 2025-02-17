@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class PlayerLevelUIController : MonoBehaviour
 {
-    [SerializeField] PlayerLevelUIView levelView;
+    //[SerializeField] PlayerLevelUIView levelView;
 
-    private PlayerStat playerStat;
+    //private PlayerStat playerStat;
 
 
-    public void InitializePlayerLevelController()
-    {
-        levelView.SetLevel(1);
+    //public void InitializePlayerLevelController()
+    //{
+    //    levelView.SetLevel(1);
 
-        playerStat = GameManager.Instance.Player.Stat;
-        playerStat.OnLevelChanged += PlayerStat_OnLevelChanged;
-    }
+    //    playerStat = GameManager.Instance.Player.Stat;
+    //    playerStat.OnLevelChanged += PlayerStat_OnLevelChanged;
+    //}
 
-    private void PlayerStat_OnLevelChanged(PlayerStat arg1, int lv)
-        => levelView.SetLevel(lv);
+    //private void PlayerStat_OnLevelChanged(PlayerStat arg1, int lv)
+    //    => levelView.SetLevel(lv);
 }

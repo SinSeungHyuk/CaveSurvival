@@ -29,7 +29,7 @@ public class LoadingSceneManager : MonoBehaviour
         SceneManager.LoadScene("LoadingScene");
     }
 
-    private async void Start()
+    private async void Awake()
     {
         // 로딩씬에 진입하면 로딩 시작, await으로 로딩이 끝날때까지 진행
         await LoadSceneAsync();

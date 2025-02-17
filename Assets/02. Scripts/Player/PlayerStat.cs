@@ -1,15 +1,15 @@
 using Cysharp.Threading.Tasks;
+using GooglePlayGames.BasicApi;
+using R3;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerStat
 {
-    public event Action<PlayerStat, float> OnExpChanged;
-    public event Action<PlayerStat, int> OnLevelChanged;
     public event Action<PlayerStat, float> OnHpChanged; 
-
 
     private Player player;
     private int hpRegenTimer;
@@ -17,33 +17,9 @@ public class PlayerStat
 
 
     #region LEVEL & EXP
-    private int currentExp;
-
-    public int Level { get; private set; }
+    public ReactiveProperty<int> Level { get; private set; } = new();
+    public ReactiveProperty<int> CurrentExp { get; set; } = new();
     public int Exp { get; private set; }
-    public int CurrentExp
-    {
-        get => currentExp;
-        set
-        {
-            currentExp = value;
-
-            if (currentExp >= Exp)
-            {
-                Level++;
-                OnLevelChanged?.Invoke(this, Level);
-                currentExp -= Exp;
-                Exp = Exp + (int)(Exp * Settings.expPerLevel);
-
-                // 레벨업시 체력 1 상승
-                MaxHp++;
-                Hp++;
-                player.HealthBar.SetHealthBar(Hp / MaxHp);
-            }
-
-            OnExpChanged?.Invoke(this, (float)currentExp / (float)Exp);
-        }
-    }
     #endregion
 
 
@@ -67,9 +43,11 @@ public class PlayerStat
     {
         this.player = player;
 
-        Level = 1;
         Exp = Settings.startExp;
-        CurrentExp = 0;
+        Level.Value = 1;
+        Level.Subscribe(level => player.PlayerLevelUp.PlayerStat_OnLevelChanged(level));
+        CurrentExp.Value = 0;
+        CurrentExp.Subscribe(exp => ExpChanged(exp));
 
         MaxHp = playerDetailsSO.Hp;
         Hp = MaxHp;
@@ -186,7 +164,7 @@ public class PlayerStat
     {
         float addHp = MaxHp * value * 0.01f;
         Hp = Mathf.Clamp(Hp + addHp, 0, MaxHp);
-        player.HealthBar.SetHealthBar(Hp / MaxHp);
+        HpChanged();
     }
 
     public float GetHPStatRatio()
@@ -197,5 +175,20 @@ public class PlayerStat
     {
         player.HealthBar.SetHealthBar(Hp / MaxHp);
         OnHpChanged?.Invoke(this, Hp);
+    }
+
+    private void ExpChanged(int currentExp)
+    {
+        if (currentExp >= Exp)
+        {
+            Level.Value++;
+            CurrentExp.Value -= Exp;
+            Exp = Exp + (int)(Exp * Settings.expPerLevel);
+
+            // 레벨업시 체력 1 상승
+            MaxHp++;
+            Hp++;
+            player.HealthBar.SetHealthBar(Hp / MaxHp);
+        }    
     }
 }

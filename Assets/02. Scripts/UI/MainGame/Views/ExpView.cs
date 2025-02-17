@@ -31,6 +31,6 @@ public class ExpView : MonoBehaviour
     private void SetExpBar(float ratio) 
     {
         expBar.value = ratio;
-        txtExp.text = $"{(ratio * 100).ToString("F1")} %";
+        txtExp.text = $"{(ratio * 100):F1} %";
     }
 }

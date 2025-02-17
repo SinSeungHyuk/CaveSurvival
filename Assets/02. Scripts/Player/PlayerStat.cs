@@ -47,7 +47,7 @@ public class PlayerStat
         Level.Value = 1;
         Level.Subscribe(level => player.PlayerLevelUp.PlayerStat_OnLevelChanged(level));
         CurrentExp.Value = 0;
-        CurrentExp.Subscribe(exp => ExpChanged(exp));
+        //CurrentExp.Subscribe(exp => ExpChanged(exp));
 
         MaxHp = playerDetailsSO.Hp;
         Hp = MaxHp;
@@ -177,18 +177,29 @@ public class PlayerStat
         OnHpChanged?.Invoke(this, Hp);
     }
 
-    private void ExpChanged(int currentExp)
-    {
-        if (currentExp >= Exp)
-        {
-            Level.Value++;
-            CurrentExp.Value -= Exp;
-            Exp = Exp + (int)(Exp * Settings.expPerLevel);
+    //private void ExpChanged(int currentExp)
+    //{
+    //    if (currentExp >= Exp)
+    //    {
+    //        Level.Value++;
+    //        CurrentExp.Value -= Exp;
+    //        Exp = Exp + (int)(Exp * Settings.expPerLevel);
 
-            // 레벨업시 체력 1 상승
-            MaxHp++;
-            Hp++;
-            player.HealthBar.SetHealthBar(Hp / MaxHp);
-        }    
+    //        // 레벨업시 체력 1 상승
+    //        MaxHp++;
+    //        Hp++;
+    //        player.HealthBar.SetHealthBar(Hp / MaxHp);
+    //    }    
+    //}
+
+    public void LevelUp()
+    {
+        Level.Value++;
+        CurrentExp.Value -= Exp;
+        Exp += (int)(Exp * Settings.expPerLevel); // 레벨업 시 필요 경험치 증가
+
+        MaxHp++;
+        Hp++;
+        player.HealthBar.SetHealthBar(Hp / MaxHp);
     }
 }

@@ -21,6 +21,6 @@ public class PlayerLevelViewModel
 
     private void SetPlayerLevel(int level)
     {
-        PlayerLevel.Value = "Level. [ " + level + " ]";
+        PlayerLevel.Value = "Level. " + level;
     }
 }

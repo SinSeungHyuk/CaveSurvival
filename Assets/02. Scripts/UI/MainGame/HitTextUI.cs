@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using TMPro;
+using System;
 
 public class HitTextUI : MonoBehaviour
 {
@@ -16,23 +17,29 @@ public class HitTextUI : MonoBehaviour
         trans = GetComponent<Transform>();
     }
 
-    public void InitializeHitText(int damageAmount, bool isCritic = false, bool isDodge = false)
+    public void InitializeHitText(int damageAmount, EHitType hitType = EHitType.Normal)
     {
-        if (isDodge)
+        switch (hitType)
         {
-            txtDamage.text = "회피";
-
-            HitTextMove(Color.white, 4f, 0.6f);
-
-            return;
+            case EHitType.Dodge:
+                txtDamage.text = "회피";
+                HitTextMove(Color.white, 4f, 0.6f);
+                break;
+            case EHitType.Normal:
+                txtDamage.text = damageAmount.ToString();
+                HitTextMove(Color.white, 4f, 0.6f);
+                break;
+            case EHitType.Critical:
+                txtDamage.text = damageAmount.ToString();
+                HitTextMove(Settings.critical, 5f, 0.8f);
+                break;
+            case EHitType.PlayerHit:
+                txtDamage.text = "-"+damageAmount.ToString();
+                HitTextMove(Settings.legend, 4f, 0.6f);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
-
-        txtDamage.text = damageAmount.ToString();
-
-        if (isCritic)
-            HitTextMove(Settings.critical, 5f, 0.8f);
-        else
-            HitTextMove(Color.white, 4f, 0.6f);
     }
 
     private void HitTextMove(Color color, float fontSize, float yPos)

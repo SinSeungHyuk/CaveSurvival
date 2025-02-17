@@ -477,6 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 2440927354228513837}
+  barImage: {fileID: 3400999292810688892}
 --- !u!95 &4816627488004521754
 Animator:
   serializedVersion: 5

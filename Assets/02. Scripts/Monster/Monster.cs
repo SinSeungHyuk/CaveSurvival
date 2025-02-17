@@ -155,7 +155,7 @@ public class Monster : MonoBehaviour
             damage = UtilitieHelper.IncreaseByPercent(damage, weapon.WeaponCriticDamage);
 
             var hitText = ObjectPoolManager.Instance.Get(EPool.HitText, new Vector2(transform.position.x, transform.position.y + 0.75f), Quaternion.identity);
-            hitText.GetComponent<HitTextUI>().InitializeHitText(damage, true);
+            hitText.GetComponent<HitTextUI>().InitializeHitText(damage, EHitType.Critical);
         }
         else
         {

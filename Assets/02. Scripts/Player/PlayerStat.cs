@@ -13,6 +13,7 @@ public class PlayerStat
 
     private Player player;
     private int hpRegenTimer;
+    private int def;
 
 
     #region LEVEL & EXP
@@ -73,9 +74,10 @@ public class PlayerStat
         MaxHp = playerDetailsSO.Hp;
         Hp = MaxHp;
         HpRegen = playerDetailsSO.HpRegen;
-        hpRegenTimer = (int)(5 / (1 + (HpRegen - 1) / 2.25f) * 1000f);
+        hpRegenTimer = (int)(5 / (1 + (HpRegen - 1) / 2f) * 1000f);
         //HpSteal = playerDetailsSO.HpSteal;
         Defense = playerDetailsSO.Defense;
+        def = UtilitieHelper.CombatScaling(Defense);
         BonusDamage = playerDetailsSO.BonusDamage;
         MeleeDamage = playerDetailsSO.MeleeDamage;
         RangeDamage = playerDetailsSO.RangeDamage;
@@ -93,14 +95,19 @@ public class PlayerStat
         // 회피 검사
         if (UtilitieHelper.isSuccess(Dodge))
         {
-            HitTextUI hitText = ObjectPoolManager.Instance.Get(EPool.HitText, new Vector2(player.transform.position.x, player.transform.position.y + 1f), Quaternion.identity).GetComponent<HitTextUI>();
-            hitText.InitializeHitText(0,false,true);
+            HitTextUI dodgeText = ObjectPoolManager.Instance.Get(EPool.HitText, new Vector2(player.transform.position.x, player.transform.position.y + 1f), Quaternion.identity).GetComponent<HitTextUI>();
+            dodgeText.InitializeHitText(0,EHitType.Dodge);
 
             return;
         }
 
-        int def = UtilitieHelper.CombatScaling(Defense);
-        damage = UtilitieHelper.DecreaseByPercent(damage, def);
+        int dmg = ((int)UtilitieHelper.DecreaseByPercent(damage, def));
+
+        // 체력바 이펙트
+        player.HealthBar.TakeDamageEffect().Forget();
+        // 피격 텍스트 띄우기
+        HitTextUI hitText = ObjectPoolManager.Instance.Get(EPool.HitText, new Vector2(player.transform.position.x, player.transform.position.y + 1f), Quaternion.identity).GetComponent<HitTextUI>();
+        hitText.InitializeHitText(dmg, EHitType.PlayerHit);
 
         Hp -= damage;
         HpChanged();
@@ -114,7 +121,7 @@ public class PlayerStat
             Hp = Mathf.Clamp(Hp+1, 0, MaxHp);
             HpChanged();
 
-            // 체력재생 공식 : 5 / (1 + (HpRegen - 1) / 2.25f) 초마다 1씩 재생
+            // 체력재생 공식 : 5 / (1 + (HpRegen - 1) / 2f) 초마다 1씩 재생
             await UniTask.Delay(hpRegenTimer, cancellationToken: player.DisableCancellation.Token);
         }
     }
@@ -131,11 +138,12 @@ public class PlayerStat
             case EStatType.HpRegen:
                 // HP 재생 관련 처리
                 HpRegen += data.value;
-                hpRegenTimer = (int)(5 / (1 + (HpRegen - 1) / 2.25f) * 1000f);
+                hpRegenTimer = (int)(5 / (1 + (HpRegen - 1) / 2f) * 1000f);
                 break;
             case EStatType.Defense:
                 // 방어력 관련 처리
                 Defense += data.value;
+                def = UtilitieHelper.CombatScaling(Defense);
                 break;
             case EStatType.BonusDamage:
                 // 추가 데미지 관련 처리

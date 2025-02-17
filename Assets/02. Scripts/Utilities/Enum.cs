@@ -108,3 +108,12 @@ public enum EDebuffType // 몬스터 디버프
     Slow,
     AttackDebuff,
 }
+
+
+public enum EHitType
+{
+    Normal,
+    Critical,
+    Dodge,
+    PlayerHit
+}

@@ -20,7 +20,7 @@ MonoBehaviour:
     type: 2}
   movementType: {fileID: 11400000, guid: 39c75b084eb77584993236024bd5ba4a, type: 2}
   attackType: {fileID: 0}
-  speed: 4
+  speed: 3
   chaseDistance: 11
   baseDamage: 1
   maxHp: 4

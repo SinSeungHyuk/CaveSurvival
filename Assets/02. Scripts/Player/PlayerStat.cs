@@ -18,7 +18,7 @@ public class PlayerStat
 
     #region LEVEL & EXP
     public ReactiveProperty<int> Level { get; private set; } = new();
-    public ReactiveProperty<int> CurrentExp { get; set; } = new();
+    public ReactiveProperty<int> CurrentExp { get; private set; } = new();
     public int Exp { get; private set; }
     #endregion
 
@@ -190,7 +190,13 @@ public class PlayerStat
     //        Hp++;
     //        player.HealthBar.SetHealthBar(Hp / MaxHp);
     //    }    
+ 
     //}
+
+    public void AddExp(int exp)
+    {
+        CurrentExp.Value += exp;
+    }
 
     public void LevelUp()
     {
@@ -202,4 +208,5 @@ public class PlayerStat
         Hp++;
         player.HealthBar.SetHealthBar(Hp / MaxHp);
     }
+
 }

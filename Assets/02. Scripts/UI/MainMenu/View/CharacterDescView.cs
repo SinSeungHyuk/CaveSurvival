@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class CharacterDescView : MonoBehaviour
 {
+    [SerializeField] private GameStartUI gameStartUI;
+
     [SerializeField] private Image imgCharacter;
     [SerializeField] private Image imgStartingWeapon;
 
@@ -37,7 +39,7 @@ public class CharacterDescView : MonoBehaviour
         {
             btnPlay.onClick.RemoveAllListeners();
             btnPlay.onClick.AddListener(()
-                => LoadingSceneManager.LoadScene("CombatScene", "Stage1", ESceneType.MainGame));
+                => gameStartUI.InitializeGameStartUI(stageCharacterData));
         }
         else 
             btnPlay.enabled = false;

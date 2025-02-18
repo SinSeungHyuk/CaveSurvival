@@ -20,16 +20,11 @@ public class ExpViewModel
 
         this.playerStat.CurrentExp
             .Where(exp => exp >= playerStat.Exp)
-            .Subscribe(_ => LevelUp());
+            .Subscribe(_ => playerStat.LevelUp());
     }
 
     private void SetExpPercentage(int exp)
     {
         ExpPercentage.Value = (float)exp / (float)playerStat.Exp;
-    }
-
-    private void LevelUp()
-    {
-        playerStat.LevelUp();
     }
 }

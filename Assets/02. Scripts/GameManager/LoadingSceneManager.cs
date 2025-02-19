@@ -36,9 +36,9 @@ public class LoadingSceneManager : MonoBehaviour
         
         switch (sceneTypeToLoad)
         {
-            case ESceneType.MainMenu:
-                GameManager.Instance.CreateMainMenuScene();
-                break;
+            //case ESceneType.MainMenu:
+            //    GameManager.Instance.CreateMainMenuScene();
+            //    break;
             case ESceneType.MainGame:
                 GameManager.Instance.CreateMainGameScene();
                 break;

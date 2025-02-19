@@ -18,16 +18,16 @@ MonoBehaviour:
   runtimeAnimatorController: {fileID: 9100000, guid: 039196402ecb866408d103d4f5acbe39,
     type: 2}
   playerSprite: {fileID: -1413294825, guid: 99a24620d31e5ce4e823c32d11e17c2c, type: 3}
-  playerStartingWeapon: {fileID: 11400000, guid: e878a75ce0840d74c8281db1276a9e7d,
+  playerStartingWeapon: {fileID: 11400000, guid: 31b237de5f16ad74894fae119794f916,
     type: 2}
-  characterStrength: "+ \uCCB4\uB825"
+  characterStrength: "+ \uCCB4\uB825\n+ \uC6D0\uAC70\uB9AC \uB370\uBBF8\uC9C0"
   characterWeakness: 
-  Hp: 35
+  Hp: 40
   HpRegen: 0
   Defense: 0
   BonusDamage: 0
   MeleeDamage: 0
-  RangeDamage: 0
+  RangeDamage: 5
   Speed: 6
   Dodge: 0
   PickUpRange: 0

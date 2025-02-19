@@ -18,9 +18,6 @@ public class CurrencySystem : MonoBehaviour, ICurrencyService, ISaveData
     private void Start()
     {
         Register();
-
-        Debug.Log("재화 시작");
-
     }
 
 
@@ -53,5 +50,13 @@ public class CurrencySystem : MonoBehaviour, ICurrencyService, ISaveData
         Debug.Log("재화 로드");
         currencyList = saveData.CurrencyData.currencyList.ToArray();
 
+        GetReward();
+    }
+
+    private void GetReward()
+    {
+        RewardDataSO rewardData = AddressableManager.Instance.GetResource<RewardDataSO>("RewardData");
+        IncreaseCurrency(ECurrencyType.Achive, rewardData.achiveReward);
+        IncreaseCurrency(ECurrencyType.Gold, rewardData.goldReward);
     }
 }

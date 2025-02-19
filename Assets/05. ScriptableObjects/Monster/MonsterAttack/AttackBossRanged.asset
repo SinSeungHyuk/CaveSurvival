@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e36d801fa9eac0438b2d546c796d354, type: 3}
   m_Name: AttackBossRanged
   m_EditorClassIdentifier: 
-  speed: 9
+  speed: 8

@@ -42,11 +42,11 @@ public class GameManager : Singleton<GameManager>
         postProcessingCtrl.InitializePostProcessingCtrl(Player);
     }
 
-    public void CreateMainMenuScene()
-    {
-        RewardDataSO rewardData = AddressableManager.Instance.GetResource<RewardDataSO>("RewardData");
+    //public void CreateMainMenuScene()
+    //{
+    //    RewardDataSO rewardData = AddressableManager.Instance.GetResource<RewardDataSO>("RewardData");
 
-        currencySystem.IncreaseCurrency(ECurrencyType.Achive, rewardData.achiveReward);
-        currencySystem.IncreaseCurrency(ECurrencyType.Gold, rewardData.goldReward);
-    }
+    //    currencySystem.IncreaseCurrency(ECurrencyType.Achive, rewardData.achiveReward);
+    //    currencySystem.IncreaseCurrency(ECurrencyType.Gold, rewardData.goldReward);
+    //}
 }

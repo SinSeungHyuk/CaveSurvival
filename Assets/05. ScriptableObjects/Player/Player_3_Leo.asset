@@ -18,7 +18,7 @@ MonoBehaviour:
   runtimeAnimatorController: {fileID: 22100000, guid: 378ba95c09851b342ac5dbb12b63716d,
     type: 2}
   playerSprite: {fileID: 1267830177, guid: 8f7a60065e3984c489b9c4d41bc3dc4e, type: 3}
-  playerStartingWeapon: {fileID: 11400000, guid: bdcc8ad597d069b46aec5c5bb59a1a25,
+  playerStartingWeapon: {fileID: 11400000, guid: 18b099ef628f8c84b967038c765a8ea9,
     type: 2}
   characterStrength: "+ \uCCB4\uB825\n+ \uBC29\uC5B4\uB825"
   characterWeakness: "- \uC18D\uB3C4"

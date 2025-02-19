@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerLevelUpData_29
   m_EditorClassIdentifier: 
   id: 28
-  description: "% \uD68C\uD53C +3"
+  description: "% \uD68C\uD53C +5"
   statType: 7
-  value: 3
+  value: 5
   ratio: 60

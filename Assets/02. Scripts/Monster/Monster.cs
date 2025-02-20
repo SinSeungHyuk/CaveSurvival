@@ -131,15 +131,8 @@ public class Monster : MonoBehaviour
 
         healthBar?.SetHealthBar(stat.Hp / enemyDetails.maxHp); // 보스만 체력바를 가지고있으므로 null 체크
 
-        if (stat.Hp <= 0f) // 최초로 체력이 0 이하로 떨어질 경우
-        {
-            isDead = true;
-
-            // 사망이벤트 처리
-            MonsterDead();
-            monsterDestroyedEvent.CallMonsterDestroyedEvent(this.transform.position);
+        if (MonsterDead() == true) // 최초로 체력이 0 이하로 떨어질 경우
             return;
-        }
 
         TakeDamageEffect().Forget();
     }
@@ -183,17 +176,29 @@ public class Monster : MonoBehaviour
         }
     }
 
-    private void MonsterDead()
+    private bool MonsterDead()
     {
-        // Clone된 SO 인스턴스 정리
-        Destroy(movement); // Clone된 SO 파괴
-        Destroy(monsterAttack); // Clone된 SO 파괴
-        movement = null;
-        monsterAttack = null;
+        if (stat.Hp <= 0f) // 최초로 체력이 0 이하로 떨어질 경우
+        {
+            isDead = true;
 
-        MonsterState.ClearAllDebuff(); // 몬스터의 모든 디버프 제거
+            // Clone된 SO 인스턴스 정리
+            Destroy(movement); // Clone된 SO 파괴
+            Destroy(monsterAttack); // Clone된 SO 파괴
+            movement = null;
+            monsterAttack = null;
 
-        hitbox.enabled = false; // 충돌체 끄기
+            MonsterState.ClearAllDebuff(); // 몬스터의 모든 디버프 제거
+
+            hitbox.enabled = false; // 충돌체 끄기
+
+            // 사망이벤트 처리
+            monsterDestroyedEvent.CallMonsterDestroyedEvent(this.transform.position);
+
+            return true;
+        }
+
+        return false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

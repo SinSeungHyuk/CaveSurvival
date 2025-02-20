@@ -20,6 +20,8 @@ MonoBehaviour:
   playerSprite: {fileID: -2088749509, guid: 57a1443e67528144aa07582927559650, type: 3}
   playerStartingWeapon: {fileID: 11400000, guid: be3223ff79a64484d9b6579312d1c5ca,
     type: 2}
+  playerStartingUltimateSkill: {fileID: 11400000, guid: 911a2787e66d4d64b99bda5bc6adab58,
+    type: 2}
   characterStrength: "+ \uCCB4\uB825 \uC7AC\uC0DD\n+ \uADFC\uAC70\uB9AC \uB370\uBBF8\uC9C0"
   characterWeakness: "- \uBC29\uC5B4\uB825"
   Hp: 30

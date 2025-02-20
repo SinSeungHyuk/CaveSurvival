@@ -7,6 +7,7 @@ public class UIController : MonoBehaviour
 {
     [Header("Buttons")] 
     [SerializeField] private Button btnPause;
+    [SerializeField] private Button btnTest;
 
     [Header("UI Controller")]
     [SerializeField] private LevelUpController levelUpController;
@@ -27,7 +28,6 @@ public class UIController : MonoBehaviour
 
     private void Awake()
     {
-        //levelController = GetComponent<PlayerLevelUIController>();
         stageInfoController = GetComponent<StageInfoController>();
         waveFinishController = GetComponent<WaveFinishController>();
         pauseController = GetComponent<PauseController>();
@@ -36,19 +36,23 @@ public class UIController : MonoBehaviour
 
     public void InitializeUIController()
     {
-        //expController.InitializeExpController();
         expView.InitializeExpView();
         playerLevelView.InitializePlayerLevelView();
 
         levelUpController.gameObject.SetActive(false);
         stageInfoController.InitializeStageInfoController();
-        //levelController.InitializePlayerLevelController();
 
         btnPause.onClick.AddListener(OnBtnPause);
+        btnTest.onClick.AddListener(OnBtnTest);
     }
 
     private void OnBtnPause()
     {
         pauseController.InitializePauseController();
+    }
+
+    private void OnBtnTest()
+    {
+        GameManager.Instance.Player.UseUltimateSkill();
     }
 }

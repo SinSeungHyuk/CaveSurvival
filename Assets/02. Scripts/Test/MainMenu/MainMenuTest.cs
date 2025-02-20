@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class MainMenuTest : MonoBehaviour
 {
-    public int meleeRange;
+    [SerializeField] private Material materialTest;
 
 
-    private void Start()
+    private void Update()
     {
-        //Debug.Log(AddressableManager.Instance.Resources.Count);
+        materialTest.SetFloat("_SplitValue", Mathf.Sin(Time.time));
     }
 }

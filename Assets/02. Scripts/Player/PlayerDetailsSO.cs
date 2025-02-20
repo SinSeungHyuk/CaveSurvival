@@ -10,6 +10,7 @@ public class PlayerDetailsSO : IdentifiedObject
     public RuntimeAnimatorController runtimeAnimatorController;
     public Sprite playerSprite;
     public WeaponDetailsSO playerStartingWeapon; // 스타팅 무기
+    public PlayerUltimateSkillSO playerStartingUltimateSkill; // 스타팅 궁극기
     [TextArea] public string characterStrength; // 캐릭터 소개를 위한 텍스트
     [TextArea] public string characterWeakness;
 

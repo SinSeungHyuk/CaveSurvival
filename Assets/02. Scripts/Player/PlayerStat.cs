@@ -104,53 +104,53 @@ public class PlayerStat
         }
     }
 
-    public void PlayerStatChanged(PlayerLevelUpData data)
+    public void PlayerStatChanged(EStatType statType, int value)
     {
-        switch (data.statType)
+        switch (statType)
         {
             case EStatType.Hp:
                 // HP 관련 처리
-                MaxHp += data.value;
+                MaxHp += value;
                 HpChanged();
                 break;
             case EStatType.HpRegen:
                 // HP 재생 관련 처리
-                HpRegen += data.value;
+                HpRegen += value;
                 hpRegenTimer = (int)(5 / (1 + (HpRegen - 1) / 2f) * 1000f);
                 break;
             case EStatType.Defense:
                 // 방어력 관련 처리
-                Defense += data.value;
+                Defense += value;
                 def = UtilitieHelper.CombatScaling(Defense);
                 break;
             case EStatType.BonusDamage:
                 // 추가 데미지 관련 처리
-                BonusDamage += data.value;
+                BonusDamage += value;
                 break;
             case EStatType.MeleeDamage:
                 // 근접 데미지 관련 처리
-                MeleeDamage += data.value;
+                MeleeDamage += value;
                 break;
             case EStatType.RangeDamage:
                 // 원거리 데미지 관련 처리
-                RangeDamage += data.value;
+                RangeDamage += value;
                 break;
             case EStatType.Speed:
                 // 이동속도 관련 처리
-                Speed = UtilitieHelper.IncreaseByPercent(Speed, data.value);
+                Speed = UtilitieHelper.IncreaseByPercent(Speed, value);
                 break;
             case EStatType.Dodge:
                 // 회피 관련 처리
-                Dodge = Mathf.Clamp(Dodge+data.value, 0 ,80); // 최대 80%
+                Dodge = Mathf.Clamp(Dodge+value, 0 ,80); // 최대 80%
                 break;
             case EStatType.PickUpRange:
                 // 획득 범위 관련 처리
-                PickUpRange += data.value;
-                player.CircleRange.radius = UtilitieHelper.IncreaseByPercent(player.CircleRange.radius, data.value);
+                PickUpRange += value;
+                player.CircleRange.radius = UtilitieHelper.IncreaseByPercent(player.CircleRange.radius, value);
                 break;
             case EStatType.ExpBonus:
                 // 경험치 보너스 관련 처리
-                ExpBonus += data.value;
+                ExpBonus += value;
                 break;
             default:
                 break;
@@ -176,22 +176,6 @@ public class PlayerStat
         player.HealthBar.SetHealthBar(Hp / MaxHp);
         OnHpChanged?.Invoke(this, Hp);
     }
-
-    //private void ExpChanged(int currentExp)
-    //{
-    //    if (currentExp >= Exp)
-    //    {
-    //        Level.Value++;
-    //        CurrentExp.Value -= Exp;
-    //        Exp = Exp + (int)(Exp * Settings.expPerLevel);
-
-    //        // 레벨업시 체력 1 상승
-    //        MaxHp++;
-    //        Hp++;
-    //        player.HealthBar.SetHealthBar(Hp / MaxHp);
-    //    }    
- 
-    //}
 
     public void AddExp(int exp)
     {

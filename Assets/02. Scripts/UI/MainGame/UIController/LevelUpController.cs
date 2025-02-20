@@ -38,7 +38,7 @@ public class LevelUpController : MonoBehaviour
         btnLevelUps[btnIndex].InitializeBtnLevelUp(sprite, data.description, btnSprite);
 
         btnLevelUps[btnIndex].BtnLevelUp.onClick.AddListener(() => {
-            GameManager.Instance.Player.Stat.PlayerStatChanged(data);
+            GameManager.Instance.Player.Stat.PlayerStatChanged(data.statType, data.value);
             gameObject.SetActive(false);
             SoundEffectManager.Instance.PlaySoundEffect(levelUpChoiceSoundEffect);
         });

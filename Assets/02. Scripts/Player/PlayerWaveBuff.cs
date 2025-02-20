@@ -47,11 +47,7 @@ public class PlayerWaveBuff : MonoBehaviour
 
         WaveBuffList.Add(newBuffData);
 
-        PlayerLevelUpData data = ScriptableObject.CreateInstance<PlayerLevelUpData>();
-        data.statType = newBuffData.BuffType;
-        data.value = newBuffData.Value;
-
-        player.Stat.PlayerStatChanged(data);
+        player.Stat.PlayerStatChanged(newBuffData.BuffType, newBuffData.Value);
     }
 }
 

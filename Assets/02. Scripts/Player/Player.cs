@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private Animator animator;
     private PlayerStat stat; // 캐릭터 스탯
     private PlayerCtrl ctrl; // 캐릭터 컨트롤러
+    private UltimateSkillBehaviour ultimateSkillBehaviour;
 
     #region PLAYER EVENT
     public WeaponAttackEvent WeaponAttackEvent { get; private set; }
@@ -83,7 +84,7 @@ public class Player : MonoBehaviour
         WeaponList = new List<Weapon>(Settings.maxWeaponCount);
         AddWeaponToPlayer(playerDetails.playerStartingWeapon);
 
-
+        ultimateSkillBehaviour = so.playerStartingUltimateSkill.CreateSkill();
 
         stat.InitializePlayerStat(playerDetails, this);
     }
@@ -121,6 +122,11 @@ public class Player : MonoBehaviour
     {
         // value % 만큼 현재 체력 회복
         Stat.HpRecovery(value);
+    }
+
+    public void UseUltimateSkill()
+    {
+        ultimateSkillBehaviour.Apply(this);
     }
 
 

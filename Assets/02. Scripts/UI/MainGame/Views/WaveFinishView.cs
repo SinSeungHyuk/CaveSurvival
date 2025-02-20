@@ -18,6 +18,7 @@ public class WaveFinishView : MonoBehaviour
 
     public void InitializeWaveFinishView()
     {
+        txtWaveFinish.text = "";
         imgBackground.gameObject.SetActive(true);
 
         imgBackground.DOFade(0.7f, 2f)
@@ -26,7 +27,6 @@ public class WaveFinishView : MonoBehaviour
 
     private async UniTask TypeTextEffect()
     {
-        txtWaveFinish.text = "";
         txtWaveFinish.gameObject.SetActive(true);
         StringBuilder sb = new StringBuilder();
 

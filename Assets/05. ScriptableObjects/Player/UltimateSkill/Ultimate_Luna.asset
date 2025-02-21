@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ultimateSkillData:
     skillName: Luna's Ultimate!!
-    skillIcon: {fileID: 0}
+    skillIcon: {fileID: -2088749509, guid: 57a1443e67528144aa07582927559650, type: 3}
     skillGauge: 0
+    soundEffects:
+    - {fileID: 11400000, guid: 72153083bad7f484da0f63cfe924c6bd, type: 2}
   additionalHpRegen: 50
   additionalDefense: 50
   lunaMaterial: {fileID: 2100000, guid: b3fb4bd5cac9b37438dc29fef32b91d4, type: 2}

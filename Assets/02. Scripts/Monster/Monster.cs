@@ -131,10 +131,29 @@ public class Monster : MonoBehaviour
 
         healthBar?.SetHealthBar(stat.Hp / enemyDetails.maxHp); // 보스만 체력바를 가지고있으므로 null 체크
 
-        if (MonsterDead() == true) // 최초로 체력이 0 이하로 떨어질 경우
+        if (IsMonsterDead())
+        {
+            Player.gameObject.GetComponent<Player>().AddUltimateGauge((int)enemyDetails.itemDetails.itemGrade);
             return;
+        }
+        else
+            TakeDamageEffect().Forget();
+    }
 
-        TakeDamageEffect().Forget();
+    public void TakeDamage(int damage)
+    {
+        SoundEffectManager.Instance.PlaySoundEffect(hitSoundEffect);
+
+        stat.Hp -= damage;
+        healthBar?.SetHealthBar(stat.Hp / enemyDetails.maxHp); // 보스만 체력바를 가지고있으므로 null 체크
+
+        var hitText = ObjectPoolManager.Instance.Get(EPool.HitText, new Vector2(transform.position.x, transform.position.y + 0.75f), Quaternion.identity);
+        hitText.GetComponent<HitTextUI>().InitializeHitText(damage, EHitType.Critical);
+
+        if (IsMonsterDead())
+            return;
+        else
+            TakeDamageEffect().Forget();
     }
 
     private int GetDamage(Weapon weapon, int bonusDamage)
@@ -176,7 +195,7 @@ public class Monster : MonoBehaviour
         }
     }
 
-    private bool MonsterDead()
+    private bool IsMonsterDead()
     {
         if (stat.Hp <= 0f) // 최초로 체력이 0 이하로 떨어질 경우
         {

@@ -1,3 +1,4 @@
+using R3;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,14 +6,47 @@ using UnityEngine.TextCore.Text;
 
 public abstract class UltimateSkillBehaviour
 {
-    protected PlayerUltimateSkillSO data; // 해당 스킬의 SO 데이터
+    protected PlayerUltimateSkillSO skillSO; // 해당 스킬의 SO 데이터
+    protected Player player;
 
-    public UltimateSkillBehaviour(PlayerUltimateSkillSO data)
+    private int skillGauge;
+    private int currentGauge;
+
+    public PlayerUltimateSkillSO SkillSO => skillSO;
+    public ReactiveProperty<float> GaugeRatio { get; private set; } = new ReactiveProperty<float>();
+
+
+
+    public UltimateSkillBehaviour(Player player, PlayerUltimateSkillSO data)
     {
-        this.data = data;
+        this.player = player;
+        this.skillSO = data;
+        skillGauge = data.UltimateSkillData.skillGauge;
+        currentGauge = 0;
+    }
+
+    public void UseUltimateSkill()
+    {
+        if (skillGauge <= currentGauge)
+        {
+            SetGaugeRatio(-skillGauge);
+
+            Apply();
+        }
+    }
+
+    public void SetGaugeRatio(int value)
+    {
+        currentGauge = Mathf.Clamp(currentGauge + value, 0, skillGauge);
+        GaugeRatio.Value = (float)currentGauge / (float)skillGauge;
+    }
+
+    protected void PlaySoundEffect(int index = 0)
+    {
+        SoundEffectManager.Instance.PlaySoundEffect(skillSO.UltimateSkillData.soundEffects[index]);
     }
 
     // 상속받아서 각자 스킬 구현
-    public abstract void Apply(Player player);
+    public abstract void Apply();
     public virtual void Release() { }
 }

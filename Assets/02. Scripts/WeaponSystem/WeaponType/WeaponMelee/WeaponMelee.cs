@@ -15,7 +15,7 @@ public class WeaponMelee : WeaponTypeDetailsSO
 
     public override void Attack(Weapon weapon)
     {
-        if (weapon.DetectorType.DetectMonster(weapon, out Vector2 direction, out GameObject monster) == false)
+        if (weapon.DetectorType.DetectMonster(weapon, out Vector2 direction, out Monster monster) == false)
             return; // 사거리 내의 적 찾기 (탐지 기준은 무기마다 설정가능)
 
         var colliders = Physics2D.OverlapCircleAll(monster.transform.position, meleeRange, Settings.monsterLayer);
@@ -26,7 +26,6 @@ public class WeaponMelee : WeaponTypeDetailsSO
             target.TakeDamage(weapon, weapon.Player.Stat.MeleeDamage);
             target.Rigid.AddForce(direction * weapon.WeaponKnockback);
 
-            // TEST
             hitEffect = ObjectPoolManager.Instance.Get(weapon.WeaponParticle, target.transform.position, Quaternion.identity).GetComponent<HitEffect>();
             hitEffect.InitializeHitEffect(weapon.WeaponParticle);
 
@@ -36,6 +35,11 @@ public class WeaponMelee : WeaponTypeDetailsSO
             }
         }
 
+        PostAttack(weapon, direction);
+    }
+
+    private void PostAttack(Weapon weapon, Vector2 direction)
+    {
         // 근접무기 : 몬스터 위치를 향해 회전 후 찌르기 모션(이동)
         float angle = UtilitieHelper.GetAngleFromVector(direction);
         weapon.Player.WeaponTransform.RotateWeapon(weapon, angle);

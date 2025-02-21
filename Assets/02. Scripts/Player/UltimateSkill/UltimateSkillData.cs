@@ -11,4 +11,5 @@ public struct UltimateSkillData
     public string skillName;
     public Sprite skillIcon;
     public int skillGauge; // 스킬 사용에 필요한 게이지
+    public List<SoundEffectSO> soundEffects;
 }

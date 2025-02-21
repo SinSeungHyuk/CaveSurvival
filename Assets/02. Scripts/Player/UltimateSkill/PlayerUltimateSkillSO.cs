@@ -1,3 +1,4 @@
+using R3;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,5 +10,5 @@ public abstract class PlayerUltimateSkillSO : ScriptableObject
     public UltimateSkillData UltimateSkillData => ultimateSkillData;
 
 
-    public abstract UltimateSkillBehaviour CreateSkill();
+    public abstract UltimateSkillBehaviour CreateSkill(Player player);
 }

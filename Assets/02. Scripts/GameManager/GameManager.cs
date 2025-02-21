@@ -11,12 +11,6 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private VCameraController vCam; 
     [SerializeField] private PostProcessingCtrl postProcessingCtrl;
 
-    [Header("Main Menu Scene")]
-    [SerializeField] private CurrencySystem currencySystem;
-
-
-    private StageCharacterDataSO stageCharacterData;
-
 
     public Player Player { get; private set; }
     public UIController UIController { get; private set; }
@@ -26,7 +20,7 @@ public class GameManager : Singleton<GameManager>
 
     public void CreateMainGameScene()
     {
-        stageCharacterData = AddressableManager.Instance.GetResource<StageCharacterDataSO>("StageCharacterData");
+        var stageCharacterData = AddressableManager.Instance.GetResource<StageCharacterDataSO>("StageCharacterData");
 
         StageManager.Instance.CreateStage(stageCharacterData.stageDetails);
 
@@ -41,12 +35,4 @@ public class GameManager : Singleton<GameManager>
         // postProcessingCtrl 포스트 프로세싱 초기화
         postProcessingCtrl.InitializePostProcessingCtrl(Player);
     }
-
-    //public void CreateMainMenuScene()
-    //{
-    //    RewardDataSO rewardData = AddressableManager.Instance.GetResource<RewardDataSO>("RewardData");
-
-    //    currencySystem.IncreaseCurrency(ECurrencyType.Achive, rewardData.achiveReward);
-    //    currencySystem.IncreaseCurrency(ECurrencyType.Gold, rewardData.goldReward);
-    //}
 }

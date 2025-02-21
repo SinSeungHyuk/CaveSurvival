@@ -17,6 +17,6 @@ public class UltimateSkillLuna : PlayerUltimateSkillSO
     public Material LunaMaterial => lunaMaterial;
 
 
-    public override UltimateSkillBehaviour CreateSkill()
-        => new UltimateSkillBehaviourLuna(this); // 해당 SO 전달
+    public override UltimateSkillBehaviour CreateSkill(Player player)
+        => new UltimateSkillBehaviourLuna(player, this); // 해당 SO 전달
 }

@@ -13,12 +13,17 @@ public class WeaponRanged : WeaponTypeDetailsSO
 
     public override void Attack(Weapon weapon)
     {
-        if (weapon.DetectorType.DetectMonster(weapon, out Vector2 direction, out GameObject monster) == false)
+        if (weapon.DetectorType.DetectMonster(weapon, out Vector2 direction, out Monster monster) == false)
             return; // 사거리 내의 적 찾기 (탐지 기준은 무기마다 설정가능)
 
         // 이 원거리무기가 가진 발사패턴대로 투사체 발사
         pattern.ProjectileLaunch(projectileDetails, bonusEffects, direction, weapon);
 
+        PostAttack(weapon, direction);
+    }
+
+    private void PostAttack(Weapon weapon, Vector2 direction)
+    {
         float angle = UtilitieHelper.GetAngleFromVector(direction);
         weapon.Player.WeaponTransform.RotateWeapon(weapon, angle);
         SoundEffectManager.Instance.PlaySoundEffect(weapon.WeaponSoundEffect);

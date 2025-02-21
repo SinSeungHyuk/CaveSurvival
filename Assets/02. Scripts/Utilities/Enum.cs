@@ -29,8 +29,8 @@ public enum EGrade // 아이템 등급 (등급별 경험치)
 {
     Normal = 4,
     Rare = 8,
-    Unique = 15,
-    Legend = 30
+    Unique = 16,
+    Legend = 100
 }
 
 public enum EItemType // 아이템 타입

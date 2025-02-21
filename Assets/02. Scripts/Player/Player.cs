@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     private Animator animator;
     private PlayerStat stat; // 캐릭터 스탯
     private PlayerCtrl ctrl; // 캐릭터 컨트롤러
-    private UltimateSkillBehaviour ultimateSkillBehaviour;
+
 
     #region PLAYER EVENT
     public WeaponAttackEvent WeaponAttackEvent { get; private set; }
@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     public WeaponTransform WeaponTransform {  get; private set; } // 무기 장착 트랜스폼
     public PlayerWaveBuff PlayerWaveBuff { get; private set; }
     public PlayerLevelUp PlayerLevelUp { get; private set; }
+    public UltimateSkillBehaviour UltimateSkillBehaviour { get; private set; }
     public CancellationTokenSource DisableCancellation { get; private set; }
 
 
@@ -84,7 +85,7 @@ public class Player : MonoBehaviour
         WeaponList = new List<Weapon>(Settings.maxWeaponCount);
         AddWeaponToPlayer(playerDetails.playerStartingWeapon);
 
-        ultimateSkillBehaviour = so.playerStartingUltimateSkill.CreateSkill();
+        UltimateSkillBehaviour = so.playerStartingUltimateSkill.CreateSkill(this);
 
         stat.InitializePlayerStat(playerDetails, this);
     }
@@ -126,7 +127,12 @@ public class Player : MonoBehaviour
 
     public void UseUltimateSkill()
     {
-        ultimateSkillBehaviour.Apply(this);
+        UltimateSkillBehaviour.UseUltimateSkill();
+    }
+
+    public void AddUltimateGauge(int value)
+    {
+        UltimateSkillBehaviour.SetGaugeRatio(value);
     }
 
 

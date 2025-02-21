@@ -7,7 +7,7 @@ public class UIController : MonoBehaviour
 {
     [Header("Buttons")] 
     [SerializeField] private Button btnPause;
-    [SerializeField] private Button btnTest;
+    [SerializeField] private BtnUltimate btnUltimate;
 
     [Header("UI Controller")]
     [SerializeField] private LevelUpController levelUpController;
@@ -41,18 +41,13 @@ public class UIController : MonoBehaviour
 
         levelUpController.gameObject.SetActive(false);
         stageInfoController.InitializeStageInfoController();
+        btnUltimate.InitializeBtnUltimate();
 
         btnPause.onClick.AddListener(OnBtnPause);
-        btnTest.onClick.AddListener(OnBtnTest);
     }
 
     private void OnBtnPause()
     {
         pauseController.InitializePauseController();
-    }
-
-    private void OnBtnTest()
-    {
-        GameManager.Instance.Player.UseUltimateSkill();
     }
 }

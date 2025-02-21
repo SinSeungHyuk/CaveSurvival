@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f85a93b2c8685945ba93b1488044808, type: 3}
+  m_Name: Ultimate_Kai
+  m_EditorClassIdentifier: 
+  ultimateSkillData:
+    skillName: 
+    skillIcon: {fileID: -835281720, guid: 99a24620d31e5ce4e823c32d11e17c2c, type: 3}
+    skillGauge: 200
+    soundEffects:
+    - {fileID: 11400000, guid: fbfb6fcd7b27bc54d9038614da6f3d25, type: 2}
+    - {fileID: 11400000, guid: 9eeef95fb3b72184e83b2a97bba2141d, type: 2}
+  tileColor: {r: 0.3137255, g: 0.3137255, b: 0.3137255, a: 1}
+  baseDamage: 250
+  range: 15
+  monsterMaterial: {fileID: 2100000, guid: d6b37cb04e340564a88b58a3e2153f4b, type: 2}

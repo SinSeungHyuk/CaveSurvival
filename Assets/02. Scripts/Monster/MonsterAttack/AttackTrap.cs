@@ -25,8 +25,8 @@ public class AttackTrap : MonsterAttackSO
                 // 플레이어 위치 기준 x,y +-5 위치에 함정 생성
                 float dx = Random.Range(-5.0f, 5.0f);
                 float dy = Random.Range(-5.0f, 5.0f);
-                trapPos.x = monster.Player.position.x + dx;
-                trapPos.y = monster.Player.position.y + dy;
+                trapPos.x = monster.PlayerTransform.position.x + dx;
+                trapPos.y = monster.PlayerTransform.position.y + dy;
                 CreateTrap();
             }
 

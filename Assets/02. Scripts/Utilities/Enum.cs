@@ -65,6 +65,7 @@ public enum EStatType // 플레이어 스탯
     Dodge,
     PickUpRange,
     ExpBonus,
+    SpeedBonus, // 속도를 정수형으로 계산하기 위한 스탯타입
 }
 
 public enum EWeaponStatType // 무기 스탯

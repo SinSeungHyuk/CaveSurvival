@@ -23,7 +23,7 @@ public class AttackRanged : MonsterAttackSO
             // 몬스터가 중간에 비활성화될때를 대비
             await UniTask.Delay(Settings.monsterFireRate, cancellationToken: monster.DisableCancellation.Token);
 
-            fireDir = (monster.Player.position - monster.transform.position).normalized;
+            fireDir = (monster.PlayerTransform.position - monster.transform.position).normalized;
 
             // 발사 명령이 떨어지면 풀에서 투사체 활성화
             projectileObject = ObjectPoolManager.Instance.Get(EPool.MonsterBullet, monster.transform);

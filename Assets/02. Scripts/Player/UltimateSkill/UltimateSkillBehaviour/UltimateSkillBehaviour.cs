@@ -1,4 +1,6 @@
+using Cysharp.Threading.Tasks;
 using R3;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,12 +27,15 @@ public abstract class UltimateSkillBehaviour
         currentGauge = 0;
     }
 
-    public void UseUltimateSkill()
+    public async UniTask UseUltimateSkill()
     {
         if (skillGauge <= currentGauge)
         {
             SetGaugeRatio(-skillGauge);
 
+            SoundEffectManager.Instance.PlaySoundEffect(skillSO.UltimateSkillData.startSoundEffect);
+            await GameManager.Instance.VCam.VCamUltimateEffectRoutine();
+            
             Apply();
         }
     }

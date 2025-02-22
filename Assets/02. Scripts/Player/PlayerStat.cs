@@ -152,6 +152,10 @@ public class PlayerStat
                 // 경험치 보너스 관련 처리
                 ExpBonus += value;
                 break;
+            case EStatType.SpeedBonus:
+                // 이동속도 보너스 관련 처리
+                Speed += value;
+                break;
             default:
                 break;
         }

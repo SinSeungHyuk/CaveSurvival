@@ -27,7 +27,8 @@ public class Monster : MonoBehaviour
     private MonsterDestroyedEvent monsterDestroyedEvent;
     #endregion
 
-    public Transform Player { get; private set; }
+    public Player Player { get; private set; }
+    public Transform PlayerTransform => Player.transform;
     public ItemDetailsSO DropItem { get; private set; }
     public MonsterState MonsterState { get; private set; }
     public MonsterDetailsSO EnemyDetails => enemyDetails;
@@ -81,7 +82,7 @@ public class Monster : MonoBehaviour
     {
         enemyDetails = data;
 
-        Player = GameManager.Instance.Player.transform;
+        Player = GameManager.Instance.Player;
         stat.InitializeMonsterStat(enemyDetails, waveCount); // 현재 웨이브에 맞추어 스탯초기화
 
         animator.runtimeAnimatorController = data.runtimeAnimatorController;
@@ -133,7 +134,7 @@ public class Monster : MonoBehaviour
 
         if (IsMonsterDead())
         {
-            Player.gameObject.GetComponent<Player>().AddUltimateGauge((int)enemyDetails.itemDetails.itemGrade);
+            Player.AddUltimateGauge((int)enemyDetails.itemDetails.itemGrade);
             return;
         }
         else

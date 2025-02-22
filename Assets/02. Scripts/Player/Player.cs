@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using GooglePlayGames.BasicApi;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour
 
     public SpriteRenderer SpriteRenderer => spriteRenderer;
     public PlayerStat Stat => stat;
+    public CapsuleCollider2D Hitbox {  get; private set; } // 히트박스
     public CircleCollider2D CircleRange { get; private set; } // 자석범위
     public HealthBarUI HealthBar {  get; private set; }
     public List<Weapon> WeaponList { get; private set; } // 무기 리스트
@@ -43,6 +45,7 @@ public class Player : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        Hitbox = GetComponent<CapsuleCollider2D>();
         CircleRange = GetComponentInChildren<CircleCollider2D>();
         ctrl = GetComponent<PlayerCtrl>();
         WeaponTransform = GetComponentInChildren<WeaponTransform>();
@@ -112,6 +115,7 @@ public class Player : MonoBehaviour
 
         if (stat.Hp <= 0f)
         {
+            Hitbox.enabled = false;
             // 사망이벤트 처리
             StageManager.Instance.CurrentStage.MonsterSpawnEvent.CallStageFinish();
 
@@ -127,7 +131,7 @@ public class Player : MonoBehaviour
 
     public void UseUltimateSkill()
     {
-        UltimateSkillBehaviour.UseUltimateSkill();
+        UltimateSkillBehaviour.UseUltimateSkill().Forget();
     }
 
     public void AddUltimateGauge(int value)

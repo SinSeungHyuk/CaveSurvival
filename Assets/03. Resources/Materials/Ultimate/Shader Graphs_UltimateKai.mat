@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Shader Graphs_UltimateKai
-  m_Shader: {fileID: -6465566751694194690, guid: 02a1346890c5d87429dcfd7fdf2dd94e,
+  m_Shader: {fileID: -6465566751694194690, guid: 8949a1da581b5c34dab12c35ce0cfeb3,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0

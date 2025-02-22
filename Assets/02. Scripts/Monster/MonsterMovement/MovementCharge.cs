@@ -27,7 +27,7 @@ public class MovementCharge : MonsterMovementSO
         // 현재 돌진중이 아닐때만 걸어서 이동
         else if (isCharge == false)
         {
-            moveVec = (monster.Player.position - monster.transform.position).normalized;
+            moveVec = (monster.PlayerTransform.position - monster.transform.position).normalized;
             rigid.velocity = moveVec * monster.Stat.Speed;
         }
     }
@@ -43,7 +43,7 @@ public class MovementCharge : MonsterMovementSO
 
         monster.Sprite.color = Color.white;
 
-        moveVec = (monster.Player.position - monster.transform.position).normalized;
+        moveVec = (monster.PlayerTransform.position - monster.transform.position).normalized;
         rigid.velocity = moveVec * chargeSpeed;
 
         await UniTask.Delay(1000, cancellationToken: monster.DisableCancellation.Token);

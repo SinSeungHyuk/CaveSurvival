@@ -23,9 +23,9 @@ public abstract class MonsterMovementSO : ScriptableObject,IMovement , ICloneabl
     public virtual void Move()
     {
         // 모든 이동패턴에서 플레이어와의 거리는 무조건 필요함 -> 코드 중복되지 않게 여기서 구하기
-        dist = (monster.Player.position - monster.transform.position).sqrMagnitude;
+        dist = (monster.PlayerTransform.position - monster.transform.position).sqrMagnitude;
 
-        if (monster.transform.position.x < monster.Player.position.x) 
+        if (monster.transform.position.x < monster.PlayerTransform.position.x) 
             monster.Sprite.flipX = true;
         else monster.Sprite.flipX = false;
     }

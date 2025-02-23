@@ -29,6 +29,7 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
     {
         base.Awake();
 
+        // Awake에서 풀 미리 생성해두기
         objPoolTransform = this.gameObject.transform;
         for (int i = 0; i < poolArray.Count; ++i)
             CreatePool(poolArray[i].prefab, poolArray[i].initialSize, poolArray[i].name);

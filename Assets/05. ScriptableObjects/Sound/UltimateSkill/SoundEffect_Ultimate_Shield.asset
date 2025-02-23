@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20f0d97d71498a64a9440f57c75e217e, type: 3}
-  m_Name: SoundEffect_Ultimate_Kai_Attack
+  m_Name: SoundEffect_Ultimate_Shield
   m_EditorClassIdentifier: 
-  soundEffectName: Ultimate_Kai
+  soundEffectName: Ultimate_Shield
   soundPrefab: {fileID: 8109647344987698416, guid: cb61c986abc10544b8c8ac82863d0e5b,
     type: 3}
-  soundEffectClip: {fileID: 8300000, guid: 274e5c4738cc8fa4989c5ccc3a8206fe, type: 3}
+  soundEffectClip: {fileID: 8300000, guid: d576abf075d3282488d1edf7aaf7fb9a, type: 3}
   pitchVariationMin: 1
   pitchVariationMax: 1
   soundEffectVolume: 0.5

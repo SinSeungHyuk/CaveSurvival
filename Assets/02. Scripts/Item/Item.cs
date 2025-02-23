@@ -23,7 +23,7 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
     private CancellationTokenSource disableCancellation = new CancellationTokenSource();
     private Player player;
     private Rigidbody2D rigid;
-    private CircleCollider2D circleCollider;
+    private CircleCollider2D hitbox;
     private Vector2 moveVec;
     private bool isFirstTrigger;
 
@@ -33,7 +33,7 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
         spriteRenderer = GetComponent<SpriteRenderer>();
         particle = GetComponent<ParticleSystem>();
         rigid = GetComponent<Rigidbody2D>();
-        circleCollider = GetComponent<CircleCollider2D>();
+        hitbox = GetComponent<CircleCollider2D>();
     }
 
     private void OnEnable()
@@ -61,7 +61,7 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
         itemType = data.itemType;
         gainExp = (int)data.itemGrade; // 해당 등급에 맞는 경험치 획득 (등급마다 경험치 정해져있음)
 
-        circleCollider.enabled = true;
+        hitbox.enabled = true;
         isFirstTrigger = false;
 
         // 활성화 되면서 현재 스테이지의 웨이브 종료 이벤트 구독
@@ -91,7 +91,7 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
 
     private void MoveToOutsideDir()
     {
-        circleCollider.enabled = false;
+        hitbox.enabled = false;
         isFirstTrigger = true;
         
         // 플레이어 바깥을 향하는 방향벡터
@@ -110,9 +110,10 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
 
     private async UniTask MoveToPlayer()
     {
-        circleCollider.enabled = true;
+        hitbox.enabled = true;
         float elapsedTime = 0f;
 
+        // 1초가 지나면 자동으로 템 획득
         while (elapsedTime < 1f)
         {    
             // 0.1초마다 플레이어 위치 갱신하면서 빠르게 이동
@@ -136,7 +137,7 @@ public class Item : MonoBehaviour  // 아이템에 연결할 클래스
                 OnMagnet.Invoke(); // 자석 아이템이면 모든 아이템들이 움직이기 시작
                 break;
             case EItemType.Exp:
-                player.Stat.AddExp(gainExp + player.Stat.ExpBonus);
+                player.Stat.AddExp(gainExp);
                 break;
             case EItemType.Hp:
                 player.HpRecoveryPercent(Settings.hpRecoveryValue);

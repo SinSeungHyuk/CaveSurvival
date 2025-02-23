@@ -32,8 +32,6 @@ public class UnlockSystem : MonoBehaviour, ISaveData
         }
 
         Register();
-
-        Debug.Log("언락 시작");
     }
 
 
@@ -76,11 +74,11 @@ public class UnlockSystem : MonoBehaviour, ISaveData
 
 
 
+    #region SAVE & LOAD
     public void Register()
     {
         SaveManager.Instance.Register(this);
     }
-    // 저장된 리스트를 받아와 배열로 변환하고 그대로 대입해주어서 로드
     public void ToSaveData()
     {
         UnlockSaveData unlockSaveData = new UnlockSaveData() { 
@@ -101,7 +99,6 @@ public class UnlockSystem : MonoBehaviour, ISaveData
 
         characterUnlockList = saveData.UnlockData.characterUnlockList;
         stageUnlockList = saveData.UnlockData.stageUnlockList;
-
-        Debug.Log("언락 로드");
     }
+    #endregion
 }

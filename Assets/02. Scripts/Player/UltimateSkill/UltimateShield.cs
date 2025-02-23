@@ -32,8 +32,6 @@ public class UltimateShield : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log($"Ãæµ¹! {collision.gameObject.name}");  
-
         if (collision.TryGetComponent(out Monster monster))
         {
             int damage = UtilitieHelper.IncreaseByPercent((int)player.Stat.MaxHp, player.Stat.Defense);

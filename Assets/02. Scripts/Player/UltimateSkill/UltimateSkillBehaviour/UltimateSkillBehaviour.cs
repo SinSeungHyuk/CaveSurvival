@@ -34,7 +34,7 @@ public abstract class UltimateSkillBehaviour
             SetGaugeRatio(-skillGauge);
 
             SoundEffectManager.Instance.PlaySoundEffect(skillSO.UltimateSkillData.startSoundEffect);
-            await GameManager.Instance.VCam.VCamUltimateEffectRoutine();
+            await GameManager.Instance.VCam.VCamUltimateEffectRoutine(); // ±Ã±Ø±â Ä«¸Þ¶ó ¿¬Ãâ
             
             Apply();
         }

@@ -75,7 +75,7 @@ public class UltimateSkillBehaviourKai : UltimateSkillBehaviour
         while (elapsedTime < 2f)
         {
             elapsedTime += Time.unscaledDeltaTime;
-            float materialValue = Mathf.Sin(elapsedTime * (Mathf.PI / 4f)) - 0.25f; // -1.15 ~ 0.85 사이
+            float materialValue = Mathf.Sin(elapsedTime * (Mathf.PI / 4f)) - 0.25f; // sin 그래프 => -1 ~ 1 사이
 
             foreach (var monster in monsters)
             {

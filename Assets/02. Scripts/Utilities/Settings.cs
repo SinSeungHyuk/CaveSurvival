@@ -74,4 +74,9 @@ public static class Settings
     public static Color32 critical = new Color32(255, 102, 2, 255); // 주황
     public static Color32 magnet = new Color32(255, 191, 0, 255); // 황금
     #endregion
+
+
+    #region UI TEXT SETTING
+    public static string unlockText = "잠금 해제";
+    #endregion
 }

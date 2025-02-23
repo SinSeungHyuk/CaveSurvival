@@ -34,6 +34,7 @@ public class CurrencySystem : MonoBehaviour, ICurrencyService, ISaveData
 
 
 
+    #region SAVE & LOAD
     public void Register()
     {
         SaveManager.Instance.Register(this);
@@ -47,16 +48,17 @@ public class CurrencySystem : MonoBehaviour, ICurrencyService, ISaveData
     }
     public void FromSaveData(SaveData saveData)
     {
-        Debug.Log("재화 로드");
         currencyList = saveData.CurrencyData.currencyList.ToArray();
 
-        GetReward();
+        GetReward(); // 메인화면에 진입하고 로드할때마다 보상 받기
     }
 
     private void GetReward()
     {
+        // 보상이 담긴 SO에 접근하여 재화에 추가
         RewardDataSO rewardData = AddressableManager.Instance.GetResource<RewardDataSO>("RewardData");
         IncreaseCurrency(ECurrencyType.Achive, rewardData.achiveReward);
         IncreaseCurrency(ECurrencyType.Gold, rewardData.goldReward);
     }
+    #endregion
 }

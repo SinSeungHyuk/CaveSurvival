@@ -29,28 +29,9 @@ public class UpgradeSystem : MonoBehaviour, ISaveData
         Register();
     }
 
-    private void OnEnable()
-    {
-        //SaveManager.Instance.OnLoadFinished += SaveManager_OnLoadFinished;
-    }
-    private void OnDisable()
-    {
-        //SaveManager.Instance.OnLoadFinished -= SaveManager_OnLoadFinished;
-    }
-
-
-    //private void SaveManager_OnLoadFinished()
-    //{
-    //    Debug.Log("업글 이벤트 호출, 로드가 끝났다는 뜻");
-
-    //    for (int i = 0; i < weaponDB.Count; i++)
-    //    {
-    //        InitializeUpgradeWeapon(weaponDB.GetDataByID<WeaponDetailsSO>(i), upgradeDic[i]);
-    //    }
-    //}
-
     private void InitializeUpgradeWeapon(WeaponDetailsSO weaponDetailsSO, List<int> levelList)
     {
+        // 업그레이드 데이터를 각 무기DB에 반영하기 (스탯별로 다르게 적용)
         weaponDetailsSO.weaponBaseDamage += (levelList[0] * Settings.weaponDamageUpgrade);
         weaponDetailsSO.weaponCriticChance += (levelList[1] * Settings.weaponCriticChanceUpgrade);
         weaponDetailsSO.weaponCriticDamage += (levelList[2] * Settings.weaponCriticDamageUpgrade);
@@ -122,12 +103,14 @@ public class UpgradeSystem : MonoBehaviour, ISaveData
     }
 
 
+    #region SAVE & LOAD
     public void Register()
     {
         SaveManager.Instance.Register(this);
     }
     public void ToSaveData()
     {
+        // 딕셔너리 직렬화를 위한 SerializeDictionary 객체 생성 => 딕셔너리를 두개의 리스트로 쪼개기
         SerializeDictionary<int, List<int>> serializeDictionary = new SerializeDictionary<int,List<int>>(upgradeDic);
 
         UpgradeSaveData unlockSaveData = new UpgradeSaveData()
@@ -140,13 +123,14 @@ public class UpgradeSystem : MonoBehaviour, ISaveData
     }
     public void FromSaveData(SaveData saveData)
     {
-        var values = saveData.UpgradeData.upgradeLevelList;
+        var upgradeLevelList = saveData.UpgradeData.upgradeLevelList;
 
-        for (int i = 0; i < values.Count; i++)
+        for (int i = 0; i < upgradeLevelList.Count; i++)
         {
-            upgradeDic[i] = values[i];
+            upgradeDic[i] = upgradeLevelList[i];
 
             InitializeUpgradeWeapon(weaponDB.GetDataByID<WeaponDetailsSO>(i), upgradeDic[i]);
         }
     }
+    #endregion
 }

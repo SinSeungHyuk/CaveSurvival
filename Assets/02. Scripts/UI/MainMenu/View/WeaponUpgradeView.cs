@@ -17,8 +17,6 @@ public class WeaponUpgradeView : MonoBehaviour
         weaponImage.sprite = weaponData.weaponSprite;
         txtWeaponName.text = weaponData.weaponName;
 
-        Debug.Log($"WeaponUpgradeView - InitializeWeaponUpgradeView - {weaponData.weaponName}");
-
         for (int i = 0; i < weaponUpgradeList.Count; i++)
         {
             weaponUpgradeList[i].InitializeWeaponUpgradeUI(i, weaponData, currencySystem, upgradeSystem);

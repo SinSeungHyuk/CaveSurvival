@@ -105,7 +105,7 @@ public class MonsterState : MonoBehaviour
             debuffData = debuffData,
             debuffIconObject = null,
             cts = new CancellationTokenSource(), // 이 디버프의 유니태스크 취소토큰 생성 (각 디버프별 타이머 따로)
-            revertValue = GetStatValue(debuffType)
+            revertValue = GetStatValue(debuffType) // 디버프가 끝나면 되돌리기 위해 현재스탯 저장해놓기
         };
 
         DebuffStatValue(debuffType, value); // 디버프 스탯 적용

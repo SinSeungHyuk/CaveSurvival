@@ -48,13 +48,35 @@ MonoBehaviour:
     monsterSpawnParameters:
     - monsterDetailsSO: {fileID: 11400000, guid: 0cf3388354089ee42a9b7bb2b6c876ab,
         type: 2}
-      Ratio: 20
+      Ratio: 25
     - monsterDetailsSO: {fileID: 11400000, guid: 66124d8b59903704cae39779ca0aaaed,
         type: 2}
-      Ratio: 20
+      Ratio: 25
     - monsterDetailsSO: {fileID: 11400000, guid: 4600aa37b611711449013dcf0df7a8b7,
         type: 2}
-      Ratio: 10
+      Ratio: 15
+    - monsterDetailsSO: {fileID: 11400000, guid: 28d8cc79132e77642a138a68bc020d60,
+        type: 2}
+      Ratio: 1
+    - monsterDetailsSO: {fileID: 11400000, guid: 70d70ec597bfcaf439e9cf16eae903a3,
+        type: 2}
+      Ratio: 1
+    isBossWave: 0
+    spawnableBossList: []
+  - batchSpawnCount: 5
+    monsterSpawnParameters:
+    - monsterDetailsSO: {fileID: 11400000, guid: 0cf3388354089ee42a9b7bb2b6c876ab,
+        type: 2}
+      Ratio: 40
+    - monsterDetailsSO: {fileID: 11400000, guid: 66124d8b59903704cae39779ca0aaaed,
+        type: 2}
+      Ratio: 40
+    - monsterDetailsSO: {fileID: 11400000, guid: 4600aa37b611711449013dcf0df7a8b7,
+        type: 2}
+      Ratio: 20
+    - monsterDetailsSO: {fileID: 11400000, guid: 6a08c666f8dfc4c4b9d525050690d9f6,
+        type: 2}
+      Ratio: 5
     - monsterDetailsSO: {fileID: 11400000, guid: 28d8cc79132e77642a138a68bc020d60,
         type: 2}
       Ratio: 1
@@ -95,10 +117,10 @@ MonoBehaviour:
       Ratio: 30
     - monsterDetailsSO: {fileID: 11400000, guid: 4600aa37b611711449013dcf0df7a8b7,
         type: 2}
-      Ratio: 10
+      Ratio: 15
     - monsterDetailsSO: {fileID: 11400000, guid: 6a08c666f8dfc4c4b9d525050690d9f6,
         type: 2}
-      Ratio: 5
+      Ratio: 6
     - monsterDetailsSO: {fileID: 11400000, guid: 28d8cc79132e77642a138a68bc020d60,
         type: 2}
       Ratio: 1
@@ -107,17 +129,17 @@ MonoBehaviour:
       Ratio: 1
     isBossWave: 0
     spawnableBossList: []
-  - batchSpawnCount: 7
+  - batchSpawnCount: 6
     monsterSpawnParameters:
     - monsterDetailsSO: {fileID: 11400000, guid: 0cf3388354089ee42a9b7bb2b6c876ab,
         type: 2}
-      Ratio: 25
+      Ratio: 30
     - monsterDetailsSO: {fileID: 11400000, guid: 66124d8b59903704cae39779ca0aaaed,
         type: 2}
-      Ratio: 25
+      Ratio: 30
     - monsterDetailsSO: {fileID: 11400000, guid: 4600aa37b611711449013dcf0df7a8b7,
         type: 2}
-      Ratio: 10
+      Ratio: 15
     - monsterDetailsSO: {fileID: 11400000, guid: 6a08c666f8dfc4c4b9d525050690d9f6,
         type: 2}
       Ratio: 6
@@ -133,32 +155,10 @@ MonoBehaviour:
     monsterSpawnParameters:
     - monsterDetailsSO: {fileID: 11400000, guid: 0cf3388354089ee42a9b7bb2b6c876ab,
         type: 2}
-      Ratio: 25
+      Ratio: 35
     - monsterDetailsSO: {fileID: 11400000, guid: 66124d8b59903704cae39779ca0aaaed,
         type: 2}
-      Ratio: 25
-    - monsterDetailsSO: {fileID: 11400000, guid: 4600aa37b611711449013dcf0df7a8b7,
-        type: 2}
-      Ratio: 10
-    - monsterDetailsSO: {fileID: 11400000, guid: 6a08c666f8dfc4c4b9d525050690d9f6,
-        type: 2}
-      Ratio: 6
-    - monsterDetailsSO: {fileID: 11400000, guid: 28d8cc79132e77642a138a68bc020d60,
-        type: 2}
-      Ratio: 1
-    - monsterDetailsSO: {fileID: 11400000, guid: 70d70ec597bfcaf439e9cf16eae903a3,
-        type: 2}
-      Ratio: 1
-    isBossWave: 0
-    spawnableBossList: []
-  - batchSpawnCount: 7
-    monsterSpawnParameters:
-    - monsterDetailsSO: {fileID: 11400000, guid: 0cf3388354089ee42a9b7bb2b6c876ab,
-        type: 2}
-      Ratio: 30
-    - monsterDetailsSO: {fileID: 11400000, guid: 66124d8b59903704cae39779ca0aaaed,
-        type: 2}
-      Ratio: 30
+      Ratio: 35
     - monsterDetailsSO: {fileID: 11400000, guid: 4600aa37b611711449013dcf0df7a8b7,
         type: 2}
       Ratio: 15
@@ -176,7 +176,7 @@ MonoBehaviour:
       Ratio: 1
     isBossWave: 0
     spawnableBossList: []
-  - batchSpawnCount: 8
+  - batchSpawnCount: 7
     monsterSpawnParameters:
     - monsterDetailsSO: {fileID: 11400000, guid: 0cf3388354089ee42a9b7bb2b6c876ab,
         type: 2}

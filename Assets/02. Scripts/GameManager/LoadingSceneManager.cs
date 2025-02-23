@@ -16,8 +16,6 @@ public class LoadingSceneManager : MonoBehaviour
     private static string groupToLoad; // 로드할 리소스 그룹명
     private static ESceneType sceneTypeToLoad; // 로드할 씬의 타입
 
-    private float resourceProgress;
-
 
     // static 정적함수 : 인스턴스화하지 않고도 아무데서나 호출가능한 로딩함수
     public static void LoadScene(string sceneName, string labelsToLoad, ESceneType sceneType)
@@ -36,9 +34,6 @@ public class LoadingSceneManager : MonoBehaviour
         
         switch (sceneTypeToLoad)
         {
-            //case ESceneType.MainMenu:
-            //    GameManager.Instance.CreateMainMenuScene();
-            //    break;
             case ESceneType.MainGame:
                 GameManager.Instance.CreateMainGameScene();
                 break;

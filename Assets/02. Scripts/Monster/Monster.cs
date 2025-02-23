@@ -94,15 +94,11 @@ public class Monster : MonoBehaviour
         transform.localScale = Vector3.one;
         hitbox.enabled = true;
         isDead = false;
+        DropItem = enemyDetails.itemDetails;
 
         movement = enemyDetails.movementType.Clone() as MonsterMovementSO;
-        movement.InitializeMonsterMovement(this);
-
         monsterAttack = enemyDetails.attackType?.Clone() as MonsterAttackSO; // 공격타입은 없을수도 있음
-        monsterAttack?.InitializeMonsterAttack(this);
-        monsterAttack?.Attack(); // 몬스터 활성화되면서 공격시작
-
-        DropItem = enemyDetails.itemDetails;
+        MonsterBehaviourInitialize();
 
         List<Vector2> spritePhysicsShapePointsList = new List<Vector2>();
         sprite.sprite.GetPhysicsShape(0, spritePhysicsShapePointsList); // 스프라이트 테두리 따오기
@@ -120,7 +116,7 @@ public class Monster : MonoBehaviour
         ObjectPoolManager.Instance.Release(gameObject, EPool.Monster);
     }
 
-    public void TakeDamage(Weapon weapon, int bonusDamage = 0)
+    public void TakeDamage(Weapon weapon, int bonusDamage = 0) // '무기'에 의해 피해를 입을때
     {
         SoundEffectManager.Instance.PlaySoundEffect(hitSoundEffect);
 
@@ -140,8 +136,7 @@ public class Monster : MonoBehaviour
         else
             TakeDamageEffect().Forget();
     }
-
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage) // 무기가 아닌 다른것에 의해 피해를 입을때
     {
         SoundEffectManager.Instance.PlaySoundEffect(hitSoundEffect);
 
@@ -196,29 +191,41 @@ public class Monster : MonoBehaviour
         }
     }
 
+    private void MonsterBehaviourInitialize()
+    {
+        movement.InitializeMonsterMovement(this);
+        monsterAttack?.InitializeMonsterAttack(this);
+        monsterAttack?.Attack(); // 몬스터 활성화되면서 공격시작
+    }
+
     private bool IsMonsterDead()
     {
         if (stat.Hp <= 0f) // 최초로 체력이 0 이하로 떨어질 경우
         {
             isDead = true;
 
-            // Clone된 SO 인스턴스 정리
-            Destroy(movement); // Clone된 SO 파괴
-            Destroy(monsterAttack); // Clone된 SO 파괴
-            movement = null;
-            monsterAttack = null;
-
-            MonsterState.ClearAllDebuff(); // 몬스터의 모든 디버프 제거
-
-            hitbox.enabled = false; // 충돌체 끄기
-
-            // 사망이벤트 처리
-            monsterDestroyedEvent.CallMonsterDestroyedEvent(this.transform.position);
+            PostMonsterDead();
 
             return true;
         }
 
         return false;
+    }
+
+    private void PostMonsterDead() // 몬스터가 죽고나서 해야되는 작업들
+    {
+        // Clone된 SO 인스턴스 정리
+        Destroy(movement); // Clone된 SO 파괴
+        Destroy(monsterAttack); // Clone된 SO 파괴
+        movement = null;
+        monsterAttack = null;
+
+        MonsterState.ClearAllDebuff(); // 몬스터의 모든 디버프 제거
+
+        hitbox.enabled = false; // 충돌체 끄기
+
+        // 사망이벤트 처리
+        monsterDestroyedEvent.CallMonsterDestroyedEvent(this.transform.position);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

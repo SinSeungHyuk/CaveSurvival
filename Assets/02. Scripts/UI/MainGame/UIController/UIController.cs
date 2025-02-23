@@ -14,8 +14,6 @@ public class UIController : MonoBehaviour
     [SerializeField] private ExpView expView;
     [SerializeField] private PlayerLevelView playerLevelView;
 
-    //private ExpController expController;
-    //private PlayerLevelUIController levelController;
     private StageInfoController stageInfoController;
     private WaveFinishController waveFinishController;
     private PauseController pauseController;

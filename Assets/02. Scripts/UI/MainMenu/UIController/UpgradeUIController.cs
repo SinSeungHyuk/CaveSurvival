@@ -8,7 +8,6 @@ public class UpgradeUIController : MonoBehaviour
 {
     [SerializeField] private WeaponListView weaponListView;
     [SerializeField] private WeaponUpgradeView weaponUpgradeView;
-
     [SerializeField] private Button btnExit;
 
 
@@ -20,7 +19,6 @@ public class UpgradeUIController : MonoBehaviour
 
     public void InitializeUpgradeUIController(CurrencySystem currencySystem, UpgradeSystem upgradeSystem)
     {
-        Debug.Log("업글ui 컨트롤러");
         weaponListView.InitializeWeaponListView(weaponUpgradeView, currencySystem, upgradeSystem);
         weaponUpgradeView.gameObject.SetActive(false);
         btnExit.gameObject.SetActive(true);

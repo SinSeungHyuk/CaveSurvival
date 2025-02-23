@@ -28,17 +28,15 @@ public class SaveManager : Singleton<SaveManager>
         LoadGame();
     }
 
-    public void Register(ISaveData saveData)
+    public void Register(ISaveData saveData) // 저장해야하는 데이터를 해당 클래스 내에서 등록
     {
         saveDatas.Add(saveData);
     }
 
     public void SaveGame()
     {
-        // 구조체를 Json 형태로 변환
+        // 구조체를 Json 형태로 변환 (Newtonsoft 사용)
         string saveData = JsonConvert.SerializeObject(SaveData);
-
-        Debug.Log($"세이브 게임!! = {saveData}");
 
         // SaveData 노드 아래에 user.UserId 자식을 생성해서 SetRawJsonValueAsync으로 데이터 저장
         databaseReference.Child("SaveData").Child(user.UserId).SetRawJsonValueAsync(saveData);
@@ -46,23 +44,20 @@ public class SaveManager : Singleton<SaveManager>
 
     public void LoadGame()
     {
-        Debug.Log("로드게임!!!");
-
+        /// 파이어베이스 인스턴스에서 현재 로그인한 UserId를 가져오기
+        /// 해당 UserId에 있는 saveData 가져와서 유니티 구조체로 역직렬화
+        /// 
         DatabaseReference saveDB = FirebaseDatabase.DefaultInstance.GetReference("SaveData");
         saveDB.OrderByKey().EqualTo(user.UserId).GetValueAsync().ContinueWithOnMainThread(task => {
             if (task.IsFaulted)
                 Debug.LogError("Task Exception: " + task.Exception);
             else if (task.IsCompleted)
             {
-                Debug.Log("task!!!  IsCompleted ");
-
                 DataSnapshot snapshot = task.Result;
                 if (snapshot.Exists)
                 {
                     // 데이터를 찾아서 json 문자열로 변환
                     string json = snapshot.GetRawJsonValue();
-
-
 
                     // JSON을 JObject로 파싱
                     JObject jsonObject = JObject.Parse(json);
@@ -75,28 +70,24 @@ public class SaveManager : Singleton<SaveManager>
                         // 내부 객체만을 다시 JSON 문자열로 변환
                         string userDataJson = userDataToken.ToString();
 
-                        Debug.Log("userDataJson 길이: " + userDataJson.Length);
-
-
                         try
                         {
-                            // JSON 데이터 역직렬화
+                            // JSON 데이터 역직렬화 (Newtonsoft 사용)
                             var saveData = JsonConvert.DeserializeObject<SaveData>(userDataJson);
-                            Debug.Log("@@@@@" + saveData.CurrencyData.currencyList[0]);
                             FromSaveData(saveData);
                         }
                         catch (Exception ex)
                         {
                             Debug.LogError("역직렬화 중 오류 발생: " + ex.Message);
                         }
-                        Debug.Log($"ui컨트롤러 초기화 - 로드 피니쉬 호출. 언락 = ");
-                        OnLoadFinished?.Invoke();
+
+                        OnLoadFinished?.Invoke(); // 역직렬화 이후 로드 종료
                     }
                     else Debug.Log("User ID no found");
                 }
                 else
                 {
-                    OnLoadFinished?.Invoke();
+                    OnLoadFinished?.Invoke(); // 로드할 데이터가 없을 경우
                     Debug.Log("no save data");
                 }
             }
@@ -105,8 +96,7 @@ public class SaveManager : Singleton<SaveManager>
 
     private void FromSaveData(SaveData saveData)
     {
-        Debug.Log("FromSaveData 내부!!!");
-
+        // 저장된 데이터들 로드한 다음 각자의 클래스 내에서 사용
         foreach (var data in saveDatas)
         {
             data.FromSaveData(saveData);

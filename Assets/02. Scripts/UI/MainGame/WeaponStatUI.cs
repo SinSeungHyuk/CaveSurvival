@@ -24,7 +24,7 @@ public class WeaponStatUI : MonoBehaviour
         txtWeaponCriticChance.text = weapon.WeaponCriticChance.ToString() + " %";
         txtWeaponCriticDamage.text = weapon.WeaponCriticDamage.ToString() + " %";
         txtWeaponFireRate.text = weapon.WeaponFireRate.ToString("F2") + " /s";
-        txtWeaponRange.text = weapon.WeaponRange.ToString();
+        txtWeaponRange.text = weapon.WeaponRange.ToString("F2");
         txtWeaponKnockback.text = weapon.WeaponKnockback.ToString();
         txtLevel.text = weapon.WeaponLevel.ToString();
     }

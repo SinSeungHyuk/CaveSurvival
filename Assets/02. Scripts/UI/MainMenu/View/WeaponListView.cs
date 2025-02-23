@@ -29,7 +29,6 @@ public class WeaponListView : MonoBehaviour
             btnWeapon.InitializeBtnWeaponUI(weaponData, weaponUpgradeView, currencySystem, upgradeSystem);
         }
 
-
         gameObject.SetActive(true);
     }
 

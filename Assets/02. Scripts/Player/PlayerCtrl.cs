@@ -37,23 +37,14 @@ public class PlayerCtrl : MonoBehaviour, IMovement, IAttack
 
     private void Start()
     {
+        // R3를 사용하여 Start에서 Update를 사용하지 않고 함수 구독해놓기
         this.UpdateAsObservable().Subscribe(_ => Move());
         this.UpdateAsObservable().Subscribe(_ => Attack());
     }
 
-    private void Update()
-    {
-        //Attack();
-    }
-
-    private void FixedUpdate()
-    {
-        //Move();
-    }
-
-
     private void Stage_OnWaveStart(MonsterSpawnEvent @event)
     => transform.position = Vector2.zero;
+
 
     #region INTERFACE
     public void Attack()

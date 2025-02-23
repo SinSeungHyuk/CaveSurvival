@@ -36,7 +36,6 @@ public class PlayerWaveBuff : MonoBehaviour
     public void InitializePlayerWaveBuff()
     {
         BuffData buffData = waveBuffList[UnityEngine.Random.Range(0, waveBuffList.Count)];
-        Debug.Log($"{buffData.BuffType.ToString()}");
 
         WaveBuffData newBuffData = new WaveBuffData()
         {

@@ -19,13 +19,11 @@ public class PlayerLevelUp : MonoBehaviour
 
     private void Awake()
     {
-        player = GameManager.Instance.Player;
+        player = GetComponent<Player>();
     }
 
     private void Start()
     {
-        player = GetComponent<Player>();
-        
         weaponDetailsDB = AddressableManager.Instance.GetResource<Database>("DB_Weapon");
         playerDB = AddressableManager.Instance.GetResource<PlayerLevelUpDatabase>("PlayerLevelUpDatabase");
         weaponDB = AddressableManager.Instance.GetResource<WeaponLevelUpDatabase>("WeaponLevelUpDatabase");
@@ -102,7 +100,7 @@ public class PlayerLevelUp : MonoBehaviour
                     }
                     else continue;
                 }
-                else
+                else // 무기 레벨업
                 {
                     WeaponLevelUpData data = GetRandomData(weaponDB.database);
 

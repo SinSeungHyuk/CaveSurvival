@@ -34,5 +34,5 @@ MonoBehaviour:
   Dodge: 0
   PickUpRange: 0
   ExpBonus: 0
-  isUnlock: 1
+  isUnlock: 0
   unlockCost: 1000

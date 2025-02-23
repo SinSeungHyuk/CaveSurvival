@@ -37,12 +37,6 @@ public class Weapon : MonoBehaviour
         if (WeaponFireRateTimer > 0f)
             WeaponFireRateTimer -= Time.deltaTime;
         else WeaponFireRateTimer = WeaponFireRate;
-
-
-        if (Input.GetKeyUp(KeyCode.E))
-        {
-            UpgrageWeapon();
-        }
     }
 
     public void InitializeWeapon(WeaponDetailsSO weaponDetails) // 무기 초기화

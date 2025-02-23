@@ -35,11 +35,6 @@ public class Player : MonoBehaviour
     public CancellationTokenSource DisableCancellation { get; private set; }
 
 
-    #region TEST
-    public WeaponDetailsSO weapon2;
-    #endregion
-
-
 
     private void Awake()
     {
@@ -72,7 +67,6 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        //AddWeaponTest();
         // 스타팅 무기의 DPS 통계를 위해 초기화 과정에서 미리 추가해주기
         GameStatsManager.Instance.AddStats(playerDetails.playerStartingWeapon, EStatsType.WeaponAcquiredTime, 0);
         GameStatsManager.Instance.AddStats(playerDetails.playerStartingWeapon, EStatsType.WeaponAcquiredWave, 0);
@@ -103,8 +97,6 @@ public class Player : MonoBehaviour
         WeaponList.Add(playerWeapon); // 무기 리스트에 추가
         WeaponTransform.Add(playerWeapon);
 
-
-
         return playerWeapon;
     }
 
@@ -133,15 +125,8 @@ public class Player : MonoBehaviour
     {
         UltimateSkillBehaviour.UseUltimateSkill().Forget();
     }
-
     public void AddUltimateGauge(int value)
     {
         UltimateSkillBehaviour.SetGaugeRatio(value);
     }
-
-
-    #region TEST FUNCTION
-    public void AddWeaponTest()
-        => AddWeaponToPlayer(weapon2);
-    #endregion
 }

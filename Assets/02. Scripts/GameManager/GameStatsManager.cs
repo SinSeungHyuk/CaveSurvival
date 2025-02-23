@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GameStatsManager : Singleton<GameStatsManager>
 {
-    private GameStats currentStats;
+    private GameStats currentStats; // 게임의 통계가 들어있는 클래스
+
 
     protected override void Awake()
     {
@@ -14,6 +15,9 @@ public class GameStatsManager : Singleton<GameStatsManager>
     }
 
 
+    /// <summary>
+    /// 무기별 통계는 매개변수로 무기를 넣어야함 -> 메소드 오버로딩
+    /// </summary>
     public void AddStats(EStatsType type)
     {
         if (type == EStatsType.PlayerTotalKills)

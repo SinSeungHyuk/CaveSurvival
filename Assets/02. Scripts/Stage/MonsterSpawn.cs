@@ -40,8 +40,6 @@ public class MonsterSpawn : MonoBehaviour
     }
     private void OnEnable()
     {
-        waveCount = 0; // 첫 웨이브부터 시작
-
         monsterSpawnEvent.OnStageStart += MonsterSpawnEvent_OnStageStart;
         monsterSpawnEvent.OnWaveStart += MonsterSpawnEvent_OnWaveStart;
         monsterSpawnEvent.OnWaveFinish += MonsterSpawnEvent_OnWaveFinish;
@@ -61,9 +59,11 @@ public class MonsterSpawn : MonoBehaviour
 
 
     #region STAGE EVENT
-    private void MonsterSpawnEvent_OnStageStart(MonsterSpawnEvent @event, MonsterSpawnEventArgs args)
+    private void MonsterSpawnEvent_OnStageStart(MonsterSpawnEvent @event, MonsterSpawnEventArgs Stage)
     {
-        waveSpawnParameterList = args.stage.WaveSpawnParameter;
+        waveCount = 0; // 첫 웨이브부터 시작
+
+        waveSpawnParameterList = Stage.stage.WaveSpawnParameter;
 
         monsterSpawnEvent.CallWaveStart(); // 첫 웨이브부터 시작
     }

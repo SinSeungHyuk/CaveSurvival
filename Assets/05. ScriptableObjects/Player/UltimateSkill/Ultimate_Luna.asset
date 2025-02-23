@@ -15,7 +15,7 @@ MonoBehaviour:
   ultimateSkillData:
     skillName: Luna's Ultimate!!
     skillIcon: {fileID: -2088749509, guid: 57a1443e67528144aa07582927559650, type: 3}
-    skillGauge: 250
+    skillGauge: 550
     startSoundEffect: {fileID: 11400000, guid: 819cb608528247a4fb144858262e5982, type: 2}
     soundEffects:
     - {fileID: 11400000, guid: 72153083bad7f484da0f63cfe924c6bd, type: 2}

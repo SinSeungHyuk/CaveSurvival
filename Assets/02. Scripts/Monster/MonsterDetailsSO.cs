@@ -26,7 +26,4 @@ public class MonsterDetailsSO : IdentifiedObject
     public ItemDetailsSO itemDetails; // 드롭할 아이템
     public Material enemyStandardMaterial;
     public Material enemyHitMaterial;
-    //public float enemyMaterializeTime;
-    //public Shader enemyMaterializeShader;
-    //public Color enemyMaterializeColor;
 }

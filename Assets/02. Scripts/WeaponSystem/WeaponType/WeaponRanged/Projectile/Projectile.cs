@@ -16,7 +16,6 @@ public class Projectile : MonoBehaviour
     private float speed;
     private bool isPiercing;
     private int piercingCount; // 관통 카운트
-    //private SoundEffectSO soundEffect;
 
     private float distance;
     private float currentDistance;
@@ -47,7 +46,6 @@ public class Projectile : MonoBehaviour
         spriteRenderer.sprite = projectileDetails.sprite;
         spriteRenderer.material = projectileDetails.material;
 
-        //soundEffect = weapon.weaponFiringSoundEffect;
         this.projectileEffect = projectileDetails.projectileEffect;
         projectileEffect.InitializePE(bonusEffects);
         this.speed = projectileDetails.projectileSpeed;
@@ -64,7 +62,6 @@ public class Projectile : MonoBehaviour
     {
         if (collision.TryGetComponent(out Monster monster))
         {
-            //SoundEffectManager.Instance.PlaySoundEffect(soundEffect);
             projectileEffect.Apply(monster, weapon, direction);
         }
 

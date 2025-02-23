@@ -28,7 +28,6 @@ public class PlayerStat
     public float Hp { get; private set; }
     public int HpRegen { get; private set; }
     public int Defense {  get; private set; }
-    //public float HpSteal { get; private set; }
     public int BonusDamage { get; private set; }
     public int MeleeDamage { get; private set; }
     public int RangeDamage { get; private set; }
@@ -47,13 +46,11 @@ public class PlayerStat
         Level.Value = 1;
         Level.Subscribe(level => player.PlayerLevelUp.PlayerStat_OnLevelChanged(level));
         CurrentExp.Value = 0;
-        //CurrentExp.Subscribe(exp => ExpChanged(exp));
 
         MaxHp = playerDetailsSO.Hp;
         Hp = MaxHp;
         HpRegen = playerDetailsSO.HpRegen;
         hpRegenTimer = (int)(5 / (1 + (HpRegen - 1) / 2f) * 1000f);
-        //HpSteal = playerDetailsSO.HpSteal;
         Defense = playerDetailsSO.Defense;
         def = UtilitieHelper.CombatScaling(Defense);
         BonusDamage = playerDetailsSO.BonusDamage;
@@ -157,11 +154,8 @@ public class PlayerStat
                 Speed += value;
                 break;
             default:
-                break;
+                throw new ArgumentOutOfRangeException();
         }
-
-
-        Debug.Log($"{MaxHp} , {HpRegen} , {Defense} , {BonusDamage} , {MeleeDamage} , {RangeDamage} , {Speed} , {Dodge}  , {PickUpRange} ,  {ExpBonus}");
     } 
 
     public void HpRecovery(int value)
@@ -183,7 +177,7 @@ public class PlayerStat
 
     public void AddExp(int exp)
     {
-        CurrentExp.Value += exp;
+        CurrentExp.Value += (exp + ExpBonus);
     }
 
     public void LevelUp()

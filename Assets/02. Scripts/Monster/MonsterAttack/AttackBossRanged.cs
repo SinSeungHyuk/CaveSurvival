@@ -7,7 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AttackBossRanged", menuName = "Scriptable Objects/Monster/MonsterAttack/BossRanged")]
 public class AttackBossRanged : MonsterAttackSO
 {
-    [SerializeField] private float speed = 10f; // 투사체 속도
+    [SerializeField] private float speed = 9f; // 투사체 속도
     private Vector2 fireDir;
     private GameObject projectileObject;
     private int projectileCount;

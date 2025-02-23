@@ -17,7 +17,7 @@ public class WeaponTransform : MonoBehaviour
 
     private void Awake()
     {
-        // WeaponTransform의 자식들(Weapon_1 ~ Weapon_6)의 SpriteRenderer 컴포넌트를 가져오기
+        // WeaponTransform의 자식들(Weapon_1 ~ Weapon_4)의 SpriteRenderer 컴포넌트를 가져오기
         weaponSprites = transform.GetComponentsInChildren<SpriteRenderer>().ToList();
     }
 
@@ -42,8 +42,8 @@ public class WeaponTransform : MonoBehaviour
             angle = (sprite.flipX) ? angle + 180f : angle;
 
             // 트윈쓸지, 그냥 바로 즉시회전할지 선택
-            //sprite.transform.eulerAngles = new Vector3(0f, 0f, angle); 
-            sprite.transform.DORotate(new Vector3(0f, 0f, angle), 0.05f);
+            sprite.transform.eulerAngles = new Vector3(0f, 0f, angle); 
+            //sprite.transform.DORotate(new Vector3(0f, 0f, angle), 0.05f);
         }
     }
 

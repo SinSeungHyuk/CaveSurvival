@@ -30,7 +30,7 @@ public class GameManager : Singleton<GameManager>
         UIController = GameObject.FindWithTag("UIController").GetComponent<UIController>();
         UIController.InitializeUIController();
 
-        // VCameraSetUp -> 카메라 셋업에서 필요
+        // InitializeVCam -> 카메라 셋업
         vCam.InitializeVCam();
         // postProcessingCtrl 포스트 프로세싱 초기화
         postProcessingCtrl.InitializePostProcessingCtrl(Player);

@@ -21,7 +21,7 @@ public class WeaponDetailsSO : IdentifiedObject
     public int weaponCriticChance = 10; // 치명타 확률 (%)
     public int weaponCriticDamage = 150; // 치명타 피해 (%)
     public float weaponFireRate = 0.5f; // 공격속도
-    public int weaponRange = 0; // 사거리
+    public float weaponRange = 0; // 사거리
     public int weaponKnockback = 0; // 넉백거리
 
     [Header("Weapon Configuration")]

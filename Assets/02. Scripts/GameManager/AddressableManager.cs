@@ -19,6 +19,7 @@ public class AddressableManager : MonoBehaviour
 
     public IReadOnlyDictionary<string, Dictionary<string, object>> Resources => resources;
 
+    #region SINGLETON MANAGER
     public static AddressableManager Instance { get; private set; }
 
     private void Awake()
@@ -33,13 +34,12 @@ public class AddressableManager : MonoBehaviour
             Destroy(gameObject); // 기존 인스턴스를 유지하고, 새 인스턴스를 제거
         }
     }
+    #endregion
 
 
     // 리소스를 어드레서블 그룹의 label 단위로 로드
     public async UniTask LoadResourcesAsync(string groupLabel, Action<float> progressCallback) 
     {
-        using CancellationTokenSource disableCancellation = new CancellationTokenSource();
-
         // 1. 이미 로드한 그룹이면 return
         if (loadedGroups.TryGetValue(groupLabel, out var groups)) 
             return;
@@ -55,15 +55,13 @@ public class AddressableManager : MonoBehaviour
                     resources[groupLabel] = new Dictionary<string, object>();
 
                 resources[groupLabel][asset.name] = asset;
-
-                //Debug.Log($"리소스 이름, 타입 : {asset.name}, {asset.GetType().Name}");
             });
 
             // 3. 로딩이 완료될 때까지 진행상태 업데이트
             while (!handle.IsDone)
             {
-                progressCallback?.Invoke(handle.PercentComplete);
-                await UniTask.Yield(cancellationToken: disableCancellation.Token);
+                progressCallback?.Invoke(handle.PercentComplete); // 로드 진행률 Action 호출
+                await UniTask.Yield(); // 한 프레임 넘기기
             }
 
             // 4. 완료 상태 보고 (100%)

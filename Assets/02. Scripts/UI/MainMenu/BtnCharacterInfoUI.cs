@@ -18,10 +18,6 @@ public class BtnCharacterInfoUI : MonoBehaviour
 
     public void InitializeBtnCharacterInfoUI(PlayerDetailsSO playerDetailsSO, CurrencySystem currencySystem, UnlockSystem unlockSystem)
     {
-        var stageCharacterData = AddressableManager.Instance.GetResource<StageCharacterDataSO>("StageCharacterData");
-
-        stageCharacterData.playerDetails = playerDetailsSO;
-
         btnCharacterInfoUI.onClick.RemoveAllListeners();
         btnCharacterInfoUI.onClick.AddListener(()
             => InitializeCharacterDescView(playerDetailsSO, currencySystem, unlockSystem));

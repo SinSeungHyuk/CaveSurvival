@@ -54,7 +54,7 @@ public class WeaponUpgradeUI : MonoBehaviour
                 txtGold.text = Settings.weaponFireRateUpgradeGold.ToString("N0");
                 break;
             case 4:
-                txtWeaponStat.text = $"[ {weaponData.weaponRange} ]";
+                txtWeaponStat.text = $"[ {weaponData.weaponRange.ToString("F2")} ]";
                 txtUpgradeValue.text = $"+ {Settings.weaponRangeUpgrade}%";
                 txtGold.text = Settings.weaponRangeUpgradeGold.ToString("N0");
                 break;

@@ -17,11 +17,11 @@ public class UltimateSkillBehaviourIvy : UltimateSkillBehaviour
     public override void Apply()
     {
         // 일반 클래스는 Instantiate 사용 불가능. AddComponent로 직접 컴포넌트 생성
-
         var UltimateField = new GameObject("UltimateField");
         ultimateField = UltimateField.AddComponent<UltimateField>();
         ultimateField.InitializeUltimateField(player, ultimateSkillData, ultimateSkillData.UltimateField);
 
+        PlaySoundEffect();
 
         UltimateShieldRoutine().Forget();
     }

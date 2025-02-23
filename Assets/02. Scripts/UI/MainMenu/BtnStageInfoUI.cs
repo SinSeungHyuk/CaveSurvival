@@ -35,7 +35,6 @@ public class BtnStageInfoUI : MonoBehaviour
             stageCharacterData.stageDetails = stageDetailsSO;
         }
 
-
         stageDescView.InitializeStageDescView(stageDetailsSO, currencySystem, unlockSystem);
         stageDescView.gameObject.SetActive(true);
         characterDescView.gameObject.SetActive(false);

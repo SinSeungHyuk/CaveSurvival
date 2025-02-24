@@ -22,12 +22,12 @@ MonoBehaviour:
   weaponType: {fileID: 11400000, guid: 88f20a513d4b146478564db58a58ceaf, type: 2}
   upgradeType: {fileID: 11400000, guid: 2a1fc5bfdb14be54086e967da2f050fb, type: 2}
   detectorType: {fileID: 11400000, guid: 2f1b79271339434498c11bcb196d4c2b, type: 2}
-  weaponBaseDamage: 7
+  weaponBaseDamage: 6
   weaponCriticChance: 5
   weaponCriticDamage: 50
   weaponFireRate: 1
   weaponRange: 10
-  weaponKnockback: 50
+  weaponKnockback: 25
   weaponParticle: 2
   weaponFiringSoundEffect: {fileID: 11400000, guid: dc70acec5f6fd51489a496bcecaf6560,
     type: 2}

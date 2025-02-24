@@ -35,7 +35,7 @@ public class UpgradeSystem : MonoBehaviour, ISaveData
         weaponDetailsSO.weaponBaseDamage += (levelList[0] * Settings.weaponDamageUpgrade);
         weaponDetailsSO.weaponCriticChance += (levelList[1] * Settings.weaponCriticChanceUpgrade);
         weaponDetailsSO.weaponCriticDamage += (levelList[2] * Settings.weaponCriticDamageUpgrade);
-        weaponDetailsSO.weaponFireRate = UtilitieHelper.IncreaseByPercent(weaponDetailsSO.weaponFireRate, (levelList[3] * Settings.weaponFireRateUpgrade));
+        weaponDetailsSO.weaponFireRate = UtilitieHelper.DecreaseByPercent(weaponDetailsSO.weaponFireRate, (levelList[3] * Settings.weaponFireRateUpgrade));
         weaponDetailsSO.weaponRange = UtilitieHelper.IncreaseByPercent(weaponDetailsSO.weaponRange, (levelList[4] * Settings.weaponRangeUpgrade));
         weaponDetailsSO.weaponKnockback += (levelList[5] * Settings.weaponKnockbackUpgrade);
     }
@@ -91,7 +91,7 @@ public class UpgradeSystem : MonoBehaviour, ISaveData
                 weaponDetailsSO.weaponCriticDamage += Settings.weaponCriticDamageUpgrade;
                 break;
             case 3:
-                weaponDetailsSO.weaponFireRate = UtilitieHelper.IncreaseByPercent(weaponDetailsSO.weaponFireRate, Settings.weaponFireRateUpgrade);
+                weaponDetailsSO.weaponFireRate = UtilitieHelper.DecreaseByPercent(weaponDetailsSO.weaponFireRate, Settings.weaponFireRateUpgrade);
                 break;
             case 4:
                 weaponDetailsSO.weaponRange = UtilitieHelper.IncreaseByPercent(weaponDetailsSO.weaponRange, Settings.weaponRangeUpgrade);

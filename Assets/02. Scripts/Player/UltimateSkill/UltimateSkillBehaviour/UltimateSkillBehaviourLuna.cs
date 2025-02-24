@@ -18,6 +18,7 @@ public class UltimateSkillBehaviourLuna : UltimateSkillBehaviour
     public override void Apply()
     {
         PlaySoundEffect();
+        SetUsingUltimateSkill(true);
 
         defaultMaterial = player.SpriteRenderer.material;
         player.SpriteRenderer.material = ultimateSkillData.LunaMaterial;
@@ -41,5 +42,7 @@ public class UltimateSkillBehaviourLuna : UltimateSkillBehaviour
 
         player.Stat.PlayerStatChanged(EStatType.HpRegen, -ultimateSkillData.AdditionalHpRegen);
         player.Stat.PlayerStatChanged(EStatType.Defense, -ultimateSkillData.AdditionalDefense);
+     
+        SetUsingUltimateSkill(false);
     }
 }

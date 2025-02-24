@@ -22,7 +22,7 @@ MonoBehaviour:
   weaponType: {fileID: 11400000, guid: d315d600873e407418e7f826582dc0d1, type: 2}
   upgradeType: {fileID: 11400000, guid: 645e36a3416efa8428854ef7c24eb629, type: 2}
   detectorType: {fileID: 11400000, guid: 2f1b79271339434498c11bcb196d4c2b, type: 2}
-  weaponBaseDamage: 12
+  weaponBaseDamage: 15
   weaponCriticChance: 5
   weaponCriticDamage: 50
   weaponFireRate: 1

@@ -22,6 +22,7 @@ public class UltimateSkillBehaviourIvy : UltimateSkillBehaviour
         ultimateField.InitializeUltimateField(player, ultimateSkillData, ultimateSkillData.UltimateField);
 
         PlaySoundEffect();
+        SetUsingUltimateSkill(true);
 
         UltimateShieldRoutine().Forget();
     }
@@ -35,6 +36,8 @@ public class UltimateSkillBehaviourIvy : UltimateSkillBehaviour
 
     public override void Release()
     {
+        SetUsingUltimateSkill(false);
+
         ultimateField.DestroyField();
     }
 }

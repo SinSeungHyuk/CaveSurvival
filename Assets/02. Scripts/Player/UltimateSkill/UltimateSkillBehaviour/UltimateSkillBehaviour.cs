@@ -11,12 +11,13 @@ public abstract class UltimateSkillBehaviour
     protected PlayerUltimateSkillSO skillSO; // 해당 스킬의 SO 데이터
     protected Player player;
 
+    private bool isUsingUltimateSkill;
     private int skillGauge;
     private int currentGauge;
 
     public PlayerUltimateSkillSO SkillSO => skillSO;
     public ReactiveProperty<float> GaugeRatio { get; private set; } = new ReactiveProperty<float>();
-
+    public bool IsUsingUltimateSkill => isUsingUltimateSkill;
 
 
     public UltimateSkillBehaviour(Player player, PlayerUltimateSkillSO data)
@@ -42,9 +43,15 @@ public abstract class UltimateSkillBehaviour
 
     public void SetGaugeRatio(int value)
     {
+        if (isUsingUltimateSkill) // 궁극기를 사용중일때는 게이지 증가 X
+            return;
+
         currentGauge = Mathf.Clamp(currentGauge + value, 0, skillGauge);
         GaugeRatio.Value = (float)currentGauge / (float)skillGauge;
     }
+
+    public void SetUsingUltimateSkill(bool isUsingUltimateSkill)
+        => this.isUsingUltimateSkill = isUsingUltimateSkill ? true : false;
 
     protected void PlaySoundEffect(int index = 0)
     {

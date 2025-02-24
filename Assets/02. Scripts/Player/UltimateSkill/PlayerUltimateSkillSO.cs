@@ -7,6 +7,7 @@ public abstract class PlayerUltimateSkillSO : ScriptableObject
 {
     [SerializeField] private UltimateSkillData ultimateSkillData;
 
+
     public UltimateSkillData UltimateSkillData => ultimateSkillData;
 
 

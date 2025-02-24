@@ -371,7 +371,7 @@ MonoBehaviour:
       Ratio: 20
     - monsterDetailsSO: {fileID: 11400000, guid: bd6804844aaaf1f4d81897b1928c361e,
         type: 2}
-      Ratio: 7
+      Ratio: 3
     - monsterDetailsSO: {fileID: 11400000, guid: 28d8cc79132e77642a138a68bc020d60,
         type: 2}
       Ratio: 1
@@ -399,7 +399,7 @@ MonoBehaviour:
       Ratio: 20
     - monsterDetailsSO: {fileID: 11400000, guid: bd6804844aaaf1f4d81897b1928c361e,
         type: 2}
-      Ratio: 7
+      Ratio: 3
     - monsterDetailsSO: {fileID: 11400000, guid: 28d8cc79132e77642a138a68bc020d60,
         type: 2}
       Ratio: 1
@@ -427,7 +427,7 @@ MonoBehaviour:
       Ratio: 30
     - monsterDetailsSO: {fileID: 11400000, guid: bd6804844aaaf1f4d81897b1928c361e,
         type: 2}
-      Ratio: 8
+      Ratio: 4
     - monsterDetailsSO: {fileID: 11400000, guid: 28d8cc79132e77642a138a68bc020d60,
         type: 2}
       Ratio: 1
@@ -455,7 +455,7 @@ MonoBehaviour:
       Ratio: 30
     - monsterDetailsSO: {fileID: 11400000, guid: bd6804844aaaf1f4d81897b1928c361e,
         type: 2}
-      Ratio: 8
+      Ratio: 4
     - monsterDetailsSO: {fileID: 11400000, guid: 28d8cc79132e77642a138a68bc020d60,
         type: 2}
       Ratio: 1
@@ -483,7 +483,7 @@ MonoBehaviour:
       Ratio: 30
     - monsterDetailsSO: {fileID: 11400000, guid: bd6804844aaaf1f4d81897b1928c361e,
         type: 2}
-      Ratio: 10
+      Ratio: 5
     - monsterDetailsSO: {fileID: 11400000, guid: 28d8cc79132e77642a138a68bc020d60,
         type: 2}
       Ratio: 1

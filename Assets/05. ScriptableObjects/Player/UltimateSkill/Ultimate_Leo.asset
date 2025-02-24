@@ -15,7 +15,7 @@ MonoBehaviour:
   ultimateSkillData:
     skillName: 
     skillIcon: {fileID: 1267830177, guid: 8f7a60065e3984c489b9c4d41bc3dc4e, type: 3}
-    skillGauge: 900
+    skillGauge: 2000
     startSoundEffect: {fileID: 11400000, guid: 819cb608528247a4fb144858262e5982, type: 2}
     soundEffects:
     - {fileID: 11400000, guid: fe8d03d5f38d17d45a798d2e5dc658d1, type: 2}

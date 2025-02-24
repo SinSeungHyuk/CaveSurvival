@@ -15,7 +15,7 @@ MonoBehaviour:
   ultimateSkillData:
     skillName: Ultimate_Ivy
     skillIcon: {fileID: 1363809998, guid: 0c187a32c5bde4747be8d00770b07403, type: 3}
-    skillGauge: 800
+    skillGauge: 1500
     startSoundEffect: {fileID: 11400000, guid: 819cb608528247a4fb144858262e5982, type: 2}
     soundEffects:
     - {fileID: 11400000, guid: 58ba167d248d7ff41ab7a13e1e4d42c2, type: 2}

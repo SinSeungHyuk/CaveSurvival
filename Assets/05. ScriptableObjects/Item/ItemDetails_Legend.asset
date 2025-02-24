@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   ItemSprite: {fileID: 21300000, guid: 57f89f06b0089f54486efd5b8c94fdee, type: 3}
-  itemGrade: 30
+  itemGrade: 100
   itemType: 0
   soundEffect: {fileID: 11400000, guid: b1b079c0640d1844db4a9d0bd47fdb30, type: 2}

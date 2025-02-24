@@ -29,6 +29,7 @@ public class UltimateSkillBehaviourLeo : UltimateSkillBehaviour
         player.Stat.PlayerStatChanged(EStatType.SpeedBonus, ultimateSkillData.AddtionalSpeed);
 
         PlaySoundEffect();
+        SetUsingUltimateSkill(true);
 
         UltimateShieldRoutine().Forget();
     }
@@ -42,6 +43,8 @@ public class UltimateSkillBehaviourLeo : UltimateSkillBehaviour
 
     public override void Release()
     {
+        SetUsingUltimateSkill(false);
+
         ultimateShield.DestroyShield();
 
         player.Hitbox.enabled = true;

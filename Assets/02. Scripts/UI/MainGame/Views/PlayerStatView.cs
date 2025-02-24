@@ -21,7 +21,7 @@ public class PlayerStatView : MonoBehaviour
     {
         txtHp.text = stat.MaxHp.ToString();
         txtHpRegen.text = stat.HpRegen.ToString();
-        txtDefense.text = stat.Defense.ToString();
+        txtDefense.text = stat.Defense.ToString() + " (" + stat.Def.ToString() + "%)";
         txtBonusDamage.text = stat.BonusDamage.ToString();
         txtMeleeDamage.text = stat.MeleeDamage.ToString();
         txtRangeDamage.text = stat.RangeDamage.ToString();

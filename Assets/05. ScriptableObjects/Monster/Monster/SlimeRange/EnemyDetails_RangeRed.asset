@@ -24,7 +24,7 @@ MonoBehaviour:
   chaseDistance: 10
   baseDamage: 1
   maxHp: 15
-  waveBonusHp: 3.8
+  waveBonusHp: 3.5
   waveBonusDmg: 0.6
   itemDetails: {fileID: 11400000, guid: 581026149381d5c44b6b6029e1a965f8, type: 2}
   enemyStandardMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}

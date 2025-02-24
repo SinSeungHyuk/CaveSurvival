@@ -50,7 +50,7 @@ public class CharacterDescView : MonoBehaviour
         var stageCharacterData = AddressableManager.Instance.GetResource<StageCharacterDataSO>("StageCharacterData");
 
         // 현재 선택된 캐릭터가 스테이지 진행 캐릭터와 동일할때만 플레이버튼 활성화
-        if (stageCharacterData.playerDetails == playerDetailsSO)
+        if (stageCharacterData.playerDetails != null && stageCharacterData.stageDetails != null)
         {
             btnPlay.onClick.RemoveAllListeners();
             btnPlay.onClick.AddListener(()

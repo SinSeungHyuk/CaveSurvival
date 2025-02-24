@@ -28,6 +28,7 @@ public class PlayerStat
     public float Hp { get; private set; }
     public int HpRegen { get; private set; }
     public int Defense {  get; private set; }
+    public int Def => def; // ½ÇÁ¦ °æ°¨·ü %
     public int BonusDamage { get; private set; }
     public int MeleeDamage { get; private set; }
     public int RangeDamage { get; private set; }

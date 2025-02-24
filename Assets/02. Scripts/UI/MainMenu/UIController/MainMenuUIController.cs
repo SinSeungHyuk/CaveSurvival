@@ -20,7 +20,6 @@ public class MainMenuUIController : MonoBehaviour
     [SerializeField] private Button btnShop;
 
     [Header("BGM")]
-    [SerializeField] private Button btnTest;
     [SerializeField] private MusicTrackSO mainmenuBGM;
 
 
@@ -43,14 +42,6 @@ public class MainMenuUIController : MonoBehaviour
     }
     private void Start()
     {
-        // 테스트용 
-        btnTest.onClick.AddListener(() =>
-        {
-            currencySystem.IncreaseCurrency(ECurrencyType.Achive, 526);
-            currencySystem.IncreaseCurrency(ECurrencyType.Gold, 1580);
-            currencySystem.IncreaseCurrency(ECurrencyType.Diamond, 7);
-        });
-
         MusicManager.Instance.PlayMusic(mainmenuBGM);
 
 #if UNITY_EDITOR

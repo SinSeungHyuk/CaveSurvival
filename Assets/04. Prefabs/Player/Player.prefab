@@ -887,7 +887,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bd05549334a7a4d9da7e58c6844467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon2: {fileID: 11400000, guid: 19a3fa918cbad6547a5b2dfb7090f95b, type: 2}
 --- !u!114 &1502585863812435679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -978,7 +977,7 @@ MonoBehaviour:
   - BuffSprite: {fileID: 21300000, guid: cffdd4e29c424314586a5329e096a4e9, type: 3}
     BuffType: 0
     MinValue: 5
-    MaxValue: 10
+    MaxValue: 15
   - BuffSprite: {fileID: 21300000, guid: a808c6fd2b919044784476d251a58117, type: 3}
     BuffType: 1
     MinValue: 1
@@ -1002,7 +1001,7 @@ MonoBehaviour:
   - BuffSprite: {fileID: 21300000, guid: 9bbf5408e6a36664c8bd8087e8864a69, type: 3}
     BuffType: 6
     MinValue: 3
-    MaxValue: 10
+    MaxValue: 8
   - BuffSprite: {fileID: 21300000, guid: 1320a3b51e45d5a4cb51326aae2f588d, type: 3}
     BuffType: 7
     MinValue: 3

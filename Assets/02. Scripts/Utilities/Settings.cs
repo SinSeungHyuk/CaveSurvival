@@ -33,15 +33,15 @@ public static class Settings
     public static int weaponDamageUpgrade = 1; // 무기 공격력 업그레이드 수치 (1씩 증가)
     public static int weaponCriticChanceUpgrade = 1; // 무기 치명확률 업그레이드 수치 (1씩 증가)
     public static int weaponCriticDamageUpgrade = 5; // 무기 치명데미지 업그레이드 수치 (5씩 증가)
-    public static int weaponFireRateUpgrade = 3; // 무기 공격속도 업그레이드 수치 (3%씩 증가)
+    public static int weaponFireRateUpgrade = 2; // 무기 공격속도 업그레이드 수치 (3%씩 증가)
     public static int weaponRangeUpgrade = 3; // 무기 사거리 업그레이드 수치 (3%씩 증가)
-    public static int weaponKnockbackUpgrade = 10; // 무기 넉백 업그레이드 수치 (10씩 증가)
+    public static int weaponKnockbackUpgrade = 5; // 무기 넉백 업그레이드 수치 (10씩 증가)
 
-    public static int weaponDamageUpgradeGold = 1000; // 공격력 업그레이드 비용
-    public static int weaponCriticChanceUpgradeGold = 1500;
-    public static int weaponCriticDamageUpgradeGold = 1500;
-    public static int weaponFireRateUpgradeGold = 1000;
-    public static int weaponRangeUpgradeGold = 700; 
+    public static int weaponDamageUpgradeGold = 2000; // 공격력 업그레이드 비용
+    public static int weaponCriticChanceUpgradeGold = 2500;
+    public static int weaponCriticDamageUpgradeGold = 2500;
+    public static int weaponFireRateUpgradeGold = 3000;
+    public static int weaponRangeUpgradeGold = 1000; 
     public static int weaponKnockbackUpgradeGold = 500;
     #endregion
 

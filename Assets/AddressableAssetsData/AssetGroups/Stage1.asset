@@ -101,6 +101,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Stage1
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d977e335e5b8b6b4ead5874f462119bb
+    m_Address: Items
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Stage1
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3805590b7e1c2d14b903bff498d1395f
+    m_Address: Materials
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Stage1
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: db82650b91f45b04ea61d45fd86e3a43, type: 2}
   m_SchemaSet:

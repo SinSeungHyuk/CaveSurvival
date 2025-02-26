@@ -90,7 +90,7 @@ public class Monster : MonoBehaviour
         sprite.color = Color.white;
         sprite.material = data.enemyStandardMaterial;
         rigid.freezeRotation = true;
-        rigid.mass = 0.1f;
+        rigid.mass = (isBoss) ? 1f : 0.1f;
         transform.localScale = Vector3.one;
         hitbox.enabled = true;
         isDead = false;

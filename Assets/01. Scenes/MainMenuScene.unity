@@ -8045,7 +8045,6 @@ GameObject:
   - component: {fileID: 1064634360}
   - component: {fileID: 1064634359}
   - component: {fileID: 1064634358}
-  - component: {fileID: 1064634361}
   m_Layer: 5
   m_Name: BtnStage (1)
   m_TagString: Untagged
@@ -8113,7 +8112,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1064634359}
   m_OnClick:
     m_PersistentCalls:
@@ -8156,20 +8155,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1064634356}
   m_CullTransparentMesh: 1
---- !u!114 &1064634361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1064634356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69787e8521f236645a8b5d2d42b9a118, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterDescView: {fileID: 1082448561}
-  stageDescView: {fileID: 380016990}
 --- !u!1 &1082286664
 GameObject:
   m_ObjectHideFlags: 0
@@ -10389,7 +10374,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 1500}
+  m_SizeDelta: {x: 0, y: 1005.1348}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1446026390
 MonoBehaviour:

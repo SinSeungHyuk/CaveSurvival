@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System.Threading;
+using GooglePlayGames;
 
 
 public class MonsterSpawn : MonoBehaviour
@@ -203,8 +204,31 @@ public class MonsterSpawn : MonoBehaviour
 
         ObjectPoolManager.Instance.Release(spawner,EPool.Spawner);
 
-        var monster = ObjectPoolManager.Instance.Get(EPool.Monster, spawner.transform.position, Quaternion.identity);
-        monster.GetComponent<Monster>().InitializeMonster(monsterInfo.monsterDetailsSO, waveCount);
+        var monster = ObjectPoolManager.Instance.Get(EPool.Monster, spawner.transform.position, Quaternion.identity).GetComponent<Monster>();
+        monster.InitializeMonster(monsterInfo.monsterDetailsSO, waveCount);
+        monster.MonsterDestroyedEvent.OnMonsterDestroyed += MonsterDestroyedEvent_OnMonsterDestroyed;
+    }
+
+    private void MonsterDestroyedEvent_OnMonsterDestroyed(MonsterDestroyedEvent @event, MonsterDestroyedEventArgs arg2)
+    {
+        @event.OnMonsterDestroyed -= MonsterDestroyedEvent_OnMonsterDestroyed;
+
+        switch (stage.StageDetails.stageType)
+        {
+            case EStageType.SlimeCave:
+                ReportAchivementProgress();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void ReportAchivementProgress()
+    {
+        int currentKills = GameStatsManager.Instance.GetStats(EStatsType.PlayerTotalKills);
+        PlayGamesPlatform.Instance.ReportProgress(GPGSIds.achievement_slime_100_kill, currentKills, null);
+        PlayGamesPlatform.Instance.ReportProgress(GPGSIds.achievement_slime_1000_kill, (float)currentKills / 10f , null);
+        PlayGamesPlatform.Instance.ReportProgress(GPGSIds.achievement_slime_10000_kill, (float)currentKills / 100f, null);
     }
 
     private Vector2 RandomSpawnPosition()

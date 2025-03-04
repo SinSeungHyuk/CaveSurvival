@@ -49,6 +49,7 @@ public class MainMenuUIController : MonoBehaviour
 #endif
     }
 
+
     private void InitializeMainMenuUIController()
     {
         currencyController.InitializeCurrencyController(currencySystem);

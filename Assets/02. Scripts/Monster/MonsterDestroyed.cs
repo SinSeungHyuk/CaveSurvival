@@ -60,10 +60,15 @@ public class MonsterDestroyed : MonoBehaviour
                     .Join(transform.DORotate(new Vector3(0f, 0f, 360f), 1f, RotateMode.FastBeyond360)) // 360도 회전을 위한 회전모드
                     .Join(transform.DOMove(dir * 3, 1f).SetRelative()) // DOMove를 해당 '방향'으로 이동하기 위한 상대값 처리
                     .OnComplete(() => {
-                        moveSequence.Kill();
-                        // 비활성화 되면서 현재 스테이지의 웨이브 종료 이벤트 구독해지
-                        StageManager.Instance.CurrentStage.MonsterSpawnEvent.OnWaveFinish -= monster.Stage_OnWaveFinished;
-                        ObjectPoolManager.Instance.Release(gameObject, poolNalme);
+                        PostMonsterRelease();
                     });
+    }
+
+    private void PostMonsterRelease()
+    {
+        moveSequence.Kill();
+        // 비활성화 되면서 현재 스테이지의 웨이브 종료 이벤트 구독해지
+        StageManager.Instance.CurrentStage.MonsterSpawnEvent.OnWaveFinish -= monster.Stage_OnWaveFinished;
+        ObjectPoolManager.Instance.Release(gameObject, poolNalme);
     }
 }

@@ -118,3 +118,10 @@ public enum EHitType
     Dodge,
     PlayerHit
 }
+
+
+public enum EStageType
+{
+    SlimeCave,
+    ShadeCave,
+}

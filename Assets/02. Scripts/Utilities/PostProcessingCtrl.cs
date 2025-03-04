@@ -1,5 +1,7 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -11,7 +13,7 @@ public class PostProcessingCtrl : MonoBehaviour
     private Player player;
 
     // Vignette Property
-    private Coroutine vignetteRoutineInstance;
+    private CancellationTokenSource cts;
     private bool isVignetteRoutine = false;
     private bool isIncrease = true;
     private float targetValue = 0.5f;
@@ -34,38 +36,40 @@ public class PostProcessingCtrl : MonoBehaviour
         vignette.active = false;
     }
     private void OnDisable()
-        => player.Stat.OnHpChanged -= Stat_OnHpChanged;
+    {
+        player.Stat.OnHpChanged -= Stat_OnHpChanged;
+        cts?.Cancel();
+        cts?.Dispose();
+    }
 
 
     private void Stat_OnHpChanged(PlayerStat @event, float hp)
     {
-        // 플레이어 체력이 30% 미만 && 코루틴 한번만 실행
+        // 플레이어 체력이 30% 미만 && 루틴 한번만 실행
         if (player.Stat.GetHPStatRatio() <= 0.3f && !isVignetteRoutine)
         {
+            cts?.Dispose();
+            cts = new CancellationTokenSource();
             isVignetteRoutine = true;
             vignette.active = true;
-            vignetteRoutineInstance = StartCoroutine(vignetteRoutine());
+            vignetteRoutine().Forget();
         }
 
         else if (player.Stat.GetHPStatRatio() > 0.3f)
         {
-            if (vignetteRoutineInstance != null)
-            {
-                StopCoroutine(vignetteRoutineInstance);
-                vignetteRoutineInstance = null;
-            }
+            cts?.Cancel();
             vignette.active = false;
             isVignetteRoutine = false;
         }
     }
 
-    private IEnumerator vignetteRoutine()
+    private async UniTask vignetteRoutine()
     {
-        // 코루틴이 스탑되었다가 다시 시작될때를 대비해 처음에 초기화해줌
+        // 루틴이 스탑되었다가 다시 시작될때를 대비해 처음에 초기화해줌
         float elapsedTime = 0.0f; // 경과시간
         float startValue = 0.3f;
         targetValue = 0.5f;
-        isIncrease = true; 
+        isIncrease = true;
 
         while (true)
         {
@@ -74,11 +78,11 @@ public class PostProcessingCtrl : MonoBehaviour
 
             while (elapsedTime < waitTime)
             {
-                // vignette의 크기 값을 Lerp로 보간 (시작값, 도착값, 누적시간 / 목표시간)
+                // vignette의 크기 값을 Lerp로 보간
                 vignette.intensity.value = Mathf.Lerp(startValue, targetValue, elapsedTime / waitTime);
                 elapsedTime += Time.deltaTime;
 
-                yield return null;
+                await UniTask.Yield(cancellationToken: cts.Token);
             }
 
             // 목표 값을 전환 (0.3~0.5 or 0.5~0.3)

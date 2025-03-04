@@ -33,6 +33,7 @@ public class Monster : MonoBehaviour
     public MonsterState MonsterState { get; private set; }
     public MonsterDetailsSO EnemyDetails => enemyDetails;
     public MonsterStat Stat => stat;
+    public MonsterDestroyedEvent MonsterDestroyedEvent => monsterDestroyedEvent;
     public SpriteRenderer Sprite => sprite;
     public Rigidbody2D Rigid => rigid;
     public bool IsDead => isDead;   

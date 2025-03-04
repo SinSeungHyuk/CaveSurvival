@@ -1,3 +1,4 @@
+using GooglePlayGames;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,6 +68,8 @@ public class LevelUpController : MonoBehaviour
             weapon.UpgrageWeapon();
             gameObject.SetActive(false);
             SoundEffectManager.Instance.PlaySoundEffect(levelUpChoiceSoundEffect);
+
+            PlayGamesPlatform.Instance.ReportProgress(GPGSIds.achievement_weapon_upgrade, 100f, null); // 무기 업그레이드 도전과제 ****************
         });
     }
 

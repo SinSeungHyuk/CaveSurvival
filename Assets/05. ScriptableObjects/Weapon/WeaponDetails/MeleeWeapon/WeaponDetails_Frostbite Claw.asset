@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52b48b0533a49f4aa55420947dd81f5, type: 3}
   m_Name: WeaponDetails_Frostbite Claw
   m_EditorClassIdentifier: 
-  id: 2
+  id: 4
   weaponName: Frostbite Claw
   weaponSprite: {fileID: 21300000, guid: 38910359fe3110e41883353fe8797d38, type: 3}
   description: "Frostbite Claw - \uC801\uC758 \uC774\uB3D9\uC18D\uB3C4\uB97C 15%
@@ -31,3 +31,8 @@ MonoBehaviour:
   weaponParticle: 5
   weaponFiringSoundEffect: {fileID: 11400000, guid: 1a778463aa92b7d4ca5992603b49263e,
     type: 2}
+  weaponAttackType: 1
+  weaponElement: 5
+  weaponAttackTypeIcon: {fileID: 21300000, guid: 4588e1c900b7366408b9f9d70658ba22,
+    type: 3}
+  weaponElementIcon: {fileID: 21300000, guid: 02c9fa8598c7f3b4ca9fde7d004357b7, type: 3}

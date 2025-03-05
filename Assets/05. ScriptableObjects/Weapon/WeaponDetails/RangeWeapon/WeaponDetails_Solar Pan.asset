@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52b48b0533a49f4aa55420947dd81f5, type: 3}
   m_Name: WeaponDetails_Solar Pan
   m_EditorClassIdentifier: 
-  id: 18
+  id: 19
   weaponName: Solar Pan
   weaponSprite: {fileID: 21300000, guid: 5465c2e6e4df7db458cc3edef312de4d, type: 3}
   description: "Solar Pan - \uC801\uC744 1\uD68C \uAD00\uD1B5\uD558\uB294 \uBE5B\uC758
@@ -30,3 +30,8 @@ MonoBehaviour:
   weaponParticle: 4
   weaponFiringSoundEffect: {fileID: 11400000, guid: 2127376bf3aee4144b26ec79b47aac43,
     type: 2}
+  weaponAttackType: 2
+  weaponElement: 3
+  weaponAttackTypeIcon: {fileID: 21300000, guid: 4b67997e1a09c2747b7c6424cfbe73b3,
+    type: 3}
+  weaponElementIcon: {fileID: 21300000, guid: 01c88beb6ebaa644ca0019f1c83139fe, type: 3}

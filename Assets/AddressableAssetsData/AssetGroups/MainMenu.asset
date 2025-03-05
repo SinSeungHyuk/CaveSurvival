@@ -77,6 +77,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - MainMenu
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa8086e1f6c073b45a2b40c1227e90d7
+    m_Address: DB_Synergy
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MainMenu
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: db82650b91f45b04ea61d45fd86e3a43, type: 2}
   m_SchemaSet:

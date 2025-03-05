@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52b48b0533a49f4aa55420947dd81f5, type: 3}
   m_Name: WeaponDetails_Shotgun Pan
   m_EditorClassIdentifier: 
-  id: 17
+  id: 18
   weaponName: Shotgun Pan
   weaponSprite: {fileID: 21300000, guid: 02d4c4337ca578e4ba7789c5c6c81b02, type: 3}
   description: "Shotgun Pan - \uC804\uBC29\uC5D0 \uC9E7\uAC8C \uD0C4\uC744 3\uBC1C
@@ -30,3 +30,8 @@ MonoBehaviour:
   weaponParticle: 2
   weaponFiringSoundEffect: {fileID: 11400000, guid: 1ffbbe3e2f01e514b9dd10a2d16b57f3,
     type: 2}
+  weaponAttackType: 2
+  weaponElement: 6
+  weaponAttackTypeIcon: {fileID: 21300000, guid: 4b67997e1a09c2747b7c6424cfbe73b3,
+    type: 3}
+  weaponElementIcon: {fileID: 21300000, guid: f57c77ecf3f18b14b9634398866fcbef, type: 3}

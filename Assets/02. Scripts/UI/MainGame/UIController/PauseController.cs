@@ -10,9 +10,7 @@ public class PauseController : MonoBehaviour
     public void InitializePauseController()
     {
         Player player = GameManager.Instance.Player;
-        var stat = player.Stat;
-        var weaponList = player.WeaponList;
 
-        pauseView.InitializePauseView(stat,weaponList);
+        pauseView.InitializePauseView(player);
     }
 }

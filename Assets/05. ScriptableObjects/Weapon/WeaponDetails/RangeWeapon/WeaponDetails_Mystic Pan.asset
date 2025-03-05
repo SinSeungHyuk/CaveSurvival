@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52b48b0533a49f4aa55420947dd81f5, type: 3}
   m_Name: WeaponDetails_Mystic Pan
   m_EditorClassIdentifier: 
-  id: 15
+  id: 16
   weaponName: Mystic Pan
   weaponSprite: {fileID: 21300000, guid: c1ed9d39ed396cd4c9c7d44456327ab2, type: 3}
   description: "Mystic Pan - \uD0C4\uC774 \uC801\uC744 1\uD68C \uAD00\uD1B5\uD558\uACE0
@@ -28,6 +28,11 @@ MonoBehaviour:
   weaponFireRate: 0.65
   weaponRange: 13
   weaponKnockback: 25
-  weaponParticle: 2
+  weaponParticle: 5
   weaponFiringSoundEffect: {fileID: 11400000, guid: 873e581a706f209468337db8c1575cee,
     type: 2}
+  weaponAttackType: 2
+  weaponElement: 5
+  weaponAttackTypeIcon: {fileID: 21300000, guid: 4b67997e1a09c2747b7c6424cfbe73b3,
+    type: 3}
+  weaponElementIcon: {fileID: 21300000, guid: 02c9fa8598c7f3b4ca9fde7d004357b7, type: 3}

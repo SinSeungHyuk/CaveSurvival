@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     public WeaponTransform WeaponTransform {  get; private set; } // 무기 장착 트랜스폼
     public PlayerWaveBuff PlayerWaveBuff { get; private set; }
     public PlayerLevelUp PlayerLevelUp { get; private set; }
+    public PlayerSynergy PlayerSynergy { get; private set; }
     public UltimateSkillBehaviour UltimateSkillBehaviour { get; private set; }
     public CancellationTokenSource DisableCancellation { get; private set; }
 
@@ -46,6 +47,7 @@ public class Player : MonoBehaviour
         WeaponTransform = GetComponentInChildren<WeaponTransform>();
         PlayerWaveBuff = GetComponentInChildren<PlayerWaveBuff>();
         PlayerLevelUp = GetComponent<PlayerLevelUp>();
+        PlayerSynergy = GetComponent<PlayerSynergy>();
         HealthBar = GetComponent<HealthBarUI>();
         stat = new PlayerStat();
 
@@ -96,6 +98,7 @@ public class Player : MonoBehaviour
 
         WeaponList.Add(playerWeapon); // 무기 리스트에 추가
         WeaponTransform.Add(playerWeapon);
+        PlayerSynergy.AddWeaponToPlayer(weaponDetails); // 무기 시너지 추가
 
         return playerWeapon;
     }

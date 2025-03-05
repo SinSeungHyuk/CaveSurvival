@@ -125,3 +125,15 @@ public enum EStageType
     SlimeCave,
     ShadeCave,
 }
+
+
+public enum ESynergyType
+{
+    Axe,
+    Claw,
+    Pan,
+    Fire,
+    Thunder,
+    Ice,
+    Void,
+}

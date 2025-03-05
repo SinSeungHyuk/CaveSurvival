@@ -33,6 +33,6 @@ MonoBehaviour:
   Speed: 6
   Dodge: 0
   PickUpRange: 0
-  ExpBonus: 0
+  ExpBonus: 10
   isUnlock: 1
   unlockCost: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52b48b0533a49f4aa55420947dd81f5, type: 3}
   m_Name: WeaponDetails_Iron Pan
   m_EditorClassIdentifier: 
-  id: 14
+  id: 15
   weaponName: Iron Pan
   weaponSprite: {fileID: 21300000, guid: 7407ecb4c29671c4a98acbf1f4b7dacc, type: 3}
   description: "Iron Pan - \uD3C9\uBC94\uD574 \uBCF4\uC774\uB294 \uD32C\n"
@@ -26,6 +26,11 @@ MonoBehaviour:
   weaponFireRate: 0.8
   weaponRange: 12
   weaponKnockback: 50
-  weaponParticle: 2
+  weaponParticle: 3
   weaponFiringSoundEffect: {fileID: 11400000, guid: 2b90e2eac0a8949469f61f81d006d119,
     type: 2}
+  weaponAttackType: 2
+  weaponElement: 4
+  weaponAttackTypeIcon: {fileID: 21300000, guid: 4b67997e1a09c2747b7c6424cfbe73b3,
+    type: 3}
+  weaponElementIcon: {fileID: 21300000, guid: 669075a98799cb545bf2d246d4e5e5f3, type: 3}

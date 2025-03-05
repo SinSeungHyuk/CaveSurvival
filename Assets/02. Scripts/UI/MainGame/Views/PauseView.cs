@@ -1,3 +1,4 @@
+using GooglePlayGames.BasicApi;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,6 +17,8 @@ public class PauseView : MonoBehaviour
     [Header("Buttons")]
     [SerializeField] private Button btnExit;
     [SerializeField] private Button btnResume;
+    [SerializeField] private BtnSynergy btnSynergy;
+    [SerializeField] private Transform synergyTransform;
 
 
     private void Awake()
@@ -29,12 +32,20 @@ public class PauseView : MonoBehaviour
     }
     private void OnDisable()
     {
+        foreach (Transform btnSynergy in synergyTransform)
+        {
+            Destroy(btnSynergy.gameObject);
+        }
+
         Time.timeScale = 1f;
     }
 
 
-    public void InitializePauseView(PlayerStat stat, List<Weapon> weaponList)
+    public void InitializePauseView(Player player)
     {
+        var stat = player.Stat;
+        var weaponList = player.WeaponList;
+
         playerStatView.InitializePlayerStatView(stat);
 
         for (int i = 0; i < weaponList.Count; i++)
@@ -42,7 +53,18 @@ public class PauseView : MonoBehaviour
             weaponStatView[i].InitializeWeaponStatUI(weaponList[i]);
         }
 
+        CreateBtnSynergy(player);
+
         gameObject.SetActive(true);
+    }
+
+    private void CreateBtnSynergy(Player player)
+    {
+        foreach (var synergyData in player.PlayerSynergy.SynergyList)
+        {
+            var BtnSynergy = Instantiate(btnSynergy, synergyTransform).GetComponent<BtnSynergy>();
+            BtnSynergy.InitializeBtnSynergy(synergyData);
+        }
     }
 
     private void OnBtnResume()

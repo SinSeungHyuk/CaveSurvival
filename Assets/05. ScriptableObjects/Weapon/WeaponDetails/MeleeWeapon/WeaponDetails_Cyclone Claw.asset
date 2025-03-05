@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52b48b0533a49f4aa55420947dd81f5, type: 3}
   m_Name: WeaponDetails_Cyclone Claw
   m_EditorClassIdentifier: 
-  id: 1
+  id: 2
   weaponName: Cyclone Claw
   weaponSprite: {fileID: 21300000, guid: f60926913931fcb428cc3db793ad5466, type: 3}
   description: "Cyclone Claw - \uC801\uC744 \uD06C\uAC8C \uB109\uBC31\uC2DC\uD0A4\uB294
@@ -31,3 +31,8 @@ MonoBehaviour:
   weaponParticle: 2
   weaponFiringSoundEffect: {fileID: 11400000, guid: 601bcaaf20f074842a8335b23b148b00,
     type: 2}
+  weaponAttackType: 1
+  weaponElement: 6
+  weaponAttackTypeIcon: {fileID: 21300000, guid: 4588e1c900b7366408b9f9d70658ba22,
+    type: 3}
+  weaponElementIcon: {fileID: 21300000, guid: f57c77ecf3f18b14b9634398866fcbef, type: 3}

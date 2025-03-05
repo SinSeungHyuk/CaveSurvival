@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52b48b0533a49f4aa55420947dd81f5, type: 3}
   m_Name: WeaponDetails_Bonecrusher Axe
   m_EditorClassIdentifier: 
-  id: 6
+  id: 1
   weaponName: Bonecrusher Axe
   weaponSprite: {fileID: 21300000, guid: 89e22d2421444ad498215cd613eed1bd, type: 3}
   description: "Bonecrusher Axe - \uC801\uC758 \uACF5\uACA9\uB825\uC744 15% \uAC10\uC18C\uC2DC\uD0A4\uB294
@@ -30,3 +30,8 @@ MonoBehaviour:
   weaponParticle: 2
   weaponFiringSoundEffect: {fileID: 11400000, guid: 883e4f25115d39b44a1dd9e17f38b249,
     type: 2}
+  weaponAttackType: 0
+  weaponElement: 6
+  weaponAttackTypeIcon: {fileID: 21300000, guid: 892b1aee26c31084781fe8ef40f5a26b,
+    type: 3}
+  weaponElementIcon: {fileID: 21300000, guid: f57c77ecf3f18b14b9634398866fcbef, type: 3}

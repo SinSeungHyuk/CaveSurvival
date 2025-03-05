@@ -27,4 +27,8 @@ public class WeaponDetailsSO : IdentifiedObject
     [Header("Weapon Configuration")]
     public EPool weaponParticle;
     public SoundEffectSO weaponFiringSoundEffect; // 무기 공격 효과음
+    public ESynergyType weaponAttackType;
+    public ESynergyType weaponElement;
+    public Sprite weaponAttackTypeIcon;
+    public Sprite weaponElementIcon;
 }

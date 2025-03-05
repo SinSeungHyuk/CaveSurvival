@@ -72,36 +72,36 @@ public class Weapon : MonoBehaviour
         WeaponType = upgradeType;
     }
 
-    public void WeaponStatChanged(WeaponLevelUpData data)
+    public void WeaponStatChanged(EWeaponStatType statType, int value)
     {
         // 무기의 레벨 상승
         WeaponLevel++;
 
-        switch (data.statType)
+        switch (statType)
         {
             case EWeaponStatType.WeaponDamage:
                 // 무기 기본 데미지 처리
-                WeaponDamage = UtilitieHelper.IncreaseByPercent(WeaponDamage, data.value);
+                WeaponDamage = UtilitieHelper.IncreaseByPercent(WeaponDamage, value);
                 break;
             case EWeaponStatType.WeaponCriticChance:
                 // 치명타 확률 처리
-                WeaponCriticChance += data.value;
+                WeaponCriticChance = Mathf.Clamp(WeaponCriticChance + value, 0, 100);
                 break;
             case EWeaponStatType.WeaponCriticDamage:
                 // 치명타 데미지 처리
-                WeaponCriticDamage += data.value;
+                WeaponCriticDamage += value;
                 break;
             case EWeaponStatType.WeaponFireRate:
                 // 공격 속도 처리
-                WeaponFireRate = UtilitieHelper.DecreaseByPercent(WeaponFireRate, data.value);
+                WeaponFireRate = UtilitieHelper.DecreaseByPercent(WeaponFireRate, value);
                 break;
             case EWeaponStatType.WeaponRange:
                 // 무기 사정거리 처리
-                WeaponRange = UtilitieHelper.IncreaseByPercent(WeaponRange, data.value);
+                WeaponRange = UtilitieHelper.IncreaseByPercent(WeaponRange, value);
                 break;
             case EWeaponStatType.WeaponKnockback:
                 // 넉백 효과 처리
-                WeaponKnockback += data.value;
+                WeaponKnockback += value;
                 break;
             default:
                 // 기본 처리

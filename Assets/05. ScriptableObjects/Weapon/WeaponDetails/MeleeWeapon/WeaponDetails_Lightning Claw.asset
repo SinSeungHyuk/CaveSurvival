@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52b48b0533a49f4aa55420947dd81f5, type: 3}
   m_Name: WeaponDetails_Lightning Claw
   m_EditorClassIdentifier: 
-  id: 3
+  id: 6
   weaponName: Lightning Claw
   weaponSprite: {fileID: 21300000, guid: 79b0607fc1bffa64c91e7414738ff716, type: 3}
   description: "Lightning Claw - \uC801\uC744 \uAC10\uC804\uC2DC\uD0A4\uB294 \uBC1C\uD1B1"
@@ -29,3 +29,8 @@ MonoBehaviour:
   weaponParticle: 3
   weaponFiringSoundEffect: {fileID: 11400000, guid: c01ad9bc01d0f6a4ebc19f5fd93462f0,
     type: 2}
+  weaponAttackType: 1
+  weaponElement: 4
+  weaponAttackTypeIcon: {fileID: 21300000, guid: 4588e1c900b7366408b9f9d70658ba22,
+    type: 3}
+  weaponElementIcon: {fileID: 21300000, guid: 669075a98799cb545bf2d246d4e5e5f3, type: 3}

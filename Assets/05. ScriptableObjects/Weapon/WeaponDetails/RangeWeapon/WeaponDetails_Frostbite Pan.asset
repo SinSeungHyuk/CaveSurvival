@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c52b48b0533a49f4aa55420947dd81f5, type: 3}
+  m_Name: WeaponDetails_Frostbite Pan
+  m_EditorClassIdentifier: 
+  id: 14
+  weaponName: Frostbite Pan
+  weaponSprite: {fileID: 21300000, guid: fd7d41edcc448bc468cc86e5cca2673c, type: 3}
+  description: "Frostbite Pan - \uD0C4\uC774 \uC801\uC744 1\uD68C \uAD00\uD1B5\uD558\uACE0
+    \uC774\uB3D9\uC18D\uB3C4\uB97C 30% \uAC10\uC18C\uC2DC\uD0A4\uB294 \uD32C\n"
+  upgradeDesc: "\uD0C4\uC774 \uD3ED\uBC1C\uD558\uBA70 \uC8FC\uC704\uC758 \uC801\uC5D0\uAC8C
+    \uB3D9\uC77C\uD55C \uD53C\uD574\uC640 \uC774\uB3D9\uC18D\uB3C4 50% \uAC10\uC18C\uB97C
+    \uC785\uD799\uB2C8\uB2E4.\n"
+  weaponType: {fileID: 11400000, guid: 385cf6aa6af9f7c42af1449c07b6c2af, type: 2}
+  upgradeType: {fileID: 11400000, guid: f34a7c0efab14cf4187bb8a114318bdf, type: 2}
+  detectorType: {fileID: 11400000, guid: 2f1b79271339434498c11bcb196d4c2b, type: 2}
+  weaponBaseDamage: 8
+  weaponCriticChance: 10
+  weaponCriticDamage: 50
+  weaponFireRate: 0.9
+  weaponRange: 12
+  weaponKnockback: 50
+  weaponParticle: 5
+  weaponFiringSoundEffect: {fileID: 11400000, guid: 2a3453a6ecf764c498e10fd68d3f7505,
+    type: 2}
+  weaponAttackType: 2
+  weaponElement: 5
+  weaponAttackTypeIcon: {fileID: 21300000, guid: 4b67997e1a09c2747b7c6424cfbe73b3,
+    type: 3}
+  weaponElementIcon: {fileID: 21300000, guid: 02c9fa8598c7f3b4ca9fde7d004357b7, type: 3}

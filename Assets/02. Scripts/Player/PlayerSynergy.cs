@@ -23,11 +23,12 @@ public class PlayerSynergy : MonoBehaviour
 
     public void AddWeaponToPlayer(WeaponDetailsSO weaponData)
     {
+        // 새로운 무기가 추가될때 호출 -> 해당 무기의 속성 두개를 카운팅
         FirstAddWeaponToPlayer(weaponData);
         weaponSynergyDic[weaponData.weaponElement]++;
         weaponSynergyDic[weaponData.weaponAttackType]++;
 
-        CanApplySynergy(weaponData);
+        CanApplySynergy(weaponData); // 추가된 무기가 시너지 조건을 만족하는지 검사
     }
 
     private void FirstAddWeaponToPlayer(WeaponDetailsSO weaponData)

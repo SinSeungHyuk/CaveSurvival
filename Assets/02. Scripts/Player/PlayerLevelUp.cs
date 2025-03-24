@@ -137,7 +137,6 @@ public class PlayerLevelUp : MonoBehaviour
 
         } while (hasWeapon.Contains(weaponID));
 
-
         return weaponDetailsDB.GetDataByID<WeaponDetailsSO>(weaponID);
     }
 
@@ -166,6 +165,7 @@ public class PlayerLevelUp : MonoBehaviour
 
         int totalRatio = database.Sum(x => x.GetRatio());
         int randomNumber = Random.Range(0, totalRatio);
+
         int ratioSum = 0;
 
         foreach (var data in database)

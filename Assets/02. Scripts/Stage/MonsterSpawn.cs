@@ -236,6 +236,7 @@ public class MonsterSpawn : MonoBehaviour
         // new 키워드로 계속 새 vector2를 생성하는 것보다 지역변수를 두고 대입하는게 낫다고 판단
         spawnPosition.x = UnityEngine.Random.Range(-Settings.stageBoundary, Settings.stageBoundary); 
         spawnPosition.y = UnityEngine.Random.Range(-Settings.stageBoundary, Settings.stageBoundary);
+
         return spawnPosition;
     }
     #endregion

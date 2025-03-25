@@ -1,0 +1,113 @@
+<linker>
+  <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="AttackBossRanged" preserve="all" />
+    <type fullname="AttackDebuffBE" preserve="all" />
+    <type fullname="AttackRanged" preserve="all" />
+    <type fullname="AttackTrap" preserve="all" />
+    <type fullname="AutoFirePP" preserve="all" />
+    <type fullname="BasePE" preserve="all" />
+    <type fullname="BasePP" preserve="all" />
+    <type fullname="CrossPP" preserve="all" />
+    <type fullname="Database" preserve="all" />
+    <type fullname="DetectorFarthest" preserve="all" />
+    <type fullname="DetectorLowHealth" preserve="all" />
+    <type fullname="DetectorNearest" preserve="all" />
+    <type fullname="ExplosionPE" preserve="all" />
+    <type fullname="HealthBarUI" preserve="all" />
+    <type fullname="ItemDetailsSO" preserve="all" />
+    <type fullname="MonsterDetailsSO" preserve="all" />
+    <type fullname="MonsterSpawn" preserve="all" />
+    <type fullname="MonsterSpawnEvent" preserve="all" />
+    <type fullname="MovementBase" preserve="all" />
+    <type fullname="MovementCharge" preserve="all" />
+    <type fullname="MovementRandom" preserve="all" />
+    <type fullname="MovementSpeedUp" preserve="all" />
+    <type fullname="MusicTrackSO" preserve="all" />
+    <type fullname="Player" preserve="all" />
+    <type fullname="PlayerAnimator" preserve="all" />
+    <type fullname="PlayerCtrl" preserve="all" />
+    <type fullname="PlayerDetailsSO" preserve="all" />
+    <type fullname="PlayerLevelUp" preserve="all" />
+    <type fullname="PlayerLevelUpData" preserve="all" />
+    <type fullname="PlayerLevelUpDatabase" preserve="all" />
+    <type fullname="PlayerSynergy" preserve="all" />
+    <type fullname="PlayerWaveBuff" preserve="all" />
+    <type fullname="ProjectileDetailsSO" preserve="all" />
+    <type fullname="RewardDataSO" preserve="all" />
+    <type fullname="ShotgunPP" preserve="all" />
+    <type fullname="SlowBE" preserve="all" />
+    <type fullname="SoundEffect" preserve="all" />
+    <type fullname="SoundEffectSO" preserve="all" />
+    <type fullname="Stage" preserve="all" />
+    <type fullname="StageCharacterDataSO" preserve="all" />
+    <type fullname="StageDetailsSO" preserve="all" />
+    <type fullname="SynergyDetailsSO" preserve="all" />
+    <type fullname="UltimateSkillIvy" preserve="all" />
+    <type fullname="UltimateSkillKai" preserve="all" />
+    <type fullname="UltimateSkillLeo" preserve="all" />
+    <type fullname="UltimateSkillLuna" preserve="all" />
+    <type fullname="WeaponAttack" preserve="all" />
+    <type fullname="WeaponAttackEvent" preserve="all" />
+    <type fullname="WeaponDetailsSO" preserve="all" />
+    <type fullname="WeaponLevelUpData" preserve="all" />
+    <type fullname="WeaponLevelUpDatabase" preserve="all" />
+    <type fullname="WeaponMelee" preserve="all" />
+    <type fullname="WeaponRanged" preserve="all" />
+    <type fullname="WeaponTransform" preserve="all" />
+    <type fullname="BuffData" preserve="nothing" serialized="true" />
+    <type fullname="MonsterSpawnParameter" preserve="nothing" serialized="true" />
+    <type fullname="UltimateSkillData" preserve="nothing" serialized="true" />
+    <type fullname="WaveSpawnParameter" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
+    <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.AssetBundleProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.BundledAssetProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.InstanceProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.LegacyResourcesProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.SceneProvider" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEditor.Audio.AudioMixerSnapshotController" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.AnimationClip" preserve="all" />
+    <type fullname="UnityEngine.Animator" preserve="all" />
+    <type fullname="UnityEngine.AnimatorOverrideController" preserve="all" />
+    <type fullname="UnityEngine.RuntimeAnimatorController" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Audio.AudioMixer" preserve="all" />
+    <type fullname="UnityEngine.Audio.AudioMixerGroup" preserve="all" />
+    <type fullname="UnityEngine.AudioClip" preserve="all" />
+    <type fullname="UnityEngine.AudioSource" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.GameObject" preserve="all" />
+    <type fullname="UnityEngine.Material" preserve="all" />
+    <type fullname="UnityEngine.Object" preserve="all" />
+    <type fullname="UnityEngine.RectTransform" preserve="all" />
+    <type fullname="UnityEngine.Shader" preserve="all" />
+    <type fullname="UnityEngine.Sprite" preserve="all" />
+    <type fullname="UnityEngine.SpriteRenderer" preserve="all" />
+    <type fullname="UnityEngine.Texture2D" preserve="all" />
+    <type fullname="UnityEngine.Transform" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.GridModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Grid" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.Physics2DModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.CapsuleCollider2D" preserve="all" />
+    <type fullname="UnityEngine.CircleCollider2D" preserve="all" />
+    <type fullname="UnityEngine.CompositeCollider2D" preserve="all" />
+    <type fullname="UnityEngine.Rigidbody2D" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.TilemapModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Tilemaps.Tile" preserve="all" />
+    <type fullname="UnityEngine.Tilemaps.Tilemap" preserve="all" />
+    <type fullname="UnityEngine.Tilemaps.TilemapCollider2D" preserve="all" />
+    <type fullname="UnityEngine.Tilemaps.TilemapRenderer" preserve="all" />
+  </assembly>
+</linker>

@@ -47,6 +47,8 @@ public class MainMenuUIController : MonoBehaviour
 #if UNITY_EDITOR
         InitializeMainMenuUIController();
 #endif
+
+        //
     }
 
 
@@ -72,6 +74,7 @@ public class MainMenuUIController : MonoBehaviour
         btnOption.onClick.AddListener(() => mainOptionController.InitializeMainOptionController());
 
         // 상점버튼
-        btnShop.onClick.AddListener(() => shopController.InitializeShopController());
+        //btnShop.onClick.AddListener(() => shopController.InitializeShopController());
+        btnShop.onClick.AddListener(() => AdManager.Instance.ShowInterstitialAd());
     }
 }

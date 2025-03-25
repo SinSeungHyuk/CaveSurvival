@@ -47,8 +47,6 @@ public class StageFinishView : MonoBehaviour
 
     public void OnBtnExit()
     {
-        AdManager.Instance.ShowAd();
-
         // 메인화면으로 씬 이동
         AddressableManager.Instance.ReleaseGroup("Stage1");
         LoadingSceneManager.LoadScene("MainMenuScene", "NULL", ESceneType.MainMenu);

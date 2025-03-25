@@ -72,6 +72,8 @@ public class PauseView : MonoBehaviour
 
     private void OnBtnExit()
     {
+        AdManager.Instance.ShowAd();
+
         RewardDataSO rewardData = AddressableManager.Instance.GetResource<RewardDataSO>("RewardData");
         rewardData.achiveReward = 0;
         rewardData.goldReward = 0;

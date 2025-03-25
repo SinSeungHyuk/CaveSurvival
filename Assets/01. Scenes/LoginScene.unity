@@ -1471,9 +1471,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter Nickname
+  m_text: "\uC601\uC5B4,\uC22B\uC790\uB97C \uC870\uD569\uD574\uC8FC\uC138\uC694."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a05b35712a0b2e747aff2b3f77c98171, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b5f2242ab0b36af499ce488128feb3d9, type: 2}
   m_sharedMaterial: {fileID: 8917466605675679999, guid: a05b35712a0b2e747aff2b3f77c98171,
     type: 2}
   m_fontSharedMaterials: []
@@ -1538,7 +1538,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &713144872
@@ -3608,12 +3608,12 @@ PrefabInstance:
     - target: {fileID: 8227574487252945805, guid: 8881b53b02d423740aff48f1d8d173f5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 8227574487252945805, guid: 8881b53b02d423740aff48f1d8d173f5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 8227574487252945805, guid: 8881b53b02d423740aff48f1d8d173f5,
         type: 3}

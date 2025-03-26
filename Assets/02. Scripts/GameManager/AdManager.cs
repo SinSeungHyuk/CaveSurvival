@@ -7,17 +7,18 @@ using GoogleMobileAds.Api;
 
 public class AdManager : Singleton<AdManager>
 {
-
-    public string adUnitID = "ca-app-pub-3940256099942544/1033173712";
+    private readonly string testInterstitialAdID = "ca-app-pub-3940256099942544/1033173712"; // 테스트 광고
+    private readonly string interstitialAdID = "ca-app-pub-3867941567418476/3456717633"; // AdMob에 등록한 광고
 
     private InterstitialAd interstitialAd;
+
 
     protected override void Awake()
     {
         base.Awake();
 
         MobileAds.Initialize((InitializationStatus status) =>
-                Debug.Log("AdMobInitialized"));
+                Debug.Log("MoblieAds 초기화 완료"));
     }
 
     private void Start()
@@ -27,28 +28,26 @@ public class AdManager : Singleton<AdManager>
 
     public void LoadInterstitialAd()
     {
+        // 이미 광고가 있다면 광고를 해제
         if (interstitialAd != null)
         {
             interstitialAd.Destroy();
             interstitialAd = null;
         }
 
-        Debug.Log("Loading the interstitial ad.");
-
-        var adRequest = new AdRequest();
+        var adRequest = new AdRequest(); // 광고 요청
         adRequest.Keywords.Add("unity-admob-sample");
 
-        InterstitialAd.Load(adUnitID, adRequest, (InterstitialAd ad, LoadAdError error) => {
+        // id를 넣어서 광고 로드
+        InterstitialAd.Load(testInterstitialAdID, adRequest, (InterstitialAd ad, LoadAdError error) => {
             if (error != null || ad == null)
             {
-                Debug.LogError($"interstitial ad failed to load an ad with error : {error}");
+                Debug.LogError($"광고를 찾을 수 없음 : {error}");
                 return;
             }
 
-            Debug.Log($"Interstitial ad loaded with response : {ad.GetResponseInfo()}");
-
             interstitialAd = ad;
-            RegisterEventHandlers(interstitialAd);
+            RegisterAdEvent(interstitialAd); // 광고 이벤트 등록
         });
     }
 
@@ -56,51 +55,31 @@ public class AdManager : Singleton<AdManager>
     {
         if (interstitialAd != null && interstitialAd.CanShowAd())
         {
-            Debug.Log("Showing interstitial ad.");
-            interstitialAd.Show();
+            interstitialAd.Show(); // Show() 함수로 광고 재생
         }
         else
         {
-            Debug.LogError("Interstitial ad is not ready yet.");
+            Debug.LogError("로드된 광고가 없음");
         }
     }
 
 
-    private void RegisterEventHandlers(InterstitialAd ad)
+    private void RegisterAdEvent(InterstitialAd ad)
     {
-        // Raised when the ad is estimated to have earned money.
-        ad.OnAdPaid += (AdValue adValue) =>
-        {
-            Debug.Log(String.Format("Interstitial ad paid {0} {1}.",
-                adValue.Value,
-                adValue.CurrencyCode));
-        };
-        // Raised when an impression is recorded for an ad.
-        ad.OnAdImpressionRecorded += () =>
-        {
-            Debug.Log("Interstitial ad recorded an impression.");
-        };
-        // Raised when a click is recorded for an ad.
-        ad.OnAdClicked += () =>
-        {
-            Debug.Log("Interstitial ad was clicked.");
-        };
-        // Raised when an ad opened full screen content.
-        ad.OnAdFullScreenContentOpened += () =>
-        {
-            Debug.Log("Interstitial ad full screen content opened.");
-        };
-        // Raised when the ad closed full screen content.
+        // 광고를 닫으면서 다시 새로운 광고 로드
+        // 게임이 끝날때 재생되는 광고 => 광고를 닫고 메인메뉴로 이동
         ad.OnAdFullScreenContentClosed += () =>
         {
-            Debug.Log("Interstitial ad full screen content closed.");
             LoadInterstitialAd();
+
+            AddressableManager.Instance.ReleaseGroup("Stage1");
+            LoadingSceneManager.LoadScene("MainMenuScene", "NULL", ESceneType.MainMenu);
         };
-        // Raised when the ad failed to open full screen content.
+
+        // 예외처리 이벤트
         ad.OnAdFullScreenContentFailed += (AdError error) =>
         {
-            Debug.LogError("Interstitial ad failed to open full screen content " +
-                           "with error : " + error);
+            Debug.LogError("광고 띄우기 실패 : " + error);
         };
     }
 

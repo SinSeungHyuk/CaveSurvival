@@ -76,7 +76,6 @@ public class PauseView : MonoBehaviour
         rewardData.achiveReward = 0;
         rewardData.goldReward = 0;
 
-        AddressableManager.Instance.ReleaseGroup("Stage1");
-        LoadingSceneManager.LoadScene("MainMenuScene", "NULL", ESceneType.MainMenu);
+        AdManager.Instance.ShowInterstitialAd();
     }
 }

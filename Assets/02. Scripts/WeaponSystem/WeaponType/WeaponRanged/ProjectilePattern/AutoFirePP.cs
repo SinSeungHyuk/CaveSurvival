@@ -12,22 +12,22 @@ public class AutoFirePP : ProjectilePatternSO
     [SerializeField] private int addFireCount; // 추가로 연사할 탄의 수
 
 
-    public override void ProjectileLaunch(ProjectileDetailsSO projectileDetails, List<BonusEffectSO> bonusEffects, Vector2 direction, Weapon weapon)
+    public override void ProjectileLaunch(ProjectileData projectileData, List<BonusEffectSO> bonusEffects, Vector2 direction, Weapon weapon)
     {
         projectileObject = ObjectPoolManager.Instance.Get(EPool.Projectile, weapon.Player.WeaponTransform.GetWeaponTransform(weapon));
-        projectileObject.GetComponent<Projectile>().InitializeProjectile(projectileDetails, bonusEffects, direction, weapon);
+        projectileObject.GetComponent<Projectile>().InitializeProjectile(projectileData, bonusEffects, direction, weapon);
 
-        AutoFire(projectileDetails, bonusEffects, direction, weapon).Forget();
+        AutoFire(projectileData, bonusEffects, direction, weapon).Forget();
     }
 
-    private async UniTask AutoFire(ProjectileDetailsSO projectileDetails, List<BonusEffectSO> bonusEffects, Vector2 direction, Weapon weapon)
+    private async UniTask AutoFire(ProjectileData projectileData, List<BonusEffectSO> bonusEffects, Vector2 direction, Weapon weapon)
     {
         for (int i = 0; i< addFireCount; i++)
         {
             await UniTask.Delay(50);
 
             projectileObject = ObjectPoolManager.Instance.Get(EPool.Projectile, weapon.Player.WeaponTransform.GetWeaponTransform(weapon));
-            projectileObject.GetComponent<Projectile>().InitializeProjectile(projectileDetails, bonusEffects, direction, weapon);
+            projectileObject.GetComponent<Projectile>().InitializeProjectile(projectileData, bonusEffects, direction, weapon);
         }
     }
 }

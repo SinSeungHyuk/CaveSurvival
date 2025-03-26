@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2982b139c1585ad418b2842a7052fe92, type: 3}
   m_Name: WRU_Mystic Pan
   m_EditorClassIdentifier: 
+  projectileData:
+    sprite: {fileID: 21300000, guid: 4df9cc7131cd27f4288bca5e76c82034, type: 3}
+    material: {fileID: 2100000, guid: 5dceff0f64a88b949a3db290b8082010, type: 2}
+    projectileEffect: {fileID: 11400000, guid: 486c990b03f17c74eb3445d43be715e1, type: 2}
+    isPiercing: 1
+    piercingCount: 1
+    projectileSpeed: 12
   pattern: {fileID: 11400000, guid: 7026ed3e1c04950438f1693b910a9d96, type: 2}
-  projectileDetails: {fileID: 11400000, guid: 42f1fbb9f3032dd488c85ff27bef1fed, type: 2}
   bonusEffects:
   - {fileID: 11400000, guid: 718cc49b18273c248b864b984228fff9, type: 2}
   - {fileID: 11400000, guid: 80bb9419e37a8a647ba787fd7887576d, type: 2}

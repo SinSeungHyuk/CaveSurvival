@@ -15,20 +15,20 @@ public class ShotgunPP : ProjectilePatternSO
 
     
 
-    public override void ProjectileLaunch(ProjectileDetailsSO projectileDetails, List<BonusEffectSO> bonusEffects, Vector2 direction, Weapon weapon)
+    public override void ProjectileLaunch(ProjectileData projectileData, List<BonusEffectSO> bonusEffects, Vector2 direction, Weapon weapon)
     {
         // 가운데 중심 탄환
         projectileObject = ObjectPoolManager.Instance.Get(EPool.Projectile, weapon.Player.WeaponTransform.GetWeaponTransform(weapon));
-        projectileObject.GetComponent<Projectile>().InitializeProjectile(projectileDetails, bonusEffects, direction, weapon);
+        projectileObject.GetComponent<Projectile>().InitializeProjectile(projectileData, bonusEffects, direction, weapon);
 
         // 각도에 i를 곱한만큼 일정한 각도로 회전된 탄 발사
         for (int i = 1; i <= projectileCount; i++)
         {
             projectileObject = ObjectPoolManager.Instance.Get(EPool.Projectile, weapon.Player.WeaponTransform.GetWeaponTransform(weapon));
-            projectileObject.GetComponent<Projectile>().InitializeProjectile(projectileDetails, bonusEffects, RotateDirection(direction, (shotgunAngle * i)), weapon);
+            projectileObject.GetComponent<Projectile>().InitializeProjectile(projectileData, bonusEffects, RotateDirection(direction, (shotgunAngle * i)), weapon);
 
             projectileObject = ObjectPoolManager.Instance.Get(EPool.Projectile, weapon.Player.WeaponTransform.GetWeaponTransform(weapon));
-            projectileObject.GetComponent<Projectile>().InitializeProjectile(projectileDetails, bonusEffects, RotateDirection(direction, -(shotgunAngle * i)), weapon);
+            projectileObject.GetComponent<Projectile>().InitializeProjectile(projectileData, bonusEffects, RotateDirection(direction, -(shotgunAngle * i)), weapon);
         }
     }
 

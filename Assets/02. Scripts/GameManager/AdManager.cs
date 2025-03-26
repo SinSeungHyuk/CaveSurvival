@@ -36,10 +36,9 @@ public class AdManager : Singleton<AdManager>
         }
 
         var adRequest = new AdRequest(); // 광고 요청
-        adRequest.Keywords.Add("unity-admob-sample");
 
         // id를 넣어서 광고 로드
-        InterstitialAd.Load(testInterstitialAdID, adRequest, (InterstitialAd ad, LoadAdError error) => {
+        InterstitialAd.Load(interstitialAdID, adRequest, (InterstitialAd ad, LoadAdError error) => {
             if (error != null || ad == null)
             {
                 Debug.LogError($"광고를 찾을 수 없음 : {error}");

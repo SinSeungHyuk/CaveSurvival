@@ -14,6 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pattern: {fileID: 11400000, guid: 7026ed3e1c04950438f1693b910a9d96, type: 2}
   projectileDetails: {fileID: 11400000, guid: b3bf7af0f78d20c4bac8455bda464cd6, type: 2}
+  projectileData:
+    sprite: {fileID: 21300000, guid: 4df9cc7131cd27f4288bca5e76c82034, type: 3}
+    material: {fileID: 2100000, guid: 5dceff0f64a88b949a3db290b8082010, type: 2}
+    projectileEffect: {fileID: 11400000, guid: 486c990b03f17c74eb3445d43be715e1, type: 2}
+    isPiercing: 1
+    piercingCount: 1
+    projectileSpeed: 12
   bonusEffects:
   - {fileID: 11400000, guid: 89e187fafa74a2d48a9b06086d3b5514, type: 2}
   - {fileID: 11400000, guid: 5d48216dd31d06d4db3cf4d11e4d4b5f, type: 2}

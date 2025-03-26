@@ -6,5 +6,5 @@ using UnityEngine;
 
 public abstract class ProjectilePatternSO : ScriptableObject
 {
-    public abstract void ProjectileLaunch(ProjectileDetailsSO projectileDetails, List<BonusEffectSO> bonusEffects, Vector2 direction, Weapon weapon);
+    public abstract void ProjectileLaunch(ProjectileData projectileData, List<BonusEffectSO> bonusEffects, Vector2 direction, Weapon weapon);
 }

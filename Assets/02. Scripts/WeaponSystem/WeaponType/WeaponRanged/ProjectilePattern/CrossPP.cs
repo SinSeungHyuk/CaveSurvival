@@ -17,12 +17,12 @@ public class CrossPP : ProjectilePatternSO
         direction => direction                       // 원래 벡터를 반환
     };
 
-    public override void ProjectileLaunch(ProjectileDetailsSO projectileDetails, List<BonusEffectSO> bonusEffects, Vector2 direction, Weapon weapon)
+    public override void ProjectileLaunch(ProjectileData projectileData, List<BonusEffectSO> bonusEffects, Vector2 direction, Weapon weapon)
     {
         for (int i = 0;i < crossDirections.Count; i++)
         {
             projectileObject = ObjectPoolManager.Instance.Get(EPool.Projectile, weapon.Player.WeaponTransform.GetWeaponTransform(weapon));
-            projectileObject.GetComponent<Projectile>().InitializeProjectile(projectileDetails, bonusEffects, crossDirections[i].Invoke(direction), weapon);
+            projectileObject.GetComponent<Projectile>().InitializeProjectile(projectileData, bonusEffects, crossDirections[i].Invoke(direction), weapon);
         }
     }
 }

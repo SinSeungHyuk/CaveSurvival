@@ -41,16 +41,16 @@ public class Projectile : MonoBehaviour
             ObjectPoolManager.Instance.Release(this.gameObject,EPool.Projectile);
     }
 
-    public void InitializeProjectile(ProjectileDetailsSO projectileDetails, List<BonusEffectSO> bonusEffects, Vector2 direction, Weapon weapon)
+    public void InitializeProjectile(ProjectileData projectileData, List<BonusEffectSO> bonusEffects, Vector2 direction, Weapon weapon)
     {
-        spriteRenderer.sprite = projectileDetails.sprite;
-        spriteRenderer.material = projectileDetails.material;
+        spriteRenderer.sprite = projectileData.sprite;
+        spriteRenderer.material = projectileData.material;
 
-        this.projectileEffect = projectileDetails.projectileEffect;
+        this.projectileEffect = projectileData.projectileEffect;
         projectileEffect.InitializePE(bonusEffects);
-        this.speed = projectileDetails.projectileSpeed;
-        this.isPiercing = projectileDetails.isPiercing;
-        this.piercingCount = projectileDetails.piercingCount;
+        this.speed = projectileData.projectileSpeed;
+        this.isPiercing = projectileData.isPiercing;
+        this.piercingCount = projectileData.piercingCount;
         currentPiercingCount = 0;
         this.direction = direction; // 투사체 방향벡터
         this.weapon = weapon;

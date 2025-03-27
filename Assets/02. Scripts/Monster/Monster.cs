@@ -38,6 +38,7 @@ public class Monster : MonoBehaviour
     public Rigidbody2D Rigid => rigid;
     public bool IsDead => isDead;   
     public bool IsBoss => isBoss;
+    public bool isOutScreen => UtilitieHelper.IsOutScreen(gameObject);
 
     // 몬스터가 비활성화되면서 이동,공격 유니태스크 취소해야함
     public CancellationTokenSource DisableCancellation { get; private set; }
@@ -158,18 +159,21 @@ public class Monster : MonoBehaviour
         // 플레이어의 근/원거리 데미지와 추가데미지% 계산
         int damage = UtilitieHelper.IncreaseByPercent(weapon.WeaponDamage + bonusDamage, weapon.Player.Stat.BonusDamage);
 
-        // 치명타 성공
-        if (UtilitieHelper.isSuccess(weapon.WeaponCriticChance))
+        if (isOutScreen == false) // 화면 안에 있는 몬스터만 데미지 표기
         {
-            damage = UtilitieHelper.IncreaseByPercent(damage, weapon.WeaponCriticDamage);
+            // 치명타 성공
+            if (UtilitieHelper.isSuccess(weapon.WeaponCriticChance))
+            {
+                damage = UtilitieHelper.IncreaseByPercent(damage, weapon.WeaponCriticDamage);
 
-            var hitText = ObjectPoolManager.Instance.Get(EPool.HitText, new Vector2(transform.position.x, transform.position.y + 0.75f), Quaternion.identity);
-            hitText.GetComponent<HitTextUI>().InitializeHitText(damage, EHitType.Critical);
-        }
-        else
-        {
-            var hitText = ObjectPoolManager.Instance.Get(EPool.HitText, new Vector2(transform.position.x, transform.position.y + 0.75f), Quaternion.identity);
-            hitText.GetComponent<HitTextUI>().InitializeHitText(damage);
+                var hitText = ObjectPoolManager.Instance.Get(EPool.HitText, new Vector2(transform.position.x, transform.position.y + 0.75f), Quaternion.identity);
+                hitText.GetComponent<HitTextUI>().InitializeHitText(damage, EHitType.Critical);
+            }
+            else
+            {
+                var hitText = ObjectPoolManager.Instance.Get(EPool.HitText, new Vector2(transform.position.x, transform.position.y + 0.75f), Quaternion.identity);
+                hitText.GetComponent<HitTextUI>().InitializeHitText(damage);
+            }
         }
 
         return damage;

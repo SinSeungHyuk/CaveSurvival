@@ -26,8 +26,7 @@ public class WeaponMelee : WeaponTypeDetailsSO
             target.TakeDamage(weapon, weapon.Player.Stat.MeleeDamage);
             target.Rigid.AddForce(direction * weapon.WeaponKnockback);
 
-            hitEffect = ObjectPoolManager.Instance.Get(weapon.WeaponParticle, target.transform.position, Quaternion.identity).GetComponent<HitEffect>();
-            hitEffect.InitializeHitEffect(weapon.WeaponParticle);
+            HitEffectRendering(target, weapon);
 
             foreach (var effect in bonusEffects)
             {
@@ -45,5 +44,14 @@ public class WeaponMelee : WeaponTypeDetailsSO
         weapon.Player.WeaponTransform.RotateWeapon(weapon, angle);
         weapon.Player.WeaponTransform.MoveWeapon(weapon, direction);
         SoundEffectManager.Instance.PlaySoundEffect(weapon.WeaponSoundEffect);
+    }
+
+    private void HitEffectRendering(Monster monster, Weapon weapon)
+    {
+        if (monster.isOutScreen == false)
+        {
+            hitEffect = ObjectPoolManager.Instance.Get(weapon.WeaponParticle, monster.transform.position, Quaternion.identity).GetComponent<HitEffect>();
+            hitEffect.InitializeHitEffect(weapon.WeaponParticle);
+        }
     }
 }

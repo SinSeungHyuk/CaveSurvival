@@ -54,6 +54,13 @@ public class MonsterDestroyed : MonoBehaviour
         // 새로운 시퀀스 생성
         moveSequence = DOTween.Sequence();
 
+        // 몬스터가 화면 밖이라면 트윈 시퀀스 재생 X => 연산량 줄이기
+        if (monster.isOutScreen)
+        {
+            PostMonsterRelease();
+            return;
+        }
+
         // 이동,회전,크기 변경을 동시에 실행
         monster.Rigid.freezeRotation = false;
         moveSequence.Join(transform.DOScale(0.2f,1f))

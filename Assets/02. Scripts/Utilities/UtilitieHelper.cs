@@ -23,6 +23,15 @@ public static class UtilitieHelper
         return direction;
     }
 
+    // 게임화면 밖에 있는 오브젝트인지 검사 =====================================================
+    public static bool IsOutScreen(GameObject target)
+    {
+        Vector3 screenPoint = Camera.main.WorldToScreenPoint(target.transform.position);
+        bool isOutScreen = screenPoint.x <= 0 || screenPoint.x >= Screen.width || screenPoint.y <= 0 || screenPoint.y >= Screen.height;
+
+        return isOutScreen;
+    }
+
     // 확률 계산하기  ===========================================================
     public static bool isSuccess(int percent)
     {
